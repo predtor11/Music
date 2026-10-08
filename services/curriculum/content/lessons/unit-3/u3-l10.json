@@ -1,0 +1,163 @@
+{
+  "id": "u3-l10",
+  "unitId": "unit-3",
+  "order": 10,
+  "title": "The sharp keys in order",
+  "summary": "Sharps are always added in the same order, so a number of sharps names one key.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Order of sharps",
+      "body": "Sharps are always added in the same order: F♯ C♯ G♯ D♯ A♯ E♯ B♯. G major has the first one, D major the first two, A major the first three, and so on. This is the **order of sharps**.\n\n**Why it matters:** If a key has three sharps, you know which three: F♯, C♯ and G♯. No guessing.",
+      "exampleMidi": [
+        66,
+        61,
+        68,
+        63,
+        70
+      ],
+      "labels": {
+        "61": "2nd: C♯",
+        "63": "4th: D♯",
+        "66": "1st: F♯",
+        "68": "3rd: G♯",
+        "70": "5th: A♯"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "From the sharps to the key",
+      "body": "Go up a half step from the last sharp and you reach the tonic. Three sharps end on G♯, a half step below A, so three sharps means A major.\n\n**Why it matters:** with this trick you can read any sharp key signature in a second.",
+      "exampleMidi": [
+        68,
+        69
+      ],
+      "labels": {
+        "68": "last sharp: G♯",
+        "69": "A major"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The sharp keys",
+      "body": "G (1♯), D (2♯), A (3♯), E (4♯) and B (5♯).",
+      "highlightMidi": [
+        67,
+        62,
+        69,
+        64,
+        71
+      ],
+      "labels": {
+        "62": "D: 2♯",
+        "64": "E: 4♯",
+        "67": "G: 1♯",
+        "69": "A: 3♯",
+        "71": "B: 5♯"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l10-p1",
+          "prompt": "Which major key has 3 sharps?",
+          "shownMidi": [
+            66,
+            61,
+            68
+          ],
+          "choices": [
+            "D major",
+            "A major",
+            "E major"
+          ],
+          "answer": "A major"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l10-p2",
+          "prompt": "Play the E major scale.",
+          "sequence": [
+            4,
+            6,
+            8,
+            9,
+            11,
+            1,
+            3,
+            4
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Sharp keys by hand",
+      "body": "Play G, D, A and E major in turn. Feel one more black key join each time."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l10-q1",
+          "prompt": "Which major key has 1 sharp?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "C major",
+            "G major",
+            "D major"
+          ],
+          "answer": "G major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l10-q2",
+          "prompt": "How many sharps are in the key of E major?",
+          "shownMidi": [
+            64,
+            66,
+            68,
+            69,
+            71,
+            73,
+            75,
+            76
+          ],
+          "choices": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l10-q3",
+          "prompt": "Which major key has 5 sharps?",
+          "shownMidi": [
+            66,
+            61,
+            68,
+            63,
+            70
+          ],
+          "choices": [
+            "E major",
+            "B major",
+            "F# major"
+          ],
+          "answer": "B major"
+        }
+      ]
+    }
+  ]
+}

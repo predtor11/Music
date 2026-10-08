@@ -1,0 +1,190 @@
+{
+  "id": "u3-l13",
+  "unitId": "unit-3",
+  "order": 13,
+  "title": "The natural minor scale",
+  "summary": "A darker scale with its own step pattern.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Minor scale",
+      "body": "Play the white keys from A up to the next A. The notes are the same as C major, but starting on A, and it sounds darker. That is a **minor scale**.\n\n**Why it matters:** Sad songs, many film themes and lots of rock are in minor keys. Telling major from minor is one of the first things a band ear needs.",
+      "exampleMidi": [
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69
+      ],
+      "labels": {
+        "57": "A",
+        "59": "B",
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Natural minor",
+      "body": "This plain form is called the **natural minor** scale. Its formula is W H W W H W W. A natural minor is A B C D E F G A.\n\n**Why it matters:** There are other minor scales you may meet later, but the natural minor is the one the others start from, and the one most songs use.",
+      "exampleMidi": [
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69
+      ],
+      "labels": {
+        "57": "start",
+        "59": "W",
+        "60": "H",
+        "62": "W",
+        "64": "W",
+        "65": "H",
+        "67": "W",
+        "69": "W"
+      }
+    },
+    {
+      "type": "show",
+      "title": "D natural minor",
+      "body": "Use the formula from D and you get one flat: D E F G A B♭ C D.",
+      "highlightMidi": [
+        62,
+        64,
+        65,
+        67,
+        69,
+        70,
+        72,
+        74
+      ],
+      "labels": {
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "70": "B♭",
+        "72": "C",
+        "74": "D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l13-p1",
+          "prompt": "Play the A natural minor scale.",
+          "sequence": [
+            9,
+            11,
+            0,
+            2,
+            4,
+            5,
+            7,
+            9
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l13-p2",
+          "prompt": "Play the D natural minor scale.",
+          "sequence": [
+            2,
+            4,
+            5,
+            7,
+            9,
+            10,
+            0,
+            2
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Major then minor",
+      "body": "Play C major, then A natural minor. Same keys, different home. Listen to how the mood changes."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l13-q1",
+          "prompt": "Is this scale major or natural minor?",
+          "shownMidi": [
+            57,
+            59,
+            60,
+            62,
+            64,
+            65,
+            67,
+            69
+          ],
+          "choices": [
+            "major",
+            "natural minor"
+          ],
+          "answer": "natural minor"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l13-q2",
+          "prompt": "Is this scale major or natural minor?",
+          "shownMidi": [
+            67,
+            69,
+            71,
+            72,
+            74,
+            76,
+            78,
+            79
+          ],
+          "choices": [
+            "major",
+            "natural minor"
+          ],
+          "answer": "major"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l13-q3",
+          "prompt": "Play the E natural minor scale.",
+          "sequence": [
+            4,
+            6,
+            7,
+            9,
+            11,
+            0,
+            2,
+            4
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

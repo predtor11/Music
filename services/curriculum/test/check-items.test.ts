@@ -48,4 +48,22 @@ describe('checkItem', () => {
     expect(checkItem({ ...item, sequence: [0, 2, 4] })).toEqual([]);
     expect(checkItem({ ...item, sequence: [0, 2, 5] })).not.toEqual([]);
   });
+
+  it('checks named scales, scale degrees and key questions against the theory package', () => {
+    const scale = { kind: 'play-scale' as const, id: 'x', prompt: 'Play the G major scale.', direction: 'up' as const };
+    expect(checkItem({ ...scale, sequence: [7, 9, 11, 0, 2, 4, 6, 7] })).toEqual([]);
+    expect(checkItem({ ...scale, sequence: [7, 9, 11, 0, 2, 4, 5, 7] })).not.toEqual([]);
+    const degree = { kind: 'find-note' as const, id: 'x', prompt: 'In D major, play scale degree 3.' };
+    expect(checkItem({ ...degree, pc: 6 })).toEqual([]);
+    expect(checkItem({ ...degree, pc: 5 })).not.toEqual([]);
+    const sharps = { kind: 'name-it' as const, id: 'x', prompt: 'How many sharps are in the key of A major?', shownMidi: [57], choices: ['2', '3', '4'] };
+    expect(checkItem({ ...sharps, answer: '3' })).toEqual([]);
+    expect(checkItem({ ...sharps, answer: '2' })).not.toEqual([]);
+    const relative = { kind: 'name-it' as const, id: 'x', prompt: 'What is the relative minor of G major?', shownMidi: [67], choices: ['E minor', 'A minor'] };
+    expect(checkItem({ ...relative, answer: 'E minor' })).toEqual([]);
+    expect(checkItem({ ...relative, answer: 'A minor' })).not.toEqual([]);
+    const spelling = { kind: 'name-it' as const, id: 'x', prompt: 'In F major, what is this note called?', shownMidi: [70], choices: ['A#', 'Bb'] };
+    expect(checkItem({ ...spelling, answer: 'Bb' })).toEqual([]);
+    expect(checkItem({ ...spelling, answer: 'A#' })).not.toEqual([]);
+  });
 });

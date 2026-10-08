@@ -1,0 +1,182 @@
+{
+  "id": "u3-l2",
+  "unitId": "unit-3",
+  "order": 2,
+  "title": "The major scale's pattern",
+  "summary": "The most familiar scale in music, and the pattern of steps that builds it.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Major scale",
+      "body": "The white keys from C to C make the most common scale in music, the **major scale**. Its sound is the familiar do re mi fa so la ti do.\n\n**Why it matters:** Most pop, film and folk tunes use the major scale. Its sound is so familiar that you recognise it at once.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Whole, whole, half",
+      "body": "Look at the steps between its notes: whole, whole, half, whole, whole, whole, half. Written short, that is **W W H W W W H**, where W is a whole step and H a half step. This pattern is the major scale's **scale formula**.\n\n**Why it matters:** The formula works from any starting note. Learn it once and you can build a major scale on any of the twelve keys, white or black.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "start",
+        "62": "W",
+        "64": "W",
+        "65": "H",
+        "67": "W",
+        "69": "W",
+        "71": "W",
+        "72": "H"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Where the half steps fall",
+      "body": "In C major the two half steps are E to F and B to C, the two places with no black key in between.",
+      "highlightMidi": [
+        64,
+        65,
+        71,
+        72
+      ],
+      "labels": {
+        "64": "E",
+        "65": "F",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l2-p1",
+          "prompt": "Play C D E F G A B C going up, and say the steps as you go: whole, whole, half, whole, whole, whole, half.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u3-l2-p2",
+          "prompt": "Play E4, then go up a half step: the first H in the formula.",
+          "startMidi": 64,
+          "semitones": 1
+        },
+        {
+          "kind": "play-interval",
+          "id": "u3-l2-p3",
+          "prompt": "Play B4, then go up a half step: the second H.",
+          "startMidi": 71,
+          "semitones": 1
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Do re mi",
+      "body": "Play the major scale from C and sing do re mi fa so la ti do along with it. Then sing it without playing and check yourself."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l2-q1",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            64,
+            65
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "half step"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l2-q2",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            69,
+            71
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "whole step"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l2-q3",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            71,
+            72
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "half step"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l2-q4",
+          "prompt": "Play C D E F G A B C going up.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

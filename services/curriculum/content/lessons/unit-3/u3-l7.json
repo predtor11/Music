@@ -1,0 +1,151 @@
+{
+  "id": "u3-l7",
+  "unitId": "unit-3",
+  "order": 7,
+  "title": "F major needs one flat",
+  "summary": "Build a major scale on F and the one black key is a flat, B♭.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Building F major",
+      "body": "Start on F and follow W W H W W W H: F, G, A, then a half step to the black key. Each letter is used once, and A is already taken, so this note is **B♭**, not A♯. Then C, D, E and F. So F major is **F G A B♭ C D E F**.\n\n**Why it matters:** this is why songs in F use B♭, and why band charts in F say B♭, never A♯.",
+      "exampleMidi": [
+        65,
+        67,
+        69,
+        70,
+        72,
+        74,
+        76,
+        77
+      ],
+      "labels": {
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "70": "B♭",
+        "72": "C",
+        "74": "D",
+        "76": "E",
+        "77": "F"
+      }
+    },
+    {
+      "type": "show",
+      "title": "F major",
+      "body": "Every note of F major, with its one flat.",
+      "highlightMidi": [
+        65,
+        67,
+        69,
+        70,
+        72,
+        74,
+        76,
+        77
+      ],
+      "labels": {
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "70": "B♭",
+        "72": "C",
+        "74": "D",
+        "76": "E",
+        "77": "F"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l7-p1",
+          "prompt": "Play the F major scale.",
+          "sequence": [
+            5,
+            7,
+            9,
+            10,
+            0,
+            2,
+            4,
+            5
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l7-p2",
+          "prompt": "Play F G A Bb C D E F going up.",
+          "sequence": [
+            5,
+            7,
+            9,
+            10,
+            0,
+            2,
+            4,
+            5
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "F major tunes",
+      "body": "Make up a tune with the F major scale and end it on F."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l7-q1",
+          "prompt": "In F major, what is this note called?",
+          "shownMidi": [
+            70
+          ],
+          "choices": [
+            "A#",
+            "Bb"
+          ],
+          "answer": "Bb"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l7-q2",
+          "prompt": "Is this key in the F major scale?",
+          "shownMidi": [
+            71
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l7-q3",
+          "prompt": "Play the F major scale.",
+          "sequence": [
+            5,
+            7,
+            9,
+            10,
+            0,
+            2,
+            4,
+            5
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}
