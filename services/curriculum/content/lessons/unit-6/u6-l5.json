@@ -1,0 +1,114 @@
+{
+  "id": "u6-l5",
+  "unitId": "unit-6",
+  "order": 5,
+  "title": "The half-diminished chord",
+  "summary": "A diminished triad plus a minor 7th: the vii chord with its 7th.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Half-diminished chord",
+      "body": "A diminished triad with a minor 7th on top is a **half-diminished chord**. Bm7♭5 is B D F A. It is written **m7♭5** (minor 7th with a flat 5th) or with the sign **ø**: Bø.\n\n**Why it matters:** It is the vii chord of a major key with its 7th, and the ii chord of a minor key. Minor-key jazz ballads lean on it for their ii–V–i.",
+      "exampleMidi": [
+        59,
+        62,
+        65,
+        69
+      ],
+      "labels": {
+        "59": "B (root)",
+        "62": "D (minor 3rd)",
+        "65": "F (flat 5th)",
+        "69": "A (minor 7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Em7♭5",
+      "body": "E, G, B♭ and D.",
+      "highlightMidi": [
+        52,
+        55,
+        58,
+        62
+      ],
+      "labels": {
+        "52": "E",
+        "55": "G",
+        "58": "B♭",
+        "62": "D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l5-p1",
+          "prompt": "Play the chord written Bm7b5.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l5-p2",
+          "prompt": "Play the chord written Em7b5.",
+          "pitchClasses": [
+            4,
+            7,
+            10,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Minor ii–V",
+      "body": "Play Bm7♭5, E7, Am. That is a ii–V–i in A minor, the sound of many jazz ballads."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l5-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            59,
+            62,
+            65,
+            69
+          ],
+          "choices": [
+            "Bm7",
+            "Bm7b5",
+            "Bdim7"
+          ],
+          "answer": "Bm7b5"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l5-q2",
+          "prompt": "Play the chord written F#m7b5.",
+          "pitchClasses": [
+            6,
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

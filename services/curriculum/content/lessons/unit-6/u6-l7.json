@@ -1,0 +1,126 @@
+{
+  "id": "u6-l7",
+  "unitId": "unit-6",
+  "order": 7,
+  "title": "The 6 chord",
+  "summary": "Add the 6th instead of the 7th for a sweet, old-fashioned colour.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "6 chord",
+      "body": "Add the major 6th above the root to a triad and you get a **6 chord**. C6 is C E G A. On a minor triad it is written **m6**: Am6 is A C E F♯.\n\n**Why it matters:** It is the sweet, swing-era sound of a final chord in old standards and Beatles songs. Pianists often use C6 in place of plain C.",
+      "exampleMidi": [
+        60,
+        64,
+        67,
+        69
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (3rd)",
+        "67": "G (5th)",
+        "69": "A (6th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Am6",
+      "body": "A, C, E and F♯.",
+      "highlightMidi": [
+        57,
+        60,
+        64,
+        66
+      ],
+      "labels": {
+        "57": "A",
+        "60": "C",
+        "64": "E",
+        "66": "F♯"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l7-p1",
+          "prompt": "Play the chord written C6.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l7-p2",
+          "prompt": "Play the chord written Am6.",
+          "pitchClasses": [
+            9,
+            0,
+            4,
+            6
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Ending chord",
+      "body": "Play the last chord of a song you know as a plain major triad, then as a 6 chord. Hear the old-fashioned sparkle."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l7-q1",
+          "prompt": "Play the chord written F6.",
+          "pitchClasses": [
+            5,
+            9,
+            0,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l7-q2",
+          "prompt": "Play the chord written Dm6.",
+          "pitchClasses": [
+            2,
+            5,
+            9,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l7-q3",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            60,
+            64,
+            67,
+            69
+          ],
+          "choices": [
+            "C6",
+            "Cmaj7",
+            "Am7"
+          ],
+          "answer": "C6"
+        }
+      ]
+    }
+  ]
+}

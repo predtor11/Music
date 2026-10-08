@@ -1,0 +1,109 @@
+{
+  "id": "u6-l2",
+  "unitId": "unit-6",
+  "order": 2,
+  "title": "The major 7th chord",
+  "summary": "A major triad plus a major 7th: soft and dreamy.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Maj7",
+      "body": "A major triad with a major 7th on top (11 half steps above the root) is a **maj7** chord. Cmaj7 is C E G B. In a major key, I and IV are maj7 chords.\n\n**Why it matters:** It is the soft, dreamy sound of bossa nova, soul ballads and a lot of neo-soul. Swap I for Imaj7 and a song instantly sounds smoother.",
+      "exampleMidi": [
+        60,
+        64,
+        67,
+        71
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (3rd)",
+        "67": "G (5th)",
+        "71": "B (7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Fmaj7",
+      "body": "F, A, C and E.",
+      "highlightMidi": [
+        65,
+        69,
+        72,
+        76
+      ],
+      "labels": {
+        "65": "F",
+        "69": "A",
+        "72": "C",
+        "76": "E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l2-p1",
+          "prompt": "Play the chord written Cmaj7.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l2-p2",
+          "prompt": "Play the chord written Fmaj7.",
+          "pitchClasses": [
+            5,
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Dreamy loop",
+      "body": "Loop Cmaj7 and Fmaj7, two bars each. That is the start of countless soul and bossa nova tunes."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l2-q1",
+          "prompt": "Play the chord written Gmaj7.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            6
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l2-q2",
+          "prompt": "Play the chord written Ebmaj7.",
+          "pitchClasses": [
+            3,
+            7,
+            10,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

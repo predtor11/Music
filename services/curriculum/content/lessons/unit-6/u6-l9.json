@@ -1,0 +1,140 @@
+{
+  "id": "u6-l9",
+  "unitId": "unit-6",
+  "order": 9,
+  "title": "The 9 chord",
+  "summary": "A 7th chord with the 9th on top: the first of the extended chords.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Extension",
+      "body": "Keep stacking 3rds past the 7th and you reach the 9th, the 11th and the 13th. Notes past the 7th are called **extensions**: they extend a 7th chord.\n\n**Why it matters:** Jazz and gospel players add extensions for colour. A chart that says C9 or G13 is asking for them.",
+      "exampleMidi": [
+        48,
+        52,
+        55,
+        58,
+        62
+      ],
+      "labels": {
+        "48": "C",
+        "52": "E",
+        "55": "G",
+        "58": "B♭: 7th",
+        "62": "D: 9th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "9 chord",
+      "body": "A dominant 7th chord with the 9th on top is a **9 chord**. C9 is C E G B♭ D.\n\n**Why it matters:** It is the funk chord: James Brown built whole songs on one 9 chord.",
+      "exampleMidi": [
+        48,
+        52,
+        55,
+        58,
+        62
+      ],
+      "labels": {
+        "48": "C (root)",
+        "52": "E (3rd)",
+        "55": "G (5th)",
+        "58": "B♭ (7th)",
+        "62": "D (9th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "G9",
+      "body": "G, B, D, F and A.",
+      "highlightMidi": [
+        43,
+        47,
+        50,
+        53,
+        57
+      ],
+      "labels": {
+        "43": "G",
+        "47": "B",
+        "50": "D",
+        "53": "F",
+        "57": "A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l9-p1",
+          "prompt": "Play the chord written C9.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            10,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l9-p2",
+          "prompt": "Play the chord written G9.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Funk vamp",
+      "body": "Play C9 in short, sharp stabs with a steady pulse. Leave out the 5th (G) if five notes are too many for one hand."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l9-q1",
+          "prompt": "Play the chord written D9.",
+          "pitchClasses": [
+            2,
+            6,
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l9-q2",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            60,
+            64,
+            67,
+            70
+          ],
+          "choices": [
+            "C7",
+            "C9",
+            "Cadd9"
+          ],
+          "answer": "C7"
+        }
+      ]
+    }
+  ]
+}
