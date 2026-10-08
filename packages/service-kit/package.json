@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@music/contracts": "*",
-    "fastify": "^5.6.1"
+    "fastify": "^5.6.1",
+    "ioredis": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
