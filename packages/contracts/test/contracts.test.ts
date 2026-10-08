@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { AttemptSchema, ChordQuerySchema, TestItemSchema, UserCreatedEventSchema, UserSettingsSchema, type MusicEvent } from '../src/index.js';
+import { AttemptSchema, ChordQuerySchema, LessonStepSchema, TestItemSchema, UserCreatedEventSchema, UserSettingsSchema, type MusicEvent } from '../src/index.js';
 
 describe('contracts', () => {
   it('fills settings defaults', () => {
@@ -41,5 +41,12 @@ describe('event types', () => {
     const type: 'user.created' = UserCreatedEventSchema.shape.type.value;
     expect(type).toBe('user.created');
     expectTypeOf<Extract<MusicEvent, { type: 'attempt.recorded' }>['data']['skill']>().toEqualTypeOf<string>();
+  });
+});
+
+describe('lesson steps', () => {
+  it('keeps key labels on show steps', () => {
+    const step = LessonStepSchema.parse({ type: 'show', title: 't', body: 'b', highlightMidi: [60], labels: { '60': 'Sa' } });
+    expect(step.type === 'show' && step.labels).toEqual({ '60': 'Sa' });
   });
 });

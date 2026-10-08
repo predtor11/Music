@@ -1,5 +1,7 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { loadCurriculum, unitItems } from '../src/content.js';
+import { DEFAULT_CONTENT_DIR, loadCurriculum, unitItems } from '../src/content.js';
 import { checkItem } from './check-items.js';
 
 const curriculum = loadCurriculum();
@@ -26,6 +28,17 @@ describe('curriculum content', () => {
         it(`lesson ${id} has explain, show, play-along, explore and quiz steps`, () => {
           const types = new Set(curriculum.lessonsById.get(id)!.steps.map((s) => s.type));
           expect([...types].sort()).toEqual([...STEP_TYPES].sort());
+        });
+
+        it(`lesson ${id} shows every explain and show step on the keyboard`, () => {
+          // Read the raw file: `labels` is not in the contract yet, so zod drops it.
+          const raw = JSON.parse(readFileSync(join(DEFAULT_CONTENT_DIR, 'lessons', unit.id, `${id}.json`), 'utf8'));
+          for (const step of raw.steps as Array<{ type: string; title: string; exampleMidi?: number[]; highlightMidi?: number[]; labels?: Record<string, string> }>) {
+            if (step.type !== 'explain' && step.type !== 'show') continue;
+            const keys = step.exampleMidi ?? step.highlightMidi ?? [];
+            expect(keys.length, `${step.title} has no keys`).toBeGreaterThan(0);
+            for (const k of Object.keys(step.labels ?? {})) expect(keys, `${step.title} labels key ${k}, which it doesn't light`).toContain(Number(k));
+          }
         });
 
         it(`lesson ${id} lights only keys on an 88-key keyboard`, () => {
