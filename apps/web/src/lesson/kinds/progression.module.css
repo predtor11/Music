@@ -1,0 +1,121 @@
+/* Play-progression runner: the numerals above the keyboard. */
+
+.chords {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chord {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.chord[data-state='current'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: var(--glow-accent);
+}
+
+.chord[data-state='good'] {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.chord[data-state='missed'] {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+  box-shadow: var(--glow-bad);
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.chord[data-state='good'] .numeral {
+  color: var(--good);
+}
+
+.symbol {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text-muted);
+  min-height: 1.4em;
+}
+
+.chord[data-state='good'] .symbol,
+.chord[data-state='current'] .symbol {
+  color: var(--text);
+}
+
+/* The bar under the chord being played; it slides to the next one. */
+.now {
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 0;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-gradient);
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.beats {
+  display: inline-flex;
+  gap: var(--space-1);
+}
+
+.beat {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  transition:
+    transform var(--dur-fast) var(--ease-spring),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.beat[data-accent='true'] {
+  border-color: var(--border-strong);
+}
+
+.beat[data-on='true'] {
+  background: var(--accent);
+  transform: scale(1.35);
+}
+
+.beat[data-on='true'][data-accent='true'] {
+  background: var(--accent-2);
+}
+
+@media (max-width: 560px) {
+  .numeral {
+    font-size: var(--text-2xl);
+  }
+}
