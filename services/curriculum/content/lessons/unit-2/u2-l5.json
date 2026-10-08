@@ -9,7 +9,33 @@
     {
       "type": "explain",
       "title": "Songs you already know",
-      "body": "Your ear already knows these intervals from songs. The opening notes of a familiar tune make a handy hook:\n\n- minor 2nd: the *Jaws* theme\n- major 2nd: *Happy Birthday*, from \"-py\" to \"birth\"\n- minor 3rd: *Greensleeves*\n- major 3rd: *Oh When the Saints*\n- perfect 4th: *Here Comes the Bride*\n- tritone: *The Simpsons* theme\n- perfect 5th: *Twinkle Twinkle Little Star*, the jump to the second \"twinkle\"\n- major 6th: *My Bonnie Lies Over the Ocean*\n- minor 7th: the original *Star Trek* theme\n- octave: *Somewhere Over the Rainbow*\n\nIf another song works better for you, use that one."
+      "body": "Your ear already knows these intervals from songs. The opening notes of a familiar tune make a handy hook:\n\n- minor 2nd: the *Jaws* theme\n- major 2nd: *Happy Birthday*, from \"-py\" to \"birth\"\n- minor 3rd: *Greensleeves*\n- major 3rd: *Oh When the Saints*\n- perfect 4th: *Here Comes the Bride*\n- tritone: *The Simpsons* theme\n- perfect 5th: *Twinkle Twinkle Little Star*, the jump to the second \"twinkle\"\n- major 6th: *My Bonnie Lies Over the Ocean*\n- minor 7th: the original *Star Trek* theme\n- octave: *Somewhere Over the Rainbow*\n\nIf another song works better for you, use that one.",
+      "exampleMidi": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        69,
+        70,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "61": "Jaws",
+        "62": "Happy Birthday",
+        "63": "Greensleeves",
+        "64": "Oh When the Saints",
+        "65": "Here Comes the Bride",
+        "66": "The Simpsons",
+        "67": "Twinkle Twinkle",
+        "69": "My Bonnie",
+        "70": "Star Trek",
+        "72": "Over the Rainbow"
+      }
     },
     {
       "type": "explain",
@@ -18,7 +44,11 @@
       "exampleMidi": [
         60,
         67
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "67": "perfect 5th"
+      }
     },
     {
       "type": "show",
@@ -36,7 +66,20 @@
         69,
         70,
         72
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "61": "Jaws",
+        "62": "Happy Birthday",
+        "63": "Greensleeves",
+        "64": "Oh When the Saints",
+        "65": "Here Comes the Bride",
+        "66": "The Simpsons",
+        "67": "Twinkle Twinkle",
+        "69": "My Bonnie",
+        "70": "Star Trek",
+        "72": "Over the Rainbow"
+      }
     },
     {
       "type": "play-along",

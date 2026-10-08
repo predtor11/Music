@@ -12,8 +12,14 @@
       "body": "Eight half steps make a **minor 6th** (C to A♭). Nine make a **major 6th** (C to A). Sixths sound sweet, and you hear them in a lot of harmony lines.",
       "exampleMidi": [
         60,
+        68,
         69
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "68": "minor 6th",
+        "69": "major 6th"
+      }
     },
     {
       "type": "explain",
@@ -21,8 +27,14 @@
       "body": "Ten half steps make a **minor 7th** (C to B♭). Eleven make a **major 7th** (C to B), one half step short of the octave.\n\nThe minor 7th is the \"7\" in chords like G7. The major 7th is the dreamy sound in \"maj7\" chords.",
       "exampleMidi": [
         60,
-        70
-      ]
+        70,
+        71
+      ],
+      "labels": {
+        "60": "C",
+        "70": "minor 7th",
+        "71": "major 7th"
+      }
     },
     {
       "type": "explain",
@@ -31,7 +43,11 @@
       "exampleMidi": [
         60,
         72
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "72": "octave"
+      }
     },
     {
       "type": "show",
@@ -51,7 +67,22 @@
         70,
         71,
         72
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "61": "minor 2nd",
+        "62": "major 2nd",
+        "63": "minor 3rd",
+        "64": "major 3rd",
+        "65": "perfect 4th",
+        "66": "tritone",
+        "67": "perfect 5th",
+        "68": "minor 6th",
+        "69": "major 6th",
+        "70": "minor 7th",
+        "71": "major 7th",
+        "72": "octave"
+      }
     },
     {
       "type": "play-along",

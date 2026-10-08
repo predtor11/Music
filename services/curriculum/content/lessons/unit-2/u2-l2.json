@@ -9,7 +9,15 @@
     {
       "type": "explain",
       "title": "What an interval is",
-      "body": "An **interval** is the distance between two notes. Musicians name it with a number and a word, like \"major 3rd\". The name tells everyone exactly how far apart two notes are, and you can always work it out by counting half steps."
+      "body": "An **interval** is the distance between two notes. Musicians name it with a number and a word, like \"major 3rd\". The name tells everyone exactly how far apart two notes are, and you can always work it out by counting half steps.",
+      "exampleMidi": [
+        60,
+        64
+      ],
+      "labels": {
+        "60": "C",
+        "64": "major 3rd"
+      }
     },
     {
       "type": "explain",
@@ -17,8 +25,14 @@
       "body": "You already know two intervals. A half step is also called a **minor 2nd**, and a whole step is a **major 2nd**. Minor is the smaller one, major the bigger one.",
       "exampleMidi": [
         60,
+        61,
         62
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "61": "minor 2nd",
+        "62": "major 2nd"
+      }
     },
     {
       "type": "explain",
@@ -26,8 +40,14 @@
       "body": "Three half steps make a **minor 3rd** (C to E♭). Four half steps make a **major 3rd** (C to E).\n\nThirds are what chords are built from. A major 3rd sounds bright and a minor 3rd sounds darker. That is most of the difference between a major chord and a minor chord.",
       "exampleMidi": [
         60,
+        63,
         64
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "63": "minor 3rd",
+        "64": "major 3rd"
+      }
     },
     {
       "type": "show",
@@ -37,7 +57,12 @@
         60,
         63,
         64
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "63": "minor 3rd",
+        "64": "major 3rd"
+      }
     },
     {
       "type": "play-along",

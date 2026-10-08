@@ -12,7 +12,10 @@
       "body": "You may have noticed that every black key got two names. C♯ and D♭ are the same key and the same sound. Names like these are **enharmonic**.\n\nBoth names are correct. Which one musicians write depends on the key of the song, which comes in a later unit. For now, know both.",
       "exampleMidi": [
         61
-      ]
+      ],
+      "labels": {
+        "61": "C♯ / D♭"
+      }
     },
     {
       "type": "show",
@@ -24,7 +27,14 @@
         66,
         68,
         70
-      ]
+      ],
+      "labels": {
+        "61": "C♯ / D♭",
+        "63": "D♯ / E♭",
+        "66": "F♯ / G♭",
+        "68": "G♯ / A♭",
+        "70": "A♯ / B♭"
+      }
     },
     {
       "type": "explain",
@@ -33,7 +43,11 @@
       "exampleMidi": [
         64,
         65
-      ]
+      ],
+      "labels": {
+        "64": "E",
+        "65": "F = E♯"
+      }
     },
     {
       "type": "show",
@@ -44,7 +58,13 @@
         65,
         71,
         72
-      ]
+      ],
+      "labels": {
+        "64": "E",
+        "65": "F",
+        "71": "B = C♭",
+        "72": "C"
+      }
     },
     {
       "type": "play-along",
