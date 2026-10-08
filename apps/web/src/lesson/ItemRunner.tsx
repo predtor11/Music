@@ -9,12 +9,13 @@ import { LiveKeyboard } from '../keyboard/LiveKeyboard.js';
 import type { KeyboardSize } from '../keyboard/layout.js';
 import { noteLabeller } from '../keyboard/labels.js';
 import { answerKeys, chooseAnswer, freshState, gradeChord, hintMarks, pressNote, type ItemState } from './grade.js';
+import { KIND_RUNNERS } from './kinds.js';
 import type { AttemptInput } from './usePractice.js';
 import s from './lesson.module.css';
 
 export type RunMode = 'play-along' | 'quiz';
 
-interface Props {
+export interface ItemRunnerProps {
   item: TestItem;
   mode: RunMode;
   size: KeyboardSize;
@@ -31,11 +32,20 @@ const CHORD_SETTLE_MS = 350;
 const NEXT_DELAY_MS = 1100;
 
 /**
- * One question: the prompt, the virtual keyboard and the feedback. Play-along
- * lights the keys to play; a quiz doesn't. A wrong answer marks the keys and
- * says what was wrong; playing again is a retry.
+ * One question. Kinds with their own runner (progressions, staff reading,
+ * rhythm) are listed in kinds.tsx; the rest use the classic runner below.
  */
-export function ItemRunner({ item, mode, size, naming, keyOf, onAttempt, onDone }: Props) {
+export function ItemRunner(props: ItemRunnerProps) {
+  const Runner = KIND_RUNNERS[props.item.kind];
+  return Runner ? <Runner {...props} /> : <ClassicRunner {...props} />;
+}
+
+/**
+ * The prompt, the virtual keyboard and the feedback. Play-along lights the
+ * keys to play; a quiz doesn't. A wrong answer marks the keys and says what
+ * was wrong; playing again is a retry.
+ */
+function ClassicRunner({ item, mode, size, naming, keyOf, onAttempt, onDone }: ItemRunnerProps) {
   const input = useNoteInput();
   const [state, setState] = useState<ItemState>(freshState);
   const [tries, setTries] = useState(0);
