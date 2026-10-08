@@ -81,7 +81,7 @@
 }
 
 .white[data-ringing] {
-  background: linear-gradient(180deg, var(--accent-soft), var(--key-white) 70%);
+  background: linear-gradient(180deg, var(--accent-soft), transparent 70%), var(--key-white);
 }
 
 .black[data-ringing] {
@@ -132,7 +132,8 @@
 }
 
 .white[data-mark='target']:not([data-active]) {
-  background: linear-gradient(180deg, var(--key-white) 30%, var(--accent-soft));
+  background: linear-gradient(180deg, transparent 30%, var(--accent-soft)), var(--key-white);
+  color: var(--accent-strong);
 }
 
 .black[data-mark='target']:not([data-active]) {

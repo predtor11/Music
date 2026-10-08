@@ -8,6 +8,18 @@
   text-align: center;
 }
 
+.display[data-compact] {
+  min-height: 0;
+}
+
+.display[data-compact] .hero:not([data-small]):not([data-idle]) {
+  font-size: calc(var(--text-display) * 0.6);
+}
+
+.display[data-compact] .facts {
+  display: none;
+}
+
 .kindRow {
   display: flex;
   align-items: center;

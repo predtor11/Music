@@ -32,7 +32,7 @@ function heroFor(d: Description, naming: NoteNaming): { value: string; node: Rea
   }
 }
 
-export function LiveDisplay({ description: d, naming, keyOf }: { description: Description; naming: NoteNaming; keyOf: Key }) {
+export function LiveDisplay({ description: d, naming, keyOf, compact }: { description: Description; naming: NoteNaming; keyOf: Key; compact?: boolean }) {
   const hero = heroFor(d, naming);
   const detailKey =
     d.kind === 'chord'
@@ -44,7 +44,7 @@ export function LiveDisplay({ description: d, naming, keyOf }: { description: De
           : d.kind;
 
   return (
-    <div className={s.display}>
+    <div className={s.display} data-compact={compact || undefined}>
       <div className={s.kindRow}>
         <span className="ui-eyebrow" data-testid="display-kind">
           {KIND_LABEL[d.kind]}

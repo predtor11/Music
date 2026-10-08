@@ -1,5 +1,5 @@
 import type { MidiNote } from '@music/theory';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { computerKeyToNote, DEFAULT_COMPUTER_BASE } from './layout.js';
 
 /** True when typing should go to a form control instead of the piano. */
@@ -9,7 +9,9 @@ function typingInField(target: EventTarget | null): boolean {
 }
 
 /** Computer keys as a piano: A W S E D F T G Y H U J K, with Z and X to change octave. */
-export function useComputerKeys() {
+export function useComputerKeys(onNoteOn?: (note: MidiNote) => void) {
+  const noteOnRef = useRef(onNoteOn);
+  noteOnRef.current = onNoteOn;
   const [base, setBase] = useState<MidiNote>(DEFAULT_COMPUTER_BASE);
   const [down, setDown] = useState<ReadonlyMap<string, MidiNote>>(new Map());
 
@@ -21,6 +23,7 @@ export function useComputerKeys() {
       if (k === 'x') return setBase((b) => Math.min(96, b + 12));
       const note = computerKeyToNote(k, base);
       if (note === null) return;
+      noteOnRef.current?.(note);
       setDown((prev) => new Map(prev).set(k, note));
     };
     const onUp = (e: KeyboardEvent) => {
