@@ -1,4 +1,5 @@
-import { chordFromNumeral, keyLabel, parseKey } from '@music/theory';
+import { ChordChartSchema } from '@music/contracts';
+import { keyLabel, parseKey } from '@music/theory';
 import { describe, expect, it } from 'vitest';
 import {
   MidiFileError,
@@ -195,15 +196,15 @@ describe('corrections', () => {
 });
 
 describe('chart and loop', () => {
-  it('lays the chords out as bars of numerals that read back as the same chords', () => {
+  it('lays the chords out as bars of chord symbols, valid as a chart', () => {
     const a = analyzeMidiFile(writeMidiFile(sampleNotes(), { bpm: SAMPLE_BPM }));
-    const chart = buildChart(a.segments, a.grid, a.key.key, 'Sample')!;
+    const chart = ChordChartSchema.parse(buildChart(a.segments, a.grid, a.key.key, 'Sample'));
     expect(chart.key).toBe('G');
+    expect(chart.timeSignature).toBe('4/4');
     const bars = chart.sections.flatMap((s) => s.bars);
-    expect(bars.slice(0, 4).map((b) => b.chords.map((c) => c.numeral).join())).toEqual(['I', 'V', 'vi', 'IV']);
-    expect(bars.every((b) => b.chords.reduce((n, c) => n + c.beats, 0) <= 4)).toBe(true);
-    const slash = bars.flatMap((b) => b.chords).find((c) => c.bass)!;
-    expect(chordFromNumeral(`${slash.numeral}/${slash.bass}`, parseKey('G')!)!.symbol).toBe('D/F#');
+    expect(bars.slice(0, 4).map((b) => b.chords.map((c) => c.symbol).join())).toEqual(['G', 'D', 'Em', 'C']);
+    expect(bars.every((b) => b.chords.reduce((n, c) => n + (c.beats ?? 0), 0) <= 4)).toBe(true);
+    expect(bars.flatMap((b) => b.chords).some((c) => c.symbol === 'D/F#')).toBe(true);
   });
 
   it('finds the loop that repeats most, not one chord twice', () => {

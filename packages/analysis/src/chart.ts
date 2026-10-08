@@ -1,42 +1,15 @@
 /**
- * Laying the chords out as a band chart: bars of numerals in the key, so it
- * transposes and reads the way bands talk ("1 for a bar, then 5").
- * Shaped like ChordChart in @music/contracts.
+ * Laying the chords out as a band chart: bars of chord symbols, so it
+ * reads the way bands write it. Shaped like ChordChart in @music/contracts:
+ * absolute symbols in the key; numbers and sargam are worked out when shown.
  */
 
+import type { ChartBar, ChartChord, ChartSection, ChordChart } from '@music/contracts';
 import { keyName, type Key } from '@music/theory';
-import type { BeatGrid, ChordSegment } from './types.js';
-
-export interface ChartChord {
-  numeral: string;
-  beats: number;
-  bass?: string;
-}
-export interface ChartBar {
-  chords: ChartChord[];
-}
-export interface ChartSection {
-  name: string;
-  bars: ChartBar[];
-  repeat: number;
-}
-export interface Chart {
-  id: string;
-  title: string;
-  key: string;
-  timeSignature: { beats: number; unit: 2 | 4 | 8 };
-  bpm?: number;
-  sections: ChartSection[];
-}
+import type { BeatGrid, ChordSegment, SourceKind } from './types.js';
 
 /** ♭ and ♯ back to b and #, the way parseKey and chordFromNumeral read them. */
 export const ascii = (s: string) => s.replace(/♭/g, 'b').replace(/♯/g, '#');
-
-/** Split a pretty Roman numeral ("V/7") into the chart's numeral and bass degree. */
-function numeralParts(roman: string): ChartChord {
-  const [numeral, bass] = ascii(roman).split('/') as [string, string | undefined];
-  return bass ? { numeral, beats: 0, bass } : { numeral, beats: 0 };
-}
 
 /** Which segment is sounding at time t. */
 function at(segments: readonly ChordSegment[], t: number): ChordSegment | undefined {
@@ -55,21 +28,27 @@ function at(segments: readonly ChordSegment[], t: number): ChordSegment | undefi
 const BARS_PER_SECTION = 8;
 
 /** The chords as a chart, or null when there are none. */
-export function buildChart(segments: readonly ChordSegment[], grid: BeatGrid, key: Key, title: string, id = 'analysis'): Chart | null {
+export function buildChart(
+  segments: readonly ChordSegment[],
+  grid: BeatGrid,
+  key: Key,
+  title: string,
+  opts: { id?: string; source?: SourceKind; now?: Date } = {},
+): ChordChart | null {
   const { beats, beatsPerBar, firstDownbeat } = grid;
   const bars: ChartBar[] = [];
-  let last: ChartChord | null = null;
+  let last: string | null = null;
   for (let b = firstDownbeat; b + 1 < beats.length; b += beatsPerBar) {
-    const chords: ChartChord[] = [];
+    const chords: Array<ChartChord & { beats: number }> = [];
     for (let i = b; i < b + beatsPerBar && i + 1 < beats.length; i++) {
       const mid = (beats[i]! + beats[i + 1]!) / 2;
       const chord = at(segments, mid)?.chord;
-      const next: ChartChord | null = chord ? numeralParts(chord.roman) : last;
-      if (!next) continue;
+      const symbol: string | null = chord ? ascii(chord.symbol) : last;
+      if (!symbol) continue;
       const tail = chords[chords.length - 1];
-      if (tail && tail.numeral === next.numeral && tail.bass === next.bass) tail.beats++;
-      else chords.push({ ...next, beats: 1 });
-      last = { ...next, beats: 0 };
+      if (tail && tail.symbol === symbol) tail.beats++;
+      else chords.push({ symbol, beats: 1 });
+      last = symbol;
     }
     if (chords.length) bars.push({ chords });
   }
@@ -80,15 +59,19 @@ export function buildChart(segments: readonly ChordSegment[], grid: BeatGrid, ke
   for (let i = 0; i < bars.length; i += BARS_PER_SECTION) {
     const chunk = bars.slice(i, i + BARS_PER_SECTION);
     const prev = sections[sections.length - 1];
-    if (prev && JSON.stringify(prev.bars) === JSON.stringify(chunk)) prev.repeat = Math.min(16, prev.repeat + 1);
-    else sections.push({ name: `Part ${sections.length + 1}`, bars: chunk, repeat: 1 });
+    if (prev && JSON.stringify(prev.bars) === JSON.stringify(chunk)) prev.repeat = Math.min(16, (prev.repeat ?? 1) + 1);
+    else sections.push({ id: `part-${sections.length + 1}`, name: `Part ${sections.length + 1}`, kind: 'other', bars: chunk });
   }
+  const source = opts.source ?? 'midi';
   return {
-    id,
+    version: 1,
+    id: opts.id ?? 'analysis',
     title: title || 'Song',
     key: ascii(keyName(key)),
-    timeSignature: { beats: Math.min(12, Math.max(1, beatsPerBar)), unit: 4 },
-    bpm: Math.min(300, Math.max(20, Math.round(grid.bpm))),
+    timeSignature: `${Math.min(12, Math.max(1, beatsPerBar))}/4`,
+    tempo: Math.min(300, Math.max(20, Math.round(grid.bpm))),
     sections,
+    source: { kind: source === 'recording' ? 'recording' : 'analysis' },
+    updatedAt: (opts.now ?? new Date()).toISOString(),
   };
 }
