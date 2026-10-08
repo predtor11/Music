@@ -30,3 +30,21 @@ describe('rhythm', () => {
     expect(g.message).toContain('rushing');
   });
 });
+
+describe('rhythm matching', () => {
+  it('does not let a late tap steal the next onset', () => {
+    // Beats 0 and 0.5 at 120 bpm (0 and 250 ms), tolerance 200: the first tap is late (180 ms),
+    // the second lands on 250. Greedy matching gave the first tap to 250 and dropped the second.
+    const g = gradeRhythm([0, 0.5], [180, 260], 120, 0, 200);
+    expect(g.correct).toBe(true);
+    expect(g.hits.map((h) => h.offsetMs)).toEqual([180, 10]);
+  });
+
+  it('keeps hits in the order the onsets were given', () => {
+    const g = gradeRhythm([1, 0], [0, 500], 120, 0);
+    expect(g.hits).toEqual([
+      { beat: 1, offsetMs: 0 },
+      { beat: 0, offsetMs: 0 },
+    ]);
+  });
+});
