@@ -1,0 +1,19 @@
+{
+  "name": "music",
+  "private": true,
+  "description": "Learn music theory at your own pace with a MIDI keyboard",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @music/web",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "e2e": "npm run e2e -w @music/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
