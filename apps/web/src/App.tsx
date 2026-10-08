@@ -7,6 +7,7 @@ import type { UserSettings } from '@music/contracts';
 import { Badge, Button, StatusDot, fadeUp, spring, useTheme } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect } from 'react';
+import { useKeySound } from './audio/useKeySound.js';
 import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
@@ -79,6 +80,12 @@ function MidiStatus() {
   );
 }
 
+/** Sound for on-screen and computer keys (see useKeySound). */
+function KeySound() {
+  useKeySound();
+  return null;
+}
+
 /** Header account button: Sign in, or your initial when signed in. */
 function AccountButton({ active }: { active: boolean }) {
   const auth = useAuth();
@@ -122,6 +129,7 @@ export function App() {
 
   return (
     <NoteInputProvider settings={settings} update={update}>
+      <KeySound />
       <div className={`ui-container ${s.shell}`}>
         <motion.header className={s.header} variants={fadeUp} initial="hidden" animate="show">
           <a className={s.brand} href={href.chords}>

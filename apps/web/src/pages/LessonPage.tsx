@@ -10,7 +10,7 @@ import { Button, Card, Swap, fadeUp } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getLesson } from '../api/client.js';
-import { playChord, playSequence } from '../audio/synth.js';
+import { playChord, playSequence } from '../audio/sound.js';
 import { describe } from '../chord/describe.js';
 import { LiveDisplay } from '../chord/LiveDisplay.js';
 import { useNoteInput } from '../input/NoteInput.js';
@@ -202,7 +202,7 @@ function TeachStep({
       <Prose text={step.body} />
       {keys.length > 0 && (
         <div className={s.hearRow}>
-          <Button variant="secondary" size="sm" onClick={() => (step.type === 'show' ? playChord(keys) : playSequence(keys))} data-testid="hear">
+          <Button variant="secondary" size="sm" onClick={() => void (step.type === 'show' ? playChord(keys) : playSequence(keys))} data-testid="hear">
             ▶ Hear it
           </Button>
           <span className={`ui-muted ${s.small}`}>Try playing the lit keys on your keyboard.</span>

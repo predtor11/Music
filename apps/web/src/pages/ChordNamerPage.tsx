@@ -7,6 +7,7 @@ import { COMMON_KEYS, C_MAJOR, keyLabel, keyName, parseKey, pretty } from '@musi
 import { Button, Card, Kbd, SegmentedControl, Select, fadeUp, stagger } from '@music/ui';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
+import { playChord } from '../audio/sound.js';
 import { describe } from '../chord/describe.js';
 import { LiveDisplay } from '../chord/LiveDisplay.js';
 import { useNoteInput } from '../input/NoteInput.js';
@@ -74,9 +75,14 @@ export function ChordNamerPage({ settings, update }: { settings: UserSettings; u
               Click keys to add or remove them. Computer keys <Kbd>A</Kbd> to <Kbd>K</Kbd> play from <strong>C{Math.floor(input.computerBase / 12) - 1}</strong>;{' '}
               <Kbd>Z</Kbd> <Kbd>X</Kbd> change octave.
             </p>
-            <Button variant="ghost" size="sm" onClick={input.clear} disabled={input.clicked.size === 0} data-testid="clear">
-              Clear
-            </Button>
+            <div className={s.boardActions}>
+              <Button variant="secondary" size="sm" onClick={() => void playChord(input.held)} disabled={input.held.length === 0} data-testid="hear">
+                ▶ Hear it
+              </Button>
+              <Button variant="ghost" size="sm" onClick={input.clear} disabled={input.clicked.size === 0} data-testid="clear">
+                Clear
+              </Button>
+            </div>
           </div>
           <LiveKeyboard size={size} labelFor={labelFor} />
         </Card>
