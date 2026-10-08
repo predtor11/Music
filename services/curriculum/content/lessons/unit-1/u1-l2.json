@@ -69,18 +69,21 @@
           "kind": "find-note",
           "id": "u1-l2-p1",
           "prompt": "Play the lit black key, in a group of two.",
+          "showKeys": true,
           "midi": 61
         },
         {
           "kind": "find-note",
           "id": "u1-l2-p2",
           "prompt": "Play the lit black key, in a group of three.",
+          "showKeys": true,
           "midi": 68
         },
         {
           "kind": "find-note",
           "id": "u1-l2-p3",
           "prompt": "Play the lit white key.",
+          "showKeys": true,
           "midi": 64
         }
       ]

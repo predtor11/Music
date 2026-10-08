@@ -37,10 +37,11 @@ describe('checkItem', () => {
     expect(checkItem({ ...count, answer: '2' })).not.toEqual([]);
   });
 
-  it('lets only play-along prompts point at a lit key', () => {
+  it('makes a prompt that points at a lit key light it, so review can show it too', () => {
     const item = { kind: 'find-note' as const, id: 'x', prompt: 'Play the lit key.', midi: 60 };
-    expect(checkItem(item, 'play-along')).toEqual([]);
-    expect(checkItem(item, 'quiz')).not.toEqual([]);
+    expect(checkItem({ ...item, showKeys: true }, 'play-along')).toEqual([]);
+    expect(checkItem({ ...item, showKeys: true }, 'quiz')).toEqual([]);
+    expect(checkItem(item, 'play-along')).toContain('prompt points at lit keys, so set showKeys: true');
   });
 
   it('checks a spelled-out sequence note by note', () => {

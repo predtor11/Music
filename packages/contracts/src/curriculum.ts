@@ -15,6 +15,8 @@ export const TestItemSchema = z.discriminatedUnion('kind', [
     midi: z.number().int().min(0).max(127).optional(),
     /** Ear test: the app plays the answer first and the prompt doesn't name it. */
     byEar: z.boolean().optional(),
+    /** The prompt points at lit keys ("Play the lit key"), so the answer keys are lit wherever the item is used, even in a quiz or review. */
+    showKeys: z.boolean().optional(),
   }),
   z.object({
     kind: z.literal('play-interval'),
@@ -25,6 +27,8 @@ export const TestItemSchema = z.discriminatedUnion('kind', [
     semitones: z.number().int().min(-24).max(24),
     /** Ear test: the app plays the answer first and the prompt doesn't name it. */
     byEar: z.boolean().optional(),
+    /** The prompt points at lit keys ("Play the lit key"), so the answer keys are lit wherever the item is used, even in a quiz or review. */
+    showKeys: z.boolean().optional(),
   }),
   z.object({
     kind: z.literal('play-scale'),
@@ -35,6 +39,8 @@ export const TestItemSchema = z.discriminatedUnion('kind', [
     direction: z.enum(['up', 'down', 'up-down']).default('up'),
     /** Ear test: the app plays the answer first and the prompt doesn't name it. */
     byEar: z.boolean().optional(),
+    /** The prompt points at lit keys ("Play the lit key"), so the answer keys are lit wherever the item is used, even in a quiz or review. */
+    showKeys: z.boolean().optional(),
   }),
   z.object({
     kind: z.literal('build-chord'),
@@ -45,6 +51,8 @@ export const TestItemSchema = z.discriminatedUnion('kind', [
     bassPc: z.number().int().min(0).max(11).nullable().default(null),
     /** Ear test: the app plays the answer first and the prompt doesn't name it. */
     byEar: z.boolean().optional(),
+    /** The prompt points at lit keys ("Play the lit key"), so the answer keys are lit wherever the item is used, even in a quiz or review. */
+    showKeys: z.boolean().optional(),
   }),
   z.object({
     kind: z.literal('name-it'),

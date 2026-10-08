@@ -53,18 +53,21 @@
           "kind": "find-note",
           "id": "u1-l1-p1",
           "prompt": "Play the lit key.",
+          "showKeys": true,
           "midi": 60
         },
         {
           "kind": "find-note",
           "id": "u1-l1-p2",
           "prompt": "Play the lit key. It is further right, so its pitch is higher.",
+          "showKeys": true,
           "midi": 67
         },
         {
           "kind": "find-note",
           "id": "u1-l1-p3",
           "prompt": "Play the lit key. It is further left, so its pitch is lower.",
+          "showKeys": true,
           "midi": 53
         }
       ]

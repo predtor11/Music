@@ -234,8 +234,11 @@ function isRightName(choice: string, shown: number[], prompt: string): boolean {
  * prompt may say "Play the lit key" instead of naming it.
  */
 export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'): string[] {
-  const lit = mode === 'play-along' && /\blit\b/.test(item.prompt);
+  const showKeys = 'showKeys' in item && item.showKeys === true;
+  const lit = (mode === 'play-along' || showKeys) && /\blit\b/.test(item.prompt);
   const problems: string[] = [];
+  // Review asks play-along items without hints, so a prompt that points at lit keys must light them itself.
+  if (item.kind !== 'name-it' && /\blit\b/.test(item.prompt) && !showKeys) problems.push('prompt points at lit keys, so set showKeys: true');
   const onKeyboard = (midi: number, what: string) => {
     if (midi < LOWEST || midi > HIGHEST) problems.push(`${what} ${midi} is off an 88-key keyboard`);
   };
