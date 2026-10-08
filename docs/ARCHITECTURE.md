@@ -11,7 +11,8 @@ Read this before changing code. The full plan lives in the Claude Doc
 | `packages/midi` | MIDI parsing, held notes, chord grouping, `MidiSource` (Web MIDI today, native later) | MIDI work |
 | `packages/contracts` | zod schemas + types for every API body and event. The single source of truth between app and services. | integrator (change by PR comment, not silently) |
 | `packages/service-kit` | `createService()` (Fastify + `/health` + JSON errors), `requireUserId()`, `EventBus` + `InMemoryEventBus` | platform work |
-| `apps/web` | React app (Vite). Grades MIDI in the browser, calls only the gateway at `/api`. | web work |
+| `packages/ui` | Design system: tokens, dark and light themes, motion presets, base components. See `docs/UI.md`. | integrator |
+| `apps/web` | React app (Vite), built on `@music/ui`. Grades MIDI in the browser, calls only the gateway at `/api`. | web work |
 | `services/gateway` | Single entry point on port 4000. Checks the Supabase login, sets `x-user-id`, proxies `/api/<service>/*`. | platform work |
 | `services/identity` | Users and settings. Port 4001. Emits `user.created`. | identity work |
 | `services/curriculum` | Units, lessons, test items as JSON content. Port 4002. Read-only API. | curriculum work |
