@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@music/analysis": "*",
     "@music/contracts": "*",
     "@music/service-kit": "*",
     "tsx": "^4.19.2",

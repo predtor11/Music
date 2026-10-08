@@ -1,4 +1,5 @@
-import { ChordQuerySchema, type ChordAnswer, type ScaleAnswer } from '@music/contracts';
+import { analyzeNotes, ascii, buildChart } from '@music/analysis';
+import { ChordQuerySchema, SongAnalysisRequestSchema, type ChordAnswer, type ScaleAnswer, type SongAnalysis } from '@music/contracts';
 import { createService } from '@music/service-kit';
 import {
   INVERSION_LABELS,
@@ -54,6 +55,30 @@ export function buildApp(options: { logger?: boolean } = {}) {
     const { type } = ScaleQuerySchema.parse(req.query);
     const scaleType: ScaleType = type ?? (key.mode === 'major' ? 'major' : 'naturalMinor');
     return { key: noteToString(key.tonic), type: scaleType, notes: spellScale(key.tonic, scaleType).map(noteToString) };
+  });
+
+  // POST /analyze: the key and chords of notes someone played (or a MIDI file's notes).
+  app.post('/analyze', async (req): Promise<SongAnalysis> => {
+    const body = SongAnalysisRequestSchema.parse(req.body);
+    const hint = body.keyHint ? parseKey(body.keyHint) : null;
+    if (body.keyHint && !hint) throw badRequest(`Unknown key: ${body.keyHint}`);
+    const notes = body.notes.map((n) => ({ midi: n.midi, start: n.startMs / 1000, end: (n.startMs + n.durationMs) / 1000, velocity: n.velocity / 127 }));
+    const a = analyzeNotes(notes, { bpm: body.bpm, key: hint });
+    const key = hint ?? a.key.key;
+    const keyText = (k: typeof key) => ascii(noteToString(k.tonic)) + (k.mode === 'minor' ? 'm' : '');
+    return {
+      key: { key: keyText(a.key.key), confidence: a.key.confidence },
+      otherKeys: a.keyAlternatives.map((g) => ({ key: keyText(g.key), confidence: g.confidence })),
+      bpm: a.steadyBeat ? Math.round(a.grid.bpm * 10) / 10 : null,
+      segments: a.segments.map((s) => ({
+        startMs: Math.round(s.start * 1000),
+        endMs: Math.round(s.end * 1000),
+        symbol: s.chord ? ascii(s.chord.symbol) : null,
+        roman: s.chord ? ascii(s.chord.roman) : null,
+        notes: s.chord ? s.chord.notes.map(ascii) : [],
+      })),
+      chart: a.steadyBeat ? buildChart(a.segments, a.grid, key, 'Analysis', { source: 'recording' }) : null,
+    };
   });
 
   return app;
