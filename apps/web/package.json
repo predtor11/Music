@@ -14,6 +14,7 @@
   "dependencies": {
     "@music/contracts": "*",
     "@music/midi": "*",
+    "@music/skills": "*",
     "@music/theory": "*",
     "@music/ui": "*",
     "motion": "^14.0.0",

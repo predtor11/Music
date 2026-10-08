@@ -7,7 +7,8 @@
 import type { MistakeKind, SessionSummary, TestItem } from '@music/contracts';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { endSession, recordAttempt, startSession } from '../api/client.js';
-import { expectedFor, skillFor } from './grade.js';
+import { skillFor } from '@music/skills';
+import { expectedFor } from './grade.js';
 
 export interface AttemptInput {
   item: TestItem;
