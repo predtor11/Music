@@ -1,0 +1,163 @@
+{
+  "id": "unit-2",
+  "order": 2,
+  "title": "Steps and intervals",
+  "summary": "Measure the distance between notes: half steps, whole steps, and every interval up to the octave, by name and by ear.",
+  "outcome": "You can name the distance between any two notes, and hear when your band says \"a 5th\" or \"a minor 3rd\".",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "id": "u2-cp-1",
+        "prompt": "How far apart are these two keys?",
+        "shownMidi": [
+          64,
+          65
+        ],
+        "choices": [
+          "half step",
+          "whole step"
+        ],
+        "answer": "half step"
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-2",
+        "prompt": "How far apart are these two keys?",
+        "shownMidi": [
+          60,
+          62
+        ],
+        "choices": [
+          "half step",
+          "whole step"
+        ],
+        "answer": "whole step"
+      },
+      {
+        "kind": "play-interval",
+        "id": "u2-cp-3",
+        "prompt": "Play C4, then go up a major 3rd.",
+        "startMidi": 60,
+        "semitones": 4
+      },
+      {
+        "kind": "play-interval",
+        "id": "u2-cp-4",
+        "prompt": "Play D4, then go up a perfect 5th.",
+        "startMidi": 62,
+        "semitones": 7
+      },
+      {
+        "kind": "play-interval",
+        "id": "u2-cp-5",
+        "prompt": "Play G4, then go down a perfect 4th.",
+        "startMidi": 67,
+        "semitones": -5
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-6",
+        "prompt": "Which interval is this?",
+        "shownMidi": [
+          60,
+          63
+        ],
+        "choices": [
+          "minor 2nd",
+          "major 2nd",
+          "minor 3rd",
+          "major 3rd"
+        ],
+        "answer": "minor 3rd"
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-7",
+        "prompt": "Which interval is this?",
+        "shownMidi": [
+          65,
+          71
+        ],
+        "choices": [
+          "major 3rd",
+          "perfect 4th",
+          "tritone",
+          "perfect 5th"
+        ],
+        "answer": "tritone"
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-8",
+        "prompt": "Which interval is this?",
+        "shownMidi": [
+          60,
+          70
+        ],
+        "choices": [
+          "major 6th",
+          "minor 7th",
+          "major 7th",
+          "octave"
+        ],
+        "answer": "minor 7th"
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-9",
+        "prompt": "Which interval is this?",
+        "shownMidi": [
+          62,
+          74
+        ],
+        "choices": [
+          "major 6th",
+          "minor 7th",
+          "major 7th",
+          "octave"
+        ],
+        "answer": "octave"
+      },
+      {
+        "kind": "play-interval",
+        "id": "u2-cp-10",
+        "prompt": "Play E4, then go up a major 6th.",
+        "startMidi": 64,
+        "semitones": 9
+      },
+      {
+        "kind": "play-interval",
+        "id": "u2-cp-11",
+        "prompt": "Play F4, then go down a half step.",
+        "startMidi": 65,
+        "semitones": -1
+      },
+      {
+        "kind": "name-it",
+        "id": "u2-cp-12",
+        "prompt": "Listen to the two notes. Which interval is it?",
+        "shownMidi": [
+          60,
+          67
+        ],
+        "choices": [
+          "perfect 4th",
+          "perfect 5th",
+          "major 6th",
+          "octave"
+        ],
+        "answer": "perfect 5th",
+        "audioOnly": true
+      }
+    ]
+  },
+  "lessonIds": [
+    "u2-l1",
+    "u2-l2",
+    "u2-l3",
+    "u2-l4",
+    "u2-l5"
+  ]
+}
