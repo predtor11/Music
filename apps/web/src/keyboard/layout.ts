@@ -70,3 +70,16 @@ export function noteToComputerKey(note: MidiNote, base: MidiNote = DEFAULT_COMPU
   const entry = Object.entries(COMPUTER_KEYS).find(([, offset]) => base + offset === note);
   return entry ? entry[0].toUpperCase() : null;
 }
+
+/**
+ * Where a key's centre sits across the keyboard, from 0 (left edge) to 1
+ * (right edge), matching the CSS layout; null when the key isn't on this size.
+ * Used to put the animated hands' fingertips on their keys.
+ */
+export function keyCenter(size: KeyboardSize, note: MidiNote): number | null {
+  const keys = keyboardKeys(size);
+  const key = keys.find((k) => k.note === note);
+  if (!key) return null;
+  const whites = keys.filter((k) => !k.black).length;
+  return key.black ? (key.whiteIndex + 1) / whites : (key.whiteIndex + 0.5) / whites;
+}

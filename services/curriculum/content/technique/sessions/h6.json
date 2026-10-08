@@ -1,0 +1,300 @@
+{
+  "id": "h6",
+  "order": 6,
+  "title": "Thumb under",
+  "summary": "Going past five keys: the right thumb tucks under.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Fingering",
+      "body": "**Fingering**: the plan for which finger plays each key. Music prints it as small finger numbers over the notes.\n\n**Why it matters:** five fingers run out quickly. A good plan lets you keep going smoothly, where a poor one leaves you stuck with no finger for the next key.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Thumb under",
+      "body": "**Thumb under**: going up with the right hand, after finger 3 plays, the thumb slides under fingers 2 and 3 to the next key, and the whole hand moves along to follow it.\n\n**Why it matters:** it carries a run of notes past five keys with no gap or jump, which is how scales are played.\n\nPress **Watch**: C, D, E with fingers 1, 2, 3, then the thumb tucks under to F and the hand moves over.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                69,
+                71,
+                72
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 71,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Practise the tuck",
+      "body": "Fingers 1, 2, 3, then the thumb tucks under to F. Keep the wrist level; don't twist the elbow out.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                69,
+                71,
+                72
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 3
+    },
+    {
+      "type": "drill",
+      "title": "Eight keys up",
+      "body": "From middle C to the next C: 1 2 3, thumb under, 1 2 3 4 5.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                69,
+                71,
+                72
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 71,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

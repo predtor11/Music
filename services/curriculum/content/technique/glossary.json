@@ -1,0 +1,129 @@
+[
+  {
+    "id": "finger-numbers",
+    "term": "finger numbers",
+    "aliases": [
+      "finger number"
+    ],
+    "lessonId": "h1",
+    "meaning": "Numbers for the fingers: thumb 1, pointing finger 2, middle 3, ring 4, little finger 5, the same on both hands.",
+    "whyItMatters": "Music and teachers use them to say which finger plays each note.",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "1",
+      "62": "2",
+      "64": "3",
+      "65": "4",
+      "67": "5"
+    }
+  },
+  {
+    "id": "hand-shape",
+    "term": "hand shape",
+    "aliases": [],
+    "lessonId": "h2",
+    "meaning": "How the hand sits on the keys: fingers curved, fingertips on the keys, wrist level and loose.",
+    "whyItMatters": "Curved fingers are stronger and quicker, and a loose hand does not tire or hurt.",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67
+    ]
+  },
+  {
+    "id": "five-finger-position",
+    "term": "five-finger position",
+    "aliases": [],
+    "lessonId": "h3",
+    "meaning": "Each finger resting over its own key on five white keys side by side, such as C to G.",
+    "whyItMatters": "Many first tunes fit in one position, so you can play them without moving or looking.",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "1",
+      "62": "2",
+      "64": "3",
+      "65": "4",
+      "67": "5"
+    }
+  },
+  {
+    "id": "finger-independence",
+    "term": "finger independence",
+    "aliases": [],
+    "lessonId": "h5",
+    "meaning": "Moving one finger while the others stay still and relaxed.",
+    "whyItMatters": "It makes melodies even and keeps notes from smearing together.",
+    "exampleMidi": [
+      64,
+      65
+    ]
+  },
+  {
+    "id": "fingering",
+    "term": "fingering",
+    "aliases": [],
+    "lessonId": "h6",
+    "meaning": "The plan for which finger plays each key, often printed as small numbers over the notes.",
+    "whyItMatters": "A good plan never leaves you without a finger for the next key.",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65
+    ],
+    "labels": {
+      "60": "1",
+      "62": "2",
+      "64": "3",
+      "65": "1"
+    }
+  },
+  {
+    "id": "thumb-under",
+    "term": "thumb under",
+    "aliases": [],
+    "lessonId": "h6",
+    "meaning": "Going up with the right hand (or down with the left), the thumb slides under the fingers to the next key and the hand follows.",
+    "whyItMatters": "It carries a scale past five keys without a gap.",
+    "exampleMidi": [
+      64,
+      65
+    ],
+    "labels": {
+      "64": "3",
+      "65": "1"
+    }
+  },
+  {
+    "id": "crossing-over",
+    "term": "crossing over",
+    "aliases": [
+      "finger crossing"
+    ],
+    "lessonId": "h7",
+    "meaning": "Coming down with the right hand (or up with the left), finger 3 reaches over the thumb to the next key.",
+    "whyItMatters": "It brings a run back the other way as smoothly as thumb under took it out.",
+    "exampleMidi": [
+      64,
+      65
+    ],
+    "labels": {
+      "64": "3",
+      "65": "1"
+    }
+  }
+]

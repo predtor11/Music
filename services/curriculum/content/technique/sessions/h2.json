@@ -1,0 +1,327 @@
+{
+  "id": "h2",
+  "order": 2,
+  "title": "A good hand shape",
+  "summary": "Round fingers, soft wrist, fingertips on the keys.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Hand shape",
+      "body": "**Hand shape**: the way your hand sits on the keys. A good one has the fingers gently curved, as if holding a small ball, with the fingertips touching the keys. The wrist is level with the keys and loose, and the thumb rests on its side.\n\n**Why it matters:** curved fingers are stronger and quicker than flat ones, and a loose hand doesn't get tired or sore, so you can play for longer.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Check your shape",
+      "body": "Try this before every practice:\n\n1. Let your arms hang by your sides and shake your hands loose.\n2. Bring your right hand up and rest it on the five glowing keys, one finger per key.\n3. Your knuckles make a little bridge; no finger lies flat or bends backwards at the tip.\n4. Your wrist floats, neither dropped below the keys nor pushed up high.\n\nPress **Watch**: only the playing finger moves, the others stay resting on their keys.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Slow and round",
+      "body": "Play up and back down, slowly. Keep every finger round and resting on its key. Only the playing finger moves.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Left hand, slow and round",
+      "body": "Now the left hand, thumb on G and little finger on C. The same shape: round fingers, soft wrist.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

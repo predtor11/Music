@@ -1,0 +1,425 @@
+{
+  "id": "h8",
+  "order": 8,
+  "title": "Three keys at once",
+  "summary": "Fingers 1, 3 and 5 landing together.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Landing together",
+      "body": "In C position, fingers 1, 3 and 5 sit on C, E and G. Pressing them together makes the sound the Lessons call a chord.\n\nLet all three fingertips land at the same moment, like a soft jump onto the floor. Fingers 2 and 4 stay relaxed, just above their keys.\n\nPress **Watch** to see the hand land on three places in turn.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                69,
+                71,
+                72
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                55,
+                57,
+                59,
+                60,
+                62
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 59,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Lift and land",
+      "body": "Fingers 1, 3 and 5 together, three times. Lift the hand a little between landings.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Move between shapes",
+      "body": "Keep the 1-3-5 shape and move the whole hand: C, then F, back to C, then G below, then home.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                69,
+                71,
+                72
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                55,
+                57,
+                59,
+                60,
+                62
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 59,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Left hand 5, 3, 1",
+      "body": "The left hand uses 5, 3 and 1 for C, E and G.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}
