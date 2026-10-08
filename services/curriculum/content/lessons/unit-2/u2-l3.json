@@ -12,8 +12,14 @@
       "body": "Five half steps make a **perfect 4th** (C to F). Seven make a **perfect 5th** (C to G).\n\nThey are called perfect because they sound so open and steady. The 5th is the sound of a power chord, and of the C and G you may already play in your left hand.",
       "exampleMidi": [
         60,
+        65,
         67
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "65": "perfect 4th",
+        "67": "perfect 5th"
+      }
     },
     {
       "type": "explain",
@@ -22,7 +28,11 @@
       "exampleMidi": [
         60,
         66
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "66": "tritone"
+      }
     },
     {
       "type": "show",
@@ -33,7 +43,13 @@
         65,
         66,
         67
-      ]
+      ],
+      "labels": {
+        "60": "C",
+        "65": "perfect 4th",
+        "66": "tritone",
+        "67": "perfect 5th"
+      }
     },
     {
       "type": "play-along",
