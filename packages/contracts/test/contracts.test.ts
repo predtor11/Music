@@ -52,16 +52,19 @@ describe('lesson steps', () => {
 });
 
 describe('charts and analysis', () => {
-  it('fills chart defaults and keeps numerals so it transposes', async () => {
+  it('accepts a band chart with slash chords and a repeat', async () => {
     const { ChordChartSchema } = await import('../src/index.js');
-    const chart = ChordChartSchema.parse({
+    const chart = ChordChartSchema.safeParse({
+      version: 1,
       id: 'axis',
       title: '1-5-6-4',
       key: 'G',
-      sections: [{ name: 'Verse', bars: [{ chords: [{ numeral: 'I', beats: 4 }] }, { chords: [{ numeral: 'V', beats: 2 }, { numeral: 'vi', beats: 2 }] }] }],
+      timeSignature: '4/4',
+      updatedAt: '2026-10-08T16:00:00.000Z',
+      sections: [{ id: 's1', name: 'Verse 1', kind: 'verse', repeat: 2, bars: [{ chords: [{ symbol: 'G' }] }, { chords: [{ symbol: 'D/F#', beats: 2 }, { symbol: 'Em', beats: 2 }] }] }],
     });
-    expect(chart.timeSignature).toEqual({ beats: 4, unit: 4 });
-    expect(chart.sections[0]!.repeat).toBe(1);
+    expect(chart.success).toBe(true);
+    expect(ChordChartSchema.safeParse({ ...chart.data, timeSignature: 'four' }).success).toBe(false);
   });
 
   it('validates an analysis request and rejects a silent note', async () => {
