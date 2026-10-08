@@ -113,6 +113,9 @@ export function expectedFor(item: TestItem, played: readonly MidiNote[] = []): n
       return scaleOrder(item);
     case 'build-chord':
       return item.pitchClasses;
+    case 'play-progression':
+      // Every chord's pitch classes, one chord after another.
+      return progressionChords(item).flatMap((c) => c.pitchClasses);
     default:
       return answerKeys(item, played);
   }

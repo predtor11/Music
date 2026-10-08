@@ -1,6 +1,6 @@
 import type { TestItem } from '@music/contracts';
 import { describe, expect, it } from 'vitest';
-import { answerKeys, chooseAnswer, freshState, gradeChord, hintMarks, placeUpward, pressNote, skillFor, type ItemState } from '../src/lesson/grade.js';
+import { answerKeys, chooseAnswer, expectedFor, freshState, gradeChord, hintMarks, placeUpward, pressNote, skillFor, type ItemState } from '../src/lesson/grade.js';
 
 const play = (item: TestItem, ...notes: number[]): ItemState => notes.reduce((s, n) => pressNote(item, s, n), freshState());
 
@@ -117,5 +117,17 @@ describe('name-it', () => {
   });
   it('tags skills', () => {
     expect(skillFor(item)).toBe('name-it:D');
+  });
+});
+
+describe('play-progression', () => {
+  const item: TestItem = { kind: 'play-progression', id: 'p', prompt: 'Play 1-5-6-4 in G.', key: 'G', numerals: ['1', '5', '6', '4'] };
+
+  it('reports every chord as expected, in order', () => {
+    expect(expectedFor(item)).toEqual([7, 11, 2, 2, 6, 9, 4, 7, 11, 0, 4, 7]);
+  });
+
+  it('tags the skill by its numerals', () => {
+    expect(skillFor(item)).toBe('progression:1-5-6-4');
   });
 });
