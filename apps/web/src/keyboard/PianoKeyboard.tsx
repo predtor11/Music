@@ -1,7 +1,5 @@
 import { midiName, type MidiNote } from '@music/theory';
-import { motion } from 'motion/react';
 import { useEffect, useMemo, useRef } from 'react';
-import { spring } from '../design/motion.js';
 import { keyboardKeys, noteToComputerKey, type KeyboardSize } from './layout.js';
 import s from './keyboard.module.css';
 
@@ -13,16 +11,20 @@ interface Props {
   sustained?: ReadonlySet<MidiNote>;
   onToggle: (note: MidiNote) => void;
   computerBase: MidiNote;
-  /** Short label per note (C, Sa ...), shown on C keys and on active keys. */
+  /** Short label per note (C, Sa ...), shown on every C and on held keys. */
   labelFor: (note: MidiNote) => string;
 }
 
+/**
+ * On-screen piano. Highlights are plain CSS transitions so a key press shows
+ * within one frame; nothing here waits on a spring.
+ */
 export function PianoKeyboard({ size, active, sustained, onToggle, computerBase, labelFor }: Props) {
   const keys = useMemo(() => keyboardKeys(size), [size]);
   const whiteCount = keys.filter((k) => !k.black).length;
   const scroller = useRef<HTMLDivElement>(null);
 
-  // Keep middle C in view on big keyboards and small screens.
+  // Keep middle C in view when the board is wider than the screen.
   useEffect(() => {
     const el = scroller.current;
     const middle = el?.querySelector<HTMLElement>('[data-note="60"]');
@@ -33,14 +35,13 @@ export function PianoKeyboard({ size, active, sustained, onToggle, computerBase,
 
   return (
     <div className={s.scroller} ref={scroller}>
-      <div className={s.keyboard} style={{ ['--white-count' as string]: whiteCount }} role="group" aria-label={`${size}-key keyboard`}>
+      <div className={s.keyboard} style={{ ['--white-count' as string]: whiteCount }} role="group" aria-label={`${size}-key keyboard`} data-testid="piano">
         {keys.map((k) => {
           const on = active.has(k.note);
           const ringing = !on && sustained?.has(k.note);
           const ck = noteToComputerKey(k.note, computerBase);
-          const label = labelFor(k.note);
           return (
-            <motion.button
+            <button
               key={k.note}
               type="button"
               className={k.black ? s.black : s.white}
@@ -51,24 +52,23 @@ export function PianoKeyboard({ size, active, sustained, onToggle, computerBase,
               aria-pressed={on}
               aria-label={midiName(k.note)}
               onPointerDown={(e) => {
+                if (e.button !== 0) return;
                 e.preventDefault();
                 onToggle(k.note);
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
+                  e.stopPropagation();
                   onToggle(k.note);
                 }
               }}
-              animate={{ y: on ? 2 : 0 }}
-              transition={spring.snappy}
             >
-              {on && <motion.span className={s.glow} initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={spring.snappy} />}
               <span className={s.labels}>
-                {(on || k.note % 12 === 0) && <span className={s.name}>{label}</span>}
-                {ck && <kbd className={s.kbd}>{ck}</kbd>}
+                {(on || k.note % 12 === 0) && <span className={s.name}>{labelFor(k.note)}</span>}
+                {ck && <span className={s.kbd}>{ck}</span>}
               </span>
-            </motion.button>
+            </button>
           );
         })}
       </div>

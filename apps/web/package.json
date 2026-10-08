@@ -11,17 +11,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fontsource-variable/jetbrains-mono": "^5.3.0",
-    "@fontsource-variable/manrope": "^5.3.0",
     "@music/contracts": "*",
     "@music/midi": "*",
     "@music/theory": "*",
-    "motion": "^12.43.0",
+    "@music/ui": "*",
+    "motion": "^14.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.56.1",
+    "@playwright/test": "1.56.1",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.1.0",

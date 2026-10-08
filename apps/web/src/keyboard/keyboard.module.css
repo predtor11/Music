@@ -1,25 +1,22 @@
 .scroller {
   overflow-x: auto;
   overflow-y: hidden;
-  padding: var(--space-2) var(--space-1) var(--space-3);
+  padding: var(--space-1) var(--space-1) var(--space-3);
   scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
 }
 
 .keyboard {
-  /* Each white key is at least 28px wide; the board grows to fill the card. */
-  --white-w: max(28px, calc(100% / var(--white-count)));
   position: relative;
   display: flex;
+  /* White keys never get narrower than 28px; small boards stretch to fit. */
   min-width: calc(var(--white-count) * 28px);
-  height: clamp(150px, 22vw, 220px);
+  height: clamp(150px, 20vw, 220px);
   user-select: none;
   touch-action: manipulation;
 }
 
 .white,
 .black {
-  position: relative;
   border: 0;
   padding: 0;
   cursor: pointer;
@@ -28,88 +25,77 @@
   justify-content: center;
   transition:
     background var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-base) var(--ease-out);
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 
 .white {
-  flex: 1 0 28px;
+  position: relative;
+  flex: 1 0 0;
   height: 100%;
   margin: 0 1px;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-  background: linear-gradient(180deg, var(--key-white) 70%, var(--key-white-edge));
+  background: linear-gradient(180deg, var(--key-white) 72%, var(--key-white-shade));
   box-shadow:
-    inset 0 -6px 0 var(--key-white-edge),
-    0 2px 0 rgba(0, 0, 0, 0.2);
-  color: #2a2740;
+    inset 0 -6px 0 var(--key-white-shade),
+    var(--shadow-sm);
+  color: var(--key-label);
 }
 
 .white:hover {
-  background: linear-gradient(180deg, #fff 70%, var(--key-white-edge));
+  background: linear-gradient(180deg, var(--key-white) 60%, var(--key-white-shade));
 }
 
 .black {
   position: absolute;
-  z-index: 2;
+  z-index: var(--z-raised);
   top: 0;
   /* Centred on the line between two white keys. */
-  left: calc(var(--at) * (100% / var(--white-count)) - (100% / var(--white-count)) * 0.31);
-  width: calc((100% / var(--white-count)) * 0.62);
+  left: calc(var(--at) * 100% / var(--white-count) - 31% / var(--white-count));
+  width: calc(62% / var(--white-count));
   height: 62%;
   border-radius: 0 0 6px 6px;
-  background: linear-gradient(180deg, #2c2a3e, var(--key-black) 85%);
+  background: linear-gradient(180deg, var(--key-black) 80%, var(--key-black-shade));
   box-shadow:
-    inset 0 -5px 0 var(--key-black-edge),
-    0 4px 8px rgba(0, 0, 0, 0.45);
-  color: #d9d6f2;
-}
-
-.black:hover {
-  background: linear-gradient(180deg, #3a3752, var(--key-black) 85%);
+    inset 0 -5px 0 var(--key-black-shade),
+    var(--shadow-md);
+  color: var(--key-white-shade);
 }
 
 .white[data-active],
 .black[data-active] {
-  background: linear-gradient(180deg, var(--key-active) 0%, var(--key-active-2) 120%);
+  background: linear-gradient(180deg, var(--key-active), var(--accent-2));
   box-shadow:
-    inset 0 -3px 0 rgba(0, 0, 0, 0.18),
-    0 0 26px -2px var(--key-active),
-    0 0 50px -8px var(--key-active-2);
-  color: #fff;
+    inset 0 -3px 0 var(--key-active-glow),
+    0 0 24px var(--key-active-glow),
+    0 0 48px -6px var(--key-active-glow);
+  color: var(--text-on-accent);
+  transform: translateY(2px);
 }
 
-.white[data-ringing],
+.white[data-ringing] {
+  background: linear-gradient(180deg, var(--accent-soft), var(--key-white) 70%);
+}
+
 .black[data-ringing] {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--key-active) 30%, var(--key-white)) 0%, var(--key-white) 100%);
-}
-
-.black[data-ringing] {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--key-active) 45%, var(--key-black)) 0%, var(--key-black) 100%);
-}
-
-.glow {
-  position: absolute;
-  inset: auto 15% 8px;
-  height: 30%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.55), transparent);
-  pointer-events: none;
+  background: linear-gradient(180deg, var(--key-active-glow), var(--key-black) 70%);
 }
 
 .labels {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  padding-bottom: 10px;
-  font-size: 11px;
-  font-weight: var(--weight-bold);
+  padding-bottom: var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
   pointer-events: none;
 }
 
 .black .labels {
-  padding-bottom: 6px;
-  font-size: 10px;
+  padding-bottom: var(--space-2);
+  font-size: 0.625rem;
 }
 
 .name {
@@ -118,9 +104,9 @@
 
 .kbd {
   font-family: var(--font-mono);
-  font-size: 9px;
-  opacity: 0.5;
-  padding: 1px 4px;
-  border-radius: 4px;
+  font-size: 0.5625rem;
+  opacity: 0.55;
+  padding: 0 3px;
+  border-radius: 3px;
   box-shadow: inset 0 0 0 1px currentColor;
 }

@@ -4,33 +4,35 @@
 
 import type { NoteNaming } from '@music/contracts';
 import { COMMON_KEYS, C_MAJOR, keyLabel, keyName, keyTonicPc, noteToString, parseKey, pitchClass, pretty, sargam, spellInKey, type MidiNote } from '@music/theory';
-import { MotionConfig, motion } from 'motion/react';
+import { Button, Card, Kbd, SegmentedControl, Select, fadeUp, stagger, useTheme, type ThemeSetting } from '@music/ui';
+import { motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { describe } from './chord/describe.js';
 import { LiveDisplay } from './chord/LiveDisplay.js';
-import { Button, Card, Segmented, Select } from './design/components/index.js';
-import { rise, stagger } from './design/motion.js';
 import { useComputerKeys } from './keyboard/useComputerKeys.js';
 import { KEYBOARD_RANGES, KEYBOARD_SIZES, type KeyboardSize } from './keyboard/layout.js';
 import { PianoKeyboard } from './keyboard/PianoKeyboard.js';
 import { MidiPanel } from './midi/MidiPanel.js';
 import { useMidi } from './midi/useMidi.js';
-import { useSettings, useTheme, type ThemeChoice } from './settings/useSettings.js';
+import { useSettings } from './settings/useSettings.js';
 import s from './App.module.css';
 
-const KEY_OPTIONS = COMMON_KEYS.map((k) => ({ value: keyName(k), label: pretty(keyLabel(k)) }));
+const KEY_GROUPS = (['major', 'minor'] as const).map((mode) => ({
+  label: mode === 'major' ? 'Major keys' : 'Minor keys',
+  options: COMMON_KEYS.filter((k) => k.mode === mode).map((k) => ({ value: keyName(k), label: pretty(keyLabel(k)) })),
+}));
 const NAMING_OPTIONS: Array<{ value: NoteNaming; label: string }> = [
   { value: 'western', label: 'C D E' },
   { value: 'sargam', label: 'Sa Re Ga' },
   { value: 'both', label: 'Both' },
 ];
 const SIZE_OPTIONS = KEYBOARD_SIZES.map((n) => ({ value: String(n), label: `${n} keys` }));
-const THEME_NEXT: Record<ThemeChoice, ThemeChoice> = { system: 'dark', dark: 'light', light: 'system' };
-const THEME_LABEL: Record<ThemeChoice, string> = { system: 'Auto', dark: 'Dark', light: 'Light' };
+const THEME_NEXT: Record<ThemeSetting, ThemeSetting> = { dark: 'light', light: 'system', system: 'dark' };
+const THEME_LABEL: Record<ThemeSetting, string> = { dark: 'Dark', light: 'Light', system: 'Auto' };
 
 export function App() {
   const [settings, update] = useSettings();
-  const [theme, setTheme] = useTheme();
+  const theme = useTheme();
   const key = useMemo(() => parseKey(settings.currentKey) ?? C_MAJOR, [settings.currentKey]);
   const onSelectInput = useCallback((id: string | null) => update({ midiInputId: id }), [update]);
   const midi = useMidi(settings.midiInputId, onSelectInput);
@@ -42,6 +44,7 @@ export function App() {
   const sustained = useMemo(() => new Set(midi.sounding), [midi.sounding]);
   const description = useMemo(() => describe(held, key), [held, key]);
 
+  // Clicked keys stay down until clicked again or cleared, so a chord can be built with the mouse.
   const toggle = useCallback((note: MidiNote) => {
     setClicked((prev) => {
       const next = new Set(prev);
@@ -50,8 +53,6 @@ export function App() {
       return next;
     });
   }, []);
-
-  // Clicked keys stay down until clicked again or cleared, so you can build a chord with the mouse.
   const clear = useCallback(() => setClicked(new Set()), []);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -73,64 +74,69 @@ export function App() {
   const size = settings.keyboardSize as KeyboardSize;
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="aurora" aria-hidden />
-      <motion.main className={s.shell} variants={stagger(0.08)} initial="hidden" animate="show">
-        <motion.header className={s.header} variants={rise}>
-          <div className={s.brand}>
-            <span className={s.logo} aria-hidden>
-              <span />
-              <span />
-              <span />
-            </span>
-            <div>
-              <h1 className={s.title}>
-                <span className="gradient-text">Chord Namer</span>
-              </h1>
-              <p className={s.tagline}>Play anything. See what it's called.</p>
-            </div>
+    <motion.main className={`ui-container ${s.shell}`} variants={stagger(0.06)} initial="hidden" animate="show">
+      <motion.header className={s.header} variants={fadeUp}>
+        <div className={s.brand}>
+          <span className={s.logo} aria-hidden>
+            <span />
+            <span />
+            <span />
+          </span>
+          <div>
+            <h1 className="ui-title">Chord Namer</h1>
+            <p className={`ui-muted ${s.tagline}`}>Play anything. See what it's called.</p>
           </div>
-          <Button size="sm" onClick={() => setTheme(THEME_NEXT[theme])} aria-label="Change theme" data-testid="theme">
-            Theme: {THEME_LABEL[theme]}
-          </Button>
-        </motion.header>
+        </div>
+        <Button variant="ghost" size="sm" onClick={() => theme.setSetting(THEME_NEXT[theme.setting])} data-testid="theme">
+          Theme: {THEME_LABEL[theme.setting]}
+        </Button>
+      </motion.header>
 
+      <motion.div className={s.top} variants={fadeUp}>
         <Card className={s.connect}>
           <MidiPanel midi={midi} />
         </Card>
-
         <Card className={s.controls}>
-          <Select label="Key" testId="key-select" value={keyName(key)} options={KEY_OPTIONS} onChange={(v) => update({ currentKey: v })} />
-          <Segmented label="Note names" testId="naming" value={settings.noteNaming} options={NAMING_OPTIONS} onChange={(v) => update({ noteNaming: v })} />
+          <Select label="Key" data-testid="key-select" value={keyName(key)} groups={KEY_GROUPS} onChange={(e) => update({ currentKey: e.target.value })} />
+          <div className="ui-field">
+            <span className="ui-field-label">Note names</span>
+            <div data-testid="naming">
+              <SegmentedControl label="Note names" value={settings.noteNaming} options={NAMING_OPTIONS} onChange={(v) => update({ noteNaming: v })} />
+            </div>
+          </div>
           <Select
             label="Keyboard"
-            testId="size-select"
+            data-testid="size-select"
             value={String(size)}
             options={SIZE_OPTIONS}
-            onChange={(v) => {
-              const n = Number(v) as KeyboardSize;
+            onChange={(e) => {
+              const n = Number(e.target.value) as KeyboardSize;
               update({ keyboardSize: n, lowestNote: KEYBOARD_RANGES[n].low });
             }}
           />
         </Card>
+      </motion.div>
 
-        <Card glow className={s.stage}>
+      <motion.div variants={fadeUp}>
+        <Card highlight padding="lg" className={s.stage}>
           <LiveDisplay description={description} naming={settings.noteNaming} keyOf={key} />
         </Card>
+      </motion.div>
 
-        <Card className={s.board}>
+      <motion.div variants={fadeUp}>
+        <Card padding="sm" className={s.board}>
           <div className={s.boardHead}>
-            <p className={s.hint}>
-              Click keys to add or remove them. Computer keys <kbd>A</kbd> to <kbd>K</kbd> play from{' '}
-              <strong>C{Math.floor(computer.base / 12) - 1}</strong>, <kbd>Z</kbd> <kbd>X</kbd> change octave.
+            <p className={`ui-muted ${s.hint}`}>
+              Click keys to add or remove them. Computer keys <Kbd>A</Kbd> to <Kbd>K</Kbd> play from <strong>C{Math.floor(computer.base / 12) - 1}</strong>;{' '}
+              <Kbd>Z</Kbd> <Kbd>X</Kbd> change octave.
             </p>
-            <Button size="sm" onClick={clear} disabled={clicked.size === 0} data-testid="clear">
+            <Button variant="ghost" size="sm" onClick={clear} disabled={clicked.size === 0} data-testid="clear">
               Clear
             </Button>
           </div>
           <PianoKeyboard size={size} active={heldSet} sustained={sustained} onToggle={toggle} computerBase={computer.base} labelFor={labelFor} />
         </Card>
-      </motion.main>
-    </MotionConfig>
+      </motion.div>
+    </motion.main>
   );
 }

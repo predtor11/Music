@@ -1,6 +1,5 @@
+import { Badge, Button, Select, StatusDot, fadeUp, type Tone } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
-import { Button, Pill, Select, type Tone } from '../design/components/index.js';
-import { rise } from '../design/motion.js';
 import type { MidiState } from './useMidi.js';
 import s from './midi.module.css';
 
@@ -9,18 +8,18 @@ const ALL = '__all__';
 function statusView(m: MidiState): { tone: Tone; text: string; pulse?: boolean } {
   switch (m.status) {
     case 'unsupported':
-      return { tone: 'danger', text: 'MIDI not available' };
+      return { tone: 'bad', text: 'MIDI not available' };
     case 'idle':
       return { tone: 'neutral', text: 'Not connected' };
     case 'requesting':
-      return { tone: 'warning', text: 'Waiting for permission', pulse: true };
+      return { tone: 'warn', text: 'Waiting for permission', pulse: true };
     case 'denied':
-      return { tone: 'danger', text: 'Permission blocked' };
+      return { tone: 'bad', text: 'Permission blocked' };
     case 'ready': {
       const live = m.inputs.filter((i) => i.connected);
-      if (live.length === 0) return { tone: 'warning', text: 'No keyboard found', pulse: true };
+      if (live.length === 0) return { tone: 'warn', text: 'No keyboard found' };
       const picked = live.find((i) => i.id === m.selected);
-      return { tone: 'success', text: picked ? picked.name : live.length === 1 ? live[0]!.name : `${live.length} keyboards` };
+      return { tone: 'good', pulse: true, text: picked ? picked.name : live.length === 1 ? live[0]!.name : `${live.length} keyboards` };
     }
   }
 }
@@ -51,13 +50,14 @@ export function MidiPanel({ midi }: { midi: MidiState }) {
   return (
     <div className={s.panel}>
       <div className={s.row}>
-        <Pill tone={view.tone} pulse={view.pulse} testId="midi-status">
+        <Badge tone={view.tone} data-testid="midi-status">
+          <StatusDot tone={view.tone} pulse={view.pulse} />
           {view.text}
-        </Pill>
+        </Badge>
         {midi.pedal && (
-          <Pill tone="success" testId="pedal">
-            Pedal
-          </Pill>
+          <Badge tone="accent" data-testid="pedal">
+            Pedal down
+          </Badge>
         )}
         <div className={s.spacer} />
         {canConnect && (
@@ -66,27 +66,27 @@ export function MidiPanel({ midi }: { midi: MidiState }) {
           </Button>
         )}
         {midi.status === 'ready' && (
-          <Button size="sm" onClick={() => midi.select(midi.selected)} data-testid="midi-reconnect" title="Re-listen to the keyboard and clear stuck notes">
+          <Button variant="ghost" size="sm" onClick={() => midi.select(midi.selected)} data-testid="midi-reconnect" title="Re-listen to the keyboard and clear stuck notes">
             Reconnect
           </Button>
         )}
       </div>
 
       {midi.status === 'ready' && live.length > 1 && (
-        <motion.div variants={rise} initial="hidden" animate="show" className={s.picker}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" className={s.picker}>
           <Select
-            label="Keyboard"
-            testId="midi-device"
+            label="MIDI device"
+            data-testid="midi-device"
             value={midi.selected ?? ALL}
             options={[{ value: ALL, label: 'All keyboards' }, ...live.map((i) => ({ value: i.id, label: i.name }))]}
-            onChange={(v) => midi.select(v === ALL ? null : v)}
+            onChange={(e) => midi.select(e.target.value === ALL ? null : e.target.value)}
           />
         </motion.div>
       )}
 
       <AnimatePresence initial={false}>
         {help && (
-          <motion.p key={help} className={s.help} data-testid="midi-help" variants={rise} initial="hidden" animate="show" exit="exit">
+          <motion.p key={help} className={`ui-muted ${s.help}`} data-testid="midi-help" variants={fadeUp} initial="hidden" animate="show" exit="exit">
             {help}
           </motion.p>
         )}

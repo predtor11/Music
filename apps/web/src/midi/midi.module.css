@@ -16,12 +16,15 @@
 }
 
 .picker {
-  max-width: 320px;
+  display: flex;
+}
+
+.picker select {
+  min-width: 240px;
 }
 
 .help {
   margin: 0;
   font-size: var(--text-sm);
-  color: var(--text-muted);
   max-width: 60ch;
 }

@@ -34,31 +34,3 @@ export function useSettings() {
   const update = useCallback((patch: Partial<UserSettings>) => setSettings((s) => ({ ...s, ...patch })), []);
   return [settings, update] as const;
 }
-
-export type ThemeChoice = 'system' | 'light' | 'dark';
-const THEME_KEY = 'music.theme';
-
-/** Light, dark, or follow the system. Applied as data-theme on <html>. */
-export function useTheme() {
-  const [theme, setTheme] = useState<ThemeChoice>(() => {
-    try {
-      const t = localStorage.getItem(THEME_KEY);
-      return t === 'light' || t === 'dark' ? t : 'system';
-    } catch {
-      return 'system';
-    }
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'system') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', theme);
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch {
-      // Ignore.
-    }
-  }, [theme]);
-
-  return [theme, setTheme] as const;
-}
