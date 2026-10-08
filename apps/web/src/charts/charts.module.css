@@ -1,0 +1,502 @@
+/* Band charts: the list, the chart itself, the editor and the printed page. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pageHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.pageHead h1 {
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ---- List ---- */
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-3);
+}
+
+.listCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.listTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.listChords {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+/* ---- Toolbar ---- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.keyStepper {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.keyStepper select {
+  min-width: 140px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.capo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.capo p {
+  margin: 0;
+}
+
+.shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.shape {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-hover);
+}
+
+/* ---- The chart ---- */
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.section {
+  --tone: var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--tone);
+}
+
+.section[data-tone='chorus'] {
+  --tone: var(--accent-2);
+}
+
+.section[data-tone='bridge'],
+.section[data-tone='pre'] {
+  --tone: var(--warn);
+}
+
+.section[data-tone='solo'],
+.section[data-tone='other'] {
+  --tone: var(--border-strong);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sectionName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--tone);
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-left: 2px solid var(--border-strong);
+}
+
+.bar {
+  display: flex;
+  align-items: stretch;
+  min-height: 76px;
+  border-right: 2px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-1);
+  gap: var(--space-1);
+}
+
+.chord {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  padding: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.chord:hover {
+  background: var(--surface-hover);
+}
+
+.chord:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.chord[data-selected='true'] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.chordMain {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+}
+
+.chord[data-outside='true'] .chordMain::after {
+  content: '*';
+  color: var(--warn);
+  margin-left: 2px;
+  font-size: var(--text-sm);
+  vertical-align: super;
+}
+
+.chordSub {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chordSargam {
+  font-size: var(--text-xs);
+}
+
+.beats {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  letter-spacing: 2px;
+}
+
+.simile {
+  margin: auto;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--text-faint);
+}
+
+.legend {
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+/* ---- Selected chord ---- */
+
+.chordPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.chordInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.chordInfo p {
+  margin: 0;
+}
+
+.bigChord {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  margin-right: var(--space-3);
+}
+
+/* ---- Editor ---- */
+
+.editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: flex-end;
+}
+
+.input,
+.textarea {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-sm);
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+
+.input {
+  height: 40px;
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: var(--accent);
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+
+.titleInput {
+  flex: 1 1 240px;
+}
+
+.titleInput .input {
+  width: 100%;
+}
+
+.small .input {
+  width: 90px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 72px;
+  font-family: var(--font-mono);
+  line-height: var(--leading);
+  resize: vertical;
+}
+
+.sectionEdit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionEditHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: flex-end;
+}
+
+.sectionEditHead .titleInput {
+  flex: 1 1 160px;
+}
+
+.problem {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--warn);
+}
+
+.help {
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.preview {
+  position: sticky;
+  top: var(--space-4);
+}
+
+/* ---- Chart words ---- */
+
+.words {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-3);
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.word h4 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.word p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 900px) {
+  .editor {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .preview {
+    position: static;
+  }
+
+  .bars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---- Printing (and Save as PDF): only the chart, black on white ---- */
+
+.printOnly {
+  display: none;
+}
+
+@media print {
+  :global(body) * {
+    visibility: hidden;
+  }
+
+  .printArea,
+  .printArea * {
+    visibility: visible;
+  }
+
+  .printArea {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    color: #000;
+    background: #fff;
+  }
+
+  .printOnly {
+    display: block;
+  }
+
+  .noPrint {
+    display: none !important;
+  }
+
+  .printTitle {
+    margin: 0 0 4pt;
+    font-size: 22pt;
+  }
+
+  .printMeta {
+    margin: 0 0 14pt;
+    font-size: 11pt;
+  }
+
+  .section {
+    break-inside: avoid;
+    border-left-color: #000;
+  }
+
+  .sectionName {
+    color: #000;
+  }
+
+  .bars,
+  .bar {
+    border-color: #000;
+  }
+
+  .bars {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .chord,
+  .chord[data-selected='true'] {
+    color: #000;
+    background: none;
+    border-color: transparent;
+  }
+
+  .chordSub,
+  .simile,
+  .beats {
+    color: #444;
+  }
+}
+
+.carry {
+  align-items: center;
+}
