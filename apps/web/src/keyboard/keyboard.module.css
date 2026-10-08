@@ -1,0 +1,126 @@
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: var(--space-2) var(--space-1) var(--space-3);
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.keyboard {
+  /* Each white key is at least 28px wide; the board grows to fill the card. */
+  --white-w: max(28px, calc(100% / var(--white-count)));
+  position: relative;
+  display: flex;
+  min-width: calc(var(--white-count) * 28px);
+  height: clamp(150px, 22vw, 220px);
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.white,
+.black {
+  position: relative;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.white {
+  flex: 1 0 28px;
+  height: 100%;
+  margin: 0 1px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: linear-gradient(180deg, var(--key-white) 70%, var(--key-white-edge));
+  box-shadow:
+    inset 0 -6px 0 var(--key-white-edge),
+    0 2px 0 rgba(0, 0, 0, 0.2);
+  color: #2a2740;
+}
+
+.white:hover {
+  background: linear-gradient(180deg, #fff 70%, var(--key-white-edge));
+}
+
+.black {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  /* Centred on the line between two white keys. */
+  left: calc(var(--at) * (100% / var(--white-count)) - (100% / var(--white-count)) * 0.31);
+  width: calc((100% / var(--white-count)) * 0.62);
+  height: 62%;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(180deg, #2c2a3e, var(--key-black) 85%);
+  box-shadow:
+    inset 0 -5px 0 var(--key-black-edge),
+    0 4px 8px rgba(0, 0, 0, 0.45);
+  color: #d9d6f2;
+}
+
+.black:hover {
+  background: linear-gradient(180deg, #3a3752, var(--key-black) 85%);
+}
+
+.white[data-active],
+.black[data-active] {
+  background: linear-gradient(180deg, var(--key-active) 0%, var(--key-active-2) 120%);
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+    0 0 26px -2px var(--key-active),
+    0 0 50px -8px var(--key-active-2);
+  color: #fff;
+}
+
+.white[data-ringing],
+.black[data-ringing] {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--key-active) 30%, var(--key-white)) 0%, var(--key-white) 100%);
+}
+
+.black[data-ringing] {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--key-active) 45%, var(--key-black)) 0%, var(--key-black) 100%);
+}
+
+.glow {
+  position: absolute;
+  inset: auto 15% 8px;
+  height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.55), transparent);
+  pointer-events: none;
+}
+
+.labels {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 10px;
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  pointer-events: none;
+}
+
+.black .labels {
+  padding-bottom: 6px;
+  font-size: 10px;
+}
+
+.name {
+  white-space: nowrap;
+}
+
+.kbd {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  opacity: 0.5;
+  padding: 1px 4px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px currentColor;
+}

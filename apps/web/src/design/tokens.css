@@ -1,0 +1,131 @@
+/*
+ * Design tokens. Every screen reads colours, spacing, type and motion from
+ * these variables, never from raw values, so the whole app changes together.
+ *
+ * Dark is the default look. Light applies when the system prefers it, unless
+ * the person picked a theme (data-theme on <html>).
+ */
+
+:root {
+  /* Type */
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-hero: clamp(4rem, 14vw, 9rem);
+  --weight-regular: 450;
+  --weight-medium: 560;
+  --weight-bold: 720;
+  --weight-black: 800;
+  --tracking-tight: -0.035em;
+  --tracking-wide: 0.08em;
+
+  /* Space (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Motion. Mirrored in motion.ts for animations driven from React. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  /* Brand accents, shared by both themes */
+  --accent-1: #7c5cff;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+  --accent-gradient: linear-gradient(120deg, var(--accent-1) 0%, var(--accent-2) 55%, var(--accent-3) 110%);
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+
+  color-scheme: dark;
+  --bg: #07070f;
+  --bg-aurora-1: rgba(124, 92, 255, 0.35);
+  --bg-aurora-2: rgba(34, 211, 238, 0.22);
+  --bg-aurora-3: rgba(244, 114, 182, 0.18);
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.11);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --text: #f4f3ff;
+  --text-muted: #a7a5c4;
+  --text-faint: #6f6d8c;
+  --focus: #a594ff;
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border);
+  --shadow-glow: 0 0 40px -8px rgba(124, 92, 255, 0.65);
+
+  /* Piano */
+  --key-white: #eceaf8;
+  --key-white-edge: #c9c6e0;
+  --key-black: #15141f;
+  --key-black-edge: #000;
+  --key-active: var(--accent-1);
+  --key-active-2: var(--accent-2);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --bg: #f6f5fb;
+    --bg-aurora-1: rgba(124, 92, 255, 0.22);
+    --bg-aurora-2: rgba(34, 211, 238, 0.16);
+    --bg-aurora-3: rgba(244, 114, 182, 0.14);
+    --surface: rgba(255, 255, 255, 0.62);
+    --surface-strong: rgba(255, 255, 255, 0.85);
+    --surface-hover: rgba(255, 255, 255, 0.95);
+    --border: rgba(20, 16, 60, 0.09);
+    --border-strong: rgba(20, 16, 60, 0.18);
+    --text: #15122e;
+    --text-muted: #5b5878;
+    --text-faint: #8d8aa8;
+    --focus: #6a4cff;
+    --shadow-lg: 0 24px 60px -24px rgba(40, 30, 110, 0.35), 0 0 0 1px var(--border);
+    --shadow-glow: 0 0 40px -10px rgba(124, 92, 255, 0.5);
+    --key-white: #ffffff;
+    --key-white-edge: #d8d5ea;
+    --key-black: #1c1a2b;
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f5fb;
+  --bg-aurora-1: rgba(124, 92, 255, 0.22);
+  --bg-aurora-2: rgba(34, 211, 238, 0.16);
+  --bg-aurora-3: rgba(244, 114, 182, 0.14);
+  --surface: rgba(255, 255, 255, 0.62);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --surface-hover: rgba(255, 255, 255, 0.95);
+  --border: rgba(20, 16, 60, 0.09);
+  --border-strong: rgba(20, 16, 60, 0.18);
+  --text: #15122e;
+  --text-muted: #5b5878;
+  --text-faint: #8d8aa8;
+  --focus: #6a4cff;
+  --shadow-lg: 0 24px 60px -24px rgba(40, 30, 110, 0.35), 0 0 0 1px var(--border);
+  --shadow-glow: 0 0 40px -10px rgba(124, 92, 255, 0.5);
+  --key-white: #ffffff;
+  --key-white-edge: #d8d5ea;
+  --key-black: #1c1a2b;
+}
