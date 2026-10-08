@@ -50,8 +50,13 @@ export class InMemoryProgressRepository implements ProgressRepository {
     if (!ended.refId) return true;
     const c = this.userCompletions(ended.userId);
     if (ended.kind === 'lesson') {
-      if (ended.passed === false) c.lessonsStarted.add(ended.refId);
-      else c.lessonsDone.add(ended.refId);
+      // A finished lesson stays finished when it's replayed and not passed.
+      if (ended.passed === false) {
+        if (!c.lessonsDone.has(ended.refId)) c.lessonsStarted.add(ended.refId);
+      } else {
+        c.lessonsDone.add(ended.refId);
+        c.lessonsStarted.delete(ended.refId);
+      }
     } else if (ended.kind === 'checkpoint' && ended.passed) {
       c.checkpointsPassed.add(ended.refId);
     }
