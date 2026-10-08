@@ -1,0 +1,196 @@
+{
+  "id": "u2-l5",
+  "unitId": "unit-2",
+  "order": 5,
+  "title": "Hearing intervals",
+  "summary": "Tie each interval to a song you already know, so you can hear it without counting keys.",
+  "minutes": 7,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Songs you already know",
+      "body": "Your ear already knows these intervals from songs. The opening notes of a familiar tune make a handy hook:\n\n- minor 2nd: the *Jaws* theme\n- major 2nd: *Happy Birthday*, from \"-py\" to \"birth\"\n- minor 3rd: *Greensleeves*\n- major 3rd: *Oh When the Saints*\n- perfect 4th: *Here Comes the Bride*\n- tritone: *The Simpsons* theme\n- perfect 5th: *Twinkle Twinkle Little Star*, the jump to the second \"twinkle\"\n- major 6th: *My Bonnie Lies Over the Ocean*\n- minor 7th: the original *Star Trek* theme\n- octave: *Somewhere Over the Rainbow*\n\nIf another song works better for you, use that one."
+    },
+    {
+      "type": "explain",
+      "title": "Ear first, names second",
+      "body": "Listen to two notes, sing them back, then find them on the keys. That is how you already learned to play, so it is the fastest way for you to learn intervals too.",
+      "exampleMidi": [
+        60,
+        67
+      ]
+    },
+    {
+      "type": "show",
+      "title": "The intervals with a song hook",
+      "body": "From C: C♯, D, E♭, E, F, F♯, G, A, B♭ and the C above. Play each one against C and hum its song.",
+      "highlightMidi": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        69,
+        70,
+        72
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Find it by ear",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p1",
+          "prompt": "Pick any key and play a perfect 5th up from it. Hum Twinkle Twinkle to check.",
+          "startMidi": null,
+          "semitones": 7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p2",
+          "prompt": "Pick any key and play a major 3rd up from it. Hum Oh When the Saints to check.",
+          "startMidi": null,
+          "semitones": 4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p3",
+          "prompt": "Pick any key and play a perfect 4th up from it. Hum Here Comes the Bride to check.",
+          "startMidi": null,
+          "semitones": 5
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p4",
+          "prompt": "Pick any key and play a minor 3rd up from it. Hum Greensleeves to check.",
+          "startMidi": null,
+          "semitones": 3
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p5",
+          "prompt": "Pick any key and play an octave up from it. Hum Somewhere Over the Rainbow to check.",
+          "startMidi": null,
+          "semitones": 12
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Guess before you look",
+      "body": "Play any two notes, hum the song that fits, and guess the interval. Then check the name the app shows."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q1",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            60,
+            67
+          ],
+          "choices": [
+            "perfect 4th",
+            "perfect 5th",
+            "major 6th",
+            "octave"
+          ],
+          "answer": "perfect 5th",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q2",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            60,
+            64
+          ],
+          "choices": [
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd",
+            "perfect 4th"
+          ],
+          "answer": "major 3rd",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q3",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            62,
+            74
+          ],
+          "choices": [
+            "perfect 5th",
+            "major 6th",
+            "minor 7th",
+            "octave"
+          ],
+          "answer": "octave",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q4",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            60,
+            65
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th",
+            "tritone",
+            "perfect 5th"
+          ],
+          "answer": "perfect 4th",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q5",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            64,
+            70
+          ],
+          "choices": [
+            "perfect 4th",
+            "tritone",
+            "perfect 5th",
+            "minor 6th"
+          ],
+          "answer": "tritone",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q6",
+          "prompt": "Listen to the two notes. Which interval is it?",
+          "shownMidi": [
+            60,
+            69
+          ],
+          "choices": [
+            "perfect 5th",
+            "minor 6th",
+            "major 6th",
+            "minor 7th"
+          ],
+          "answer": "major 6th",
+          "audioOnly": true
+        }
+      ]
+    }
+  ]
+}

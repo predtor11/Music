@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { AttemptSchema, ChordQuerySchema, TestItemSchema, UserSettingsSchema } from '../src/index.js';
+import { describe, expect, expectTypeOf, it } from 'vitest';
+import { AttemptSchema, ChordQuerySchema, TestItemSchema, UserCreatedEventSchema, UserSettingsSchema, type MusicEvent } from '../src/index.js';
 
 describe('contracts', () => {
   it('fills settings defaults', () => {
@@ -33,5 +33,13 @@ describe('contracts', () => {
       playedAt: '2026-10-08T06:00:00.000Z',
     });
     expect(ok.success).toBe(true);
+  });
+});
+
+describe('event types', () => {
+  it('keeps each event type as a literal, so handlers get the right payload', () => {
+    const type: 'user.created' = UserCreatedEventSchema.shape.type.value;
+    expect(type).toBe('user.created');
+    expectTypeOf<Extract<MusicEvent, { type: 'attempt.recorded' }>['data']['skill']>().toEqualTypeOf<string>();
   });
 });

@@ -1,0 +1,154 @@
+{
+  "id": "u1-l6",
+  "unitId": "unit-1",
+  "order": 6,
+  "title": "Optional: sargam names",
+  "summary": "Sa Re Ga Ma Pa Dha Ni on the keyboard. Sa moves with the key of the song.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sa Re Ga Ma Pa Dha Ni",
+      "body": "If you have learned Indian music, you know sargam: **Sa Re Ga Ma Pa Dha Ni**. You can turn on sargam names in Settings to see them next to the letters.\n\nThis lesson is optional. Skip it if sargam isn't for you."
+    },
+    {
+      "type": "explain",
+      "title": "Sa moves",
+      "body": "Letter names are fixed: C is always C. Sa isn't. Sa is the home note of whatever you're playing, the way a singer picks their Sa.\n\nWith Sa on C, the white keys from C up are Sa Re Ga Ma Pa Dha Ni, and then Sa again.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Sa on C",
+      "body": "Sa Re Ga Ma Pa Dha Ni Sa, on the white keys from C4 to C5.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Komal and tivra",
+      "body": "**Komal** means lowered. Komal Re, komal Ga, komal Dha and komal Ni each sit one key below Re, Ga, Dha and Ni.\n\n**Tivra** means raised. Tivra Ma sits one key above Ma.\n\nSa and Pa never change. With Sa on C, the five black keys are komal Re, komal Ga, tivra Ma, komal Dha and komal Ni."
+    },
+    {
+      "type": "show",
+      "title": "Komal and tivra with Sa on C",
+      "body": "From the left: komal Re, komal Ga, tivra Ma, komal Dha, komal Ni.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Sa on D",
+      "body": "Move Sa to D and every name moves with it. Now Ga is F♯ and Ni is C♯.",
+      "highlightMidi": [
+        62,
+        64,
+        66,
+        67,
+        69,
+        71,
+        73,
+        74
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Play by sargam",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l6-p1",
+          "prompt": "Sa is C. Play Pa.",
+          "pc": 7
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l6-p2",
+          "prompt": "Sa is C. Play komal Ga.",
+          "pc": 3
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l6-p3",
+          "prompt": "Sa is D. Play Ga.",
+          "pc": 6
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Pick your own Sa",
+      "body": "Pick any key as Sa and play a tune you know. Hum it in sargam if you like."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l6-q1",
+          "prompt": "Sa is C. What is this note?",
+          "shownMidi": [
+            62
+          ],
+          "choices": [
+            "Re",
+            "Ga",
+            "komal Re",
+            "Ma"
+          ],
+          "answer": "Re"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l6-q2",
+          "prompt": "Sa is C. What is this note?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "Ma",
+            "tivra Ma",
+            "Pa",
+            "komal Dha"
+          ],
+          "answer": "tivra Ma"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l6-q3",
+          "prompt": "Sa is G. Play Pa.",
+          "pc": 2
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l6-q4",
+          "prompt": "Sa is C. Play komal Ni.",
+          "pc": 10
+        }
+      ]
+    }
+  ]
+}
