@@ -38,6 +38,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review', refId?: st
   const firstTry = useRef(new Map<string, boolean>());
   const items = useRef(new Set<string>());
   const pending = useRef<Promise<unknown>>(Promise.resolve());
+  const ending = useRef<Promise<SessionSummary> | null>(null);
   // One session per mount, even when React runs effects twice in development.
   const starting = useRef<{ key: string; session: ReturnType<typeof startSession> } | null>(null);
 
@@ -47,6 +48,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review', refId?: st
     if (starting.current?.key !== key) {
       firstTry.current.clear();
       items.current.clear();
+      ending.current = null;
       setSessionId(null);
       setSave('starting');
       starting.current = { key, session: startSession({ kind, refId }) };
@@ -92,19 +94,23 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review', refId?: st
     [sessionId],
   );
 
-  const finish = useCallback(async (): Promise<SessionSummary> => {
-    await pending.current;
-    if (sessionId) {
-      try {
-        return (await endSession(sessionId)).summary;
-      } catch (err) {
-        setSave(saveFailure(err));
+  const finish = useCallback((): Promise<SessionSummary> => {
+    // A second press while the first is still saving waits for the same result.
+    ending.current ??= (async () => {
+      await pending.current;
+      if (sessionId) {
+        try {
+          return (await endSession(sessionId)).summary;
+        } catch (err) {
+          setSave(saveFailure(err));
+        }
       }
-    }
-    const total = items.current.size;
-    const firstTryCorrect = [...firstTry.current.values()].filter(Boolean).length;
-    const accuracy = total === 0 ? null : (firstTryCorrect / total) * 100;
-    return { total, answered: firstTry.current.size, firstTryCorrect, accuracy, passed: accuracy === null ? null : accuracy >= passPercent };
+      const total = items.current.size;
+      const firstTryCorrect = [...firstTry.current.values()].filter(Boolean).length;
+      const accuracy = total === 0 ? null : (firstTryCorrect / total) * 100;
+      return { total, answered: firstTry.current.size, firstTryCorrect, accuracy, passed: accuracy === null ? null : accuracy >= passPercent };
+    })();
+    return ending.current;
   }, [sessionId, passPercent]);
 
   return { sessionId, save, register, record, finish };

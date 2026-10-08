@@ -32,6 +32,8 @@ export interface RedisEventBusOptions {
   maxLen?: number;
   /** Prefix for stream names, so tests can use their own streams. Empty by default: the stream is the event type. */
   streamPrefix?: string;
+  /** How long a publish waits for Redis before failing. */
+  publishTimeoutMs?: number;
   log?: (message: string, error?: unknown) => void;
 }
 
@@ -57,7 +59,9 @@ export class RedisEventBus implements EventBus {
 
   constructor(private readonly options: RedisEventBusOptions) {
     // RESP2 keeps XREADGROUP replies as [stream, entries] pairs; RESP3 flattens them.
-    this.redis = new Redis(options.url, { maxRetriesPerRequest: null, protocol: 2 });
+    // Publishing fails fast when Redis is down, so a request that publishes answers
+    // with an error instead of waiting forever for Redis to come back.
+    this.redis = new Redis(options.url, { maxRetriesPerRequest: 1, commandTimeout: options.publishTimeoutMs ?? 3000, protocol: 2 });
     this.consumer = options.consumer ?? `${hostname()}-${process.pid}`;
     this.blockMs = options.blockMs ?? 5000;
     this.claimIdleMs = options.claimIdleMs ?? 60_000;
@@ -65,22 +69,47 @@ export class RedisEventBus implements EventBus {
     this.maxLen = options.maxLen ?? 10_000;
     this.prefix = options.streamPrefix ?? '';
     this.log = options.log ?? ((message, error) => console.error(`[event-bus] ${message}`, error ?? ''));
+    this.watch(this.redis);
+  }
+
+  /** Logs connection errors once per outage, instead of ioredis's unhandled-error line on every retry. */
+  private watch(client: Redis): Redis {
+    let down = false;
+    client.on('error', (error) => {
+      if (down) return;
+      down = true;
+      this.log('lost the connection to Redis; retrying', error);
+    });
+    client.on('ready', () => {
+      if (down) this.log('reconnected to Redis');
+      down = false;
+    });
+    return client;
   }
 
   async publish(event: MusicEvent): Promise<void> {
-    await this.redis.xadd(this.prefix + event.type, 'MAXLEN', '~', this.maxLen, '*', 'event', JSON.stringify(event));
+    try {
+      await this.redis.xadd(this.prefix + event.type, 'MAXLEN', '~', this.maxLen, '*', 'event', JSON.stringify(event));
+    } catch (error) {
+      this.log(`publishing ${event.type} failed`, error);
+      throw Object.assign(new Error("Can't reach the event bus (Redis). Is it running?"), { statusCode: 503 });
+    }
   }
 
   async subscribe<T extends MusicEventType>(type: T, group: string, handler: (event: EventOf<T>) => Promise<void>): Promise<void> {
     if (this.closed) throw new Error('event bus is closed');
+    // XREADGROUP BLOCK holds its connection, so each subscription reads on its own.
+    // Readers wait out Redis outages instead of failing, and block longer than a publish may take.
+    const reader = this.watch(this.redis.duplicate({ maxRetriesPerRequest: null, commandTimeout: undefined }));
     try {
       // Start from the beginning of the stream, so a new service also sees events sent before it existed.
-      await this.redis.xgroup('CREATE', this.prefix + type, group, '0', 'MKSTREAM');
+      await reader.xgroup('CREATE', this.prefix + type, group, '0', 'MKSTREAM');
     } catch (error) {
-      if (!String(error).includes('BUSYGROUP')) throw error;
+      if (!String(error).includes('BUSYGROUP')) {
+        reader.disconnect();
+        throw error;
+      }
     }
-    // XREADGROUP BLOCK holds its connection, so each subscription reads on its own.
-    const reader = this.redis.duplicate();
     this.readers.push(reader);
     this.loops.push(this.consume(reader, type, group, handler as (event: MusicEvent) => Promise<void>));
   }

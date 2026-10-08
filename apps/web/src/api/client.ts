@@ -45,11 +45,15 @@ export function setTokenSource(source: TokenSource): void {
   tokenSource = source;
 }
 
+/** How long a call waits for an answer before giving up, so a stuck server never leaves a screen loading. */
+const TIMEOUT_MS = Number(import.meta.env.VITE_API_TIMEOUT_MS) || 15_000;
+
 export async function call(path: string, init?: RequestInit): Promise<unknown> {
   let res: Response;
   try {
     const token = await tokenSource().catch(() => null);
     res = await fetch(`/api${path}`, {
+      signal: AbortSignal.timeout(TIMEOUT_MS),
       ...init,
       headers: {
         'content-type': 'application/json',

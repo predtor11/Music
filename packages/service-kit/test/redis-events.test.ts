@@ -138,3 +138,14 @@ describe.runIf(REDIS_URL)('RedisEventBus', () => {
     expect(seen).toEqual(['good']);
   });
 });
+
+describe('RedisEventBus when Redis is down', () => {
+  it('fails a publish quickly instead of waiting for Redis', async () => {
+    // Nothing listens on port 1.
+    const bus = new RedisEventBus({ url: 'redis://127.0.0.1:1', log: () => {} });
+    const started = Date.now();
+    await expect(bus.publish(userCreated('Asha'))).rejects.toMatchObject({ statusCode: 503 });
+    expect(Date.now() - started).toBeLessThan(5000);
+    await bus.close();
+  });
+});

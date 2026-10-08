@@ -117,3 +117,42 @@ test('a lesson asks you to sign in when the server needs it, instead of saying i
   await page.getByTestId('save-signin').click();
   await expect(page.getByTestId('page-signin')).toBeVisible();
 });
+
+/** A one-question lesson, so finishing it needs only a click. */
+const SHORT: typeof LESSON = {
+  ...LESSON,
+  steps: [{ type: 'quiz', title: 'Quick check', items: [{ kind: 'name-it', id: 'q2', prompt: 'Which key is lit?', shownMidi: [62], choices: ['C', 'D', 'E'], answer: 'D' }] }],
+};
+
+async function signedInLesson(page: Page, { attemptsHang = false } = {}) {
+  const api = await fakeApi(page, { practiceNeedsSignIn: true });
+  await page.route(`**/api/curriculum/lessons/${LESSON.id}`, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify(SHORT) }));
+  // A practice service stuck waiting on Redis never answers.
+  if (attemptsHang) await page.route('**/api/practice/attempts', () => {});
+  const cloud = fakeCloud();
+  await attachCloud(page, cloud);
+  await fillAndSubmit(page, 'Create account');
+  await expect(page.getByTestId('account')).toHaveAttribute('data-signed-in', 'true');
+  await page.goto(`/#/lesson/${LESSON.id}`);
+  await page.getByTestId('choice-D').click();
+  return api;
+}
+
+test('finishing a lesson while signed in saves it and shows the score', async ({ page }) => {
+  const api = await signedInLesson(page);
+  await page.getByTestId('finish').dblclick();
+  await expect(page.getByTestId('summary')).toBeVisible();
+  await expect(page.getByTestId('summary-signin')).toHaveCount(0);
+  await expect(page.getByTestId('summary-offline')).toHaveCount(0);
+  expect(api.attempts.map((a) => a.itemId)).toEqual(['q2']);
+  // A double press ends the session once.
+  expect(api.ended).toHaveLength(1);
+});
+
+test('finishing a lesson still shows the score when saving gets stuck', async ({ page }) => {
+  const api = await signedInLesson(page, { attemptsHang: true });
+  await page.getByTestId('finish').click();
+  await expect(page.getByTestId('summary')).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByTestId('summary-offline')).toBeVisible();
+  expect(api.ended).toHaveLength(1);
+});

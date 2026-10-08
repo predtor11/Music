@@ -35,6 +35,6 @@ export function SaveSummaryNote({ save, className }: { save: SaveState; classNam
       </p>
     );
   }
-  if (save === 'offline') return <p className={className}>The practice server wasn't reachable, so this score isn't saved.</p>;
+  if (save === 'offline') return <p className={className} data-testid="summary-offline">The practice server wasn't reachable, so this score isn't saved.</p>;
   return null;
 }
