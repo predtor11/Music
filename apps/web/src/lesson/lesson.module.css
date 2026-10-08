@@ -157,6 +157,13 @@
   font-size: var(--text-3xl);
 }
 
+.listenRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
 .choices {
   display: flex;
   flex-wrap: wrap;
