@@ -1,0 +1,31 @@
+name: Desktop installer
+
+# Builds the Windows installer (Music-Theory-Trainer-Setup-<version>.exe).
+# Download it from the run's Artifacts. Run it by hand from the Actions tab,
+# or it runs when main changes the desktop app.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/**'
+      - 'services/**'
+      - 'packages/**'
+      - '.github/workflows/desktop.yml'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run dist -w @music/desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Music-Theory-Trainer-Windows
+          path: apps/desktop/release/*.exe
+          retention-days: 30
