@@ -8,8 +8,11 @@
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
-const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+// The desktop app sets these at run time from its settings file, so one
+// installer works with or without a Supabase project.
+const runtime = (globalThis as { __MUSIC_CONFIG__?: { supabaseUrl?: string; supabaseAnonKey?: string } }).__MUSIC_CONFIG__;
+const url = runtime ? runtime.supabaseUrl : (import.meta.env.VITE_SUPABASE_URL as string | undefined);
+const anonKey = runtime ? runtime.supabaseAnonKey : (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined);
 
 export const supabase: SupabaseClient | null =
   url && anonKey
