@@ -9,13 +9,20 @@ function typingInField(target: EventTarget | null): boolean {
 }
 
 /** Computer keys as a piano: A W S E D F T G Y H U J K, with Z and X to change octave. */
-export function useComputerKeys(onNoteOn?: (note: MidiNote) => void) {
+export function useComputerKeys(onNoteOn?: (note: MidiNote) => void, onNoteOff?: (note: MidiNote) => void) {
   const noteOnRef = useRef(onNoteOn);
   noteOnRef.current = onNoteOn;
+  const noteOffRef = useRef(onNoteOff);
+  noteOffRef.current = onNoteOff;
   const [base, setBase] = useState<MidiNote>(DEFAULT_COMPUTER_BASE);
   const [down, setDown] = useState<ReadonlyMap<string, MidiNote>>(new Map());
+  const downRef = useRef(down);
 
   useEffect(() => {
+    const set = (next: ReadonlyMap<string, MidiNote>) => {
+      downRef.current = next;
+      setDown(next);
+    };
     const onDown = (e: KeyboardEvent) => {
       if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || typingInField(e.target)) return;
       const k = e.key.toLowerCase();
@@ -24,18 +31,21 @@ export function useComputerKeys(onNoteOn?: (note: MidiNote) => void) {
       const note = computerKeyToNote(k, base);
       if (note === null) return;
       noteOnRef.current?.(note);
-      setDown((prev) => new Map(prev).set(k, note));
+      set(new Map(downRef.current).set(k, note));
     };
     const onUp = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
-      setDown((prev) => {
-        if (!prev.has(k)) return prev;
-        const next = new Map(prev);
-        next.delete(k);
-        return next;
-      });
+      const note = downRef.current.get(k);
+      if (note === undefined) return;
+      const next = new Map(downRef.current);
+      next.delete(k);
+      set(next);
+      noteOffRef.current?.(note);
     };
-    const release = () => setDown(new Map());
+    const release = () => {
+      for (const note of downRef.current.values()) noteOffRef.current?.(note);
+      set(new Map());
+    };
     window.addEventListener('keydown', onDown);
     window.addEventListener('keyup', onUp);
     window.addEventListener('blur', release);

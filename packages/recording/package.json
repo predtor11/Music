@@ -1,0 +1,24 @@
+{
+  "name": "@music/recording",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Recording what you play: the take recorder, standard MIDI file export and import, and the analysis that names the key and chords",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@music/contracts": "*",
+    "@music/theory": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}

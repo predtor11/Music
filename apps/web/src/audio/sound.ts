@@ -9,6 +9,8 @@
  */
 
 import { clipEvents, type Clip, type NoteEvent } from './events.js';
+
+export type { NoteEvent } from './events.js';
 import { loadPiano, pianoIfReady } from './piano.js';
 import { synthPlay } from './synthVoice.js';
 
@@ -57,6 +59,21 @@ export const playChord = (notes: readonly number[], seconds?: number) => play({ 
 
 /** Play notes one after another. */
 export const playSequence = (notes: readonly number[], gap?: number) => play({ kind: 'sequence', notes: [...notes] }, { gap });
+
+/**
+ * Note events straight away, for playing back a recording. Doesn't wait for
+ * the piano (the synth plays until it loads). Tests see each batch as a
+ * sequence clip.
+ */
+export function playEvents(events: readonly NoteEvent[]): void {
+  if (events.length === 0) return;
+  const recorder = stub();
+  if (recorder) {
+    recorder.played.push({ kind: 'sequence', notes: events.map((e) => e.midi) });
+    return;
+  }
+  void sound(events, false);
+}
 
 /** One key, right away (no waiting for the piano), for key presses. */
 export const playKey = (note: number) => play({ kind: 'note', notes: [note] }, { wait: false });

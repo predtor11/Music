@@ -17,11 +17,11 @@ function audio(): AudioContext | null {
 
 const freq = (midi: number) => 440 * 2 ** ((midi - 69) / 12);
 
-function voice(ac: AudioContext, midi: number, at: number, length: number) {
+function voice(ac: AudioContext, midi: number, at: number, length: number, level = 1) {
   const gain = ac.createGain();
   gain.gain.setValueAtTime(0, at);
-  gain.gain.linearRampToValueAtTime(0.22, at + 0.01);
-  gain.gain.exponentialRampToValueAtTime(0.08, at + 0.25);
+  gain.gain.linearRampToValueAtTime(0.22 * level, at + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.08 * level, at + 0.25);
   gain.gain.exponentialRampToValueAtTime(0.0001, at + length);
   gain.connect(ac.destination);
   for (const [type, mult, level] of [
@@ -44,5 +44,5 @@ export function synthPlay(events: readonly NoteEvent[]): void {
   const ac = audio();
   if (!ac) return;
   const start = ac.currentTime + 0.02;
-  for (const e of events) voice(ac, e.midi, start + e.at, e.dur);
+  for (const e of events) voice(ac, e.midi, start + e.at, e.dur, e.velocity === undefined ? 1 : 0.3 + e.velocity);
 }
