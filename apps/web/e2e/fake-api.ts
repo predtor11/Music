@@ -54,14 +54,14 @@ export interface FakeApi {
   ended: string[];
 }
 
-const SESSION_ID = '11111111-1111-4111-8111-111111111111';
+export const SESSION_ID = '11111111-1111-4111-8111-111111111111';
 const USER_ID = '00000000-0000-4000-8000-000000000001';
 
 /** Answers /api like the gateway would, and records what the app sends. */
 export async function fakeApi(page: Page, { practiceDown = false } = {}): Promise<FakeApi> {
   const api: FakeApi = { attempts: [], sessions: [], ended: [] };
   const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
-  const session = (kind: string, refId: string) => ({ id: SESSION_ID, userId: USER_ID, kind, refId, startedAt: new Date().toISOString(), endedAt: null });
+  const session = (kind: string, refId?: string) => ({ id: SESSION_ID, userId: USER_ID, kind, refId: refId ?? null, startedAt: new Date().toISOString(), endedAt: null });
 
   await page.route((url) => url.pathname.startsWith('/api/'), async (route) => {
     const url = new URL(route.request().url());
@@ -74,7 +74,7 @@ export async function fakeApi(page: Page, { practiceDown = false } = {}): Promis
 
     if (path.startsWith('/practice') && practiceDown) return route.abort('connectionrefused');
     if (path === '/practice/sessions' && method === 'POST') {
-      const body = route.request().postDataJSON() as { kind: string; refId: string };
+      const body = route.request().postDataJSON() as { kind: string; refId?: string };
       api.sessions.push(body);
       return json(route, session(body.kind, body.refId), 201);
     }
@@ -91,10 +91,10 @@ export async function fakeApi(page: Page, { practiceDown = false } = {}): Promis
       const first = new Map<unknown, Record<string, unknown>>();
       for (const a of api.attempts) if (!first.has(a.itemId)) first.set(a.itemId, a);
       const kind = api.sessions.at(-1)!.kind as string;
-      const total = kind === 'checkpoint' ? UNIT.checkpoint.items.length : 4;
+      const total = kind === 'checkpoint' ? UNIT.checkpoint.items.length : kind === 'review' ? first.size : 4;
       const firstTryCorrect = [...first.values()].filter((a) => a.correct && !a.retried).length;
       const accuracy = (firstTryCorrect / total) * 100;
-      return json(route, { session: { ...session(kind, 'x'), endedAt: new Date().toISOString() }, summary: { total, answered: first.size, firstTryCorrect, accuracy, passed: accuracy >= 80 } });
+      return json(route, { session: { ...session(kind, 'x'), endedAt: new Date().toISOString() }, summary: { total, answered: first.size, firstTryCorrect, accuracy, passed: kind === 'review' ? null : accuracy >= 80 } });
     }
     return json(route, { message: `no fake for ${method} ${path}` }, 404);
   });
