@@ -1,0 +1,143 @@
+{
+  "id": "u4-l10",
+  "unitId": "unit-4",
+  "order": 10,
+  "title": "The augmented triad",
+  "summary": "Two major 3rds stacked: a dreamy, floating chord.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Augmented triad",
+      "body": "Stack two major 3rds and you get an **augmented triad**: root, major 3rd, and a raised 5th (8 half steps) above the root. C augmented is C E G♯. Its chord symbol is **Caug** or **C+**.\n\n**Why it matters:** It is rare, but it shows up as a dreamy, unsettled moment in ballads and old film music. If a chord sounds like it is floating, it may be augmented.",
+      "exampleMidi": [
+        60,
+        64,
+        68
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (major 3rd)",
+        "68": "G♯ (raised 5th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C major to C augmented",
+      "body": "Push the 5th up a half step, G to G♯.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        68
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G: major",
+        "68": "G♯: augmented"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l10-p1",
+          "prompt": "Play a C augmented triad.",
+          "pitchClasses": [
+            0,
+            4,
+            8
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l10-p2",
+          "prompt": "Play the chord written Faug.",
+          "pitchClasses": [
+            5,
+            9,
+            1
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "All four triads",
+      "body": "On C, play major, minor, diminished and augmented in turn. Listen to how each one feels."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l10-q1",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            60,
+            64,
+            68
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "augmented"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l10-q2",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            62,
+            65,
+            68
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "diminished"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l10-q3",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "major"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l10-q4",
+          "prompt": "Play a G augmented triad.",
+          "pitchClasses": [
+            7,
+            11,
+            3
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

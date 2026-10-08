@@ -3,13 +3,13 @@
   "unitId": "unit-2",
   "order": 7,
   "title": "The perfect 5th",
-  "summary": "Seven half steps: the open sound of power chords and left-hand bass.",
+  "summary": "Seven half steps: the open sound of rock guitar and left-hand bass.",
   "minutes": 5,
   "steps": [
     {
       "type": "explain",
       "title": "Perfect 5th",
-      "body": "A **perfect 5th** is 7 half steps and spans five letters, like C to G.\n\n**Why it matters:** It is the sound of a power chord, and a root plus its 5th is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
+      "body": "A **perfect 5th** is 7 half steps and spans five letters, like C to G.\n\n**Why it matters:** It is the open sound of rock guitar, and a low note plus the note a 5th above is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
       "exampleMidi": [
         60,
         67
@@ -69,7 +69,7 @@
     {
       "type": "explore",
       "title": "Left-hand 5ths",
-      "body": "Play a 5th with your left hand and move it around the keyboard. That is the shape of a power chord."
+      "body": "Play a 5th with your left hand and move it around the keyboard. That is the shape rock guitarists play all the time."
     },
     {
       "type": "quiz",

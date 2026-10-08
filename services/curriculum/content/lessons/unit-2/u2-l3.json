@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "Interval",
-      "body": "The distance between any two notes is called an **interval**. You already know two: the half step and the whole step. Every interval has a name, and you can always work it out by counting half steps.\n\n**Why it matters:** Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what chords are built from, so they are the bridge to understanding chords.",
+      "body": "The distance between any two notes is called an **interval**. You already know two: the half step and the whole step. Every interval has a name, and you can always work it out by counting half steps.\n\n**Why it matters:** Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what the notes a band plays together are built from, so they lead into everything after this unit.",
       "exampleMidi": [
         60,
         64

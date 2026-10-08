@@ -1,0 +1,125 @@
+{
+  "id": "u4-l11",
+  "unitId": "unit-4",
+  "order": 11,
+  "title": "The sus2 chord",
+  "summary": "Swap the 3rd for a 2nd and the chord is neither major nor minor.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Suspended chord",
+      "body": "A **suspended chord** leaves out the 3rd and uses a 2nd or a 4th instead. With no 3rd it is neither major nor minor: it sounds open, as if it is waiting.\n\n**Why it matters:** Suspended chords add colour without the happy or sad label. They are all over pop and worship music, and guitarists love them.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "root",
+        "62": "2nd",
+        "64": "3rd: left out",
+        "65": "4th",
+        "67": "5th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Sus2",
+      "body": "A **sus2** chord uses a major 2nd in place of the 3rd. Csus2 is C D G.\n\n**Why it matters:** It has a bright, open sound. Swap a major chord for its sus2 and the song instantly sounds more modern.",
+      "exampleMidi": [
+        60,
+        62,
+        67
+      ],
+      "labels": {
+        "60": "C (root)",
+        "62": "D (2nd)",
+        "67": "G (5th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Dsus2",
+      "body": "D, E and A.",
+      "highlightMidi": [
+        62,
+        64,
+        69
+      ],
+      "labels": {
+        "62": "D",
+        "64": "E",
+        "69": "A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l11-p1",
+          "prompt": "Play the chord written Csus2.",
+          "pitchClasses": [
+            0,
+            2,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l11-p2",
+          "prompt": "Play the chord written Dsus2.",
+          "pitchClasses": [
+            2,
+            4,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Open it up",
+      "body": "Play C major, then Csus2, then C major again. Move just the 3rd down to the 2nd and back."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l11-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            55,
+            57,
+            62
+          ],
+          "choices": [
+            "Gsus2",
+            "G",
+            "Gm"
+          ],
+          "answer": "Gsus2"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l11-q2",
+          "prompt": "Play the chord written Asus2.",
+          "pitchClasses": [
+            9,
+            11,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "u4-l3",
+  "unitId": "unit-4",
+  "order": 3,
+  "title": "The note a chord is named after",
+  "summary": "The bottom note of a stacked triad gives the chord its name.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Root",
+      "body": "The note a triad is built up from is its **root**. Stack 3rds on C and the root is C, so the chord is named after C.\n\n**Why it matters:** When a band mate says \"it's a G chord\", G is the root. Bass players usually play the root, so it is the note your left hand will want.",
+      "exampleMidi": [
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E ()",
+        "67": "G ()"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Roots of three triads",
+      "body": "The roots are D, F and G: the lowest note of each stack.",
+      "highlightMidi": [
+        50,
+        53,
+        55
+      ],
+      "labels": {
+        "50": "D: root",
+        "53": "F: root",
+        "55": "G: root"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l3-p1",
+          "prompt": "Play the triad with root F: F, A and C.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l3-p2",
+          "prompt": "Play the triad with root G: G, B and D.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l3-p3",
+          "prompt": "What is the root of this chord?",
+          "shownMidi": [
+            62,
+            65,
+            69
+          ],
+          "choices": [
+            "D",
+            "F",
+            "A"
+          ],
+          "answer": "D"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Root in the left hand",
+      "body": "Play a triad with your right hand and its root an octave lower with your left. That is how a pianist backs a singer."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l3-q1",
+          "prompt": "What is the root of this chord?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "E",
+            "G",
+            "B"
+          ],
+          "answer": "E"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l3-q2",
+          "prompt": "What is the root of this chord?",
+          "shownMidi": [
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "G",
+            "B",
+            "D"
+          ],
+          "answer": "G"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l3-q3",
+          "prompt": "Play the triad with root A: A, C and E.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "id": "u4-l13",
+  "unitId": "unit-4",
+  "order": 13,
+  "title": "Naming a triad by ear",
+  "summary": "Ear practice with all four triads.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Four sounds",
+      "body": "Major is bright. Minor is dark. Diminished is tense and squeezed. Augmented floats, as if it is stretched.\n\n**Why it matters:** these four sounds are the building blocks of nearly every chord you will hear a band play.",
+      "exampleMidi": [
+        60,
+        63,
+        64,
+        66,
+        67,
+        68
+      ],
+      "labels": {
+        "60": "C",
+        "63": "E♭",
+        "64": "E",
+        "66": "G♭",
+        "67": "G",
+        "68": "G♯"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C diminished and C augmented",
+      "body": "Diminished pulls the 5th down to G♭. Augmented pushes it up to G♯.",
+      "highlightMidi": [
+        60,
+        63,
+        64,
+        66,
+        68
+      ],
+      "labels": {
+        "60": "C",
+        "63": "E♭: dim",
+        "64": "E: aug",
+        "66": "G♭: dim",
+        "68": "G♯: aug"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l13-p1",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            62,
+            66,
+            69
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "major",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-p2",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            59,
+            62,
+            65
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "diminished",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-p3",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            53,
+            57,
+            61
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "augmented",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-p4",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            57,
+            60,
+            64
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "minor",
+          "audioOnly": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Quiz a friend",
+      "body": "Play one of the four triads on any root without saying which, and ask someone to name it. Then swap."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l13-q1",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "minor",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-q2",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            55,
+            59,
+            63
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "augmented",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-q3",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            58,
+            62,
+            65
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "major",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l13-q4",
+          "prompt": "Listen to the chord. What kind of triad is it?",
+          "shownMidi": [
+            64,
+            67,
+            70
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished",
+            "augmented"
+          ],
+          "answer": "diminished",
+          "audioOnly": true
+        }
+      ]
+    }
+  ]
+}

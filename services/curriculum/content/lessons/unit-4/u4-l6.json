@@ -1,0 +1,144 @@
+{
+  "id": "u4-l6",
+  "unitId": "unit-4",
+  "order": 6,
+  "title": "The minor triad",
+  "summary": "Lower the 3rd by a half step and the chord turns dark.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Minor triad",
+      "body": "A **minor triad** is a root, a minor 3rd (3 half steps) above it, and a perfect 5th above the root. A minor is A C E. Compared with major, only the 3rd moves: one half step lower.\n\n**Why it matters:** Minor triads are the other half of most songs. Many pop songs use just four chords, and one or two of them are minor.",
+      "exampleMidi": [
+        57,
+        60,
+        64
+      ],
+      "labels": {
+        "57": "A (root)",
+        "60": "C (3rd)",
+        "64": "E (5th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C major and C minor",
+      "body": "Only the 3rd changes: E in C major, E♭ in C minor.",
+      "highlightMidi": [
+        60,
+        63,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "63": "E♭: minor 3rd",
+        "64": "E: major 3rd",
+        "67": "G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l6-p1",
+          "prompt": "Play an A minor triad.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l6-p2",
+          "prompt": "Play a C minor triad.",
+          "pitchClasses": [
+            0,
+            3,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l6-p3",
+          "prompt": "Play a D minor triad.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Flip the 3rd",
+      "body": "Play C major, then move just the middle finger down a half step to get C minor. Try the same on G and on F."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l6-q1",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "minor"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l6-q2",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            62,
+            66,
+            69
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "major"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l6-q3",
+          "prompt": "Play an E minor triad.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l6-q4",
+          "prompt": "Play a G minor triad.",
+          "pitchClasses": [
+            7,
+            10,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

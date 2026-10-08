@@ -1,0 +1,154 @@
+{
+  "id": "u4-l4",
+  "unitId": "unit-4",
+  "order": 4,
+  "title": "The major triad",
+  "summary": "Root, major 3rd, perfect 5th: the bright, happy chord.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Major triad",
+      "body": "A **major triad** is a root, the note a major 3rd (4 half steps) above it, and the note a perfect 5th (7 half steps) above the root. C major is C E G.\n\n**Why it matters:** It is the most common chord in music. On a chart, a plain letter like \"G\" means a major triad.",
+      "exampleMidi": [
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (3rd)",
+        "67": "G (5th)"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Root, 3rd and 5th",
+      "body": "The three notes of a triad are its **chord tones**: the root, the 3rd and the 5th. In C major, C is the root, E is the 3rd and G is the 5th.\n\n**Why it matters:** Musicians name notes in a chord this way: \"put the 3rd on top\" means play E above the others in C major. A tune note that is a chord tone sounds settled over that chord.",
+      "exampleMidi": [
+        67,
+        71,
+        74
+      ],
+      "labels": {
+        "67": "G (root)",
+        "71": "B (3rd)",
+        "74": "D (5th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Major triads on C, F and G",
+      "body": "The same shape on three roots: 4 half steps, then 3 more.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        77,
+        81,
+        84
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G",
+        "77": "F",
+        "81": "A",
+        "84": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l4-p1",
+          "prompt": "Play a C major triad.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l4-p2",
+          "prompt": "Play a G major triad.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l4-p3",
+          "prompt": "Play an F major triad.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Happy sound",
+      "body": "Play C major, F major and G major one after another. These three chords are enough for hundreds of songs."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l4-q1",
+          "prompt": "Which note is the 3rd of this chord?",
+          "shownMidi": [
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "G",
+            "B",
+            "D"
+          ],
+          "answer": "B"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l4-q2",
+          "prompt": "Which note is the 5th of this chord?",
+          "shownMidi": [
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "F",
+            "A",
+            "C"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l4-q3",
+          "prompt": "Play a D major triad.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

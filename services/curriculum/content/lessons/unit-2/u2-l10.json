@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "Minor 7th",
-      "body": "Count seven letters from C and you reach B, so C to B is a 7th. A **minor 7th** is 10 half steps, like C to B♭.\n\n**Why it matters:** The minor 7th is the \"7\" in chord names like G7, which you will meet in Unit 6. The original Star Trek theme opens with one.",
+      "body": "Count seven letters from C and you reach B, so C to B is a 7th. A **minor 7th** is 10 half steps, like C to B♭.\n\n**Why it matters:** The minor 7th is the \"7\" in names like G7 on a band chart, which you will meet in Unit 6. The original Star Trek theme opens with one.",
       "exampleMidi": [
         60,
         70
@@ -22,7 +22,7 @@
     {
       "type": "explain",
       "title": "Major 7th",
-      "body": "A **major 7th** is 11 half steps, like C to B: just one half step short of the octave.\n\n**Why it matters:** It is the dreamy sound in \"maj7\" chords, which are all over soul, jazz and pop ballads.",
+      "body": "A **major 7th** is 11 half steps, like C to B: just one half step short of the octave.\n\n**Why it matters:** It is the dreamy sound marked \"maj7\" on band charts, all over soul, jazz and pop ballads.",
       "exampleMidi": [
         60,
         71

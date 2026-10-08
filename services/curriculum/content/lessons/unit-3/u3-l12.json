@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "Circle of fifths",
-      "body": "Start on C and go up a perfect 5th: G. Up another 5th: D. Then A, E, B. Each step adds one sharp. Go down in 5ths from C instead, to F, B♭, E♭, and each step adds one flat. Put all twelve keys in a ring this way and you have the **circle of fifths**.\n\n**Why it matters:** It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why the chords in Unit 5 follow the circle.",
+      "body": "Start on C and go up a perfect 5th: G. Up another 5th: D. Then A, E, B. Each step adds one sharp. Go down in 5ths from C instead, to F, B♭, E♭, and each step adds one flat. Put all twelve keys in a ring this way and you have the **circle of fifths**.\n\n**Why it matters:** It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why so much of Unit 5 follows the circle.",
       "exampleMidi": [
         60,
         62,

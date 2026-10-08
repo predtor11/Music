@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "Scale degree",
-      "body": "Each note of a scale has a number, counting up from the tonic: the tonic is 1, the next note is 2, and so on up to 7. These numbers are **scale degrees**.\n\n**Why it matters:** Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5 chord\", they mean scale degrees, and you will use them all through Unit 5.",
+      "body": "Each note of a scale has a number, counting up from the tonic: the tonic is 1, the next note is 2, and so on up to 7. These numbers are **scale degrees**.\n\n**Why it matters:** Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5\", they mean scale degrees, and you will use them all through Unit 5.",
       "exampleMidi": [
         60,
         62,
