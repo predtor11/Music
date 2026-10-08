@@ -22,7 +22,7 @@ import {
   type ChordVerdict,
   type ProgressionItem,
   type ProgressionStep,
-} from './progression.js';
+} from './progression-logic.js';
 import p from './progression.module.css';
 
 /** How long the held keys must stay still before they are graded. */

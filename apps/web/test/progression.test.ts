@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chordKeys, diatonicNumber, gradeProgressionChord, progressionKey, progressionLabel, progressionSteps, type ProgressionItem } from '../src/lesson/kinds/progression.js';
+import { chordKeys, diatonicNumber, gradeProgressionChord, progressionKey, progressionLabel, progressionSteps, type ProgressionItem } from '../src/lesson/kinds/progression-logic.js';
 
 const item = (numerals: string[], key = 'G'): ProgressionItem => ({ kind: 'play-progression', id: 'p', prompt: 'Play it.', key, numerals });
 
