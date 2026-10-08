@@ -1,0 +1,13 @@
+# Local infrastructure. Run `docker compose up -d`, then start services with npm.
+# The database is Supabase: run it locally with `npx supabase start` (needs
+# Docker), or point SUPABASE_DB_URL in .env at the hosted project.
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
