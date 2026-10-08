@@ -4,7 +4,7 @@ type EventOf<T extends MusicEventType> = Extract<MusicEvent, { type: T }>;
 
 /**
  * Publish and subscribe between services. Production uses Redis Streams
- * (RedisEventBus, added by the platform work); tests and single-process runs
+ * (RedisEventBus); tests and single-process runs
  * use InMemoryEventBus. Handlers must cope with the same event twice.
  */
 export interface EventBus {
