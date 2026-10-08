@@ -10,8 +10,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fastify/http-proxy": "^11.6.4",
     "@music/contracts": "*",
     "@music/service-kit": "*",
+    "jose": "^6.2.12",
     "tsx": "^4.19.2"
   },
   "devDependencies": {

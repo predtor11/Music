@@ -47,6 +47,14 @@ instead of editing it.
 npm install
 npm test                 # all unit tests
 npm run dev              # web app on http://localhost:5173
+npm run dev:all          # every service, the gateway and the web app together
 npm start -w @music/theory-service   # one service
 docker compose up -d     # Redis
 ```
+
+Without `SUPABASE_JWT_SECRET` the gateway runs in dev mode: every request is
+the fixed dev user `00000000-0000-4000-8000-000000000001`. Without
+`REDIS_URL`, `createEventBus()` falls back to an in-memory bus, so events
+don't cross services. Service tests that need Redis run only when `REDIS_URL`
+is set. The gateway finds each service at `http://127.0.0.1:<port>` unless
+`<NAME>_URL` (for example `THEORY_URL`) says otherwise.
