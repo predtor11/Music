@@ -140,7 +140,9 @@ function ClassicRunner({ item, mode, size, naming, keyOf, onAttempt, onDone }: I
   }, [heldKey, item]);
 
   const view = useMemo(() => earView(item, state, revealed), [item, state, revealed]);
-  const marks = useMemo(() => hintMarks(item, { ...state, marks: view.marks }, mode === 'play-along' && !byEar), [item, state, view.marks, mode, byEar]);
+  // Items whose prompt points at lit keys light them in a quiz or review too.
+  const showKeys = 'showKeys' in item && item.showKeys === true;
+  const marks = useMemo(() => hintMarks(item, { ...state, marks: view.marks }, (mode === 'play-along' || showKeys) && !byEar), [item, state, view.marks, mode, showKeys, byEar]);
   const labelFor = useMemo(() => noteLabeller(keyOf, naming), [keyOf, naming]);
 
   const verdict = state.verdict;

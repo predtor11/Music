@@ -51,6 +51,7 @@
           "kind": "play-interval",
           "id": "u1-l8-p2",
           "prompt": "Play the lit G, then go up an octave.",
+          "showKeys": true,
           "startMidi": 55,
           "semitones": 12
         },

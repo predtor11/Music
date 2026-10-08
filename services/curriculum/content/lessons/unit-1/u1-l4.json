@@ -46,12 +46,14 @@
           "kind": "find-note",
           "id": "u1-l4-p2",
           "prompt": "Play the lit key: the C just to the right of middle C.",
+          "showKeys": true,
           "midi": 72
         },
         {
           "kind": "find-note",
           "id": "u1-l4-p3",
           "prompt": "Play the lit key: the C just to the left of middle C.",
+          "showKeys": true,
           "midi": 48
         }
       ]

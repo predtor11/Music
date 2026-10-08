@@ -144,6 +144,27 @@ test('review serves the weak-skill items and records each attempt', async ({ pag
   ]);
 });
 
+test('review lights the key when the question points at a lit key', async ({ page, midi }) => {
+  const queue: SkillScore[] = [{ skill: 'note:C4', attempts: 3, firstTryAccuracy: 0.3, medianTimeMs: 2000, dueAt: '2026-10-08T06:00:00.000Z' }];
+  const items: TestItem[] = [
+    { kind: 'find-note', id: 'lit', prompt: 'Play the lit key.', midi: 60, showKeys: true },
+    { kind: 'find-note', id: 'plain', prompt: 'Play any D.', pc: 2 },
+  ];
+  await course(page, { progress: () => progress(['done', 'available']), queue, reviewItems: items });
+  await page.goto('/#/review');
+  await page.getByTestId('header-connect').click();
+  const key = (n: number) => page.locator(`[data-testid="piano"] [data-note="${n}"]`);
+
+  await expect(page.getByTestId('prompt')).toHaveText('Play the lit key.');
+  await expect(key(60)).toHaveAttribute('data-mark', 'target');
+  await midi.on(60);
+  await midi.off(60);
+
+  // Other review questions stay a test: nothing is lit.
+  await expect(page.getByTestId('prompt')).toHaveText('Play any D.');
+  await expect(page.locator('[data-testid="piano"] [data-mark]')).toHaveCount(0);
+});
+
 test('review says when nothing is due', async ({ page }) => {
   await course(page, { progress: () => progress(['done', 'available']), queue: [], reviewItems: [] });
   await page.goto('/#/review');
