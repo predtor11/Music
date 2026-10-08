@@ -1,0 +1,132 @@
+{
+  "id": "u6-l1",
+  "unitId": "unit-6",
+  "order": 1,
+  "title": "Adding a fourth note",
+  "summary": "Stack one more 3rd on a triad and you get a seventh chord.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Seventh chord",
+      "body": "Stack one more 3rd on top of a triad and you get a **seventh chord**: root, 3rd, 5th and 7th. On C, using only notes of C major, that is C E G B.\n\n**Why it matters:** Jazz, soul, R&B and lots of pop use 7th chords instead of plain triads. They sound fuller and smoother.",
+      "exampleMidi": [
+        60,
+        64,
+        67,
+        71
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (3rd)",
+        "67": "G (5th)",
+        "71": "B (7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The seven 7th chords of C major",
+      "body": "Stack four white keys on each degree: Cmaj7, Dm7, Em7, Fmaj7, G7, Am7, Bm7♭5.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "Cmaj7",
+        "62": "Dm7",
+        "64": "Em7",
+        "65": "Fmaj7",
+        "67": "G7",
+        "69": "Am7",
+        "71": "Bm7♭5"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l1-p1",
+          "prompt": "Play C, E, G and B together.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l1-p2",
+          "prompt": "Play D, F, A and C together.",
+          "pitchClasses": [
+            2,
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l1-p3",
+          "prompt": "Play G, B, D and F together.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Triad, then add the 7th",
+      "body": "Play a C major triad, then add B on top. Do the same on F (add E) and on G (add F). Listen to how each gets richer."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l1-q1",
+          "prompt": "How many notes are in this chord?",
+          "shownMidi": [
+            57,
+            60,
+            64,
+            67
+          ],
+          "choices": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l1-q2",
+          "prompt": "Play E, G, B and D together.",
+          "pitchClasses": [
+            4,
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

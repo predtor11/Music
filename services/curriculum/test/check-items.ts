@@ -3,6 +3,7 @@ import {
   type Key,
   MIDDLE_C,
   intervalInfo,
+  CHORD_TYPES,
   chordFromNumeral,
   diatonicTriadQualities,
   isBlackKey,
@@ -94,17 +95,24 @@ const CHORD_SHAPES: Record<string, number[]> = {
   sus2: [0, 2, 7],
   sus4: [0, 5, 7],
 };
-const SYMBOL_KINDS: Record<string, string> = { '': 'major', m: 'minor', dim: 'diminished', '°': 'diminished', aug: 'augmented', '+': 'augmented', sus2: 'sus2', sus4: 'sus4' };
-const SYMBOL = new RegExp(`^(${NOTE})(m|dim|°|aug|\\+|sus2|sus4)?$`);
+/** Other ways charts write a chord suffix, mapped to the suffix @music/theory uses. */
+const SUFFIX_ALIASES: Record<string, string> = { '°': 'dim', '+': 'aug', ø: 'm7b5', 'm7♭5': 'm7b5', '°7': 'dim7' };
+const SYMBOL = new RegExp(`^(${NOTE})([^/]*)(?:/(${NOTE}))?$`);
 const TRIAD_NAMED = new RegExp(`\\b(${NOTE}) (major|minor|diminished|augmented) triad\\b`);
-const WRITTEN = new RegExp(`\\bwritten (${NOTE}(?:m|dim|°|aug|\\+|sus2|sus4)?)(?=[.,]|$)`);
+const WRITTEN = new RegExp(`\\b(?:written|says) (${NOTE}[^\\s.,]*)(?=[.,]|$)`);
 
 /** Pitch classes of a chord symbol like "Cm", "Bdim" or "Dsus4", root first. */
 function symbolPcs(symbol: string): number[] | undefined {
   const m = SYMBOL.exec(symbol);
-  if (!m) return undefined;
+  const type = m && CHORD_TYPES.find((t) => t.suffix === (SUFFIX_ALIASES[m[2]!] ?? m[2]));
+  if (!type) return undefined;
   const root = spelledPc(parseNote(m[1]!)!.note);
-  return CHORD_SHAPES[SYMBOL_KINDS[m[2] ?? '']!]!.map((s) => mod12(root + s));
+  return type.intervals.map((s) => mod12(root + s));
+}
+/** The bass note a slash chord names ("C/E" → 4), or undefined. */
+function symbolBass(symbol: string): number | undefined {
+  const bass = SYMBOL.exec(symbol)?.[3];
+  return bass === undefined ? undefined : spelledPc(parseNote(bass)!.note);
 }
 const samePcs = (a: number[], b: number[]) => new Set(a).size === new Set(b).size && a.every((pc) => b.includes(pc));
 
@@ -137,7 +145,7 @@ function isRightChordAnswer(choice: string, shown: number[], prompt: string): bo
     return (sorted.length === 3 && gaps.every((g) => g === 3 || g === 4)) === (choice === 'yes');
   }
   if (/(?:What kind of triad is (?:this|it)|Is (?:this chord|it) major or minor)\?$/.test(prompt)) return choice === chordKind(shown);
-  if (prompt === 'Which chord symbol is this?') {
+  if (/Which chord symbol is (?:this|it)\?$/.test(prompt)) {
     const pcs = symbolPcs(choice);
     return !!pcs && pcs[0] === pitchClass(sorted[0]!) && samePcs(pcs, shown.map(pitchClass));
   }
@@ -380,6 +388,8 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       if (!want || want.length === 0) problems.push('prompt names no chord');
       else if (!samePcs(want, item.pitchClasses)) problems.push(`prompt asks for pcs ${[...new Set(want)].join(' ')}, not ${item.pitchClasses.join(' ')}`);
       if (item.bassPc !== null && !item.pitchClasses.includes(item.bassPc)) problems.push('bassPc is not in the chord');
+      const bass = written && !triad && !numeral ? symbolBass(written[1]!) : undefined;
+      if ((bass ?? null) !== item.bassPc) problems.push(`bassPc should be ${bass ?? null}, the note after the slash`);
       break;
     }
   }

@@ -635,7 +635,7 @@
     "id": "major-7th",
     "term": "major 7th",
     "meaning": "An interval of 11 half steps, such as C to B.",
-    "whyItMatters": "It is the dreamy sound marked \"maj7\" on band charts, all over soul, jazz and pop ballads.",
+    "whyItMatters": "It is a dreamy, soft sound, all over soul, jazz and pop ballads.",
     "lessonId": "u2-l10",
     "exampleMidi": [
       60,
@@ -1414,7 +1414,7 @@
     "id": "vii-chord",
     "term": "vii° chord",
     "meaning": "The diminished chord on the 7th degree of a major key. In C major, B diminished.",
-    "whyItMatters": "It shares two notes with V and pulls hard to I, so it can stand in for V. You will meet it again inside the dominant 7th chord in Unit 6.",
+    "whyItMatters": "It shares two notes with V and pulls hard to I, so it can stand in for V. You will meet it again in Unit 6.",
     "lessonId": "u5-l7",
     "exampleMidi": [
       71,
@@ -1550,6 +1550,327 @@
     "labels": {
       "60": "I in C",
       "67": "I in G"
+    }
+  },
+  {
+    "id": "seventh-chord",
+    "term": "seventh chord",
+    "aliases": [
+      "7th chord"
+    ],
+    "meaning": "A chord of four notes stacked in 3rds: root, 3rd, 5th and 7th.",
+    "whyItMatters": "Jazz, soul, R&B and lots of pop use 7th chords instead of plain triads. They sound fuller and smoother.",
+    "lessonId": "u6-l1",
+    "exampleMidi": [
+      60,
+      64,
+      67,
+      71
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (3rd)",
+      "67": "G (5th)",
+      "71": "B (7th)"
+    }
+  },
+  {
+    "id": "maj7",
+    "term": "maj7",
+    "aliases": [
+      "major 7th chord"
+    ],
+    "meaning": "A major 7th chord: a major triad plus a major 7th above the root. Cmaj7 is C E G B.",
+    "whyItMatters": "It is the soft, dreamy sound of bossa nova, soul ballads and a lot of neo-soul. Swap I for Imaj7 and a song instantly sounds smoother.",
+    "lessonId": "u6-l2",
+    "exampleMidi": [
+      60,
+      64,
+      67,
+      71
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (3rd)",
+      "67": "G (5th)",
+      "71": "B (7th)"
+    }
+  },
+  {
+    "id": "dominant-7th",
+    "term": "dominant 7th chord",
+    "aliases": [
+      "dominant 7th"
+    ],
+    "meaning": "A major triad plus a minor 7th above the root. Written with a plain 7: G7 is G B D F.",
+    "whyItMatters": "It holds a tritone (B and F) that pulls hard to the tonic chord. V7 to I is the strongest \"we're home\" move there is, and the blues uses 7 chords everywhere.",
+    "lessonId": "u6-l3",
+    "exampleMidi": [
+      55,
+      59,
+      62,
+      65
+    ],
+    "labels": {
+      "55": "G (root)",
+      "59": "B (3rd)",
+      "62": "D (5th)",
+      "65": "F (7th)"
+    }
+  },
+  {
+    "id": "m7",
+    "term": "m7",
+    "aliases": [
+      "minor 7th chord"
+    ],
+    "meaning": "A minor 7th chord: a minor triad plus a minor 7th above the root. Am7 is A C E G.",
+    "whyItMatters": "It is the mellow minor sound of soul, funk and jazz. ii7–V7–I is the jazz turnaround with 7ths added.",
+    "lessonId": "u6-l4",
+    "exampleMidi": [
+      57,
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "57": "A (root)",
+      "60": "C (3rd)",
+      "64": "E (5th)",
+      "67": "G (7th)"
+    }
+  },
+  {
+    "id": "half-diminished",
+    "term": "half-diminished chord",
+    "aliases": [
+      "half-diminished",
+      "m7♭5",
+      "ø"
+    ],
+    "meaning": "A diminished triad plus a minor 7th above the root. Written m7♭5 or ø. Bm7♭5 is B D F A.",
+    "whyItMatters": "It is the vii chord of a major key with its 7th, and the ii chord of a minor key. Minor-key jazz ballads lean on it for their ii–V–i.",
+    "lessonId": "u6-l5",
+    "exampleMidi": [
+      59,
+      62,
+      65,
+      69
+    ],
+    "labels": {
+      "59": "B (root)",
+      "62": "D (minor 3rd)",
+      "65": "F (flat 5th)",
+      "69": "A (minor 7th)"
+    }
+  },
+  {
+    "id": "diminished-7th",
+    "term": "diminished 7th chord",
+    "aliases": [
+      "dim7",
+      "°7"
+    ],
+    "meaning": "A chord of three stacked minor 3rds. Written dim7 or °7. Bdim7 is B D F A♭.",
+    "whyItMatters": "Every note is 3 half steps from the next, so it sounds suspended in mid-air. It is a classic passing chord between two others, and the spooky sound of old film scores.",
+    "lessonId": "u6-l6",
+    "exampleMidi": [
+      59,
+      62,
+      65,
+      68
+    ],
+    "labels": {
+      "59": "B (root)",
+      "62": "D (minor 3rd)",
+      "65": "F (flat 5th)",
+      "68": "A♭ (double-flat 7th)"
+    }
+  },
+  {
+    "id": "6-chord",
+    "term": "6 chord",
+    "aliases": [
+      "m6"
+    ],
+    "meaning": "A triad plus a major 6th above the root. C6 is C E G A; Am6 is A C E F♯.",
+    "whyItMatters": "It is the sweet, swing-era sound of a final chord in old standards and Beatles songs. Pianists often use C6 in place of plain C.",
+    "lessonId": "u6-l7",
+    "exampleMidi": [
+      60,
+      64,
+      67,
+      69
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (3rd)",
+      "67": "G (5th)",
+      "69": "A (6th)"
+    }
+  },
+  {
+    "id": "9th",
+    "term": "9th",
+    "meaning": "The 2nd counted from the octave above: 14 half steps above the root. D is the 9th of C.",
+    "whyItMatters": "Chord names past 7 (9, 11, 13) count this way. Knowing the 9th is the 2nd tells you which key to add.",
+    "lessonId": "u6-l8",
+    "exampleMidi": [
+      60,
+      62,
+      74
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D: 2nd",
+      "74": "D: 9th"
+    }
+  },
+  {
+    "id": "add9",
+    "term": "add9",
+    "meaning": "A triad plus the 9th, with no 7th. Cadd9 is C E G D.",
+    "whyItMatters": "It is the open, ringing sound of modern pop and worship music. Guitarists play Cadd9 more than plain C in many songs.",
+    "lessonId": "u6-l8",
+    "exampleMidi": [
+      60,
+      64,
+      67,
+      74
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (3rd)",
+      "67": "G (5th)",
+      "74": "D (9th)"
+    }
+  },
+  {
+    "id": "extension",
+    "term": "extension",
+    "meaning": "A chord note past the 7th: the 9th, the 11th or the 13th.",
+    "whyItMatters": "Jazz and gospel players add extensions for colour. A chart that says C9 or G13 is asking for them.",
+    "lessonId": "u6-l9",
+    "exampleMidi": [
+      48,
+      52,
+      55,
+      58,
+      62
+    ],
+    "labels": {
+      "48": "C",
+      "52": "E",
+      "55": "G",
+      "58": "B♭: 7th",
+      "62": "D: 9th"
+    }
+  },
+  {
+    "id": "9-chord",
+    "term": "9 chord",
+    "meaning": "A dominant 7th chord plus the 9th. C9 is C E G B♭ D.",
+    "whyItMatters": "It is the funk chord: James Brown built whole songs on one 9 chord.",
+    "lessonId": "u6-l9",
+    "exampleMidi": [
+      48,
+      52,
+      55,
+      58,
+      62
+    ],
+    "labels": {
+      "48": "C (root)",
+      "52": "E (3rd)",
+      "55": "G (5th)",
+      "58": "B♭ (7th)",
+      "62": "D (9th)"
+    }
+  },
+  {
+    "id": "11-chord",
+    "term": "11 chord",
+    "meaning": "A dominant 7th chord with the 9th and 11th added, usually played without the 3rd.",
+    "whyItMatters": "It is the open, gospel and fusion sound, a bit like a 7sus4 with extra colour.",
+    "lessonId": "u6-l10",
+    "exampleMidi": [
+      48,
+      55,
+      58,
+      62,
+      65
+    ],
+    "labels": {
+      "48": "C",
+      "55": "G",
+      "58": "B♭: 7th",
+      "62": "D: 9th",
+      "65": "F: 11th"
+    }
+  },
+  {
+    "id": "13-chord",
+    "term": "13 chord",
+    "meaning": "A dominant 7th chord with the 13th (the 6th, an octave up). Usually played as root, 3rd, 7th and 13th.",
+    "whyItMatters": "It is the rich, bluesy dominant chord of jazz and soul. Many players use G13 in place of G7.",
+    "lessonId": "u6-l10",
+    "exampleMidi": [
+      48,
+      52,
+      58,
+      69
+    ],
+    "labels": {
+      "48": "C",
+      "52": "E: 3rd",
+      "58": "B♭: 7th",
+      "69": "A: 13th"
+    }
+  },
+  {
+    "id": "slash-chord",
+    "term": "slash chord",
+    "meaning": "A chord symbol with a slash, like C/E: the chord C with E as the lowest note.",
+    "whyItMatters": "Slash chords make bass lines walk smoothly: C, C/B, Am, Am/G steps down one note at a time. Band charts are full of them.",
+    "lessonId": "u6-l11",
+    "exampleMidi": [
+      52,
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "52": "E: bass",
+      "60": "C",
+      "64": "E",
+      "67": "G"
+    }
+  },
+  {
+    "id": "lead-sheet",
+    "term": "lead sheet",
+    "meaning": "A song written as its tune with chord symbols above it.",
+    "whyItMatters": "It is the standard way bands share songs. Read the symbols and you can play along with any song on a lead sheet.",
+    "lessonId": "u6-l12",
+    "exampleMidi": [
+      62,
+      65,
+      69,
+      72,
+      67,
+      71,
+      74,
+      77
+    ],
+    "labels": {
+      "62": "Dm7",
+      "65": "F",
+      "67": "G7",
+      "69": "A",
+      "71": "B",
+      "72": "C",
+      "74": "D",
+      "77": "F"
     }
   }
 ]

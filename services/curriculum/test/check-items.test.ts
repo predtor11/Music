@@ -101,4 +101,16 @@ describe('checkItem', () => {
     expect(checkItem({ ...prog, key: 'D' })).not.toEqual([]);
     expect(checkItem({ ...prog, numerals: ['I', 'IV', 'vi', 'V'] })).not.toEqual([]);
   });
+
+  it('checks 7th chords and slash chords by their symbols', () => {
+    const seventh = { kind: 'build-chord' as const, id: 'x', prompt: 'Play the chord written Bm7b5.', bassPc: null };
+    expect(checkItem({ ...seventh, pitchClasses: [11, 2, 5, 9] })).toEqual([]);
+    expect(checkItem({ ...seventh, pitchClasses: [11, 2, 5, 8] })).not.toEqual([]);
+    const slash = { kind: 'build-chord' as const, id: 'x', prompt: 'Play the chord written C/E.', pitchClasses: [0, 4, 7] };
+    expect(checkItem({ ...slash, bassPc: 4 })).toEqual([]);
+    expect(checkItem({ ...slash, bassPc: null })).not.toEqual([]);
+    const symbol = { kind: 'name-it' as const, id: 'x', prompt: 'Which chord symbol is this?', shownMidi: [60, 64, 67, 69], choices: ['C6', 'Am7'] };
+    expect(checkItem({ ...symbol, answer: 'C6' })).toEqual([]);
+    expect(checkItem({ ...symbol, answer: 'Am7' })).not.toEqual([]);
+  });
 });

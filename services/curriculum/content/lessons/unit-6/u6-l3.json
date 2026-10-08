@@ -1,0 +1,140 @@
+{
+  "id": "u6-l3",
+  "unitId": "unit-6",
+  "order": 3,
+  "title": "The dominant 7th chord",
+  "summary": "A major triad plus a minor 7th: the chord that pulls home.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Dominant 7th chord",
+      "body": "A major triad with a minor 7th on top (10 half steps above the root) is a **dominant 7th chord**, written with just a 7: G7 is G B D F. It is the V chord of a key with its 7th added, so in C major it is G7.\n\n**Why it matters:** It holds a tritone (B and F) that pulls hard to the tonic chord. V7 to I is the strongest \"we're home\" move there is, and the blues uses 7 chords everywhere.",
+      "exampleMidi": [
+        55,
+        59,
+        62,
+        65
+      ],
+      "labels": {
+        "55": "G (root)",
+        "59": "B (3rd)",
+        "62": "D (5th)",
+        "65": "F (7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "G7 to C",
+      "body": "B rises to C and F falls to E.",
+      "highlightMidi": [
+        55,
+        59,
+        62,
+        65,
+        60,
+        64
+      ],
+      "labels": {
+        "55": "G",
+        "59": "B → C",
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F → E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l3-p1",
+          "prompt": "Play the chord written G7.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l3-p2",
+          "prompt": "Play the chord written C7.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            10
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u6-l3-p3",
+          "prompt": "Play V7–I in C.",
+          "key": "C",
+          "numerals": [
+            "V7",
+            "I"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Seventh blues",
+      "body": "Play the 12-bar blues in A with A7, D7 and E7 in place of the plain triads. That is the real blues sound."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l3-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "choices": [
+            "Gmaj7",
+            "G7",
+            "Gm7"
+          ],
+          "answer": "G7"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l3-q2",
+          "prompt": "Play the chord written D7.",
+          "pitchClasses": [
+            2,
+            6,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l3-q3",
+          "prompt": "Play the chord written E7.",
+          "pitchClasses": [
+            4,
+            8,
+            11,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

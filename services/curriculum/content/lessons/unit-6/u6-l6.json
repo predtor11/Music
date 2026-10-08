@@ -1,0 +1,119 @@
+{
+  "id": "u6-l6",
+  "unitId": "unit-6",
+  "order": 6,
+  "title": "The diminished 7th chord",
+  "summary": "Minor 3rds all the way up: the most tense chord of all.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Diminished 7th chord",
+      "body": "Stack three minor 3rds and you get a **diminished 7th chord**: Bdim7 is B D F A♭. Its 7th is a half step lower than in the half-diminished chord. It is written **dim7** or **°7**.\n\n**Why it matters:** Every note is 3 half steps from the next, so it sounds suspended in mid-air. It is a classic passing chord between two others, and the spooky sound of old film scores.",
+      "exampleMidi": [
+        59,
+        62,
+        65,
+        68
+      ],
+      "labels": {
+        "59": "B (root)",
+        "62": "D (minor 3rd)",
+        "65": "F (flat 5th)",
+        "68": "A♭ (double-flat 7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Three minor 3rds",
+      "body": "C♯, E, G and B♭: each 3 half steps from the next.",
+      "highlightMidi": [
+        61,
+        64,
+        67,
+        70
+      ],
+      "labels": {
+        "61": "C♯",
+        "64": "E",
+        "67": "G",
+        "70": "B♭"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l6-p1",
+          "prompt": "Play the chord written Bdim7.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            8
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l6-p2",
+          "prompt": "Play the chord written C#dim7.",
+          "pitchClasses": [
+            1,
+            4,
+            7,
+            10
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Passing through",
+      "body": "Play C, then C♯dim7, then Dm7. The diminished chord slides you from one to the next."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l6-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            59,
+            62,
+            65,
+            68
+          ],
+          "choices": [
+            "Bm7b5",
+            "Bdim7",
+            "Bm7"
+          ],
+          "answer": "Bdim7"
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l6-q2",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            54,
+            57,
+            60,
+            64
+          ],
+          "choices": [
+            "F#m7b5",
+            "F#dim7",
+            "F#m7"
+          ],
+          "answer": "F#m7b5"
+        }
+      ]
+    }
+  ]
+}
