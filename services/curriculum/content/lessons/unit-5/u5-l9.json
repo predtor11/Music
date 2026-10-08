@@ -1,0 +1,121 @@
+{
+  "id": "u5-l9",
+  "unitId": "unit-5",
+  "order": 9,
+  "title": "Chords in order",
+  "summary": "A row of chords played one after another has a name.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Chord progression",
+      "body": "A song's chords played one after another make a **chord progression**. I–IV–V–I is a progression, and so is 1–6–4–5.\n\n**Why it matters:** A song is mostly a few progressions repeated: one for the verse, one for the chorus. Spot the progression and you can play along with the whole song.",
+      "exampleMidi": [
+        60,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "1st: I",
+        "65": "2nd: IV",
+        "67": "3rd: V"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A progression in F",
+      "body": "I–IV–V–I in F major: F, B♭, C, F.",
+      "highlightMidi": [
+        65,
+        70,
+        72,
+        77
+      ],
+      "labels": {
+        "65": "I: F",
+        "70": "IV: B♭",
+        "72": "V: C",
+        "77": "I: F"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l9-p1",
+          "prompt": "Play I–IV–V–I in F.",
+          "key": "F",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l9-p2",
+          "prompt": "Play I–ii–V–IV in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "ii",
+            "V",
+            "IV"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make your own",
+      "body": "Make up a four-chord progression in C using only its seven chords. Start and end on I and play it round and round."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l9-q1",
+          "prompt": "Play I–IV–I–V in D.",
+          "key": "D",
+          "numerals": [
+            "I",
+            "IV",
+            "I",
+            "V"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l9-q2",
+          "prompt": "Play 1–4–6–5 in C.",
+          "key": "C",
+          "numerals": [
+            "1",
+            "4",
+            "6",
+            "5"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l9-q3",
+          "prompt": "In D major, which chord is the IV?",
+          "shownMidi": [
+            62
+          ],
+          "choices": [
+            "G",
+            "A",
+            "Em"
+          ],
+          "answer": "G"
+        }
+      ]
+    }
+  ]
+}

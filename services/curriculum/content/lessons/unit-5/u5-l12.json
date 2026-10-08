@@ -1,0 +1,125 @@
+{
+  "id": "u5-l12",
+  "unitId": "unit-5",
+  "order": 12,
+  "title": "The 12-bar blues",
+  "summary": "Twelve chords, three of them different: the backbone of blues and rock and roll.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "12-bar blues",
+      "body": "The **12-bar blues** is a progression of twelve chords using only I, IV and V: I I I I, IV IV I I, V IV I I. In C major that is four of C, two of F, two of C, then G, F, C, C.\n\n**Why it matters:** Blues, rock and roll and lots of funk are built on it. Band mates can jam on it with no rehearsal: someone just says \"blues in G\".",
+      "exampleMidi": [
+        60,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "I: C (×8)",
+        "65": "IV: F (×3)",
+        "67": "V: G (×1)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The blues in G",
+      "body": "I is G, IV is C and V is D.",
+      "highlightMidi": [
+        67,
+        72,
+        74
+      ],
+      "labels": {
+        "67": "I: G",
+        "72": "IV: C",
+        "74": "V: D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l12-p1",
+          "prompt": "Play the 12-bar blues in C: I–I–I–I–IV–IV–I–I–V–IV–I–I.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "IV",
+            "IV",
+            "I",
+            "I",
+            "V",
+            "IV",
+            "I",
+            "I"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l12-p2",
+          "prompt": "In C major, which chord is the IV?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "F",
+            "G",
+            "Dm"
+          ],
+          "answer": "F"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Jam it",
+      "body": "Play the 12-bar blues in C with your left hand on the roots, and make up a tune with your right hand on C, E♭, F, G and B♭."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l12-q1",
+          "prompt": "Play the 12-bar blues in G: I–I–I–I–IV–IV–I–I–V–IV–I–I.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "IV",
+            "IV",
+            "I",
+            "I",
+            "V",
+            "IV",
+            "I",
+            "I"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l12-q2",
+          "prompt": "In A major, which chord is the V?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "D",
+            "E",
+            "F#m"
+          ],
+          "answer": "E"
+        }
+      ]
+    }
+  ]
+}

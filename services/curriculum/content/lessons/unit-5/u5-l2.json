@@ -1,0 +1,192 @@
+{
+  "id": "u5-l2",
+  "unitId": "unit-5",
+  "order": 2,
+  "title": "A chord on every scale degree",
+  "summary": "Seven degrees, seven chords, always in the same pattern of major and minor.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Seven chords in C major",
+      "body": "Stack a diatonic triad on each degree of C major and you get C, D minor, E minor, F, G, A minor and B diminished. The pattern is always **major, minor, minor, major, major, minor, diminished**, in every major key.\n\n**Why it matters:** learn this one pattern and you know the seven chords of all twelve major keys.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "1: C",
+        "62": "2: Dm",
+        "64": "3: Em",
+        "65": "4: F",
+        "67": "5: G",
+        "69": "6: Am",
+        "71": "7: B°"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Major, minor or diminished",
+      "body": "The kind of triad on each degree of C major.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "major",
+        "62": "minor",
+        "64": "minor",
+        "65": "major",
+        "67": "major",
+        "69": "minor",
+        "71": "dim"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p1",
+          "prompt": "Play a C major triad.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p2",
+          "prompt": "Play a D minor triad.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p3",
+          "prompt": "Play an E minor triad.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p4",
+          "prompt": "Play an F major triad.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p5",
+          "prompt": "Play a G major triad.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p6",
+          "prompt": "Play an A minor triad.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l2-p7",
+          "prompt": "Play a B diminished triad.",
+          "pitchClasses": [
+            11,
+            2,
+            5
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Climb the chords",
+      "body": "Play the seven chords of C major going up, then coming down. Say \"major, minor, minor, major, major, minor, diminished\" as you go."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l2-q1",
+          "prompt": "In C major, what kind of triad is built on scale degree 6?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "minor"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l2-q2",
+          "prompt": "In C major, what kind of triad is built on scale degree 4?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l2-q3",
+          "prompt": "In C major, what kind of triad is built on scale degree 7?",
+          "shownMidi": [
+            71
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "diminished"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "u5-l8",
+  "unitId": "unit-5",
+  "order": 8,
+  "title": "Numbers instead of numerals",
+  "summary": "Plain numbers for chords, the way session bands talk.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Nashville number system",
+      "body": "Many bands skip Roman numerals and use plain numbers: 1 to 7 for the chords of the key. That is the **Nashville number system**. A plain number means the key's own chord, so in C major 6 means A minor, just like vi.\n\n**Why it matters:** It is how most working bands call chords: \"it's a 1-5-6-4 in G\". Once you know the numbers, a chart works in any key the singer wants.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "1: C",
+        "62": "2: Dm",
+        "64": "3: Em",
+        "65": "4: F",
+        "67": "5: G",
+        "69": "6: Am",
+        "71": "7: B°"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Numerals and numbers",
+      "body": "I is 1, ii is 2, vi is 6, and so on.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "I = 1",
+        "62": "ii = 2",
+        "64": "iii = 3",
+        "65": "IV = 4",
+        "67": "V = 5",
+        "69": "vi = 6",
+        "71": "vii° = 7"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l8-p1",
+          "prompt": "Play 1–4–5–1 in C.",
+          "key": "C",
+          "numerals": [
+            "1",
+            "4",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l8-p2",
+          "prompt": "Play 1–6–4–5 in G.",
+          "key": "G",
+          "numerals": [
+            "1",
+            "6",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l8-p3",
+          "prompt": "In C major, which number is this chord?",
+          "shownMidi": [
+            69,
+            72,
+            76
+          ],
+          "choices": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "6"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Call the numbers",
+      "body": "Play a song you know by ear and work out the number of each chord. Write it down as a row of numbers."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l8-q1",
+          "prompt": "In G major, which number is this chord?",
+          "shownMidi": [
+            60,
+            64,
+            67
+          ],
+          "choices": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "4"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l8-q2",
+          "prompt": "In C major, which number is this chord?",
+          "shownMidi": [
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "1",
+            "4",
+            "5"
+          ],
+          "answer": "5"
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l8-q3",
+          "prompt": "Play 1–4–1–5 in F.",
+          "key": "F",
+          "numerals": [
+            "1",
+            "4",
+            "1",
+            "5"
+          ]
+        }
+      ]
+    }
+  ]
+}

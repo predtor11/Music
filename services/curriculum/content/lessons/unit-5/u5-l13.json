@@ -1,0 +1,116 @@
+{
+  "id": "u5-l13",
+  "unitId": "unit-5",
+  "order": 13,
+  "title": "Moving a song to another key",
+  "summary": "Keep the numbers, change the key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Transpose",
+      "body": "To **transpose** a song is to move it to a different key. With numbers it is easy: keep the numbers and play them in the new key. I–V–vi–IV in C is C G Am F; transposed to G it is G D Em C.\n\n**Why it matters:** Singers ask for songs in the key that suits their voice. If you think in numbers, you can transpose on the spot.",
+      "exampleMidi": [
+        60,
+        67
+      ],
+      "labels": {
+        "60": "I in C",
+        "67": "I in G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Same numbers, new key",
+      "body": "I–IV–V in D major: D, G, A.",
+      "highlightMidi": [
+        62,
+        67,
+        69
+      ],
+      "labels": {
+        "62": "I: D",
+        "67": "IV: G",
+        "69": "V: A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l13-p1",
+          "prompt": "Play I–IV–V–I in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l13-p2",
+          "prompt": "Now transpose it: play I–IV–V–I in D.",
+          "key": "D",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Move a song",
+      "body": "Take a song you play by ear, work out its numbers, then play it in a key a whole step higher."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l13-q1",
+          "prompt": "In A major, which chord is the IV?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "D",
+            "E",
+            "Bm"
+          ],
+          "answer": "D"
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l13-q2",
+          "prompt": "Transpose 1–5–6–4 to E: play it in E.",
+          "key": "E",
+          "numerals": [
+            "1",
+            "5",
+            "6",
+            "4"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l13-q3",
+          "prompt": "Transpose ii–V–I to D: play it in D.",
+          "key": "D",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ]
+        }
+      ]
+    }
+  ]
+}

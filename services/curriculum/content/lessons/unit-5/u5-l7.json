@@ -1,0 +1,122 @@
+{
+  "id": "u5-l7",
+  "unitId": "unit-5",
+  "order": 7,
+  "title": "The seven chord",
+  "summary": "vii°, the one diminished chord in a major key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Vii° chord",
+      "body": "The chord on the 7th degree is the **vii° chord**, a diminished triad. In C major it is B diminished, B D F.\n\n**Why it matters:** It shares two notes with V and pulls hard to I, so it can stand in for V. You will meet it again inside the dominant 7th chord in Unit 6.",
+      "exampleMidi": [
+        71,
+        74,
+        77
+      ],
+      "labels": {
+        "71": "B (vii°)",
+        "74": "D",
+        "77": "F"
+      }
+    },
+    {
+      "type": "show",
+      "title": "vii° to I",
+      "body": "B moves up to C, and F moves down to E.",
+      "highlightMidi": [
+        64,
+        71,
+        72,
+        77
+      ],
+      "labels": {
+        "64": "E",
+        "71": "B → C",
+        "72": "C",
+        "77": "F → E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l7-p1",
+          "prompt": "In C major, play the vii° chord.",
+          "pitchClasses": [
+            11,
+            2,
+            5
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l7-p2",
+          "prompt": "Play I–vii°–I in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "vii°",
+            "I"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "All seven",
+      "body": "Play all seven chords of G major going up: G, Am, Bm, C, D, Em, F♯°. Then try F major."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l7-q1",
+          "prompt": "In G major, which chord is the vii°?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "F#dim",
+            "Fdim",
+            "Gdim"
+          ],
+          "answer": "F#dim"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l7-q2",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            71,
+            74,
+            77
+          ],
+          "choices": [
+            "vii°",
+            "VII",
+            "vii"
+          ],
+          "answer": "vii°"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l7-q3",
+          "prompt": "In G major, play the vii° chord.",
+          "pitchClasses": [
+            6,
+            9,
+            0
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

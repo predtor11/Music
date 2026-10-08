@@ -3,7 +3,10 @@ import {
   type Key,
   MIDDLE_C,
   intervalInfo,
+  chordFromNumeral,
+  diatonicTriadQualities,
   isBlackKey,
+  keyName,
   keyScale,
   keySignature,
   mod12,
@@ -105,6 +108,14 @@ function symbolPcs(symbol: string): number[] | undefined {
 }
 const samePcs = (a: number[], b: number[]) => new Set(a).size === new Set(b).size && a.every((pc) => b.includes(pc));
 
+/** Pitch classes of a numeral's chord in a key, root first. */
+function numeralPcs(numeral: string, key: string): number[] {
+  const chord = chordFromNumeral(numeral, keyOf(key));
+  if (!chord) throw new Error(`not a numeral: ${numeral}`);
+  return chord.pitchClasses;
+}
+const NUMERAL_CHORD = new RegExp(`^In (${NOTE} major), play the (\\S+) chord\\.`);
+
 /** The kind of a root-position chord: "major", "minor", ... or undefined. */
 function chordKind(shown: number[]): string | undefined {
   const low = Math.min(...shown);
@@ -131,6 +142,25 @@ function isRightChordAnswer(choice: string, shown: number[], prompt: string): bo
     return !!pcs && pcs[0] === pitchClass(sorted[0]!) && samePcs(pcs, shown.map(pitchClass));
   }
   if (prompt === 'What is the root of this chord?') return chordKind(shown) !== undefined && notePc() === pitchClass(sorted[0]!);
+  let m: RegExpExecArray | null;
+  if ((m = new RegExp(`^Is this chord diatonic to (${NOTE} major)\\?$`).exec(prompt))) {
+    if (choice !== 'yes' && choice !== 'no') return false;
+    const pcs = scalePcs(keyOf(m[1]!));
+    return shown.every((k) => pcs.includes(pitchClass(k))) === (choice === 'yes');
+  }
+  if ((m = new RegExp(`^In (${NOTE} major), what kind of triad is built on scale degree (\\d)\\?$`).exec(prompt))) {
+    const quality = diatonicTriadQualities('major')[Number(m[2]) - 1];
+    return choice === (quality === 'dim' ? 'diminished' : quality);
+  }
+  if ((m = new RegExp(`^In (${NOTE} major), which (?:Roman numeral|number) is this chord\\?$`).exec(prompt))) {
+    const named = chordFromNumeral(choice, keyOf(m[1]!));
+    return !!named && spelledPc(named.root) === pitchClass(sorted[0]!) && samePcs(named.pitchClasses, shown.map(pitchClass));
+  }
+  if ((m = new RegExp(`^In (${NOTE} major), which chord is the (\\S+)\\?$`).exec(prompt))) {
+    const want = numeralPcs(m[2]!, m[1]!);
+    const pcs = symbolPcs(choice);
+    return !!pcs && pcs[0] === want[0] && samePcs(pcs, want);
+  }
   const tone = /^Which note is the (3rd|5th) of this chord\?$/.exec(prompt);
   if (tone) return sorted.length === 3 && chordKind(shown) !== undefined && notePc() === pitchClass(sorted[tone[1] === '3rd' ? 1 : 2]!);
   return undefined;
@@ -319,11 +349,27 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       }
       break;
     }
+    case 'play-progression': {
+      // "Play I–V–vi–IV in G.": the numerals and the key in the prompt must match the item.
+      const key = parseKey(item.key);
+      if (!key) problems.push(`key ${item.key} does not parse`);
+      const bad = key ? item.numerals.filter((n) => !chordFromNumeral(n, key)) : [];
+      if (bad.length) problems.push(`numerals ${bad.join(' ')} do not parse`);
+      if (item.byEar) break;
+      const inKey = new RegExp(`\\bin (${NOTE}(?:m| minor| major)?)(?=[.,:;]|$)`).exec(item.prompt);
+      if (!inKey) problems.push('prompt names no key');
+      else if (key && keyName(keyOf(inKey[1]!)) !== keyName(key)) problems.push(`prompt says ${inKey[1]}, but key is ${item.key}`);
+      if (!item.prompt.includes(item.numerals.join('–'))) problems.push(`prompt should spell out ${item.numerals.join('–')}`);
+      break;
+    }
     case 'build-chord': {
       // "Play a C major triad", "Play the chord written Cm", or the notes spelled out.
       const triad = TRIAD_NAMED.exec(item.prompt);
       const written = WRITTEN.exec(item.prompt);
-      const want = triad
+      const numeral = NUMERAL_CHORD.exec(item.prompt);
+      const want = numeral
+        ? numeralPcs(numeral[2]!, numeral[1]!)
+        : triad
         ? CHORD_SHAPES[triad[2]!]!.map((s) => mod12(spelledPc(parseNote(triad[1]!)!.note) + s))
         : written
           ? symbolPcs(written[1]!)

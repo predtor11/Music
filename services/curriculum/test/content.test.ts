@@ -53,9 +53,9 @@ const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) =
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4']);
-    expect(curriculum.lessonsById.size).toBe(54);
-    expect(curriculum.glossary.length).toBe(69);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5']);
+    expect(curriculum.lessonsById.size).toBe(67);
+    expect(curriculum.glossary.length).toBe(84);
   });
 
   for (const unit of curriculum.units) {

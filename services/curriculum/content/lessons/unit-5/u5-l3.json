@@ -1,0 +1,152 @@
+{
+  "id": "u5-l3",
+  "unitId": "unit-5",
+  "order": 3,
+  "title": "Roman numerals",
+  "summary": "Chords in a key get numbers, written as Roman numerals.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Roman numeral",
+      "body": "Musicians number the chords of a key with a **Roman numeral** for each scale degree: I II III IV V VI VII. Upper case means a major chord, lower case means minor, and ° means diminished. In C major the seven chords are I ii iii IV V vi vii°.\n\n**Why it matters:** Numerals work in every key. \"I–IV–V\" is the same idea in C, in G or in E♭, so one pattern covers every song that uses it.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "I: C",
+        "62": "ii: Dm",
+        "64": "iii: Em",
+        "65": "IV: F",
+        "67": "V: G",
+        "69": "vi: Am",
+        "71": "vii°: B°"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Upper and lower case",
+      "body": "I, IV and V are major (upper case). ii, iii and vi are minor (lower case).",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69
+      ],
+      "labels": {
+        "60": "I",
+        "62": "ii",
+        "64": "iii",
+        "65": "IV",
+        "67": "V",
+        "69": "vi"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l3-p1",
+          "prompt": "In C major, play the I chord.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l3-p2",
+          "prompt": "In C major, play the IV chord.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l3-p3",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "IV",
+            "V",
+            "v"
+          ],
+          "answer": "V"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Say the numerals",
+      "body": "Play the seven chords of C major again and say their numerals: one, two, three, four, five, six, seven."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l3-q1",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            69,
+            72,
+            76
+          ],
+          "choices": [
+            "VI",
+            "vi",
+            "IV"
+          ],
+          "answer": "vi"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l3-q2",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "ii",
+            "iii",
+            "III"
+          ],
+          "answer": "iii"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l3-q3",
+          "prompt": "In C major, play the V chord.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}
