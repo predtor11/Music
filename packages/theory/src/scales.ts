@@ -145,5 +145,31 @@ export function spellInKey(pc: PitchClass, key: Key): SpelledNote {
   return spellWithLetter(pc, 'C');
 }
 
+/** Letter steps from the lower note to the upper one, for each interval size (0-11 half steps). */
+const INTERVAL_LETTER_STEPS: readonly (readonly number[])[] = [[0], [1], [1], [2], [2], [3], [3, 4], [4], [5], [5], [6], [6]];
+
+/**
+ * Spell two notes as an interval, so the letters match the interval's number:
+ * a major 2nd on two black keys reads C# to D#, never C# to Eb. Starts from
+ * how the key spells each note and changes as few names as it can.
+ */
+export function spellInterval(low: PitchClass, high: PitchClass, key: Key): [SpelledNote, SpelledNote] {
+  const keyLow = spellInKey(low, key);
+  const keyHigh = spellInKey(high, key);
+  const lows = [keyLow, ...LETTERS.map((l) => spellWithLetter(low, l)).filter((n) => Math.abs(n.accidental) === 1 && n.letter !== keyLow.letter)];
+  const same = (a: SpelledNote, b: SpelledNote) => a.letter === b.letter && a.accidental === b.accidental;
+  let best: { pair: [SpelledNote, SpelledNote]; score: number } | null = null;
+  for (const lo of lows) {
+    for (const step of INTERVAL_LETTER_STEPS[mod12(high - low)]!) {
+      const hi = spellWithLetter(high, LETTERS[(letterIndex(lo.letter) + step) % 7]!);
+      if (Math.abs(hi.accidental) > 1) continue;
+      // Fewer accidentals first, then the spelling closest to the key's own.
+      const score = (Math.abs(lo.accidental) + Math.abs(hi.accidental)) * 10 - (same(lo, keyLow) ? 1 : 0) - (same(hi, keyHigh) ? 1 : 0);
+      if (!best || score < best.score) best = { pair: [lo, hi], score };
+    }
+  }
+  return best?.pair ?? [keyLow, keyHigh];
+}
+
 /** The key of C major, the default when no key is chosen. */
 export const C_MAJOR: Key = { tonic: { letter: 'C', accidental: 0 }, mode: 'major' };

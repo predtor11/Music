@@ -17,10 +17,12 @@ import {
   romanNumeral,
   sargam,
   spellInKey,
+  spellInterval,
   spelledPc,
   type Key,
   type MidiNote,
   type SargamName,
+  type SpelledNote,
 } from '@music/theory';
 
 export interface NoteLabel {
@@ -49,10 +51,10 @@ export type Description =
     }
   | { kind: 'unknown'; notes: NoteLabel[] };
 
-export function labelNote(midi: MidiNote, key: Key): NoteLabel {
+export function labelNote(midi: MidiNote, key: Key, spelled?: SpelledNote): NoteLabel {
   return {
     midi,
-    western: noteToString(spellInKey(pitchClass(midi), key)),
+    western: noteToString(spelled ?? spellInKey(pitchClass(midi), key)),
     octave: octave(midi),
     sargam: sargam(pitchClass(midi), keyTonicPc(key)),
   };
@@ -64,14 +66,27 @@ function labelName(name: string, key: Key): NoteLabel {
   return { midi: null, western: name, octave: null, sargam: sargam(spelledPc(parsed.note), keyTonicPc(key)) };
 }
 
+/** Two notes, spelled so their letters match the interval (C# to D#, not C# to Eb). */
+function describeInterval(low: MidiNote, high: MidiNote, key: Key): Description {
+  const info = intervalBetween(low, high);
+  const [lowName, highName] = spellInterval(pitchClass(low), pitchClass(high), key);
+  return {
+    kind: 'interval',
+    low: labelNote(low, key, lowName),
+    high: labelNote(high, key, highName),
+    short: info.short,
+    name: info.name,
+    semitones: info.semitones,
+  };
+}
+
 export function describe(held: readonly MidiNote[], key: Key): Description {
   const notes = [...new Set(held)].sort((a, b) => a - b);
   if (notes.length === 0) return { kind: 'empty' };
   if (notes.length === 1) return { kind: 'note', note: labelNote(notes[0]!, key) };
   if (notes.length === 2) {
     const [low, high] = notes as [MidiNote, MidiNote];
-    const info = intervalBetween(low, high);
-    return { kind: 'interval', low: labelNote(low, key), high: labelNote(high, key), short: info.short, name: info.name, semitones: info.semitones };
+    return describeInterval(low, high, key);
   }
 
   const chord = identifyChord(notes, key);
@@ -81,8 +96,7 @@ export function describe(held: readonly MidiNote[], key: Key): Description {
     if (pcs.length <= 2) {
       const low = notes[0]!;
       const high = notes.find((n) => pitchClass(n) !== pitchClass(low)) ?? notes[notes.length - 1]!;
-      const info = intervalBetween(low, high);
-      return { kind: 'interval', low: labelNote(low, key), high: labelNote(high, key), short: info.short, name: info.name, semitones: info.semitones };
+      return describeInterval(low, high, key);
     }
     return { kind: 'unknown', notes: notes.map((n) => labelNote(n, key)) };
   }

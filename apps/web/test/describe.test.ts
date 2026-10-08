@@ -39,6 +39,11 @@ group('describe', () => {
     expect(d.kind === 'interval' && d.name).toBe('major 3rd');
   });
 
+  it('spells both notes of an interval to match it', () => {
+    const d = describe(m('C#2', 'Eb4'), C_MAJOR);
+    expect(d.kind === 'interval' && [d.low.western, d.high.western, d.name]).toEqual(['C#', 'D#', 'major 2nd plus 2 octaves']);
+  });
+
   it('names chords with inversion, Roman numeral and Nashville number', () => {
     const c = describe(m('C4', 'E4', 'G4'), C_MAJOR);
     expect(c.kind === 'chord' && [c.symbol, c.fullName, c.inversion, c.roman, c.nashville]).toEqual(['C', 'C major', 'root position', 'I', '1']);
