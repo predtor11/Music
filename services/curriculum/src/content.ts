@@ -1,8 +1,9 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { LessonSchema, UnitSchema, type Lesson, type TestItem, type Unit } from '@music/contracts';
 import type { z } from 'zod';
+import { GlossarySchema, type GlossaryTerm } from './glossary.js';
 
 /** Where the lesson content ships: services/curriculum/content. */
 export const DEFAULT_CONTENT_DIR = fileURLToPath(new URL('../content', import.meta.url));
@@ -12,6 +13,8 @@ export interface Curriculum {
   units: Unit[];
   unitsById: Map<string, Unit>;
   lessonsById: Map<string, Lesson>;
+  /** In teaching order: by unit, then lesson, then file order. */
+  glossary: GlossaryTerm[];
 }
 
 /** Thrown at start-up when the content is broken; lists every problem found. */
@@ -28,22 +31,26 @@ function jsonFiles(dir: string): string[] {
     .map((name) => join(dir, name));
 }
 
-function readAll<T>(dir: string, root: string, schema: z.ZodType<T, z.ZodTypeDef, unknown>, problems: string[]): T[] {
-  const out: T[] = [];
-  for (const file of jsonFiles(dir)) {
-    const name = relative(root, file);
-    let data: unknown;
-    try {
-      data = JSON.parse(readFileSync(file, 'utf8'));
-    } catch (error) {
-      problems.push(`${name}: not valid JSON (${(error as Error).message})`);
-      continue;
-    }
-    const result = schema.safeParse(data);
-    if (result.success) out.push(result.data);
-    else for (const issue of result.error.issues) problems.push(`${name}: ${issue.path.join('.') || '(root)'}: ${issue.message}`);
+function readOne<T>(file: string, root: string, schema: z.ZodType<T, z.ZodTypeDef, unknown>, problems: string[]): T | undefined {
+  const name = relative(root, file);
+  let data: unknown;
+  try {
+    data = JSON.parse(readFileSync(file, 'utf8'));
+  } catch (error) {
+    problems.push(`${name}: not valid JSON (${(error as Error).message})`);
+    return undefined;
   }
-  return out;
+  const result = schema.safeParse(data);
+  if (result.success) return result.data;
+  for (const issue of result.error.issues) problems.push(`${name}: ${issue.path.join('.') || '(root)'}: ${issue.message}`);
+  return undefined;
+}
+
+function readAll<T>(dir: string, root: string, schema: z.ZodType<T, z.ZodTypeDef, unknown>, problems: string[]): T[] {
+  return jsonFiles(dir).flatMap((file) => {
+    const value = readOne(file, root, schema, problems);
+    return value === undefined ? [] : [value];
+  });
 }
 
 /** Every test item in a unit's lessons and checkpoint, for checks and grading. */
@@ -58,9 +65,10 @@ export function unitItems(unit: Unit, lessonsById: Map<string, Lesson>): TestIte
 }
 
 /**
- * Read and validate every unit (content/units) and lesson (content/lessons).
- * Files must match UnitSchema and LessonSchema, and they must agree with each
- * other: ids unique, every listed lesson exists in its unit, orders run 1, 2, 3.
+ * Read and validate every unit (content/units), lesson (content/lessons) and
+ * glossary term (content/glossary.json). Files must match their schemas, and
+ * they must agree with each other: ids unique, every listed lesson exists in
+ * its unit, orders run 1, 2, 3, and every term names a real lesson.
  */
 export function loadCurriculum(dir: string = DEFAULT_CONTENT_DIR): Curriculum {
   const problems: string[] = [];
@@ -97,6 +105,20 @@ export function loadCurriculum(dir: string = DEFAULT_CONTENT_DIR): Curriculum {
     }
   }
 
+  const glossaryFile = join(dir, 'glossary.json');
+  const terms = existsSync(glossaryFile) ? (readOne(glossaryFile, dir, GlossarySchema, problems) ?? []) : [];
+  const lessonRank = new Map(units.flatMap((unit) => unit.lessonIds).map((id, i) => [id, i]));
+  const termIds = new Set<string>();
+  for (const term of terms) {
+    if (termIds.has(term.id)) problems.push(`glossary term ${term.id} appears twice`);
+    termIds.add(term.id);
+    if (!lessonRank.has(term.lessonId)) problems.push(`glossary term ${term.id} names lesson ${term.lessonId}, which doesn't exist`);
+  }
+  const glossary = terms
+    .map((term, i) => ({ term, i }))
+    .sort((a, b) => (lessonRank.get(a.term.lessonId) ?? 0) - (lessonRank.get(b.term.lessonId) ?? 0) || a.i - b.i)
+    .map(({ term }) => term);
+
   if (problems.length > 0) throw new ContentError(problems);
-  return { units, unitsById, lessonsById };
+  return { units, unitsById, lessonsById, glossary };
 }

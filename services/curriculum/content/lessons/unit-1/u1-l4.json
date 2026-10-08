@@ -2,108 +2,64 @@
   "id": "u1-l4",
   "unitId": "unit-1",
   "order": 4,
-  "title": "Sharps and flats",
-  "summary": "Black keys borrow their names from the white keys next to them.",
-  "minutes": 6,
+  "title": "Middle C",
+  "summary": "One C is the landmark for the whole keyboard.",
+  "minutes": 4,
   "steps": [
     {
       "type": "explain",
-      "title": "Sharp means up, flat means down",
-      "body": "A black key takes its name from a white key beside it.\n\n- **Sharp** (♯) means one key to the right, a little higher.\n- **Flat** (♭) means one key to the left, a little lower.\n\nThe black key just right of C is **C sharp**, written C♯.",
+      "title": "Middle C",
+      "body": "The C nearest the middle of the keyboard, usually right under the maker's name, is called **middle C**.\n\n**Why it matters:** Middle C is the landmark everything else is measured from. Teachers, songbooks and band mates use it to say where on the keyboard to play.",
       "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "middle C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Middle C and its neighbours",
+      "body": "Middle C is in the centre, with a C on either side of it.",
+      "highlightMidi": [
+        48,
         60,
-        61
+        72
       ],
       "labels": {
-        "60": "C",
-        "61": "C♯"
-      }
-    },
-    {
-      "type": "show",
-      "title": "The sharp names",
-      "body": "Read from the left: C♯, D♯, F♯, G♯ and A♯. Each one is the key just right of the white key it is named after.",
-      "highlightMidi": [
-        61,
-        63,
-        66,
-        68,
-        70
-      ],
-      "labels": {
-        "61": "C♯",
-        "63": "D♯",
-        "66": "F♯",
-        "68": "G♯",
-        "70": "A♯"
-      }
-    },
-    {
-      "type": "explain",
-      "title": "Flats work the other way",
-      "body": "The same black keys can also be named from the white key on their right. The black key just left of B is **B flat**, written B♭.",
-      "exampleMidi": [
-        71,
-        70
-      ],
-      "labels": {
-        "70": "B♭",
-        "71": "B"
-      }
-    },
-    {
-      "type": "show",
-      "title": "The flat names",
-      "body": "The same five keys, now read as flats: D♭, E♭, G♭, A♭ and B♭.",
-      "highlightMidi": [
-        61,
-        63,
-        66,
-        68,
-        70
-      ],
-      "labels": {
-        "61": "D♭",
-        "63": "E♭",
-        "66": "G♭",
-        "68": "A♭",
-        "70": "B♭"
+        "48": "C",
+        "60": "middle C",
+        "72": "C"
       }
     },
     {
       "type": "play-along",
-      "title": "Find the black keys",
+      "title": "Play along",
       "items": [
         {
           "kind": "find-note",
           "id": "u1-l4-p1",
-          "prompt": "Play F#: find F, then go one key to the right.",
-          "pc": 6
+          "prompt": "Play middle C.",
+          "midi": 60
         },
         {
           "kind": "find-note",
           "id": "u1-l4-p2",
-          "prompt": "Play Bb: find B, then go one key to the left.",
-          "pc": 10
+          "prompt": "Play the lit key: the C just to the right of middle C.",
+          "midi": 72
         },
         {
           "kind": "find-note",
           "id": "u1-l4-p3",
-          "prompt": "Play C#.",
-          "pc": 1
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l4-p4",
-          "prompt": "Play Eb.",
-          "pc": 3
+          "prompt": "Play the lit key: the C just to the left of middle C.",
+          "midi": 48
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Black keys only",
-      "body": "Play only the black keys for a while, in any order. It always sounds good, because the five black keys make a scale you will meet in a later unit. Watch the names come up as you play."
+      "title": "Home base",
+      "body": "Put your right thumb on middle C and play a tune you know from there. Coming back to middle C will soon feel like coming home."
     },
     {
       "type": "quiz",
@@ -112,50 +68,34 @@
         {
           "kind": "find-note",
           "id": "u1-l4-q1",
-          "prompt": "Find G#.",
-          "pc": 8
+          "prompt": "Find middle C without looking at the screen.",
+          "midi": 60
         },
         {
-          "kind": "find-note",
+          "kind": "name-it",
           "id": "u1-l4-q2",
-          "prompt": "Find Db.",
-          "pc": 1
+          "prompt": "Is the lit key middle C?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
         },
         {
           "kind": "name-it",
           "id": "u1-l4-q3",
-          "prompt": "What is the sharp name of this key?",
+          "prompt": "Is the lit key middle C?",
           "shownMidi": [
-            66
+            60
           ],
           "choices": [
-            "C#",
-            "F#",
-            "G#",
-            "A#"
+            "yes",
+            "no"
           ],
-          "answer": "F#"
-        },
-        {
-          "kind": "name-it",
-          "id": "u1-l4-q4",
-          "prompt": "What is the flat name of this key?",
-          "shownMidi": [
-            70
-          ],
-          "choices": [
-            "Ab",
-            "Bb",
-            "Db",
-            "Eb"
-          ],
-          "answer": "Bb"
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l4-q5",
-          "prompt": "Find D#.",
-          "pc": 3
+          "answer": "yes"
         }
       ]
     }

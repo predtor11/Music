@@ -1,0 +1,131 @@
+{
+  "id": "u2-l7",
+  "unitId": "unit-2",
+  "order": 7,
+  "title": "The perfect 5th",
+  "summary": "Seven half steps: the open sound of power chords and left-hand bass.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Perfect 5th",
+      "body": "A **perfect 5th** is 7 half steps and spans five letters, like C to G.\n\n**Why it matters:** It is the sound of a power chord, and a root plus its 5th is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
+      "exampleMidi": [
+        60,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "67": "perfect 5th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "5ths in the left hand",
+      "body": "C and G an octave below middle C: the classic left-hand 5th.",
+      "highlightMidi": [
+        48,
+        55
+      ],
+      "labels": {
+        "48": "C",
+        "55": "perfect 5th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l7-p1",
+          "prompt": "Play C4, then go up a perfect 5th.",
+          "startMidi": 60,
+          "semitones": 7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l7-p2",
+          "prompt": "Play D4, then go up a perfect 5th.",
+          "startMidi": 62,
+          "semitones": 7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l7-p3",
+          "prompt": "Play G4, then go down a perfect 5th.",
+          "startMidi": 67,
+          "semitones": -7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l7-p4",
+          "prompt": "Play C3, then go up a perfect 5th.",
+          "startMidi": 48,
+          "semitones": 7
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Left-hand 5ths",
+      "body": "Play a 5th with your left hand and move it around the keyboard. That is the shape of a power chord."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l7-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            67
+          ],
+          "choices": [
+            "perfect 4th",
+            "perfect 5th"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l7-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            67
+          ],
+          "choices": [
+            "perfect 4th",
+            "perfect 5th"
+          ],
+          "answer": "perfect 4th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l7-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            69
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th",
+            "perfect 5th"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l7-q4",
+          "prompt": "Play E4, then go up a perfect 5th.",
+          "startMidi": 64,
+          "semitones": 7
+        }
+      ]
+    }
+  ]
+}

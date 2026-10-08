@@ -1,0 +1,138 @@
+{
+  "id": "u1-l10",
+  "unitId": "unit-1",
+  "order": 10,
+  "title": "Sharps",
+  "summary": "Black keys can be named after the white key to their left, with a sharp.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sharp",
+      "body": "A black key can take its name from the white key on its left. **Sharp** means one key higher, to the right. Its sign is ♯. The black key just to the right of C is **C sharp**, written C♯.\n\n**Why it matters:** Bands use sharps all the time: a song in F♯, a C♯ in the bass line. With sharps you can find every black key by name.",
+      "exampleMidi": [
+        60,
+        61
+      ],
+      "labels": {
+        "60": "C",
+        "61": "C♯"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Signs that move a note",
+      "body": "A sign that moves a note up or down from its plain letter is called an **accidental**. The ♯ sign is the first one you know, and the next two lessons add two more.\n\n**Why it matters:** When you see a sign next to a note name on a chart or in a chord name, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
+      "exampleMidi": [
+        65,
+        66
+      ],
+      "labels": {
+        "65": "F",
+        "66": "F♯"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The five sharps",
+      "body": "From the left: C♯, D♯, F♯, G♯ and A♯. Each is just to the right of the white key it is named after.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ],
+      "labels": {
+        "61": "C♯",
+        "63": "D♯",
+        "66": "F♯",
+        "68": "G♯",
+        "70": "A♯"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l10-p1",
+          "prompt": "Play F#: find F, then go one key to the right.",
+          "pc": 6
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l10-p2",
+          "prompt": "Play C#.",
+          "pc": 1
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l10-p3",
+          "prompt": "Play G#.",
+          "pc": 8
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l10-p4",
+          "prompt": "Play D#.",
+          "pc": 3
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Black keys by name",
+      "body": "Play each black key and say its sharp name out loud. The app shows the name, so you can check."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l10-q1",
+          "prompt": "Find G#.",
+          "pc": 8
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l10-q2",
+          "prompt": "What is the sharp name of this key?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "C#",
+            "F#",
+            "G#",
+            "A#"
+          ],
+          "answer": "F#"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l10-q3",
+          "prompt": "Find A#.",
+          "pc": 10
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l10-q4",
+          "prompt": "What is the sharp name of this key?",
+          "shownMidi": [
+            63
+          ],
+          "choices": [
+            "C#",
+            "D#",
+            "F#",
+            "G#"
+          ],
+          "answer": "D#"
+        }
+      ]
+    }
+  ]
+}

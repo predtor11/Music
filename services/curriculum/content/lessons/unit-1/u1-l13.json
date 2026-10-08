@@ -1,0 +1,188 @@
+{
+  "id": "u1-l13",
+  "unitId": "unit-1",
+  "order": 13,
+  "title": "Optional: sargam",
+  "summary": "Sa Re Ga Ma Pa Dha Ni on the keyboard. Sa moves with the home note of the song.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sargam",
+      "body": "If you have learned Indian music, you know **sargam**: Sa Re Ga Ma Pa Dha Ni. You can turn on sargam names in Settings to see them on the keys. This lesson and the next are optional, so skip them if sargam isn't for you.\n\n**Why it matters:** If you sing or hear songs in sargam, you can now connect those names straight to the keys.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "Sa",
+        "62": "Re",
+        "64": "Ga",
+        "65": "Ma",
+        "67": "Pa",
+        "69": "Dha",
+        "71": "Ni",
+        "72": "Sa"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Sa moves",
+      "body": "Letter names are fixed: C is always C. **Sa** isn't. Sa is the home note of whatever you are playing, the way a singer picks their Sa, and every other sargam name follows from it.\n\n**Why it matters:** Because Sa moves, a tune keeps the same sargam names whatever key you play it in. Tell the app where Sa is and it names the rest.",
+      "exampleMidi": [
+        60,
+        62
+      ],
+      "labels": {
+        "60": "Sa, if Sa is C",
+        "62": "Sa, if Sa is D"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "The plain notes",
+      "body": "The seven plain notes, Sa Re Ga Ma Pa Dha Ni, are the **shuddha** notes. With Sa on C, they fall on the white keys from C up.\n\n**Why it matters:** Shuddha notes are the starting point. The next lesson shows how some of them move one key up or down.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "Sa",
+        "62": "Re",
+        "64": "Ga",
+        "65": "Ma",
+        "67": "Pa",
+        "69": "Dha",
+        "71": "Ni",
+        "72": "Sa"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Sa on D",
+      "body": "Move Sa to D and every name moves with it. Ga lands on F♯ and Ni on C♯.",
+      "highlightMidi": [
+        62,
+        64,
+        66,
+        67,
+        69,
+        71,
+        73,
+        74
+      ],
+      "labels": {
+        "62": "Sa",
+        "64": "Re",
+        "66": "Ga",
+        "67": "Ma",
+        "69": "Pa",
+        "71": "Dha",
+        "73": "Ni",
+        "74": "Sa"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l13-p1",
+          "prompt": "Sa is C. Play Pa.",
+          "pc": 7
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l13-p2",
+          "prompt": "Sa is C. Play Ga.",
+          "pc": 4
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l13-p3",
+          "prompt": "Sa is D. Play Ga.",
+          "pc": 6
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l13-p4",
+          "prompt": "Sa is D. Play Pa.",
+          "pc": 9
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Pick your own Sa",
+      "body": "Pick any key as Sa and play a tune you know. Hum it in sargam if you like."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l13-q1",
+          "prompt": "Sa is C. What is this note?",
+          "shownMidi": [
+            62
+          ],
+          "choices": [
+            "Sa",
+            "Re",
+            "Ga",
+            "Ma"
+          ],
+          "answer": "Re"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l13-q2",
+          "prompt": "Sa is C. What is this note?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "Ma",
+            "Pa",
+            "Dha"
+          ],
+          "answer": "Pa"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l13-q3",
+          "prompt": "Sa is G. Play Pa.",
+          "pc": 2
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l13-q4",
+          "prompt": "Sa is D. What is this note?",
+          "shownMidi": [
+            64
+          ],
+          "choices": [
+            "Sa",
+            "Re",
+            "Ga"
+          ],
+          "answer": "Re"
+        }
+      ]
+    }
+  ]
+}

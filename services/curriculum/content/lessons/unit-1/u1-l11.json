@@ -1,0 +1,125 @@
+{
+  "id": "u1-l11",
+  "unitId": "unit-1",
+  "order": 11,
+  "title": "Flats",
+  "summary": "Black keys can also be named after the white key to their right, with a flat.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Flat",
+      "body": "A black key can also take its name from the white key on its right. **Flat** means one key lower, to the left. Its sign is ♭. The black key just to the left of B is **B flat**, written B♭.\n\n**Why it matters:** Many songs and band charts use flats: B♭, E♭ and A♭ come up all the time, especially with horn players. Knowing flats means you are never lost when someone calls one.",
+      "exampleMidi": [
+        71,
+        70
+      ],
+      "labels": {
+        "70": "B♭",
+        "71": "B"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The five flats",
+      "body": "The same five black keys, read as flats: D♭, E♭, G♭, A♭ and B♭.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ],
+      "labels": {
+        "61": "D♭",
+        "63": "E♭",
+        "66": "G♭",
+        "68": "A♭",
+        "70": "B♭"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l11-p1",
+          "prompt": "Play Bb: find B, then go one key to the left.",
+          "pc": 10
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l11-p2",
+          "prompt": "Play Eb.",
+          "pc": 3
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l11-p3",
+          "prompt": "Play Ab.",
+          "pc": 8
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l11-p4",
+          "prompt": "Play Db.",
+          "pc": 1
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Flat names",
+      "body": "Play each black key and say its flat name out loud."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l11-q1",
+          "prompt": "Find Db.",
+          "pc": 1
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l11-q2",
+          "prompt": "What is the flat name of this key?",
+          "shownMidi": [
+            70
+          ],
+          "choices": [
+            "Ab",
+            "Bb",
+            "Db",
+            "Eb"
+          ],
+          "answer": "Bb"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l11-q3",
+          "prompt": "What is the flat name of this key?",
+          "shownMidi": [
+            68
+          ],
+          "choices": [
+            "Gb",
+            "Ab",
+            "Bb",
+            "Db"
+          ],
+          "answer": "Ab"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l11-q4",
+          "prompt": "Find Gb.",
+          "pc": 6
+        }
+      ]
+    }
+  ]
+}

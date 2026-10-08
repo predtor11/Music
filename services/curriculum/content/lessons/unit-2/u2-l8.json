@@ -1,0 +1,133 @@
+{
+  "id": "u2-l8",
+  "unitId": "unit-2",
+  "order": 8,
+  "title": "The tritone",
+  "summary": "Six half steps, right between the 4th and the 5th, and the most restless interval.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Tritone",
+      "body": "Between the perfect 4th (5 half steps) and the perfect 5th (7) sits the **tritone**: 6 half steps, like C to F♯ or F to B.\n\n**Why it matters:** The tritone sounds tense, as if it wants to move. It sits inside the 7th chords that pull a song back home, which you will meet in Unit 6.",
+      "exampleMidi": [
+        60,
+        66
+      ],
+      "labels": {
+        "60": "C",
+        "66": "tritone"
+      }
+    },
+    {
+      "type": "show",
+      "title": "4th, tritone and 5th above C",
+      "body": "F is a perfect 4th above C, F♯ is a tritone, and G is a perfect 5th.",
+      "highlightMidi": [
+        60,
+        65,
+        66,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "65": "perfect 4th",
+        "66": "tritone",
+        "67": "perfect 5th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l8-p1",
+          "prompt": "Play C4, then go up a tritone.",
+          "startMidi": 60,
+          "semitones": 6
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l8-p2",
+          "prompt": "Play F4, then go up a tritone.",
+          "startMidi": 65,
+          "semitones": 6
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l8-p3",
+          "prompt": "Play B4, then go down a tritone.",
+          "startMidi": 71,
+          "semitones": -6
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Settled or restless",
+      "body": "Play a 5th, then a tritone, from the same key. Notice how the 5th sounds settled and the tritone sounds restless."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l8-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            65
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th",
+            "tritone",
+            "perfect 5th"
+          ],
+          "answer": "perfect 4th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l8-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            69
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th",
+            "tritone",
+            "perfect 5th"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l8-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            65,
+            71
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th",
+            "tritone",
+            "perfect 5th"
+          ],
+          "answer": "tritone"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l8-q4",
+          "prompt": "Play E4, then go up a tritone.",
+          "startMidi": 64,
+          "semitones": 6
+        }
+      ]
+    }
+  ]
+}

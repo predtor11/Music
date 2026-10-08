@@ -1,0 +1,166 @@
+{
+  "id": "u2-l11",
+  "unitId": "unit-2",
+  "order": 11,
+  "title": "The octave, going up and coming down",
+  "summary": "The octave completes the set, and every interval can go up or down.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The octave as an interval",
+      "body": "Twelve half steps bring you back to the same letter: the octave from Unit 1. It is a perfect interval, like the 4th and the 5th. You now have a name for every distance from 0 half steps to 12.\n\n**Why it matters:** with these thirteen names you can describe the gap between any two notes inside an octave.",
+      "exampleMidi": [
+        60,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "72": "octave"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Every interval above C",
+      "body": "- C♯: minor 2nd\n- D: major 2nd\n- E♭: minor 3rd\n- E: major 3rd\n- F: perfect 4th\n- F♯: tritone\n- G: perfect 5th\n- A♭: minor 6th\n- A: major 6th\n- B♭: minor 7th\n- B: major 7th\n- C: octave",
+      "highlightMidi": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "61": "minor 2nd",
+        "62": "major 2nd",
+        "63": "minor 3rd",
+        "64": "major 3rd",
+        "65": "perfect 4th",
+        "66": "tritone",
+        "67": "perfect 5th",
+        "68": "minor 6th",
+        "69": "major 6th",
+        "70": "minor 7th",
+        "71": "major 7th",
+        "72": "octave"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Going up",
+      "body": "An interval played from a lower note to a higher one is **ascending**.\n\n**Why it matters:** \"Up a 5th\" from C lands on G. Knowing the direction tells you which key to aim for.",
+      "exampleMidi": [
+        60,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "67": "G, up a 5th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Coming down",
+      "body": "An interval played from a higher note to a lower one is **descending**. Its size and name stay the same.\n\n**Why it matters:** \"Down a 5th\" from C lands on F, not G. The same interval in the other direction reaches a different note.",
+      "exampleMidi": [
+        53,
+        60
+      ],
+      "labels": {
+        "53": "F, down a 5th",
+        "60": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-p1",
+          "prompt": "Play C4, then go up an octave.",
+          "startMidi": 60,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-p2",
+          "prompt": "Play C5, then go down a perfect 5th.",
+          "startMidi": 72,
+          "semitones": -7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-p3",
+          "prompt": "Play C5, then go down a major 3rd.",
+          "startMidi": 72,
+          "semitones": -4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-p4",
+          "prompt": "Play C5, then go down a minor 7th.",
+          "startMidi": 72,
+          "semitones": -10
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Down and up",
+      "body": "Pick a note, go down a 5th, then come back up. Then try the same with a 4th and a 3rd."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-q1",
+          "prompt": "Play G4, then go up an octave.",
+          "startMidi": 67,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-q2",
+          "prompt": "Play A4, then go down a perfect 4th.",
+          "startMidi": 69,
+          "semitones": -5
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l11-q3",
+          "prompt": "Play E4, then go down a minor 3rd.",
+          "startMidi": 64,
+          "semitones": -3
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l11-q4",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            74
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "octave"
+        }
+      ]
+    }
+  ]
+}

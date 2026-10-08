@@ -1,0 +1,694 @@
+[
+  {
+    "id": "note",
+    "term": "note",
+    "meaning": "One musical sound, such as the sound a single piano key makes.",
+    "whyItMatters": "Music theory is about notes: which ones, how far apart they are, and how they fit together. When your band says \"hit that note again\", this is what they mean.",
+    "lessonId": "u1-l1",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "one note"
+    }
+  },
+  {
+    "id": "pitch",
+    "term": "pitch",
+    "meaning": "How high or low a note sounds.",
+    "whyItMatters": "Musicians say a tune goes \"up\" or \"down\". On the keyboard, up always means to the right and down always means to the left, so you can follow those directions straight away.",
+    "lessonId": "u1-l1",
+    "exampleMidi": [
+      48,
+      60,
+      72
+    ],
+    "labels": {
+      "48": "lower",
+      "60": "middle",
+      "72": "higher"
+    }
+  },
+  {
+    "id": "white-key",
+    "term": "white key",
+    "meaning": "One of the long front keys of a keyboard. A full piano has 52.",
+    "whyItMatters": "The first notes you learn by name are all white keys, and many simple tunes use nothing else.",
+    "lessonId": "u1-l2",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71
+    ]
+  },
+  {
+    "id": "black-key",
+    "term": "black key",
+    "meaning": "One of the short raised keys. They come in groups of two and three, and a full piano has 36.",
+    "whyItMatters": "The groups of two and three are your map. Every key gets its name from where it sits next to these groups, so once you can spot them you can find anything.",
+    "lessonId": "u1-l2",
+    "exampleMidi": [
+      61,
+      63,
+      66,
+      68,
+      70
+    ],
+    "labels": {
+      "61": "2",
+      "63": "2",
+      "66": "3",
+      "68": "3",
+      "70": "3"
+    }
+  },
+  {
+    "id": "note-name",
+    "term": "note name",
+    "meaning": "The letter that names a note, such as C or G.",
+    "whyItMatters": "Note names are how musicians talk about notes. \"Start on C\" or \"the song begins on G\" only makes sense once you know where each name sits.",
+    "lessonId": "u1-l3",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "C"
+    }
+  },
+  {
+    "id": "middle-c",
+    "term": "middle C",
+    "meaning": "The C closest to the middle of the keyboard.",
+    "whyItMatters": "Middle C is the landmark everything else is measured from. Teachers, songbooks and band mates use it to say where on the keyboard to play.",
+    "lessonId": "u1-l4",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "middle C"
+    }
+  },
+  {
+    "id": "musical-alphabet",
+    "term": "musical alphabet",
+    "meaning": "The seven letters used for note names, A B C D E F G, repeating along the keyboard.",
+    "whyItMatters": "With only seven letters, you can now name every white key on the piano. Going up, the letters go forward. Going down, they go backward.",
+    "lessonId": "u1-l7",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D",
+      "64": "E",
+      "65": "F",
+      "67": "G",
+      "69": "A",
+      "71": "B",
+      "72": "C"
+    }
+  },
+  {
+    "id": "octave",
+    "term": "octave",
+    "meaning": "The distance from one note to the next note up or down with the same letter, such as C to the next C.",
+    "whyItMatters": "Notes an octave apart share a name and blend so well they almost sound like one note. That is why a tune played higher is still the same tune, and why the band can say \"play it an octave up\".",
+    "lessonId": "u1-l8",
+    "exampleMidi": [
+      60,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "72": "C, an octave up"
+    }
+  },
+  {
+    "id": "octave-number",
+    "term": "octave number",
+    "meaning": "The number after a note name that says which octave it is in. Middle C is C4.",
+    "whyItMatters": "\"Play an E\" could mean any of seven Es. \"Play E4\" means exactly one key, so octave numbers let the app, a teacher or a score point to one exact key.",
+    "lessonId": "u1-l9",
+    "exampleMidi": [
+      59,
+      60,
+      62
+    ],
+    "labels": {
+      "59": "B3",
+      "60": "C4",
+      "62": "D4"
+    }
+  },
+  {
+    "id": "sharp",
+    "term": "sharp",
+    "aliases": [
+      "♯"
+    ],
+    "meaning": "One key higher. A sharp sign (♯) after a note name means the key just to the right of that note.",
+    "whyItMatters": "Bands use sharps all the time: a song in F♯, a C♯ in the bass line. With sharps you can find every black key by name.",
+    "lessonId": "u1-l10",
+    "exampleMidi": [
+      60,
+      61
+    ],
+    "labels": {
+      "60": "C",
+      "61": "C♯"
+    }
+  },
+  {
+    "id": "accidental",
+    "term": "accidental",
+    "meaning": "A sign that raises or lowers a note from its plain letter name, such as ♯.",
+    "whyItMatters": "When you see a sign next to a note name on a chart or in a chord name, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
+    "lessonId": "u1-l10",
+    "exampleMidi": [
+      65,
+      66
+    ],
+    "labels": {
+      "65": "F",
+      "66": "F♯"
+    }
+  },
+  {
+    "id": "flat",
+    "term": "flat",
+    "aliases": [
+      "♭"
+    ],
+    "meaning": "One key lower. A flat sign (♭) after a note name means the key just to the left of that note.",
+    "whyItMatters": "Many songs and band charts use flats: B♭, E♭ and A♭ come up all the time, especially with horn players. Knowing flats means you are never lost when someone calls one.",
+    "lessonId": "u1-l11",
+    "exampleMidi": [
+      71,
+      70
+    ],
+    "labels": {
+      "70": "B♭",
+      "71": "B"
+    }
+  },
+  {
+    "id": "enharmonic",
+    "term": "enharmonic",
+    "meaning": "Two different names for the same key, such as C♯ and D♭.",
+    "whyItMatters": "Both names are correct and you will hear both. Which one a song uses depends on its key, which comes in Unit 3. For now, if someone says D♭ and you think C♯, you are right.",
+    "lessonId": "u1-l12",
+    "exampleMidi": [
+      61
+    ],
+    "labels": {
+      "61": "C♯ / D♭"
+    }
+  },
+  {
+    "id": "natural",
+    "term": "natural",
+    "aliases": [
+      "♮"
+    ],
+    "meaning": "A sign (♮) that cancels a sharp or flat and means the plain letter note.",
+    "whyItMatters": "You will see ♮ on charts when a note should be the plain white key rather than its sharp or flat neighbour.",
+    "lessonId": "u1-l12",
+    "exampleMidi": [
+      65,
+      66
+    ],
+    "labels": {
+      "65": "F♮",
+      "66": "F♯"
+    }
+  },
+  {
+    "id": "sargam",
+    "term": "sargam",
+    "meaning": "The Indian names for the notes: Sa Re Ga Ma Pa Dha Ni.",
+    "whyItMatters": "If you sing or hear songs in sargam, you can now connect those names straight to the keys.",
+    "lessonId": "u1-l13",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "Sa",
+      "62": "Re",
+      "64": "Ga",
+      "65": "Ma",
+      "67": "Pa",
+      "69": "Dha",
+      "71": "Ni",
+      "72": "Sa"
+    }
+  },
+  {
+    "id": "sa",
+    "term": "Sa",
+    "meaning": "The first note of sargam: the home note of the song. Sa moves to wherever the song's home note is.",
+    "whyItMatters": "Because Sa moves, a tune keeps the same sargam names whatever key you play it in. Tell the app where Sa is and it names the rest.",
+    "lessonId": "u1-l13",
+    "exampleMidi": [
+      60,
+      62
+    ],
+    "labels": {
+      "60": "Sa, if Sa is C",
+      "62": "Sa, if Sa is D"
+    }
+  },
+  {
+    "id": "shuddha",
+    "term": "shuddha",
+    "meaning": "The plain, unchanged form of a sargam note.",
+    "whyItMatters": "Shuddha notes are the starting point. The next lesson shows how some of them move one key up or down.",
+    "lessonId": "u1-l13",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "Sa",
+      "62": "Re",
+      "64": "Ga",
+      "65": "Ma",
+      "67": "Pa",
+      "69": "Dha",
+      "71": "Ni",
+      "72": "Sa"
+    }
+  },
+  {
+    "id": "komal",
+    "term": "komal",
+    "meaning": "A sargam note lowered by one key. Re, Ga, Dha and Ni can be komal.",
+    "whyItMatters": "Many ragas and film songs use komal notes, and they are the sargam names for most black keys.",
+    "lessonId": "u1-l14",
+    "exampleMidi": [
+      61,
+      63,
+      68,
+      70
+    ],
+    "labels": {
+      "61": "komal Re",
+      "63": "komal Ga",
+      "68": "komal Dha",
+      "70": "komal Ni"
+    }
+  },
+  {
+    "id": "tivra",
+    "term": "tivra",
+    "meaning": "A sargam note raised by one key. Only Ma can be tivra.",
+    "whyItMatters": "Tivra Ma gives some ragas their bright, lifted sound. With komal and tivra, every key on the keyboard has a sargam name.",
+    "lessonId": "u1-l14",
+    "exampleMidi": [
+      65,
+      66
+    ],
+    "labels": {
+      "65": "Ma",
+      "66": "tivra Ma"
+    }
+  },
+  {
+    "id": "half-step",
+    "term": "half step",
+    "aliases": [
+      "semitone"
+    ],
+    "meaning": "The smallest distance on the keyboard: from one key to the very next key. Also called a semitone.",
+    "whyItMatters": "The half step is the ruler of music: every distance between notes is measured by counting half steps. When a band mate says \"take it up a half step\", they want the whole song one key higher.",
+    "lessonId": "u2-l1",
+    "exampleMidi": [
+      60,
+      61
+    ],
+    "labels": {
+      "60": "C",
+      "61": "C♯, a half step up"
+    }
+  },
+  {
+    "id": "whole-step",
+    "term": "whole step",
+    "aliases": [
+      "whole tone"
+    ],
+    "meaning": "Two half steps: a move that skips over exactly one key. Also called a whole tone.",
+    "whyItMatters": "Most tunes move mainly in half steps and whole steps. Telling the two apart is the first step to hearing how a tune is built.",
+    "lessonId": "u2-l2",
+    "exampleMidi": [
+      60,
+      61,
+      62
+    ],
+    "labels": {
+      "60": "C",
+      "61": "skipped",
+      "62": "D, a whole step up"
+    }
+  },
+  {
+    "id": "interval",
+    "term": "interval",
+    "meaning": "The distance between two notes, counted in half steps and given a name.",
+    "whyItMatters": "Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what chords are built from, so they are the bridge to understanding chords.",
+    "lessonId": "u2-l3",
+    "exampleMidi": [
+      60,
+      64
+    ],
+    "labels": {
+      "60": "C",
+      "64": "4 half steps up"
+    }
+  },
+  {
+    "id": "unison",
+    "term": "unison",
+    "meaning": "Two notes at exactly the same pitch: an interval of zero half steps.",
+    "whyItMatters": "When the band plays \"in unison\", everyone plays the same notes together. It is also where counting starts: 0 half steps.",
+    "lessonId": "u2-l3",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "C and C"
+    }
+  },
+  {
+    "id": "second",
+    "term": "2nd",
+    "meaning": "An interval that spans two letter names, such as C to D or E to F.",
+    "whyItMatters": "The number tells you how many letters the interval covers. That is how musicians describe tunes and spell chords.",
+    "lessonId": "u2-l4",
+    "exampleMidi": [
+      60,
+      62
+    ],
+    "labels": {
+      "60": "C (1)",
+      "62": "D (2)"
+    }
+  },
+  {
+    "id": "minor",
+    "term": "minor",
+    "meaning": "The smaller of the two sizes an interval can come in, such as a minor 2nd (1 half step).",
+    "whyItMatters": "Minor intervals tend to give music a darker colour. You will hear \"minor\" about chords and keys too.",
+    "lessonId": "u2-l4",
+    "exampleMidi": [
+      64,
+      65
+    ],
+    "labels": {
+      "64": "E",
+      "65": "F"
+    }
+  },
+  {
+    "id": "major",
+    "term": "major",
+    "meaning": "The bigger of the two sizes an interval can come in, such as a major 2nd (2 half steps).",
+    "whyItMatters": "Major intervals give music its brighter colour. \"Major\" and \"minor\" are two of the words your band uses most.",
+    "lessonId": "u2-l4",
+    "exampleMidi": [
+      60,
+      62
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D"
+    }
+  },
+  {
+    "id": "minor-2nd",
+    "term": "minor 2nd",
+    "meaning": "An interval of 1 half step.",
+    "whyItMatters": "It is the tightest, most tense interval. Think of the Jaws theme.",
+    "lessonId": "u2-l4",
+    "exampleMidi": [
+      64,
+      65
+    ],
+    "labels": {
+      "64": "E",
+      "65": "minor 2nd"
+    }
+  },
+  {
+    "id": "major-2nd",
+    "term": "major 2nd",
+    "meaning": "An interval of 2 half steps: a whole step.",
+    "whyItMatters": "It is the most common move in tunes. Happy Birthday steps up a major 2nd on \"-py birth\".",
+    "lessonId": "u2-l4",
+    "exampleMidi": [
+      60,
+      62
+    ],
+    "labels": {
+      "60": "C",
+      "62": "major 2nd"
+    }
+  },
+  {
+    "id": "third",
+    "term": "3rd",
+    "meaning": "An interval that spans three letter names, such as C to E.",
+    "whyItMatters": "Chords are stacked out of 3rds. When you learn chords in Unit 4, you will build them from the 3rds in this lesson.",
+    "lessonId": "u2-l5",
+    "exampleMidi": [
+      60,
+      64
+    ],
+    "labels": {
+      "60": "C (1)",
+      "64": "E (3)"
+    }
+  },
+  {
+    "id": "minor-3rd",
+    "term": "minor 3rd",
+    "meaning": "An interval of 3 half steps.",
+    "whyItMatters": "The minor 3rd is the sound that makes a minor chord sound sad. Greensleeves opens with one.",
+    "lessonId": "u2-l5",
+    "exampleMidi": [
+      60,
+      63
+    ],
+    "labels": {
+      "60": "C",
+      "63": "minor 3rd"
+    }
+  },
+  {
+    "id": "major-3rd",
+    "term": "major 3rd",
+    "meaning": "An interval of 4 half steps.",
+    "whyItMatters": "The major 3rd makes a major chord sound happy. Oh When the Saints opens with one.",
+    "lessonId": "u2-l5",
+    "exampleMidi": [
+      60,
+      64
+    ],
+    "labels": {
+      "60": "C",
+      "64": "major 3rd"
+    }
+  },
+  {
+    "id": "perfect",
+    "term": "perfect",
+    "meaning": "The label for the unison, 4th, 5th and octave: intervals with one main size that sound open and stable.",
+    "whyItMatters": "When someone says \"a perfect 4th\", the word perfect tells you it is the plain, stable version of that interval.",
+    "lessonId": "u2-l6",
+    "exampleMidi": [
+      60,
+      65,
+      67,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "65": "4th",
+      "67": "5th",
+      "72": "octave"
+    }
+  },
+  {
+    "id": "perfect-4th",
+    "term": "perfect 4th",
+    "meaning": "An interval of 5 half steps, such as C to F.",
+    "whyItMatters": "It is the sound of Here Comes the Bride, and of many bass lines that jump from one chord to the next.",
+    "lessonId": "u2-l6",
+    "exampleMidi": [
+      60,
+      65
+    ],
+    "labels": {
+      "60": "C",
+      "65": "perfect 4th"
+    }
+  },
+  {
+    "id": "perfect-5th",
+    "term": "perfect 5th",
+    "meaning": "An interval of 7 half steps, such as C to G.",
+    "whyItMatters": "It is the sound of a power chord, and a root plus its 5th is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
+    "lessonId": "u2-l7",
+    "exampleMidi": [
+      60,
+      67
+    ],
+    "labels": {
+      "60": "C",
+      "67": "perfect 5th"
+    }
+  },
+  {
+    "id": "tritone",
+    "term": "tritone",
+    "meaning": "An interval of 6 half steps: exactly half an octave.",
+    "whyItMatters": "The tritone sounds tense, as if it wants to move. It sits inside the 7th chords that pull a song back home, which you will meet in Unit 6.",
+    "lessonId": "u2-l8",
+    "exampleMidi": [
+      60,
+      66
+    ],
+    "labels": {
+      "60": "C",
+      "66": "tritone"
+    }
+  },
+  {
+    "id": "minor-6th",
+    "term": "minor 6th",
+    "meaning": "An interval of 8 half steps, such as C to A♭.",
+    "whyItMatters": "It has a bittersweet sound, and it turns up in a lot of film and love-song melodies.",
+    "lessonId": "u2-l9",
+    "exampleMidi": [
+      60,
+      68
+    ],
+    "labels": {
+      "60": "C",
+      "68": "minor 6th"
+    }
+  },
+  {
+    "id": "major-6th",
+    "term": "major 6th",
+    "meaning": "An interval of 9 half steps, such as C to A.",
+    "whyItMatters": "It sounds warm and sweet, and it is the sound of many harmony lines. My Bonnie Lies Over the Ocean opens with one.",
+    "lessonId": "u2-l9",
+    "exampleMidi": [
+      60,
+      69
+    ],
+    "labels": {
+      "60": "C",
+      "69": "major 6th"
+    }
+  },
+  {
+    "id": "minor-7th",
+    "term": "minor 7th",
+    "meaning": "An interval of 10 half steps, such as C to B♭.",
+    "whyItMatters": "The minor 7th is the \"7\" in chord names like G7, which you will meet in Unit 6. The original Star Trek theme opens with one.",
+    "lessonId": "u2-l10",
+    "exampleMidi": [
+      60,
+      70
+    ],
+    "labels": {
+      "60": "C",
+      "70": "minor 7th"
+    }
+  },
+  {
+    "id": "major-7th",
+    "term": "major 7th",
+    "meaning": "An interval of 11 half steps, such as C to B.",
+    "whyItMatters": "It is the dreamy sound in \"maj7\" chords, which are all over soul, jazz and pop ballads.",
+    "lessonId": "u2-l10",
+    "exampleMidi": [
+      60,
+      71
+    ],
+    "labels": {
+      "60": "C",
+      "71": "major 7th"
+    }
+  },
+  {
+    "id": "ascending",
+    "term": "ascending",
+    "meaning": "Going up: from a lower note to a higher one.",
+    "whyItMatters": "\"Up a 5th\" from C lands on G. Knowing the direction tells you which key to aim for.",
+    "lessonId": "u2-l11",
+    "exampleMidi": [
+      60,
+      67
+    ],
+    "labels": {
+      "60": "C",
+      "67": "G, up a 5th"
+    }
+  },
+  {
+    "id": "descending",
+    "term": "descending",
+    "meaning": "Going down: from a higher note to a lower one.",
+    "whyItMatters": "\"Down a 5th\" from C lands on F, not G. The same interval in the other direction reaches a different note.",
+    "lessonId": "u2-l11",
+    "exampleMidi": [
+      53,
+      60
+    ],
+    "labels": {
+      "53": "F, down a 5th",
+      "60": "C"
+    }
+  },
+  {
+    "id": "ear-training",
+    "term": "ear training",
+    "meaning": "Practice at recognising intervals, chords and other sounds by ear.",
+    "whyItMatters": "You already play by ear. Ear training puts names on what you hear, so when the band says \"it goes up a 6th\" you will recognise it at once.",
+    "lessonId": "u2-l12",
+    "exampleMidi": [
+      60,
+      67
+    ],
+    "labels": {
+      "60": "C",
+      "67": "perfect 5th"
+    }
+  }
+]

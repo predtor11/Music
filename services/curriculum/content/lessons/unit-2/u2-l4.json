@@ -2,133 +2,128 @@
   "id": "u2-l4",
   "unitId": "unit-2",
   "order": 4,
-  "title": "Sixths, sevenths and the octave",
-  "summary": "The wide intervals, up to the octave. After this you know all twelve.",
+  "title": "Seconds",
+  "summary": "Interval names count letters. A 2nd spans two letters, and comes in a minor and a major size.",
   "minutes": 6,
   "steps": [
     {
       "type": "explain",
-      "title": "Sixths",
-      "body": "Eight half steps make a **minor 6th** (C to A♭). Nine make a **major 6th** (C to A). Sixths sound sweet, and you hear them in a lot of harmony lines.",
+      "title": "Numbers count letters",
+      "body": "Interval names use numbers. Count the letters from the first note to the second, counting both ends: C to D covers C and D, so it is a **2nd**.\n\n**Why it matters:** The number tells you how many letters the interval covers. That is how musicians describe tunes and spell chords.",
       "exampleMidi": [
         60,
-        68,
-        69
+        62
       ],
       "labels": {
-        "60": "C",
-        "68": "minor 6th",
-        "69": "major 6th"
+        "60": "C (1)",
+        "62": "D (2)"
       }
     },
     {
       "type": "explain",
-      "title": "Sevenths",
-      "body": "Ten half steps make a **minor 7th** (C to B♭). Eleven make a **major 7th** (C to B), one half step short of the octave.\n\nThe minor 7th is the \"7\" in chords like G7. The major 7th is the dreamy sound in \"maj7\" chords.",
+      "title": "Two sizes: minor",
+      "body": "Some interval numbers come in two sizes. The smaller size is called **minor**.\n\n**Why it matters:** Minor intervals tend to give music a darker colour. You will hear \"minor\" about chords and keys too.",
       "exampleMidi": [
-        60,
-        70,
-        71
+        64,
+        65
       ],
       "labels": {
-        "60": "C",
-        "70": "minor 7th",
-        "71": "major 7th"
+        "64": "E",
+        "65": "F"
       }
     },
     {
       "type": "explain",
-      "title": "The octave",
-      "body": "Twelve half steps bring you back to the same letter: the **octave**. You now have a name for every distance from one half step to twelve.",
+      "title": "Two sizes: major",
+      "body": "The bigger of the two sizes is called **major**.\n\n**Why it matters:** Major intervals give music its brighter colour. \"Major\" and \"minor\" are two of the words your band uses most.",
       "exampleMidi": [
         60,
-        72
+        62
       ],
       "labels": {
         "60": "C",
-        "72": "octave"
+        "62": "D"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Minor 2nd",
+      "body": "A **minor 2nd** is 1 half step, like E to F or C to C♯.\n\n**Why it matters:** It is the tightest, most tense interval. Think of the Jaws theme.",
+      "exampleMidi": [
+        64,
+        65
+      ],
+      "labels": {
+        "64": "E",
+        "65": "minor 2nd"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Major 2nd",
+      "body": "A **major 2nd** is 2 half steps, a whole step, like C to D.\n\n**Why it matters:** It is the most common move in tunes. Happy Birthday steps up a major 2nd on \"-py birth\".",
+      "exampleMidi": [
+        60,
+        62
+      ],
+      "labels": {
+        "60": "C",
+        "62": "major 2nd"
       }
     },
     {
       "type": "show",
-      "title": "Every interval above C",
-      "body": "- C♯: minor 2nd\n- D: major 2nd\n- E♭: minor 3rd\n- E: major 3rd\n- F: perfect 4th\n- F♯: tritone\n- G: perfect 5th\n- A♭: minor 6th\n- A: major 6th\n- B♭: minor 7th\n- B: major 7th\n- C: octave",
+      "title": "Seconds above C",
+      "body": "C♯ is a minor 2nd above C, and D is a major 2nd above C.",
       "highlightMidi": [
         60,
         61,
-        62,
-        63,
-        64,
-        65,
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72
+        62
       ],
       "labels": {
         "60": "C",
         "61": "minor 2nd",
-        "62": "major 2nd",
-        "63": "minor 3rd",
-        "64": "major 3rd",
-        "65": "perfect 4th",
-        "66": "tritone",
-        "67": "perfect 5th",
-        "68": "minor 6th",
-        "69": "major 6th",
-        "70": "minor 7th",
-        "71": "major 7th",
-        "72": "octave"
+        "62": "major 2nd"
       }
     },
     {
       "type": "play-along",
-      "title": "Play the wide intervals",
+      "title": "Play along",
       "items": [
         {
           "kind": "play-interval",
           "id": "u2-l4-p1",
-          "prompt": "Play C4, then go up a major 6th.",
+          "prompt": "Play C4, then go up a minor 2nd.",
           "startMidi": 60,
-          "semitones": 9
+          "semitones": 1
         },
         {
           "kind": "play-interval",
           "id": "u2-l4-p2",
-          "prompt": "Play C4, then go up a minor 7th.",
+          "prompt": "Play C4, then go up a major 2nd.",
           "startMidi": 60,
-          "semitones": 10
+          "semitones": 2
         },
         {
           "kind": "play-interval",
           "id": "u2-l4-p3",
-          "prompt": "Play C4, then go up a major 7th.",
-          "startMidi": 60,
-          "semitones": 11
+          "prompt": "Play G4, then go up a major 2nd.",
+          "startMidi": 67,
+          "semitones": 2
         },
         {
           "kind": "play-interval",
           "id": "u2-l4-p4",
-          "prompt": "Play C4, then go up an octave.",
-          "startMidi": 60,
-          "semitones": 12
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l4-p5",
-          "prompt": "Play E4, then go up a minor 6th.",
-          "startMidi": 64,
-          "semitones": 8
+          "prompt": "Play D4, then go up a minor 2nd.",
+          "startMidi": 62,
+          "semitones": 1
         }
       ]
     },
     {
       "type": "explore",
-      "title": "All twelve",
-      "body": "Hold a low note with your left hand and play each interval above it with your right, one at a time. Say the name of each one as you go."
+      "title": "Small and smaller",
+      "body": "Play a minor 2nd, then a major 2nd, from the same key. Notice how the minor 2nd rubs and the major 2nd sounds smooth."
     },
     {
       "type": "quiz",
@@ -140,68 +135,48 @@
           "prompt": "Which interval is this?",
           "shownMidi": [
             60,
-            70
+            62
           ],
           "choices": [
-            "major 6th",
-            "minor 7th",
-            "major 7th",
-            "octave"
+            "minor 2nd",
+            "major 2nd"
           ],
-          "answer": "minor 7th"
+          "answer": "major 2nd"
         },
         {
           "kind": "name-it",
           "id": "u2-l4-q2",
           "prompt": "Which interval is this?",
           "shownMidi": [
-            62,
-            71
+            64,
+            65
           ],
           "choices": [
-            "major 6th",
-            "minor 7th",
-            "major 7th",
-            "octave"
+            "minor 2nd",
+            "major 2nd"
           ],
-          "answer": "major 6th"
+          "answer": "minor 2nd"
         },
         {
           "kind": "name-it",
           "id": "u2-l4-q3",
           "prompt": "Which interval is this?",
           "shownMidi": [
-            65,
-            76
+            69,
+            71
           ],
           "choices": [
-            "major 6th",
-            "minor 7th",
-            "major 7th",
-            "octave"
+            "minor 2nd",
+            "major 2nd"
           ],
-          "answer": "major 7th"
+          "answer": "major 2nd"
         },
         {
           "kind": "play-interval",
           "id": "u2-l4-q4",
-          "prompt": "Play G4, then go up an octave.",
-          "startMidi": 67,
-          "semitones": 12
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l4-q5",
-          "prompt": "Play D4, then go up a minor 6th.",
-          "startMidi": 62,
-          "semitones": 8
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l4-q6",
-          "prompt": "Play C5, then go down a minor 7th.",
-          "startMidi": 72,
-          "semitones": -10
+          "prompt": "Play F4, then go up a major 2nd.",
+          "startMidi": 65,
+          "semitones": 2
         }
       ]
     }

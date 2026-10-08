@@ -2,100 +2,97 @@
   "id": "u2-l3",
   "unitId": "unit-2",
   "order": 3,
-  "title": "Fourths, fifths and the tritone",
-  "summary": "The open, steady sound of 4ths and 5ths, and the restless tritone between them.",
-  "minutes": 6,
+  "title": "What an interval is",
+  "summary": "Any distance between two notes has a size and a name.",
+  "minutes": 5,
   "steps": [
     {
       "type": "explain",
-      "title": "Perfect 4th and perfect 5th",
-      "body": "Five half steps make a **perfect 4th** (C to F). Seven make a **perfect 5th** (C to G).\n\nThey are called perfect because they sound so open and steady. The 5th is the sound of a power chord, and of the C and G you may already play in your left hand.",
+      "title": "Interval",
+      "body": "The distance between any two notes is called an **interval**. You already know two: the half step and the whole step. Every interval has a name, and you can always work it out by counting half steps.\n\n**Why it matters:** Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what chords are built from, so they are the bridge to understanding chords.",
       "exampleMidi": [
         60,
-        65,
-        67
+        64
       ],
       "labels": {
         "60": "C",
-        "65": "perfect 4th",
-        "67": "perfect 5th"
+        "64": "4 half steps up"
       }
     },
     {
       "type": "explain",
-      "title": "The tritone",
-      "body": "Six half steps, right between the 4th and the 5th, is the **tritone** (C to F♯). It sounds tense, as if it wants to move somewhere. You will hear it inside the 7th chords that pull a song back home.",
+      "title": "Unison",
+      "body": "The smallest interval of all is no distance: the same note played twice, or by two people at once. That's a **unison**.\n\n**Why it matters:** When the band plays \"in unison\", everyone plays the same notes together. It is also where counting starts: 0 half steps.",
       "exampleMidi": [
-        60,
-        66
+        60
       ],
       "labels": {
-        "60": "C",
-        "66": "tritone"
+        "60": "C and C"
       }
     },
     {
       "type": "show",
-      "title": "4th, tritone and 5th above C",
-      "body": "F is a perfect 4th above C, F♯ is a tritone, and G is a perfect 5th.",
+      "title": "Counting half steps from C",
+      "body": "Count the half steps from C to any key and you have the size of the interval.",
       "highlightMidi": [
         60,
+        61,
+        62,
+        63,
+        64,
         65,
         66,
         67
       ],
       "labels": {
-        "60": "C",
-        "65": "perfect 4th",
-        "66": "tritone",
-        "67": "perfect 5th"
+        "60": "0",
+        "61": "1",
+        "62": "2",
+        "63": "3",
+        "64": "4",
+        "65": "5",
+        "66": "6",
+        "67": "7"
       }
     },
     {
       "type": "play-along",
-      "title": "Play 4ths and 5ths",
+      "title": "Play along",
       "items": [
         {
           "kind": "play-interval",
           "id": "u2-l3-p1",
-          "prompt": "Play C4, then go up a perfect 4th.",
+          "prompt": "Play C4, then play it again: a unison.",
           "startMidi": 60,
-          "semitones": 5
+          "semitones": 0
         },
         {
           "kind": "play-interval",
           "id": "u2-l3-p2",
-          "prompt": "Play C4, then go up a perfect 5th.",
+          "prompt": "Play C4, then go up 3 half steps.",
           "startMidi": 60,
-          "semitones": 7
+          "semitones": 3
         },
         {
           "kind": "play-interval",
           "id": "u2-l3-p3",
-          "prompt": "Play D4, then go up a perfect 5th.",
+          "prompt": "Play D4, then go up 4 half steps.",
           "startMidi": 62,
-          "semitones": 7
+          "semitones": 4
         },
         {
           "kind": "play-interval",
           "id": "u2-l3-p4",
-          "prompt": "Play G4, then go down a perfect 5th.",
+          "prompt": "Play G4, then go down 5 half steps.",
           "startMidi": 67,
-          "semitones": -7
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l3-p5",
-          "prompt": "Play C4, then go up a tritone.",
-          "startMidi": 60,
-          "semitones": 6
+          "semitones": -5
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Settled or restless",
-      "body": "Play a 5th with your left hand and move it around the keyboard. Then try a tritone. Notice how the 5th sounds settled and the tritone sounds restless."
+      "title": "Count it",
+      "body": "Play any two keys and count the half steps between them. The app shows the interval name, so you can check your count."
     },
     {
       "type": "quiz",
@@ -104,64 +101,39 @@
         {
           "kind": "name-it",
           "id": "u2-l3-q1",
-          "prompt": "Which interval is this?",
+          "prompt": "How many half steps apart are these keys?",
           "shownMidi": [
             60,
-            65
+            63
           ],
           "choices": [
-            "major 3rd",
-            "perfect 4th",
-            "tritone",
-            "perfect 5th"
+            "2",
+            "3",
+            "4"
           ],
-          "answer": "perfect 4th"
+          "answer": "3"
         },
         {
           "kind": "name-it",
           "id": "u2-l3-q2",
-          "prompt": "Which interval is this?",
+          "prompt": "How many half steps apart are these keys?",
           "shownMidi": [
             62,
-            69
+            67
           ],
           "choices": [
-            "major 3rd",
-            "perfect 4th",
-            "tritone",
-            "perfect 5th"
+            "4",
+            "5",
+            "6"
           ],
-          "answer": "perfect 5th"
+          "answer": "5"
         },
         {
-          "kind": "name-it",
+          "kind": "play-interval",
           "id": "u2-l3-q3",
-          "prompt": "Which interval is this?",
-          "shownMidi": [
-            65,
-            71
-          ],
-          "choices": [
-            "major 3rd",
-            "perfect 4th",
-            "tritone",
-            "perfect 5th"
-          ],
-          "answer": "tritone"
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l3-q4",
-          "prompt": "Play E4, then go up a perfect 5th.",
-          "startMidi": 64,
-          "semitones": 7
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l3-q5",
-          "prompt": "Play A4, then go up a perfect 4th.",
-          "startMidi": 69,
-          "semitones": 5
+          "prompt": "Play F4, then go up 2 half steps.",
+          "startMidi": 65,
+          "semitones": 2
         }
       ]
     }

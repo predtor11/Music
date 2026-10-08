@@ -1,5 +1,5 @@
 import type { TestItem } from '@music/contracts';
-import { intervalInfo, mod12, parseMidi, parseNote, pitchClass, sargam, spelledPc } from '@music/theory';
+import { MIDDLE_C, intervalInfo, isBlackKey, mod12, parseMidi, parseNote, pitchClass, sargam, spelledPc } from '@music/theory';
 
 /**
  * Checks that a test item's expected answer matches what its prompt asks for,
@@ -34,17 +34,48 @@ function namesSargam(text: string, label: string): boolean {
 }
 
 const INTERVAL_NAMES = new Map<string, number>([
+  ['unison', 0],
   ['half step', 1],
   ['whole step', 2],
   ...Array.from({ length: 12 }, (_, i) => [intervalInfo(i + 1).name, i + 1] as [string, number]),
+  ['one octave', 12],
+  ['two octaves', 24],
 ]);
 
+/** "go up 3 half steps" names an interval by its count. */
+const HALF_STEP_COUNT = /\b(\d+) half steps\b/;
+
 function intervalNamesIn(text: string): number[] {
-  return [...INTERVAL_NAMES].filter(([name]) => hasWord(text, name)).map(([, n]) => n);
+  const named = [...INTERVAL_NAMES].filter(([name]) => hasWord(text, name)).map(([, n]) => n);
+  const count = HALF_STEP_COUNT.exec(text);
+  return count ? [...named, Number(count[1])] : named;
+}
+
+/** Plain-word answers for lessons that come before note names. */
+function isRightPlainAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
+  const [a, b] = shown;
+  if (choice === 'the left one' || choice === 'the right one') {
+    if (b === undefined) return false;
+    const wantRight = /\bhigher\b/.test(prompt) ? b > a! : /\blower\b/.test(prompt) ? b < a! : undefined;
+    return wantRight === undefined ? false : (choice === 'the right one') === wantRight;
+  }
+  if (choice === 'white key' || choice === 'black key') return shown.length === 1 && isBlackKey(a!) === (choice === 'black key');
+  if (choice === 'group of two' || choice === 'group of three') {
+    const pc = pitchClass(a!);
+    return isBlackKey(a!) && (choice === 'group of two') === (pc === 1 || pc === 3);
+  }
+  if (choice === 'yes' || choice === 'no') {
+    if (!/middle C\?/.test(prompt)) return false;
+    return (choice === 'yes') === (shown.length === 1 && a === MIDDLE_C);
+  }
+  if (/^\d+$/.test(choice)) return b !== undefined && Math.abs(b - a!) === Number(choice);
+  return undefined;
 }
 
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const plain = isRightPlainAnswer(choice, shown, prompt);
+  if (plain !== undefined) return plain;
   if (shown.length === 2) {
     const n = Math.abs(shown[1]! - shown[0]!);
     return INTERVAL_NAMES.get(choice) === n || intervalInfo(n).short === choice;
@@ -58,7 +89,12 @@ function isRightName(choice: string, shown: number[], prompt: string): boolean {
   return parsed.octave === undefined || parseMidi(choice) === midi;
 }
 
-export function checkItem(item: TestItem): string[] {
+/**
+ * `mode` is where the item runs: play-along lights the keys, so a play-along
+ * prompt may say "Play the lit key" instead of naming it.
+ */
+export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'): string[] {
+  const lit = mode === 'play-along' && /\blit\b/.test(item.prompt);
   const problems: string[] = [];
   const onKeyboard = (midi: number, what: string) => {
     if (midi < LOWEST || midi > HIGHEST) problems.push(`${what} ${midi} is off an 88-key keyboard`);
@@ -78,6 +114,10 @@ export function checkItem(item: TestItem): string[] {
         if (!namesSargam(item.prompt.replace(SA_IS, ''), label)) problems.push(`prompt should name ${label}`);
         break;
       }
+      if (lit) {
+        if (item.midi === undefined) problems.push('a lit key needs midi');
+        break;
+      }
       const first = noteTokens(item.prompt)[0];
       if (!first) problems.push('prompt names no note');
       else if (item.midi !== undefined && first.midi !== item.midi) problems.push(`prompt names ${first.text}, but midi is ${item.midi}`);
@@ -89,18 +129,23 @@ export function checkItem(item: TestItem): string[] {
       const named = intervalNamesIn(item.prompt);
       if (named.length === 0) problems.push('prompt names no interval');
       if (named.some((n) => n !== size)) problems.push(`prompt names a different interval than ${intervalInfo(size).name}`);
-      if (!hasWord(item.prompt, item.semitones > 0 ? 'up' : 'down')) problems.push(`prompt should say ${item.semitones > 0 ? 'up' : 'down'}`);
+      if (item.semitones !== 0 && !hasWord(item.prompt, item.semitones > 0 ? 'up' : 'down')) problems.push(`prompt should say ${item.semitones > 0 ? 'up' : 'down'}`);
       if (item.startMidi !== null) {
         onKeyboard(item.startMidi, 'start');
         onKeyboard(item.startMidi + item.semitones, 'target');
         const first = noteTokens(item.prompt)[0];
-        if (first?.midi !== item.startMidi) problems.push(`prompt should start on midi ${item.startMidi}, names ${first?.text}`);
+        if (!lit && first?.midi !== item.startMidi) problems.push(`prompt should start on midi ${item.startMidi}, names ${first?.text}`);
       }
       break;
     }
     case 'play-scale': {
-      const first = noteTokens(item.prompt)[0];
-      if (first?.pc !== item.sequence[0]) problems.push(`prompt should start on pc ${item.sequence[0]}`);
+      const tokens = noteTokens(item.prompt);
+      if (tokens[0]?.pc !== item.sequence[0]) problems.push(`prompt should start on pc ${item.sequence[0]}`);
+      if (tokens.length === item.sequence.length) {
+        // The prompt spells out every note: they must match the sequence.
+        if (tokens.some((t, i) => t.pc !== item.sequence[i])) problems.push('the notes in the prompt do not match the sequence');
+        break;
+      }
       const step = hasWord(item.prompt, 'half step') ? 1 : hasWord(item.prompt, 'whole step') ? 2 : null;
       if (step === null) problems.push('no check for this kind of scale yet; add one to check-items.ts');
       else

@@ -1,0 +1,129 @@
+{
+  "id": "u1-l9",
+  "unitId": "unit-1",
+  "order": 9,
+  "title": "Octave numbers",
+  "summary": "A number after the letter says exactly which key you mean. Middle C is C4.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Octave number",
+      "body": "To say exactly which C you mean, add a number. Middle C is **C4**. The C an octave above is C5, and the C an octave below is C3. This number is the **octave number**. It goes up by one at every C, so the B just below middle C is B3.\n\n**Why it matters:** \"Play an E\" could mean any of seven Es. \"Play E4\" means exactly one key, so octave numbers let the app, a teacher or a score point to one exact key.",
+      "exampleMidi": [
+        59,
+        60,
+        62
+      ],
+      "labels": {
+        "59": "B3",
+        "60": "C4",
+        "62": "D4"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C3, C4 and C5",
+      "body": "Three Cs, an octave apart. The middle one is middle C, C4.",
+      "highlightMidi": [
+        48,
+        60,
+        72
+      ],
+      "labels": {
+        "48": "C3",
+        "60": "C4",
+        "72": "C5"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l9-p1",
+          "prompt": "Play C5.",
+          "midi": 72
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-p2",
+          "prompt": "Play G4, the G just above middle C.",
+          "midi": 67
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-p3",
+          "prompt": "Play B3, the B just below middle C.",
+          "midi": 59
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-p4",
+          "prompt": "Play C3.",
+          "midi": 48
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Read the numbers",
+      "body": "The app shows the octave number on each note you play. Play a few notes and read them out loud."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l9-q1",
+          "prompt": "Which C is lit?",
+          "shownMidi": [
+            72
+          ],
+          "choices": [
+            "C3",
+            "C4",
+            "C5",
+            "C6"
+          ],
+          "answer": "C5"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-q2",
+          "prompt": "Find A4.",
+          "midi": 69
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-q3",
+          "prompt": "Find D4.",
+          "midi": 62
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l9-q4",
+          "prompt": "Which C is lit?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "C2",
+            "C3",
+            "C4",
+            "C5"
+          ],
+          "answer": "C3"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l9-q5",
+          "prompt": "Find B4, the last white key before C5.",
+          "midi": 71
+        }
+      ]
+    }
+  ]
+}

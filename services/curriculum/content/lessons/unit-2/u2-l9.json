@@ -1,0 +1,148 @@
+{
+  "id": "u2-l9",
+  "unitId": "unit-2",
+  "order": 9,
+  "title": "Sixths",
+  "summary": "A 6th spans six letters. Minor 6ths are bittersweet and major 6ths are warm.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Minor 6th",
+      "body": "Count six letters from C and you reach A, so C to A is a 6th. A **minor 6th** is 8 half steps, like C to A♭.\n\n**Why it matters:** It has a bittersweet sound, and it turns up in a lot of film and love-song melodies.",
+      "exampleMidi": [
+        60,
+        68
+      ],
+      "labels": {
+        "60": "C",
+        "68": "minor 6th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Major 6th",
+      "body": "A **major 6th** is 9 half steps, like C to A.\n\n**Why it matters:** It sounds warm and sweet, and it is the sound of many harmony lines. My Bonnie Lies Over the Ocean opens with one.",
+      "exampleMidi": [
+        60,
+        69
+      ],
+      "labels": {
+        "60": "C",
+        "69": "major 6th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Sixths above C",
+      "body": "A♭ is a minor 6th above C, and A is a major 6th.",
+      "highlightMidi": [
+        60,
+        68,
+        69
+      ],
+      "labels": {
+        "60": "C",
+        "68": "minor 6th",
+        "69": "major 6th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l9-p1",
+          "prompt": "Play C4, then go up a major 6th.",
+          "startMidi": 60,
+          "semitones": 9
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l9-p2",
+          "prompt": "Play C4, then go up a minor 6th.",
+          "startMidi": 60,
+          "semitones": 8
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l9-p3",
+          "prompt": "Play D4, then go up a major 6th.",
+          "startMidi": 62,
+          "semitones": 9
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l9-p4",
+          "prompt": "Play E4, then go up a minor 6th.",
+          "startMidi": 64,
+          "semitones": 8
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Sweet sixths",
+      "body": "Play two notes a 6th apart together and slide them along the white keys. Listen for the warm sound."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l9-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            71
+          ],
+          "choices": [
+            "perfect 5th",
+            "minor 6th",
+            "major 6th"
+          ],
+          "answer": "major 6th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l9-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            64,
+            72
+          ],
+          "choices": [
+            "perfect 5th",
+            "minor 6th",
+            "major 6th"
+          ],
+          "answer": "minor 6th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l9-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            67
+          ],
+          "choices": [
+            "perfect 5th",
+            "minor 6th",
+            "major 6th"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l9-q4",
+          "prompt": "Play D4, then go up a minor 6th.",
+          "startMidi": 62,
+          "semitones": 8
+        }
+      ]
+    }
+  ]
+}

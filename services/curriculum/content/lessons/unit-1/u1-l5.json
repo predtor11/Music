@@ -2,104 +2,80 @@
   "id": "u1-l5",
   "unitId": "unit-1",
   "order": 5,
-  "title": "One key, two names",
-  "summary": "C♯ and D♭ are the same key. Notes like these are called enharmonic.",
-  "minutes": 5,
+  "title": "D and E",
+  "summary": "The next two letters live around the group of two black keys.",
+  "minutes": 4,
   "steps": [
     {
       "type": "explain",
-      "title": "Enharmonic names",
-      "body": "You may have noticed that every black key got two names. C♯ and D♭ are the same key and the same sound. Names like these are **enharmonic**.\n\nBoth names are correct. Which one musicians write depends on the key of the song, which comes in a later unit. For now, know both.",
+      "title": "D and E",
+      "body": "After C, the letters go forward as you move right. **D** sits between the two black keys of the pair, and **E** is just to the right of the pair.\n\n**Why it matters:** C, D and E always sit together around a group of two black keys, so you can find all three anywhere on the keyboard.",
       "exampleMidi": [
-        61
+        60,
+        62,
+        64
       ],
       "labels": {
-        "61": "C♯ / D♭"
+        "60": "C",
+        "62": "D",
+        "64": "E"
       }
     },
     {
       "type": "show",
-      "title": "Both names of each black key",
-      "body": "- C♯ = D♭\n- D♯ = E♭\n- F♯ = G♭\n- G♯ = A♭\n- A♯ = B♭",
+      "title": "C, D and E everywhere",
+      "body": "The same three notes sit around every group of two black keys.",
       "highlightMidi": [
-        61,
-        63,
-        66,
-        68,
-        70
-      ],
-      "labels": {
-        "61": "C♯ / D♭",
-        "63": "D♯ / E♭",
-        "66": "F♯ / G♭",
-        "68": "G♯ / A♭",
-        "70": "A♯ / B♭"
-      }
-    },
-    {
-      "type": "explain",
-      "title": "White keys can do it too",
-      "body": "There is no black key between E and F, or between B and C. So **E♯** is just F, and **C♭** is just B. You won't see these often, but now they won't surprise you when you do.",
-      "exampleMidi": [
+        48,
+        50,
+        52,
+        60,
+        62,
         64,
-        65
+        72,
+        74,
+        76
       ],
       "labels": {
+        "48": "C",
+        "50": "D",
+        "52": "E",
+        "60": "C",
+        "62": "D",
         "64": "E",
-        "65": "F = E♯"
-      }
-    },
-    {
-      "type": "show",
-      "title": "E and F, B and C",
-      "body": "The two places where white keys sit side by side with no black key between them.",
-      "highlightMidi": [
-        64,
-        65,
-        71,
-        72
-      ],
-      "labels": {
-        "64": "E",
-        "65": "F",
-        "71": "B = C♭",
-        "72": "C"
+        "72": "C",
+        "74": "D",
+        "76": "E"
       }
     },
     {
       "type": "play-along",
-      "title": "Same key, other name",
+      "title": "Play along",
       "items": [
         {
           "kind": "find-note",
           "id": "u1-l5-p1",
-          "prompt": "Play Eb, the same key as D#.",
-          "pc": 3
+          "prompt": "Play D, the white key between the two black keys.",
+          "pc": 2
         },
         {
           "kind": "find-note",
           "id": "u1-l5-p2",
-          "prompt": "Play Ab.",
-          "pc": 8
+          "prompt": "Play E, just right of the two black keys.",
+          "pc": 4
         },
         {
           "kind": "find-note",
           "id": "u1-l5-p3",
-          "prompt": "Play Gb.",
-          "pc": 6
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l5-p4",
-          "prompt": "Play E#.",
-          "pc": 5
+          "prompt": "Play D in a different part of the keyboard.",
+          "pc": 2
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Hold a black key",
-      "body": "Press a black key and hold it. The app shows both of its names. Try all five black keys in one octave."
+      "title": "Three-note tunes",
+      "body": "Make up a tune using only C, D and E. Many nursery rhymes start this way."
     },
     {
       "type": "quiz",
@@ -108,59 +84,42 @@
         {
           "kind": "name-it",
           "id": "u1-l5-q1",
-          "prompt": "This key is C#. What is its other name?",
+          "prompt": "Which key is lit?",
           "shownMidi": [
-            61
+            62
           ],
           "choices": [
-            "Db",
+            "C",
             "D",
-            "Cb",
-            "Eb"
+            "E"
           ],
-          "answer": "Db"
+          "answer": "D"
         },
         {
           "kind": "name-it",
           "id": "u1-l5-q2",
-          "prompt": "What is the flat name of this key?",
+          "prompt": "Which key is lit?",
           "shownMidi": [
-            68
+            64
           ],
           "choices": [
-            "Gb",
-            "Ab",
-            "Bb",
-            "Db"
+            "C",
+            "D",
+            "E"
           ],
-          "answer": "Ab"
+          "answer": "E"
         },
         {
           "kind": "find-note",
           "id": "u1-l5-q3",
-          "prompt": "Find A#, then say its other name to yourself.",
-          "pc": 10
+          "prompt": "Find E.",
+          "pc": 4
         },
         {
           "kind": "find-note",
           "id": "u1-l5-q4",
-          "prompt": "Find Cb.",
-          "pc": 11
-        },
-        {
-          "kind": "name-it",
-          "id": "u1-l5-q5",
-          "prompt": "This white key has a second name. Which one?",
-          "shownMidi": [
-            65
-          ],
-          "choices": [
-            "E#",
-            "Fb",
-            "Gb",
-            "D#"
-          ],
-          "answer": "E#"
+          "prompt": "Find D.",
+          "pc": 2
         }
       ]
     }
