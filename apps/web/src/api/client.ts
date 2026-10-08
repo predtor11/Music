@@ -9,6 +9,7 @@ import {
   EndSessionResponseSchema,
   LessonSchema,
   NextItemSchema,
+  ProgressReportSchema,
   UnitSchema,
   SessionSchema,
   UnitListSchema,
@@ -16,6 +17,7 @@ import {
   type CreateSession,
   type EndSessionResponse,
   type Lesson,
+  type ProgressReport,
   type Session,
   type TestItem,
   type Unit,
@@ -78,4 +80,12 @@ export async function getUnit(id: string): Promise<Unit> {
 /** The next unanswered item of a session, or null when it is done. */
 export async function nextItem(sessionId: string): Promise<TestItem | null> {
   return NextItemSchema.parse(await call(`/practice/sessions/${sessionId}/next-item`));
+}
+
+/**
+ * The weekly progress report for the 7 days up to now. `tzOffset` is minutes
+ * ahead of UTC, so days split at the learner's own midnight.
+ */
+export async function getReport(tzOffset = -new Date().getTimezoneOffset()): Promise<ProgressReport> {
+  return ProgressReportSchema.parse(await call(`/progress/reports/weekly?tzOffset=${tzOffset}`));
 }
