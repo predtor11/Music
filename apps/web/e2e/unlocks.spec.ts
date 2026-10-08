@@ -98,6 +98,17 @@ test('leaves everything open when progress cannot be reached', async ({ page }) 
   await expect(page.getByTestId(`lesson-${LESSON.id}`)).toHaveAttribute('data-status', 'available');
 });
 
+test('asks to sign in when progress needs a user', async ({ page }) => {
+  await fakeApi(page);
+  await page.route((url) => url.pathname.startsWith('/api/progress'), (route) => json(route, { message: 'not signed in' }, 401));
+  await page.goto('/#/lessons');
+  await expect(page.getByTestId('progress-signed-out')).toContainText('Sign in to save your progress');
+  await expect(page.getByTestId('progress-offline')).toHaveCount(0);
+  await expect(page.getByTestId(`lesson-${LESSON.id}`)).toHaveAttribute('data-status', 'available');
+  await page.getByRole('button', { name: 'Sign in' }).last().click();
+  await expect(page).toHaveURL(/#\/signin$/);
+});
+
 const REVIEW_ITEMS: TestItem[] = [
   { kind: 'play-interval', id: 'r1', prompt: 'Play E, then a half step up.', startMidi: 64, semitones: 1 },
   { kind: 'find-note', id: 'r2', prompt: 'Play any D.', pc: 2 },

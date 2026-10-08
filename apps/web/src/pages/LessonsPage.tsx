@@ -11,6 +11,7 @@ import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { getLesson, getUnits, type UnitSummary } from '../api/client.js';
 import { getProgress, getReviewQueue } from '../api/progress.js';
+import { saveFailure } from '../lesson/usePractice.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
 import { standing, type LessonStatus, type Standing } from './unlocks.js';
@@ -24,8 +25,10 @@ interface UnitView {
 
 interface Loaded {
   units: UnitView[];
-  /** Null when the progress service can't be reached: everything stays open. */
+  /** Null when progress can't be loaded (signed out, or the service is down): everything stays open. */
   progress: Progress | null;
+  /** Why progress didn't load, when it didn't. */
+  progressFailure: 'signed-out' | 'offline' | null;
   dueSkills: number;
 }
 
@@ -44,10 +47,13 @@ export function LessonsPage() {
         })),
       );
     });
-    const progress = getProgress().catch(() => null);
+    const progress = getProgress().then(
+      (progress) => ({ progress, progressFailure: null }),
+      (e: unknown) => ({ progress: null, progressFailure: saveFailure(e) === 'signed-out' ? ('signed-out' as const) : ('offline' as const) }),
+    );
     const due = getReviewQueue().then((q) => q.length, () => 0);
     Promise.all([units, progress, due])
-      .then(([units, progress, dueSkills]) => live && setData({ units, progress, dueSkills }))
+      .then(([units, progress, dueSkills]) => live && setData({ units, ...progress, dueSkills }))
       .catch((e: Error) => live && setError(e.message));
     return () => {
       live = false;
@@ -68,7 +74,17 @@ export function LessonsPage() {
         <p className="ui-muted">Short lessons with your keyboard. Each one explains, shows it on the keys, then has you play it. Finish one to open the next.</p>
       </motion.div>
 
-      {!data.progress && (
+      {data.progressFailure === 'signed-out' && (
+        <motion.div variants={fadeUp} className={l.signinNote}>
+          <Badge tone="warn" data-testid="progress-signed-out">
+            Sign in to save your progress. Until then every lesson is open.
+          </Badge>
+          <Button variant="primary" onClick={() => (location.hash = href.signin)}>
+            Sign in
+          </Button>
+        </motion.div>
+      )}
+      {data.progressFailure === 'offline' && (
         <motion.div variants={fadeUp}>
           <Badge tone="warn" data-testid="progress-offline">
             Can't reach the progress server, so every lesson is open and nothing is being saved.
