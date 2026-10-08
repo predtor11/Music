@@ -1,0 +1,180 @@
+{
+  "id": "unit-4",
+  "order": 4,
+  "title": "Chords",
+  "summary": "Stack notes into triads, learn the four triad types and the sus chords, and read the short names on a band chart.",
+  "outcome": "You can play any triad someone names, and tell major from minor by ear.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-1",
+        "prompt": "Play a G major triad.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-2",
+        "prompt": "Play a D minor triad.",
+        "pitchClasses": [
+          2,
+          5,
+          9
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-3",
+        "prompt": "Play a Bb major triad.",
+        "pitchClasses": [
+          10,
+          2,
+          5
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-4",
+        "prompt": "Play an F# minor triad.",
+        "pitchClasses": [
+          6,
+          9,
+          1
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-5",
+        "prompt": "Play a B diminished triad.",
+        "pitchClasses": [
+          11,
+          2,
+          5
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-6",
+        "prompt": "Play a C augmented triad.",
+        "pitchClasses": [
+          0,
+          4,
+          8
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-7",
+        "prompt": "Play the chord written Dsus4.",
+        "pitchClasses": [
+          2,
+          7,
+          9
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u4-cp-8",
+        "prompt": "Play the chord written Em.",
+        "pitchClasses": [
+          4,
+          7,
+          11
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "name-it",
+        "id": "u4-cp-9",
+        "prompt": "What kind of triad is this?",
+        "shownMidi": [
+          64,
+          67,
+          70
+        ],
+        "choices": [
+          "major",
+          "minor",
+          "diminished",
+          "augmented"
+        ],
+        "answer": "diminished"
+      },
+      {
+        "kind": "name-it",
+        "id": "u4-cp-10",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          57,
+          60,
+          64
+        ],
+        "choices": [
+          "A",
+          "Am",
+          "C"
+        ],
+        "answer": "Am"
+      },
+      {
+        "kind": "name-it",
+        "id": "u4-cp-11",
+        "prompt": "Listen to the chord. Is it major or minor?",
+        "shownMidi": [
+          55,
+          58,
+          62
+        ],
+        "choices": [
+          "major",
+          "minor"
+        ],
+        "answer": "minor",
+        "audioOnly": true
+      },
+      {
+        "kind": "name-it",
+        "id": "u4-cp-12",
+        "prompt": "Which note is the 3rd of this chord?",
+        "shownMidi": [
+          63,
+          67,
+          70
+        ],
+        "choices": [
+          "Eb",
+          "G",
+          "Bb"
+        ],
+        "answer": "G"
+      }
+    ]
+  },
+  "lessonIds": [
+    "u4-l1",
+    "u4-l2",
+    "u4-l3",
+    "u4-l4",
+    "u4-l5",
+    "u4-l6",
+    "u4-l7",
+    "u4-l8",
+    "u4-l9",
+    "u4-l10",
+    "u4-l11",
+    "u4-l12",
+    "u4-l13"
+  ]
+}

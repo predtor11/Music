@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "Numbers count letters",
-      "body": "Interval names use numbers. Count the letters from the first note to the second, counting both ends: C to D covers C and D, so it is a **2nd**.\n\n**Why it matters:** The number tells you how many letters the interval covers. That is how musicians describe tunes and spell chords.",
+      "body": "Interval names use numbers. Count the letters from the first note to the second, counting both ends: C to D covers C and D, so it is a **2nd**.\n\n**Why it matters:** The number tells you how many letters the interval covers. That is how musicians describe tunes and name the notes they play together.",
       "exampleMidi": [
         60,
         62
@@ -22,7 +22,7 @@
     {
       "type": "explain",
       "title": "Two sizes: minor",
-      "body": "Some interval numbers come in two sizes. The smaller size is called **minor**.\n\n**Why it matters:** Minor intervals tend to give music a darker colour. You will hear \"minor\" about chords and keys too.",
+      "body": "Some interval numbers come in two sizes. The smaller size is called **minor**.\n\n**Why it matters:** Minor intervals tend to give music a darker colour. You will hear the word \"minor\" about other things later in this course too.",
       "exampleMidi": [
         64,
         65

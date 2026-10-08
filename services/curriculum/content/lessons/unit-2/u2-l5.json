@@ -9,7 +9,7 @@
     {
       "type": "explain",
       "title": "3rd",
-      "body": "Count three letters: C, D, E. C to E is a **3rd**. Like 2nds, 3rds come in a minor and a major size.\n\n**Why it matters:** Chords are stacked out of 3rds. When you learn chords in Unit 4, you will build them from the 3rds in this lesson.",
+      "body": "Count three letters: C, D, E. C to E is a **3rd**. Like 2nds, 3rds come in a minor and a major size.\n\n**Why it matters:** The notes a band plays together are often stacked a 3rd apart. In Unit 4 you will build them from the 3rds in this lesson.",
       "exampleMidi": [
         60,
         64
@@ -22,7 +22,7 @@
     {
       "type": "explain",
       "title": "Minor 3rd",
-      "body": "A **minor 3rd** is 3 half steps, like C to E♭ or A to C. It sounds darker.\n\n**Why it matters:** The minor 3rd is the sound that makes a minor chord sound sad. Greensleeves opens with one.",
+      "body": "A **minor 3rd** is 3 half steps, like C to E♭ or A to C. It sounds darker.\n\n**Why it matters:** The minor 3rd gives music its sad, dark colour. Greensleeves opens with one.",
       "exampleMidi": [
         60,
         63
@@ -35,7 +35,7 @@
     {
       "type": "explain",
       "title": "Major 3rd",
-      "body": "A **major 3rd** is 4 half steps, like C to E. It sounds brighter.\n\n**Why it matters:** The major 3rd makes a major chord sound happy. Oh When the Saints opens with one.",
+      "body": "A **major 3rd** is 4 half steps, like C to E. It sounds brighter.\n\n**Why it matters:** The major 3rd gives music its bright, happy colour. Oh When the Saints opens with one.",
       "exampleMidi": [
         60,
         64

@@ -1,0 +1,146 @@
+{
+  "id": "u4-l8",
+  "unitId": "unit-4",
+  "order": 8,
+  "title": "Writing chords down",
+  "summary": "The short names on a band chart: C means C major, Cm means C minor.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Chord symbol",
+      "body": "Band charts name chords with a **chord symbol**: the root letter, plus a short tag for the kind of chord. A letter on its own means major: **C** is C major. A small **m** means minor: **Cm** is C minor.\n\n**Why it matters:** This is how bands write songs down. A chart is a row of chord symbols over the lyrics, and you play each one as you reach it.",
+      "exampleMidi": [
+        60,
+        63,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C / Cm",
+        "63": "E♭ in Cm",
+        "64": "E in C",
+        "67": "G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Am",
+      "body": "Am means A minor: A, C and E.",
+      "highlightMidi": [
+        57,
+        60,
+        64
+      ],
+      "labels": {
+        "57": "A",
+        "60": "C",
+        "64": "E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l8-p1",
+          "prompt": "Play the chord written Cm.",
+          "pitchClasses": [
+            0,
+            3,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l8-p2",
+          "prompt": "Play the chord written G.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l8-p3",
+          "prompt": "Play the chord written Am.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Read a chart",
+      "body": "Play this row of chord symbols, four beats each: C, Am, F, G. That is the chord pattern of many 1950s songs."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l8-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            57,
+            60,
+            64
+          ],
+          "choices": [
+            "A",
+            "Am",
+            "C"
+          ],
+          "answer": "Am"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l8-q2",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            62,
+            66,
+            69
+          ],
+          "choices": [
+            "D",
+            "Dm",
+            "F"
+          ],
+          "answer": "D"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l8-q3",
+          "prompt": "Play the chord written F.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l8-q4",
+          "prompt": "Play the chord written Dm.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

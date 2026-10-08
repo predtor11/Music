@@ -26,7 +26,7 @@
     {
       "type": "explain",
       "title": "Perfect 4th",
-      "body": "A **perfect 4th** is 5 half steps and spans four letters, like C to F.\n\n**Why it matters:** It is the sound of Here Comes the Bride, and of many bass lines that jump from one chord to the next.",
+      "body": "A **perfect 4th** is 5 half steps and spans four letters, like C to F.\n\n**Why it matters:** It is the sound of Here Comes the Bride, and of many bass lines that jump around a song.",
       "exampleMidi": [
         60,
         65

@@ -66,4 +66,22 @@ describe('checkItem', () => {
     expect(checkItem({ ...spelling, answer: 'Bb' })).toEqual([]);
     expect(checkItem({ ...spelling, answer: 'A#' })).not.toEqual([]);
   });
+
+  it('checks chords by name, by symbol and by their notes', () => {
+    const triad = { kind: 'build-chord' as const, id: 'x', prompt: 'Play an Ab major triad.', bassPc: null };
+    expect(checkItem({ ...triad, pitchClasses: [8, 0, 3] })).toEqual([]);
+    expect(checkItem({ ...triad, pitchClasses: [8, 11, 3] })).not.toEqual([]);
+    const written = { kind: 'build-chord' as const, id: 'x', prompt: 'Play the chord written Dsus4.', bassPc: null };
+    expect(checkItem({ ...written, pitchClasses: [2, 7, 9] })).toEqual([]);
+    expect(checkItem({ ...written, pitchClasses: [2, 4, 9] })).not.toEqual([]);
+    const kind = { kind: 'name-it' as const, id: 'x', prompt: 'What kind of triad is this?', shownMidi: [59, 62, 65], choices: ['minor', 'diminished'] };
+    expect(checkItem({ ...kind, answer: 'diminished' })).toEqual([]);
+    expect(checkItem({ ...kind, answer: 'minor' })).not.toEqual([]);
+    const symbol = { kind: 'name-it' as const, id: 'x', prompt: 'Which chord symbol is this?', shownMidi: [57, 60, 64], choices: ['Am', 'C'] };
+    expect(checkItem({ ...symbol, answer: 'Am' })).toEqual([]);
+    expect(checkItem({ ...symbol, answer: 'C' })).not.toEqual([]);
+    const third = { kind: 'name-it' as const, id: 'x', prompt: 'Which note is the 3rd of this chord?', shownMidi: [67, 71, 74], choices: ['G', 'B', 'D'] };
+    expect(checkItem({ ...third, answer: 'B' })).toEqual([]);
+    expect(checkItem({ ...third, answer: 'D' })).not.toEqual([]);
+  });
 });

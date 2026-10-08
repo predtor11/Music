@@ -22,7 +22,7 @@
     {
       "type": "explain",
       "title": "Signs that move a note",
-      "body": "A sign that moves a note up or down from its plain letter is called an **accidental**. The ♯ sign is the first one you know, and the next two lessons add two more.\n\n**Why it matters:** When you see a sign next to a note name on a chart or in a chord name, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
+      "body": "A sign that moves a note up or down from its plain letter is called an **accidental**. The ♯ sign is the first one you know, and the next two lessons add two more.\n\n**Why it matters:** When you see a sign next to a note name on a chart or a song sheet, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
       "exampleMidi": [
         65,
         66

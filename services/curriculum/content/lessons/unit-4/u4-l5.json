@@ -1,0 +1,167 @@
+{
+  "id": "u4-l5",
+  "unitId": "unit-4",
+  "order": 5,
+  "title": "A major triad on any root",
+  "summary": "Count 4 half steps, then 3 more, and you can build a major triad anywhere.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Count 4, then 3",
+      "body": "From any root, count up 4 half steps for the 3rd, then 3 more for the 5th. The white keys do not always give you the right notes: E major needs G♯, and A♭ major needs C and E♭.\n\n**Why it matters:** bands play in every key, so you need every major triad, not just the white-key ones.",
+      "exampleMidi": [
+        64,
+        68,
+        71
+      ],
+      "labels": {
+        "64": "E",
+        "68": "G♯",
+        "71": "B"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A♭ major",
+      "body": "Root A♭, 3rd C, 5th E♭.",
+      "highlightMidi": [
+        56,
+        60,
+        63
+      ],
+      "labels": {
+        "56": "A♭",
+        "60": "C",
+        "63": "E♭"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p1",
+          "prompt": "Play a D major triad.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p2",
+          "prompt": "Play an E major triad.",
+          "pitchClasses": [
+            4,
+            8,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p3",
+          "prompt": "Play an A major triad.",
+          "pitchClasses": [
+            9,
+            1,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p4",
+          "prompt": "Play a Bb major triad.",
+          "pitchClasses": [
+            10,
+            2,
+            5
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p5",
+          "prompt": "Play an Eb major triad.",
+          "pitchClasses": [
+            3,
+            7,
+            10
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-p6",
+          "prompt": "Play a B major triad.",
+          "pitchClasses": [
+            11,
+            3,
+            6
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "All twelve",
+      "body": "Go up the keyboard a half step at a time and play the major triad on every root. Notice the shapes: all white, one black key in the middle, and so on."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-q1",
+          "prompt": "Play an Ab major triad.",
+          "pitchClasses": [
+            8,
+            0,
+            3
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-q2",
+          "prompt": "Play an F# major triad.",
+          "pitchClasses": [
+            6,
+            10,
+            1
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-q3",
+          "prompt": "Play a Db major triad.",
+          "pitchClasses": [
+            1,
+            5,
+            8
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l5-q4",
+          "prompt": "Play an E major triad.",
+          "pitchClasses": [
+            4,
+            8,
+            11
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

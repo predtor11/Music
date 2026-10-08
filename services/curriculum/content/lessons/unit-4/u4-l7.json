@@ -1,0 +1,179 @@
+{
+  "id": "u4-l7",
+  "unitId": "unit-4",
+  "order": 7,
+  "title": "Hearing major and minor",
+  "summary": "Ear practice: bright or dark?",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Bright or dark",
+      "body": "A major triad sounds bright and open, a minor triad sounds darker and more serious. Only the 3rd differs, so listen to the middle note.\n\n**Why it matters:** when you play by ear, the first thing to work out about a chord is major or minor. Get that and the root, and you have the chord.",
+      "exampleMidi": [
+        60,
+        63,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "63": "E♭: minor",
+        "64": "E: major",
+        "67": "G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Same root, two colours",
+      "body": "D major and D minor: listen to F♯ against F.",
+      "highlightMidi": [
+        62,
+        65,
+        66,
+        69
+      ],
+      "labels": {
+        "62": "D",
+        "65": "F: minor",
+        "66": "F♯: major",
+        "69": "A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l7-p1",
+          "prompt": "Play a G major triad.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l7-p2",
+          "prompt": "Now play a G minor triad.",
+          "pitchClasses": [
+            7,
+            10,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l7-p3",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            57,
+            61,
+            64
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "major",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l7-p4",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            62,
+            65,
+            69
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "minor",
+          "audioOnly": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Songs you know",
+      "body": "Play the first chord of a song you know by ear. Is it major or minor? Try changing it and hear the mood flip."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l7-q1",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "minor",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l7-q2",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "major",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l7-q3",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            60,
+            63,
+            67
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "minor",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l7-q4",
+          "prompt": "Listen to the chord. Is it major or minor?",
+          "shownMidi": [
+            63,
+            67,
+            70
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "major",
+          "audioOnly": true
+        }
+      ]
+    }
+  ]
+}

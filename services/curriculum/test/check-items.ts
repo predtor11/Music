@@ -82,6 +82,60 @@ const scalePcs = (key: Key) => keyScale(key).map(spelledPc);
 const sameNote = (a: { letter: string; accidental: number }, b: { letter: string; accidental: number }) =>
   a.letter === b.letter && a.accidental === b.accidental;
 
+/** Half steps above the root for each chord kind a lesson can name. */
+const CHORD_SHAPES: Record<string, number[]> = {
+  major: [0, 4, 7],
+  minor: [0, 3, 7],
+  diminished: [0, 3, 6],
+  augmented: [0, 4, 8],
+  sus2: [0, 2, 7],
+  sus4: [0, 5, 7],
+};
+const SYMBOL_KINDS: Record<string, string> = { '': 'major', m: 'minor', dim: 'diminished', '°': 'diminished', aug: 'augmented', '+': 'augmented', sus2: 'sus2', sus4: 'sus4' };
+const SYMBOL = new RegExp(`^(${NOTE})(m|dim|°|aug|\\+|sus2|sus4)?$`);
+const TRIAD_NAMED = new RegExp(`\\b(${NOTE}) (major|minor|diminished|augmented) triad\\b`);
+const WRITTEN = new RegExp(`\\bwritten (${NOTE}(?:m|dim|°|aug|\\+|sus2|sus4)?)(?=[.,]|$)`);
+
+/** Pitch classes of a chord symbol like "Cm", "Bdim" or "Dsus4", root first. */
+function symbolPcs(symbol: string): number[] | undefined {
+  const m = SYMBOL.exec(symbol);
+  if (!m) return undefined;
+  const root = spelledPc(parseNote(m[1]!)!.note);
+  return CHORD_SHAPES[SYMBOL_KINDS[m[2] ?? '']!]!.map((s) => mod12(root + s));
+}
+const samePcs = (a: number[], b: number[]) => new Set(a).size === new Set(b).size && a.every((pc) => b.includes(pc));
+
+/** The kind of a root-position chord: "major", "minor", ... or undefined. */
+function chordKind(shown: number[]): string | undefined {
+  const low = Math.min(...shown);
+  const shape = [...new Set(shown.map((k) => mod12(k - low)))].sort((a, b) => a - b).join();
+  return Object.keys(CHORD_SHAPES).find((kind) => CHORD_SHAPES[kind]!.join() === shape);
+}
+
+/** Answers to questions about chords (Unit 4 on). undefined means the prompt is not one of these. */
+function isRightChordAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
+  const sorted = [...shown].sort((a, b) => a - b);
+  const notePc = () => {
+    const parsed = parseNote(choice);
+    return parsed ? spelledPc(parsed.note) : undefined;
+  };
+  if (prompt === 'How many notes are in this chord?') return Number(choice) === new Set(shown).size;
+  if (prompt === 'Is this chord a triad?') {
+    if (choice !== 'yes' && choice !== 'no') return false;
+    const gaps = sorted.slice(1).map((k, i) => k - sorted[i]!);
+    return (sorted.length === 3 && gaps.every((g) => g === 3 || g === 4)) === (choice === 'yes');
+  }
+  if (/(?:What kind of triad is (?:this|it)|Is (?:this chord|it) major or minor)\?$/.test(prompt)) return choice === chordKind(shown);
+  if (prompt === 'Which chord symbol is this?') {
+    const pcs = symbolPcs(choice);
+    return !!pcs && pcs[0] === pitchClass(sorted[0]!) && samePcs(pcs, shown.map(pitchClass));
+  }
+  if (prompt === 'What is the root of this chord?') return chordKind(shown) !== undefined && notePc() === pitchClass(sorted[0]!);
+  const tone = /^Which note is the (3rd|5th) of this chord\?$/.exec(prompt);
+  if (tone) return sorted.length === 3 && chordKind(shown) !== undefined && notePc() === pitchClass(sorted[tone[1] === '3rd' ? 1 : 2]!);
+  return undefined;
+}
+
 /** Answers to questions about scales and keys (Unit 3 on). undefined means the prompt is not one of these. */
 function isRightKeyAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
   let m: RegExpExecArray | null;
@@ -156,6 +210,8 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
 
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const chordAnswer = isRightChordAnswer(choice, shown, prompt);
+  if (chordAnswer !== undefined) return chordAnswer;
   const keyAnswer = isRightKeyAnswer(choice, shown, prompt);
   if (keyAnswer !== undefined) return keyAnswer;
   const plain = isRightPlainAnswer(choice, shown, prompt);
@@ -263,9 +319,20 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       }
       break;
     }
-    case 'build-chord':
-      problems.push('no check for build-chord yet; add one to check-items.ts');
+    case 'build-chord': {
+      // "Play a C major triad", "Play the chord written Cm", or the notes spelled out.
+      const triad = TRIAD_NAMED.exec(item.prompt);
+      const written = WRITTEN.exec(item.prompt);
+      const want = triad
+        ? CHORD_SHAPES[triad[2]!]!.map((s) => mod12(spelledPc(parseNote(triad[1]!)!.note) + s))
+        : written
+          ? symbolPcs(written[1]!)
+          : noteTokens(item.prompt).map((t) => t.pc);
+      if (!want || want.length === 0) problems.push('prompt names no chord');
+      else if (!samePcs(want, item.pitchClasses)) problems.push(`prompt asks for pcs ${[...new Set(want)].join(' ')}, not ${item.pitchClasses.join(' ')}`);
+      if (item.bassPc !== null && !item.pitchClasses.includes(item.bassPc)) problems.push('bassPc is not in the chord');
       break;
+    }
   }
   return problems;
 }

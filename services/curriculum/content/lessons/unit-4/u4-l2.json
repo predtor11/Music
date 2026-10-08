@@ -1,0 +1,131 @@
+{
+  "id": "u4-l2",
+  "unitId": "unit-4",
+  "order": 2,
+  "title": "Three notes stacked in 3rds",
+  "summary": "The most common chord is three notes, each a 3rd above the last.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Triad",
+      "body": "The most common chord is the **triad**: a note, the note a 3rd above it, and the note a 3rd above that. On the white keys that is every other key: C E G, or D F A.\n\n**Why it matters:** Almost every chord on a band chart is a triad or is built from one. Learn the triad and you can play most songs.",
+      "exampleMidi": [
+        62,
+        65,
+        69
+      ],
+      "labels": {
+        "62": "D",
+        "65": "F",
+        "69": "A"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Every other white key",
+      "body": "E G B is a triad too: skip one white key, play one, skip one, play one.",
+      "highlightMidi": [
+        64,
+        67,
+        71
+      ],
+      "labels": {
+        "64": "E",
+        "67": "G",
+        "71": "B"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l2-p1",
+          "prompt": "Play D, F and A together.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l2-p2",
+          "prompt": "Play E, G and B together.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l2-p3",
+          "prompt": "Play A, C and E together.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Walk the triads",
+      "body": "Start with C E G and slide the shape up one white key at a time: D F A, E G B, F A C. Your hand keeps the same shape."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l2-q1",
+          "prompt": "Is this chord a triad?",
+          "shownMidi": [
+            60,
+            62,
+            64
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l2-q2",
+          "prompt": "Is this chord a triad?",
+          "shownMidi": [
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "yes"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l2-q3",
+          "prompt": "Play G, B and D together.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

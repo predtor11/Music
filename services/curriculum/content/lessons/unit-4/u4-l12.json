@@ -1,0 +1,135 @@
+{
+  "id": "u4-l12",
+  "unitId": "unit-4",
+  "order": 12,
+  "title": "The sus4 chord",
+  "summary": "Swap the 3rd for a 4th, and it wants to fall back.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sus4",
+      "body": "A **sus4** chord uses a perfect 4th in place of the 3rd. Csus4 is C F G. The 4th leans on the 3rd below it, so the chord wants to fall back to C major.\n\n**Why it matters:** Sus4 to major is one of the most common moves in songs, often right at the end of a phrase. When you hear the chord \"settle\", that is often a sus4 resolving.",
+      "exampleMidi": [
+        60,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "C (root)",
+        "65": "F (4th)",
+        "67": "G (5th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Csus4 to C",
+      "body": "F falls a half step to E and the chord settles.",
+      "highlightMidi": [
+        60,
+        64,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E: the 3rd",
+        "65": "F: the 4th",
+        "67": "G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l12-p1",
+          "prompt": "Play the chord written Csus4.",
+          "pitchClasses": [
+            0,
+            5,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l12-p2",
+          "prompt": "Now let it settle: play the chord written C.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l12-p3",
+          "prompt": "Play the chord written Gsus4.",
+          "pitchClasses": [
+            7,
+            0,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Sus4 and back",
+      "body": "Try Dsus4 to D, and Asus4 to A. Then compare sus2 and sus4 on the same root."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u4-l12-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            62,
+            67,
+            69
+          ],
+          "choices": [
+            "Dsus2",
+            "Dsus4",
+            "D"
+          ],
+          "answer": "Dsus4"
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l12-q2",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            60,
+            62,
+            67
+          ],
+          "choices": [
+            "Csus2",
+            "Csus4",
+            "C"
+          ],
+          "answer": "Csus2"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l12-q3",
+          "prompt": "Play the chord written Esus4.",
+          "pitchClasses": [
+            4,
+            9,
+            11
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

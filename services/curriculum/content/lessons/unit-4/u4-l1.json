@@ -1,0 +1,106 @@
+{
+  "id": "u4-l1",
+  "unitId": "unit-4",
+  "order": 1,
+  "title": "Notes played together",
+  "summary": "Play three notes at the same moment and you have a new thing with its own name.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Chord",
+      "body": "So far you have played notes one after another. Press three or more notes at the same moment and you get a **chord**. Two notes together are just an interval; three or more make a chord.\n\n**Why it matters:** Chords are what the band plays under the tune. When someone says \"the chords for this song\", they mean these groups of notes, one after another.",
+      "exampleMidi": [
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "One chord, three notes",
+      "body": "C, E and G pressed together make one chord. Hold all three down at once.",
+      "highlightMidi": [
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l1-p1",
+          "prompt": "Play C, E and G together.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u4-l1-p2",
+          "prompt": "Play F, A and C together.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make your own",
+      "body": "Press any three white keys together and listen. Some groups sound sweet and some clash. Notice which ones you like."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u4-l1-q1",
+          "prompt": "Play G, B and D together.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u4-l1-q2",
+          "prompt": "How many notes are in this chord?",
+          "shownMidi": [
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        }
+      ]
+    }
+  ]
+}

@@ -173,7 +173,7 @@
     "id": "accidental",
     "term": "accidental",
     "meaning": "A sign that raises or lowers a note from its plain letter name, such as ♯.",
-    "whyItMatters": "When you see a sign next to a note name on a chart or in a chord name, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
+    "whyItMatters": "When you see a sign next to a note name on a chart or a song sheet, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
     "lessonId": "u1-l10",
     "exampleMidi": [
       65,
@@ -378,7 +378,7 @@
     "id": "interval",
     "term": "interval",
     "meaning": "The distance between two notes, counted in half steps and given a name.",
-    "whyItMatters": "Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what chords are built from, so they are the bridge to understanding chords.",
+    "whyItMatters": "Bands talk in intervals: \"go up a 5th\", \"the harmony sits a few notes above\". Intervals are also what the notes a band plays together are built from, so they lead into everything after this unit.",
     "lessonId": "u2-l3",
     "exampleMidi": [
       60,
@@ -406,7 +406,7 @@
     "id": "second",
     "term": "2nd",
     "meaning": "An interval that spans two letter names, such as C to D or E to F.",
-    "whyItMatters": "The number tells you how many letters the interval covers. That is how musicians describe tunes and spell chords.",
+    "whyItMatters": "The number tells you how many letters the interval covers. That is how musicians describe tunes and name the notes they play together.",
     "lessonId": "u2-l4",
     "exampleMidi": [
       60,
@@ -421,7 +421,7 @@
     "id": "minor",
     "term": "minor",
     "meaning": "The smaller of the two sizes an interval can come in, such as a minor 2nd (1 half step).",
-    "whyItMatters": "Minor intervals tend to give music a darker colour. You will hear \"minor\" about chords and keys too.",
+    "whyItMatters": "Minor intervals tend to give music a darker colour. You will hear the word \"minor\" about other things later in this course too.",
     "lessonId": "u2-l4",
     "exampleMidi": [
       64,
@@ -481,7 +481,7 @@
     "id": "third",
     "term": "3rd",
     "meaning": "An interval that spans three letter names, such as C to E.",
-    "whyItMatters": "Chords are stacked out of 3rds. When you learn chords in Unit 4, you will build them from the 3rds in this lesson.",
+    "whyItMatters": "The notes a band plays together are often stacked a 3rd apart. In Unit 4 you will build them from the 3rds in this lesson.",
     "lessonId": "u2-l5",
     "exampleMidi": [
       60,
@@ -496,7 +496,7 @@
     "id": "minor-3rd",
     "term": "minor 3rd",
     "meaning": "An interval of 3 half steps.",
-    "whyItMatters": "The minor 3rd is the sound that makes a minor chord sound sad. Greensleeves opens with one.",
+    "whyItMatters": "The minor 3rd gives music its sad, dark colour. Greensleeves opens with one.",
     "lessonId": "u2-l5",
     "exampleMidi": [
       60,
@@ -511,7 +511,7 @@
     "id": "major-3rd",
     "term": "major 3rd",
     "meaning": "An interval of 4 half steps.",
-    "whyItMatters": "The major 3rd makes a major chord sound happy. Oh When the Saints opens with one.",
+    "whyItMatters": "The major 3rd gives music its bright, happy colour. Oh When the Saints opens with one.",
     "lessonId": "u2-l5",
     "exampleMidi": [
       60,
@@ -545,7 +545,7 @@
     "id": "perfect-4th",
     "term": "perfect 4th",
     "meaning": "An interval of 5 half steps, such as C to F.",
-    "whyItMatters": "It is the sound of Here Comes the Bride, and of many bass lines that jump from one chord to the next.",
+    "whyItMatters": "It is the sound of Here Comes the Bride, and of many bass lines that jump around a song.",
     "lessonId": "u2-l6",
     "exampleMidi": [
       60,
@@ -560,7 +560,7 @@
     "id": "perfect-5th",
     "term": "perfect 5th",
     "meaning": "An interval of 7 half steps, such as C to G.",
-    "whyItMatters": "It is the sound of a power chord, and a root plus its 5th is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
+    "whyItMatters": "It is the open sound of rock guitar, and a low note plus the note a 5th above is how many left hands start. Twinkle Twinkle jumps up a 5th on the second \"twinkle\".",
     "lessonId": "u2-l7",
     "exampleMidi": [
       60,
@@ -575,7 +575,7 @@
     "id": "tritone",
     "term": "tritone",
     "meaning": "An interval of 6 half steps: exactly half an octave.",
-    "whyItMatters": "The tritone sounds tense, as if it wants to move. It sits inside the 7th chords that pull a song back home, which you will meet in Unit 6.",
+    "whyItMatters": "The tritone sounds tense, as if it wants to move. It is the tension that pulls a song back home, which you will hear more of in Unit 6.",
     "lessonId": "u2-l8",
     "exampleMidi": [
       60,
@@ -620,7 +620,7 @@
     "id": "minor-7th",
     "term": "minor 7th",
     "meaning": "An interval of 10 half steps, such as C to B♭.",
-    "whyItMatters": "The minor 7th is the \"7\" in chord names like G7, which you will meet in Unit 6. The original Star Trek theme opens with one.",
+    "whyItMatters": "The minor 7th is the \"7\" in names like G7 on a band chart, which you will meet in Unit 6. The original Star Trek theme opens with one.",
     "lessonId": "u2-l10",
     "exampleMidi": [
       60,
@@ -635,7 +635,7 @@
     "id": "major-7th",
     "term": "major 7th",
     "meaning": "An interval of 11 half steps, such as C to B.",
-    "whyItMatters": "It is the dreamy sound in \"maj7\" chords, which are all over soul, jazz and pop ballads.",
+    "whyItMatters": "It is the dreamy sound marked \"maj7\" on band charts, all over soul, jazz and pop ballads.",
     "lessonId": "u2-l10",
     "exampleMidi": [
       60,
@@ -679,7 +679,7 @@
   {
     "id": "ear-training",
     "term": "ear training",
-    "meaning": "Practice at recognising intervals, chords and other sounds by ear.",
+    "meaning": "Practice at recognising intervals and other sounds by ear.",
     "whyItMatters": "You already play by ear. Ear training puts names on what you hear, so when the band says \"it goes up a 6th\" you will recognise it at once.",
     "lessonId": "u2-l12",
     "exampleMidi": [
@@ -820,7 +820,7 @@
     "id": "scale-degree",
     "term": "scale degree",
     "meaning": "A note's position in its scale, counted from the tonic as 1 up to 7.",
-    "whyItMatters": "Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5 chord\", they mean scale degrees, and you will use them all through Unit 5.",
+    "whyItMatters": "Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5\", they mean scale degrees, and you will use them all through Unit 5.",
     "lessonId": "u3-l5",
     "exampleMidi": [
       60,
@@ -931,7 +931,7 @@
     "id": "circle-of-fifths",
     "term": "circle of fifths",
     "meaning": "All twelve major keys in a ring, each a perfect 5th from the next. One direction adds a sharp at each step; the other adds a flat.",
-    "whyItMatters": "It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why the chords in Unit 5 follow the circle.",
+    "whyItMatters": "It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why so much of Unit 5 follows the circle.",
     "lessonId": "u3-l12",
     "exampleMidi": [
       60,
@@ -1032,6 +1032,226 @@
     "labels": {
       "57": "A minor",
       "60": "C: relative major"
+    }
+  },
+  {
+    "id": "chord",
+    "term": "chord",
+    "meaning": "Three or more notes played at the same time.",
+    "whyItMatters": "Chords are what the band plays under the tune. When someone says \"the chords for this song\", they mean these groups of notes, one after another.",
+    "lessonId": "u4-l1",
+    "exampleMidi": [
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "60": "C",
+      "64": "E",
+      "67": "G"
+    }
+  },
+  {
+    "id": "triad",
+    "term": "triad",
+    "meaning": "A chord of three notes stacked in 3rds: a note, a 3rd above it, and a 3rd above that.",
+    "whyItMatters": "Almost every chord on a band chart is a triad or is built from one. Learn the triad and you can play most songs.",
+    "lessonId": "u4-l2",
+    "exampleMidi": [
+      62,
+      65,
+      69
+    ],
+    "labels": {
+      "62": "D",
+      "65": "F",
+      "69": "A"
+    }
+  },
+  {
+    "id": "root",
+    "term": "root",
+    "meaning": "The note a chord is built up from, and the note it is named after.",
+    "whyItMatters": "When a band mate says \"it's a G chord\", G is the root. Bass players usually play the root, so it is the note your left hand will want.",
+    "lessonId": "u4-l3",
+    "exampleMidi": [
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E ()",
+      "67": "G ()"
+    }
+  },
+  {
+    "id": "major-triad",
+    "term": "major triad",
+    "meaning": "A triad of a root, a major 3rd above it, and a perfect 5th above the root. It sounds bright.",
+    "whyItMatters": "It is the most common chord in music. On a chart, a plain letter like \"G\" means a major triad.",
+    "lessonId": "u4-l4",
+    "exampleMidi": [
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (3rd)",
+      "67": "G (5th)"
+    }
+  },
+  {
+    "id": "chord-tone",
+    "term": "chord tone",
+    "meaning": "One of the notes that make up a chord. A triad has three: the root, the 3rd and the 5th.",
+    "whyItMatters": "Musicians name notes in a chord this way: \"put the 3rd on top\" means play E above the others in C major. A tune note that is a chord tone sounds settled over that chord.",
+    "lessonId": "u4-l4",
+    "exampleMidi": [
+      67,
+      71,
+      74
+    ],
+    "labels": {
+      "67": "G (root)",
+      "71": "B (3rd)",
+      "74": "D (5th)"
+    }
+  },
+  {
+    "id": "minor-triad",
+    "term": "minor triad",
+    "meaning": "A triad of a root, a minor 3rd above it, and a perfect 5th above the root. It sounds darker than major.",
+    "whyItMatters": "Minor triads are the other half of most songs. Many pop songs use just four chords, and one or two of them are minor.",
+    "lessonId": "u4-l6",
+    "exampleMidi": [
+      57,
+      60,
+      64
+    ],
+    "labels": {
+      "57": "A (root)",
+      "60": "C (3rd)",
+      "64": "E (5th)"
+    }
+  },
+  {
+    "id": "chord-symbol",
+    "term": "chord symbol",
+    "meaning": "The short written name of a chord: its root, plus a tag for its kind. C means C major and Cm means C minor.",
+    "whyItMatters": "This is how bands write songs down. A chart is a row of chord symbols over the lyrics, and you play each one as you reach it.",
+    "lessonId": "u4-l8",
+    "exampleMidi": [
+      60,
+      63,
+      64,
+      67
+    ],
+    "labels": {
+      "60": "C / Cm",
+      "63": "E♭ in Cm",
+      "64": "E in C",
+      "67": "G"
+    }
+  },
+  {
+    "id": "diminished-triad",
+    "term": "diminished triad",
+    "aliases": [
+      "diminished",
+      "°"
+    ],
+    "meaning": "A triad of a root, a minor 3rd above it, and a tritone above the root. Written dim or °. It sounds tense.",
+    "whyItMatters": "It is the only triad on the white keys that is neither major nor minor (B D F), and its tension pulls strongly to the next chord. You will see it often in Unit 5.",
+    "lessonId": "u4-l9",
+    "exampleMidi": [
+      59,
+      62,
+      65
+    ],
+    "labels": {
+      "59": "B (root)",
+      "62": "D (minor 3rd)",
+      "65": "F (tritone)"
+    }
+  },
+  {
+    "id": "augmented-triad",
+    "term": "augmented triad",
+    "aliases": [
+      "augmented"
+    ],
+    "meaning": "A triad of a root, a major 3rd above it, and a raised 5th (8 half steps) above the root. Written aug or +.",
+    "whyItMatters": "It is rare, but it shows up as a dreamy, unsettled moment in ballads and old film music. If a chord sounds like it is floating, it may be augmented.",
+    "lessonId": "u4-l10",
+    "exampleMidi": [
+      60,
+      64,
+      68
+    ],
+    "labels": {
+      "60": "C (root)",
+      "64": "E (major 3rd)",
+      "68": "G♯ (raised 5th)"
+    }
+  },
+  {
+    "id": "suspended-chord",
+    "term": "suspended chord",
+    "aliases": [
+      "sus"
+    ],
+    "meaning": "A chord with the 3rd replaced by a 2nd or a 4th. Written sus. It is neither major nor minor.",
+    "whyItMatters": "Suspended chords add colour without the happy or sad label. They are all over pop and worship music, and guitarists love them.",
+    "lessonId": "u4-l11",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "root",
+      "62": "2nd",
+      "64": "3rd: left out",
+      "65": "4th",
+      "67": "5th"
+    }
+  },
+  {
+    "id": "sus2",
+    "term": "sus2",
+    "meaning": "A suspended chord with a major 2nd in place of the 3rd: root, 2nd, 5th. Csus2 is C D G.",
+    "whyItMatters": "It has a bright, open sound. Swap a major chord for its sus2 and the song instantly sounds more modern.",
+    "lessonId": "u4-l11",
+    "exampleMidi": [
+      60,
+      62,
+      67
+    ],
+    "labels": {
+      "60": "C (root)",
+      "62": "D (2nd)",
+      "67": "G (5th)"
+    }
+  },
+  {
+    "id": "sus4",
+    "term": "sus4",
+    "meaning": "A suspended chord with a perfect 4th in place of the 3rd: root, 4th, 5th. Csus4 is C F G.",
+    "whyItMatters": "Sus4 to major is one of the most common moves in songs, often right at the end of a phrase. When you hear the chord \"settle\", that is often a sus4 resolving.",
+    "lessonId": "u4-l12",
+    "exampleMidi": [
+      60,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "C (root)",
+      "65": "F (4th)",
+      "67": "G (5th)"
     }
   }
 ]
