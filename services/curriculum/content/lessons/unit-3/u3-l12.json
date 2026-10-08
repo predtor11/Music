@@ -1,0 +1,135 @@
+{
+  "id": "u3-l12",
+  "unitId": "unit-3",
+  "order": 12,
+  "title": "The circle of fifths",
+  "summary": "All twelve keys in a ring, each a perfect 5th from the next.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Circle of fifths",
+      "body": "Start on C and go up a perfect 5th: G. Up another 5th: D. Then A, E, B. Each step adds one sharp. Go down in 5ths from C instead, to F, B♭, E♭, and each step adds one flat. Put all twelve keys in a ring this way and you have the **circle of fifths**.\n\n**Why it matters:** It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why the chords in Unit 5 follow the circle.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        67,
+        69,
+        71
+      ],
+      "labels": {
+        "60": "C: 0",
+        "62": "D: 2♯",
+        "64": "E: 4♯",
+        "67": "G: 1♯",
+        "69": "A: 3♯",
+        "71": "B: 5♯"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Fifths down from C",
+      "body": "C, then down a 5th to F, then to B♭ and E♭: one more flat each time.",
+      "highlightMidi": [
+        51,
+        58,
+        65,
+        72
+      ],
+      "labels": {
+        "51": "E♭: 3♭",
+        "58": "B♭: 2♭",
+        "65": "F: 1♭",
+        "72": "C: 0"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u3-l12-p1",
+          "prompt": "Play C4, then go up a perfect 5th to the next sharp key.",
+          "startMidi": 60,
+          "semitones": 7
+        },
+        {
+          "kind": "play-interval",
+          "id": "u3-l12-p2",
+          "prompt": "Play G4, then go down a perfect 4th. You land on D, the next key round the circle.",
+          "startMidi": 67,
+          "semitones": -5
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l12-p3",
+          "prompt": "Going round the circle of fifths in the sharp direction, which key comes after G major?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "C major",
+            "D major",
+            "A major"
+          ],
+          "answer": "D major"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Walk the circle",
+      "body": "Play the tonic of each key round the circle: C G D A E B, each a 5th above the last. Then go the other way: C F B♭ E♭."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l12-q1",
+          "prompt": "Going round the circle of fifths in the sharp direction, which key comes after A major?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "D major",
+            "E major",
+            "B major"
+          ],
+          "answer": "E major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l12-q2",
+          "prompt": "Going round the circle of fifths in the flat direction, which key comes after F major?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "Bb major",
+            "C major",
+            "Eb major"
+          ],
+          "answer": "Bb major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l12-q3",
+          "prompt": "Going round the circle of fifths in the flat direction, which key comes after C major?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "F major",
+            "G major",
+            "Bb major"
+          ],
+          "answer": "F major"
+        }
+      ]
+    }
+  ]
+}

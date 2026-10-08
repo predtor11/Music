@@ -1,0 +1,116 @@
+{
+  "id": "u3-l4",
+  "unitId": "unit-3",
+  "order": 4,
+  "title": "The home note",
+  "summary": "The first note of a scale feels like home. It has a name: the tonic.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Tonic",
+      "body": "The first note of a scale is its **tonic**, the note that feels like home. Play C D E F G A B and stop: it sounds unfinished. Play the C and it feels done. If you know sargam, the tonic is Sa.\n\n**Why it matters:** Songs usually end on the tonic. When you play by ear, the note that feels like home is the tonic, and finding it is the first step to working out what a song is built on.",
+      "exampleMidi": [
+        60,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "tonic",
+        "71": "B wants to go home",
+        "72": "tonic"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The tonic of C major",
+      "body": "Both Cs are the tonic of C major: the scale starts and ends on it.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C, tonic",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C, tonic"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l4-p1",
+          "prompt": "Play the C major scale and hold the last note. Feel it land.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l4-p2",
+          "prompt": "Play middle C, the tonic of C major.",
+          "midi": 60
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find home",
+      "body": "Play a tune you know and notice the note it ends on. That is very likely its tonic."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l4-q1",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            60,
+            62,
+            64,
+            65,
+            67,
+            69,
+            71,
+            72
+          ],
+          "choices": [
+            "C",
+            "G",
+            "B"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l4-q2",
+          "prompt": "Find the tonic of C major near the top of the keyboard.",
+          "pc": 0
+        }
+      ]
+    }
+  ]
+}

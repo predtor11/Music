@@ -1,0 +1,123 @@
+{
+  "id": "u3-l15",
+  "unitId": "unit-3",
+  "order": 15,
+  "title": "Optional: Sa is the tonic",
+  "summary": "Sargam and keys fit together: Sa is always the tonic.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sa follows the key",
+      "body": "In Unit 1 you moved Sa around. Now you know why: Sa is always the tonic. In G major, Sa is G, Re is A, Ga is B, and so on. The shuddha notes Sa Re Ga Ma Pa Dha Ni follow exactly the major scale formula.\n\n**Why it matters:** if you think in sargam, you already know every major scale. Set Sa to the tonic and sing.",
+      "exampleMidi": [
+        67,
+        69,
+        71,
+        72,
+        74,
+        76,
+        78,
+        79
+      ],
+      "labels": {
+        "67": "Sa",
+        "69": "Re",
+        "71": "Ga",
+        "72": "Ma",
+        "74": "Pa",
+        "76": "Dha",
+        "78": "Ni",
+        "79": "Sa"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Natural minor in sargam",
+      "body": "A natural minor with Sa on A uses komal Ga, komal Dha and komal Ni.",
+      "highlightMidi": [
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69
+      ],
+      "labels": {
+        "57": "Sa",
+        "59": "Re",
+        "60": "komal Ga",
+        "62": "Ma",
+        "64": "Pa",
+        "65": "komal Dha",
+        "67": "komal Ni",
+        "69": "Sa"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u3-l15-p1",
+          "prompt": "Sa is G. Play Pa.",
+          "pc": 2
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l15-p2",
+          "prompt": "Sa is F. Play Ma.",
+          "pc": 10
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l15-p3",
+          "prompt": "Sa is A. Play komal Ga.",
+          "pc": 0
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Sing in any key",
+      "body": "Pick a key, set Sa to its tonic, and sing Sa Re Ga Ma Pa Dha Ni Sa while you play the scale."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l15-q1",
+          "prompt": "Sa is G. What is this note?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "Dha",
+            "komal Ni",
+            "Ni"
+          ],
+          "answer": "Ni"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l15-q2",
+          "prompt": "Sa is F. What is this note?",
+          "shownMidi": [
+            70
+          ],
+          "choices": [
+            "Ga",
+            "Ma",
+            "tivra Ma"
+          ],
+          "answer": "Ma"
+        }
+      ]
+    }
+  ]
+}

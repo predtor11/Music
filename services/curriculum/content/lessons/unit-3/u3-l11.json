@@ -1,0 +1,174 @@
+{
+  "id": "u3-l11",
+  "unitId": "unit-3",
+  "order": 11,
+  "title": "The flat keys in order",
+  "summary": "Flats are added in the reverse order of sharps.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Order of flats",
+      "body": "Flats are added in the opposite order to sharps: B♭ E♭ A♭ D♭ G♭ C♭ F♭. F major has the first one, B♭ major the first two, E♭ major the first three. This is the **order of flats**.\n\n**Why it matters:** Band charts are full of flat keys, especially with horns. Knowing the order tells you exactly which black keys a flat key uses.",
+      "exampleMidi": [
+        70,
+        63,
+        68,
+        61,
+        66
+      ],
+      "labels": {
+        "61": "4th: D♭",
+        "63": "2nd: E♭",
+        "66": "5th: G♭",
+        "68": "3rd: A♭",
+        "70": "1st: B♭"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "From the flats to the key",
+      "body": "With two or more flats, the second-to-last flat names the key. Three flats are B♭ E♭ A♭, and the second-to-last is E♭, so three flats means E♭ major. One flat is the odd one out: F major.\n\n**Why it matters:** with this trick you can read any flat key signature in a second.",
+      "exampleMidi": [
+        63,
+        65,
+        67,
+        68,
+        70,
+        72,
+        74,
+        75
+      ],
+      "labels": {
+        "63": "E♭",
+        "65": "F",
+        "67": "G",
+        "68": "A♭",
+        "70": "B♭",
+        "72": "C",
+        "74": "D",
+        "75": "E♭"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The flat keys",
+      "body": "F (1♭), B♭ (2♭), E♭ (3♭), A♭ (4♭) and D♭ (5♭).",
+      "highlightMidi": [
+        65,
+        70,
+        63,
+        68,
+        61
+      ],
+      "labels": {
+        "61": "D♭: 5♭",
+        "63": "E♭: 3♭",
+        "65": "F: 1♭",
+        "68": "A♭: 4♭",
+        "70": "B♭: 2♭"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l11-p1",
+          "prompt": "Which major key has 3 flats?",
+          "shownMidi": [
+            70,
+            63,
+            68
+          ],
+          "choices": [
+            "Bb major",
+            "Eb major",
+            "Ab major"
+          ],
+          "answer": "Eb major"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l11-p2",
+          "prompt": "Play the Eb major scale.",
+          "sequence": [
+            3,
+            5,
+            7,
+            8,
+            10,
+            0,
+            2,
+            3
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Flat keys by hand",
+      "body": "Play F, B♭ and E♭ major in turn. Feel one more black key join each time."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l11-q1",
+          "prompt": "Which major key has 1 flat?",
+          "shownMidi": [
+            70
+          ],
+          "choices": [
+            "F major",
+            "Bb major",
+            "C major"
+          ],
+          "answer": "F major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l11-q2",
+          "prompt": "How many flats are in the key of Eb major?",
+          "shownMidi": [
+            63,
+            65,
+            67,
+            68,
+            70,
+            72,
+            74,
+            75
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l11-q3",
+          "prompt": "Which major key has 4 flats?",
+          "shownMidi": [
+            70,
+            63,
+            68,
+            61
+          ],
+          "choices": [
+            "Eb major",
+            "Ab major",
+            "Db major"
+          ],
+          "answer": "Ab major"
+        }
+      ]
+    }
+  ]
+}

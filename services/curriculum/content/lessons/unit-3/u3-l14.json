@@ -1,0 +1,152 @@
+{
+  "id": "u3-l14",
+  "unitId": "unit-3",
+  "order": 14,
+  "title": "Relative major and minor",
+  "summary": "Every major key has a minor key that shares all its notes.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Relative minor",
+      "body": "A natural minor and C major use exactly the same notes, so they are relatives: A minor is the **relative minor** of C major. Every major key has one. It starts on the major key's 6th scale degree, 3 half steps below the tonic.\n\n**Why it matters:** Relative keys share a key signature, so one sharp could mean G major or E minor. Lots of songs move between the two.",
+      "exampleMidi": [
+        57,
+        60
+      ],
+      "labels": {
+        "57": "A: relative minor",
+        "60": "C major"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Relative major",
+      "body": "Going the other way, C major is the **relative major** of A minor: 3 half steps up from the minor tonic.\n\n**Why it matters:** If a song in a minor key brightens up halfway through, it has often moved to its relative major.",
+      "exampleMidi": [
+        57,
+        60
+      ],
+      "labels": {
+        "57": "A minor",
+        "60": "C: relative major"
+      }
+    },
+    {
+      "type": "show",
+      "title": "G major and E minor",
+      "body": "The same seven notes, with one sharp. G is the tonic of one, E of the other.",
+      "highlightMidi": [
+        64,
+        66,
+        67,
+        69,
+        71,
+        72,
+        74,
+        76
+      ],
+      "labels": {
+        "64": "E: E minor",
+        "66": "F♯",
+        "67": "G: G major",
+        "69": "A",
+        "71": "B",
+        "72": "C",
+        "74": "D",
+        "76": "E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l14-p1",
+          "prompt": "Play the G major scale.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l14-p2",
+          "prompt": "Play the E natural minor scale: the same notes, starting on E.",
+          "sequence": [
+            4,
+            6,
+            7,
+            9,
+            11,
+            0,
+            2,
+            4
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find the relative",
+      "body": "Pick any major key, count down 3 half steps, and play the natural minor scale from there. Check that it uses the same black keys."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l14-q1",
+          "prompt": "What is the relative minor of G major?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "E minor",
+            "A minor",
+            "D minor"
+          ],
+          "answer": "E minor"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l14-q2",
+          "prompt": "What is the relative major of D minor?",
+          "shownMidi": [
+            62
+          ],
+          "choices": [
+            "F major",
+            "Bb major",
+            "G major"
+          ],
+          "answer": "F major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l14-q3",
+          "prompt": "What is the relative minor of F major?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "D minor",
+            "A minor",
+            "C minor"
+          ],
+          "answer": "D minor"
+        }
+      ]
+    }
+  ]
+}

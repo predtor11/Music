@@ -1,5 +1,21 @@
 import type { TestItem } from '@music/contracts';
-import { MIDDLE_C, intervalInfo, isBlackKey, mod12, parseMidi, parseNote, pitchClass, sargam, spelledPc } from '@music/theory';
+import {
+  type Key,
+  MIDDLE_C,
+  intervalInfo,
+  isBlackKey,
+  keyScale,
+  keySignature,
+  mod12,
+  parseKey,
+  parseMidi,
+  parseNote,
+  pitchClass,
+  sargam,
+  scaleOffsets,
+  spellInKey,
+  spelledPc,
+} from '@music/theory';
 
 /**
  * Checks that a test item's expected answer matches what its prompt asks for,
@@ -51,6 +67,72 @@ function intervalNamesIn(text: string): number[] {
   return count ? [...named, Number(count[1])] : named;
 }
 
+const NOTE = '[A-G](?:#|b)?';
+/** "G major" or "A natural minor" (or "A minor") named in a prompt. */
+const KEY_NAMED = new RegExp(`\\b(${NOTE}) (major|natural minor|minor)\\b`);
+const DEGREE_PROMPT = new RegExp(`^In (${NOTE} major), play scale degree (\\d)\\.`);
+
+function keyOf(text: string): Key {
+  const key = parseKey(text.replace('natural minor', 'minor'));
+  if (!key) throw new Error(`not a key: ${text}`);
+  return key;
+}
+const tonicPc = (key: Key) => spelledPc(key.tonic);
+const scalePcs = (key: Key) => keyScale(key).map(spelledPc);
+const sameNote = (a: { letter: string; accidental: number }, b: { letter: string; accidental: number }) =>
+  a.letter === b.letter && a.accidental === b.accidental;
+
+/** Answers to questions about scales and keys (Unit 3 on). undefined means the prompt is not one of these. */
+function isRightKeyAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
+  let m: RegExpExecArray | null;
+  if ((m = new RegExp(`^How many (sharps|flats) are in the key of (${NOTE} major)\\?$`).exec(prompt))) {
+    const sig = keySignature(keyOf(m[2]!));
+    return Number(choice) === (m[1] === 'sharps' ? sig : -sig);
+  }
+  if ((m = /^Which major key has (\d) (sharp|flat)s?\?$/.exec(prompt))) {
+    const want = Number(m[1]) * (m[2] === 'sharp' ? 1 : -1);
+    return /major$/.test(choice) && keySignature(keyOf(choice)) === want;
+  }
+  if (prompt === 'What is the tonic of this scale?') {
+    const parsed = parseNote(choice);
+    return !!parsed && spelledPc(parsed.note) === pitchClass(Math.min(...shown));
+  }
+  if ((m = new RegExp(`^In (${NOTE} major), which scale degree is this note\\?$`).exec(prompt))) {
+    return shown.length === 1 && scalePcs(keyOf(m[1]!)).indexOf(pitchClass(shown[0]!)) + 1 === Number(choice);
+  }
+  if ((m = new RegExp(`^In (${NOTE} major), what is this note called\\?$`).exec(prompt))) {
+    const parsed = parseNote(choice);
+    return shown.length === 1 && !!parsed && sameNote(parsed.note, spellInKey(pitchClass(shown[0]!), keyOf(m[1]!)));
+  }
+  if ((m = new RegExp(`^Is this key in the (${NOTE} (?:major|natural minor)) scale\\?$`).exec(prompt))) {
+    if (choice !== 'yes' && choice !== 'no') return false;
+    return shown.length === 1 && scalePcs(keyOf(m[1]!)).includes(pitchClass(shown[0]!)) === (choice === 'yes');
+  }
+  if ((m = new RegExp(`^A song uses the notes ((?:${NOTE} ?)+) and ends on (${NOTE})\\. What key is it in\\?$`).exec(prompt))) {
+    const notes = new Set(m[1]!.trim().split(' ').map((n) => spelledPc(parseNote(n)!.note)));
+    const key = keyOf(choice);
+    const pcs = scalePcs(key);
+    return tonicPc(key) === spelledPc(parseNote(m[2]!)!.note) && pcs.length === notes.size && pcs.every((pc) => notes.has(pc));
+  }
+  if ((m = new RegExp(`circle of fifths in the (sharp|flat) direction, which key comes after (${NOTE} major)\\?$`).exec(prompt))) {
+    const key = keyOf(choice);
+    return key.mode === 'major' && tonicPc(key) === mod12(tonicPc(keyOf(m[2]!)) + (m[1] === 'sharp' ? 7 : 5));
+  }
+  if ((m = new RegExp(`^What is the relative (minor|major) of (${NOTE} (?:major|minor))\\?$`).exec(prompt))) {
+    const from = keyOf(m[2]!);
+    const key = keyOf(choice);
+    if (key.mode !== m[1] || from.mode === key.mode) return false;
+    return tonicPc(key) === mod12(tonicPc(from) + (key.mode === 'minor' ? -3 : 3));
+  }
+  if (prompt === 'Is this scale major or natural minor?') {
+    const low = Math.min(...shown);
+    const offsets = [...new Set(shown.map((k) => mod12(k - low)))].sort((a, b) => a - b);
+    const want = scaleOffsets(choice === 'major' ? 'major' : 'naturalMinor');
+    return (choice === 'major' || choice === 'natural minor') && offsets.join() === want.join();
+  }
+  return undefined;
+}
+
 /** Plain-word answers for lessons that come before note names. */
 function isRightPlainAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
   const [a, b] = shown;
@@ -74,6 +156,8 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
 
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const keyAnswer = isRightKeyAnswer(choice, shown, prompt);
+  if (keyAnswer !== undefined) return keyAnswer;
   const plain = isRightPlainAnswer(choice, shown, prompt);
   if (plain !== undefined) return plain;
   if (shown.length === 2) {
@@ -114,6 +198,12 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
         if (!namesSargam(item.prompt.replace(SA_IS, ''), label)) problems.push(`prompt should name ${label}`);
         break;
       }
+      const degree = DEGREE_PROMPT.exec(item.prompt);
+      if (degree) {
+        const want = scalePcs(keyOf(degree[1]!))[Number(degree[2]) - 1];
+        if (want !== target) problems.push(`scale degree ${degree[2]} of ${degree[1]} is pc ${want}, not ${target}`);
+        break;
+      }
       if (lit) {
         if (item.midi === undefined) problems.push('a lit key needs midi');
         break;
@@ -144,6 +234,14 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       if (tokens.length === item.sequence.length) {
         // The prompt spells out every note: they must match the sequence.
         if (tokens.some((t, i) => t.pc !== item.sequence[i])) problems.push('the notes in the prompt do not match the sequence');
+        break;
+      }
+      const named = KEY_NAMED.exec(item.prompt);
+      if (named) {
+        // "Play the G major scale": the sequence must be that scale, up to its tonic again.
+        const key = keyOf(`${named[1]} ${named[2]}`);
+        const want = [...scalePcs(key), tonicPc(key)];
+        if (want.join() !== item.sequence.join()) problems.push(`the ${named[0]} scale is ${want.join(' ')}, not ${item.sequence.join(' ')}`);
         break;
       }
       const step = hasWord(item.prompt, 'half step') ? 1 : hasWord(item.prompt, 'whole step') ? 2 : null;
