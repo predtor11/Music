@@ -53,8 +53,14 @@ npm start -w @music/theory-service   # one service
 docker compose up -d     # Redis
 ```
 
-Without `SUPABASE_JWT_SECRET` the gateway runs in dev mode: every request is
-the fixed dev user `00000000-0000-4000-8000-000000000001`. Without
+The gateway checks Supabase access tokens: HS256 tokens with
+`SUPABASE_JWT_SECRET`, and signing-key tokens (ES256/RS256, the default for
+new projects) with the public keys at `SUPABASE_URL/auth/v1/.well-known/jwks.json`.
+With neither variable set it runs in dev mode: every request is the fixed dev
+user `00000000-0000-4000-8000-000000000001`. The web app signs in with
+Supabase Auth using `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` from the
+repo-root `.env`; without them it runs signed out and keeps settings in the
+browser. Without
 `REDIS_URL`, `createEventBus()` falls back to an in-memory bus, so events
 don't cross services. Service tests that need Redis run only when `REDIS_URL`
 is set. The gateway finds each service at `http://127.0.0.1:<port>` unless

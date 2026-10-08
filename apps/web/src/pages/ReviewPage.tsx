@@ -63,6 +63,20 @@ function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
 
+  if (save === 'signed-out') {
+    return (
+      <Card padding="lg" className={s.errorCard} data-testid="review-signin">
+        <h2 className="ui-heading">Sign in to review</h2>
+        <p className="ui-muted">Review picks questions from what you've practised, so it needs your account.</p>
+        <div>
+          <Button variant="primary" onClick={() => (location.hash = href.signin)}>
+            Sign in
+          </Button>
+        </div>
+      </Card>
+    );
+  }
+
   if (save === 'offline' || failed) {
     return (
       <Card padding="lg" className={s.errorCard} data-testid="review-offline">
@@ -78,7 +92,7 @@ function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () 
       </Card>
     );
   }
-  if (summary) return <Summary summary={summary} title="Review" onRetry={onAgain} backHref={href.lessons} offline={false} />;
+  if (summary) return <Summary summary={summary} title="Review" onRetry={onAgain} backHref={href.lessons} save={save} />;
   if (empty) return <NothingDue />;
   if (!item) return <Loading />;
 

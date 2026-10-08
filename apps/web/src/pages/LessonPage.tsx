@@ -6,7 +6,7 @@
 
 import type { Lesson, LessonStep, SessionSummary, UserSettings } from '@music/contracts';
 import { C_MAJOR, pretty } from '@music/theory';
-import { Badge, Button, Card, Swap, fadeUp } from '@music/ui';
+import { Button, Card, Swap, fadeUp } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getLesson } from '../api/client.js';
@@ -21,6 +21,7 @@ import type { KeyboardSize } from '../keyboard/layout.js';
 import { ItemRunner } from '../lesson/ItemRunner.js';
 import { Prose } from '../lesson/Prose.js';
 import { Summary } from '../lesson/Summary.js';
+import { SaveBadge } from '../lesson/SaveNotice.js';
 import { usePractice } from '../lesson/usePractice.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
@@ -93,7 +94,7 @@ function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings:
   const onItemDone = useCallback(() => setItemIndex((i) => i + 1), []);
 
   if (summary) {
-    return <Summary summary={summary} title={lesson.title} onRetry={onRetry} backHref={href.lessons} offline={practice.save === 'offline'} />;
+    return <Summary summary={summary} title={lesson.title} onRetry={onRetry} backHref={href.lessons} save={practice.save} />;
   }
 
   return (
@@ -108,11 +109,7 @@ function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings:
           </h1>
           <span className="ui-muted">{lesson.summary}</span>
         </div>
-        {practice.save === 'offline' && (
-          <Badge tone="warn" title="Your answers aren't being saved because the practice server can't be reached." data-testid="offline">
-            Not saving
-          </Badge>
-        )}
+        <SaveBadge save={practice.save} />
       </div>
 
       <ol className={s.progress} aria-label="Lesson steps">

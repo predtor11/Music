@@ -58,7 +58,7 @@ export const SESSION_ID = '11111111-1111-4111-8111-111111111111';
 const USER_ID = '00000000-0000-4000-8000-000000000001';
 
 /** Answers /api like the gateway would, and records what the app sends. */
-export async function fakeApi(page: Page, { practiceDown = false } = {}): Promise<FakeApi> {
+export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsSignIn = false } = {}): Promise<FakeApi> {
   const api: FakeApi = { attempts: [], sessions: [], ended: [] };
   const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
   const session = (kind: string, refId?: string) => ({ id: SESSION_ID, userId: USER_ID, kind, refId: refId ?? null, startedAt: new Date().toISOString(), endedAt: null });
@@ -73,6 +73,10 @@ export async function fakeApi(page: Page, { practiceDown = false } = {}): Promis
     if (path === `/curriculum/lessons/${LESSON.id}`) return json(route, LESSON);
 
     if (path.startsWith('/practice') && practiceDown) return route.abort('connectionrefused');
+    // What the gateway and practice service do for a signed-out request when auth is on.
+    if (path.startsWith('/practice') && practiceNeedsSignIn && !route.request().headers().authorization) {
+      return json(route, { statusCode: 401, error: 'Unauthorized', message: 'sign in required' }, 401);
+    }
     if (path === '/practice/sessions' && method === 'POST') {
       const body = route.request().postDataJSON() as { kind: string; refId?: string };
       api.sessions.push(body);

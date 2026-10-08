@@ -5,12 +5,13 @@
 
 import type { SessionSummary, TestItem, Unit, UserSettings } from '@music/contracts';
 import { C_MAJOR } from '@music/theory';
-import { Badge, Card } from '@music/ui';
+import { Card } from '@music/ui';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getUnit, nextItem } from '../api/client.js';
 import type { KeyboardSize } from '../keyboard/layout.js';
 import { ItemRunner } from '../lesson/ItemRunner.js';
 import { Summary } from '../lesson/Summary.js';
+import { SaveBadge } from '../lesson/SaveNotice.js';
 import { usePractice } from '../lesson/usePractice.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
@@ -62,7 +63,7 @@ function CheckpointRun({ unit, settings, onRetry }: { unit: Unit; settings: User
     if (save !== 'starting' && !item && !summary) void advance();
   }, [save, item, summary, advance]);
 
-  if (summary) return <Summary summary={summary} title={`Unit ${unit.order} test`} onRetry={onRetry} backHref={href.lessons} offline={save === 'offline'} />;
+  if (summary) return <Summary summary={summary} title={`Unit ${unit.order} test`} onRetry={onRetry} backHref={href.lessons} save={save} />;
   if (!item) return <Loading />;
 
   return (
@@ -77,7 +78,7 @@ function CheckpointRun({ unit, settings, onRetry }: { unit: Unit; settings: User
             {unit.title}. Pass with {unit.checkpoint.passPercent}% right on the first try.
           </span>
         </div>
-        {save === 'offline' && <Badge tone="warn">Not saving</Badge>}
+        <SaveBadge save={save} />
       </div>
       <Card padding="lg" className={s.stepCard}>
         <span className={`ui-muted ${s.small}`} data-testid="checkpoint-count">

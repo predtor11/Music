@@ -26,7 +26,7 @@ describe('GET /me', () => {
       id: USER,
       displayName: DEFAULT_DISPLAY_NAME,
       createdAt: NOW.toISOString(),
-      settings: { noteNaming: 'western', keyboardSize: 61, lowestNote: 36, currentKey: 'C', midiInputId: null },
+      settings: { noteNaming: 'western', keyboardSize: 61, lowestNote: 36, currentKey: 'C', midiInputId: null, theme: 'dark' },
     });
   });
 
@@ -90,7 +90,7 @@ describe('PATCH /me/settings', () => {
     await me();
     const res = await patch({ noteNaming: 'both', currentKey: 'Eb' });
     expect(res.statusCode).toBe(200);
-    expect(res.json().settings).toEqual({ noteNaming: 'both', keyboardSize: 61, lowestNote: 36, currentKey: 'Eb', midiInputId: null });
+    expect(res.json().settings).toEqual({ noteNaming: 'both', keyboardSize: 61, lowestNote: 36, currentKey: 'Eb', midiInputId: null, theme: 'dark' });
     expect((await me()).json().settings.currentKey).toBe('Eb');
   });
 
@@ -99,7 +99,7 @@ describe('PATCH /me/settings', () => {
     await patch({ keyboardSize: 88, lowestNote: 21 });
     await patch({ midiInputId: 'input-1' });
     await patch({ midiInputId: null });
-    expect((await me()).json().settings).toEqual({ noteNaming: 'western', keyboardSize: 88, lowestNote: 21, currentKey: 'C', midiInputId: null });
+    expect((await me()).json().settings).toEqual({ noteNaming: 'western', keyboardSize: 88, lowestNote: 21, currentKey: 'C', midiInputId: null, theme: 'dark' });
   });
 
   it('creates the profile and publishes user.created if settings come first', async () => {
