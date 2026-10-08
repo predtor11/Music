@@ -1,0 +1,24 @@
+{
+  "name": "@music/charts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Band chord charts: chord symbols to numerals and back, rendering in any key, capo hints, typing bars, share links",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@music/contracts": "*",
+    "@music/theory": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}
