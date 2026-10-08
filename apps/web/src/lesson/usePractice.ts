@@ -32,7 +32,7 @@ export function saveFailure(error: unknown): SaveState {
 
 const LESSON_PASS_PERCENT = 80;
 
-export function usePractice(kind: 'lesson' | 'checkpoint' | 'review', refId?: string, passPercent = LESSON_PASS_PERCENT) {
+export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', refId?: string, passPercent = LESSON_PASS_PERCENT) {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [save, setSave] = useState<SaveState>('starting');
   const firstTry = useRef(new Map<string, boolean>());
