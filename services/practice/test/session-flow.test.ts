@@ -43,6 +43,14 @@ describe.each(factories)('session flow (%s)', (_name, makeRepo) => {
     for (const r of repos) await r.close();
   });
 
+  it('answers with an error instead of hanging when events cannot be sent', async () => {
+    // What the Redis bus does when Redis is down.
+    bus.publish = () => Promise.reject(Object.assign(new Error("Can't reach the event bus (Redis). Is it running?"), { statusCode: 503 }));
+    const session = SessionSchema.parse((await start('lesson', 'u1-l1')).json());
+    expect((await attempt(session.id, 'q-c', true)).statusCode).toBe(503);
+    expect((await app.inject({ method: 'POST', url: `/sessions/${session.id}/end`, headers })).statusCode).toBe(503);
+  });
+
   async function start(kind: string, refId?: string, as = headers) {
     return app.inject({ method: 'POST', url: '/sessions', headers: as, payload: { kind, refId } });
   }

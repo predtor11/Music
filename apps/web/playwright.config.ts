@@ -18,7 +18,8 @@ export default defineConfig({
   webServer: {
     command: 'npx vite --port 5179 --strictPort',
     // Sign-in talks to a fake Supabase on the same origin (see e2e/fake-supabase.ts).
-    env: { VITE_SUPABASE_URL: 'http://localhost:5179/fake-supabase', VITE_SUPABASE_ANON_KEY: 'test-anon-key' },
+    // A short API timeout so tests of a stuck server finish quickly.
+    env: { VITE_SUPABASE_URL: 'http://localhost:5179/fake-supabase', VITE_SUPABASE_ANON_KEY: 'test-anon-key', VITE_API_TIMEOUT_MS: '2000' },
     url: 'http://localhost:5179',
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,
