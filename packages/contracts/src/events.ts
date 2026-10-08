@@ -6,7 +6,7 @@ import { StoredAttemptSchema } from './practice.js';
  * in tests). The stream name is the event type. Consumers must tolerate
  * receiving an event twice.
  */
-export const EventEnvelopeSchema = <T extends z.ZodTypeAny>(type: string, data: T) =>
+export const EventEnvelopeSchema = <K extends string, T extends z.ZodTypeAny>(type: K, data: T) =>
   z.object({
     id: z.string().uuid(),
     type: z.literal(type),
