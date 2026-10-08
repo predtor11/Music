@@ -1,0 +1,148 @@
+{
+  "id": "u1-l3",
+  "unitId": "unit-1",
+  "order": 3,
+  "title": "Octaves and middle C",
+  "summary": "The same note name comes back higher and lower. Octave numbers tell you which one is meant.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Same name, higher or lower",
+      "body": "Play a C, then the next C to the right. They sound like the same note, one higher than the other. That jump is an **octave**.\n\nEvery note name repeats once per octave. A tune played an octave higher is still the same tune.",
+      "exampleMidi": [
+        60,
+        72
+      ],
+      "labels": {
+        "60": "C4",
+        "72": "C5"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Octave numbers",
+      "body": "To say which C you mean, add a number. Middle C is **C4**. The C above it is C5 and the C below it is C3.\n\nThe number goes up at every C, not at A. So the B just below middle C is B3, and the D just above it is D4.",
+      "exampleMidi": [
+        59,
+        60,
+        62
+      ],
+      "labels": {
+        "59": "B3",
+        "60": "C4",
+        "62": "D4"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C3, C4 and C5",
+      "body": "Three Cs, one octave apart. The middle one is middle C, C4.",
+      "highlightMidi": [
+        48,
+        60,
+        72
+      ],
+      "labels": {
+        "48": "C3",
+        "60": "C4",
+        "72": "C5"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play notes by octave",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l3-p1",
+          "prompt": "Play C4, middle C.",
+          "midi": 60
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-p2",
+          "prompt": "Play C5, the next C up.",
+          "midi": 72
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-p3",
+          "prompt": "Play C3, the C below middle C.",
+          "midi": 48
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-p4",
+          "prompt": "Play G4, the G just above middle C.",
+          "midi": 67
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-p5",
+          "prompt": "Play B3, the B just below middle C.",
+          "midi": 59
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Move it up and down",
+      "body": "Play the same tune in two different octaves. It is the same tune, just higher or lower. The app shows the octave number on each note you play."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l3-q1",
+          "prompt": "Which C is lit?",
+          "shownMidi": [
+            72
+          ],
+          "choices": [
+            "C3",
+            "C4",
+            "C5",
+            "C6"
+          ],
+          "answer": "C5"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-q2",
+          "prompt": "Find A4.",
+          "midi": 69
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-q3",
+          "prompt": "Find D4.",
+          "midi": 62
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l3-q4",
+          "prompt": "Which C is lit?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "C2",
+            "C3",
+            "C4",
+            "C5"
+          ],
+          "answer": "C3"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l3-q5",
+          "prompt": "Find B4, the last white key before C5.",
+          "midi": 71
+        }
+      ]
+    }
+  ]
+}

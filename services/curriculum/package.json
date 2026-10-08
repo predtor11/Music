@@ -12,7 +12,9 @@
   "dependencies": {
     "@music/contracts": "*",
     "@music/service-kit": "*",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.2",
+    "@music/theory": "*",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

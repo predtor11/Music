@@ -1,0 +1,209 @@
+{
+  "id": "u2-l4",
+  "unitId": "unit-2",
+  "order": 4,
+  "title": "Sixths, sevenths and the octave",
+  "summary": "The wide intervals, up to the octave. After this you know all twelve.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sixths",
+      "body": "Eight half steps make a **minor 6th** (C to A♭). Nine make a **major 6th** (C to A). Sixths sound sweet, and you hear them in a lot of harmony lines.",
+      "exampleMidi": [
+        60,
+        68,
+        69
+      ],
+      "labels": {
+        "60": "C",
+        "68": "minor 6th",
+        "69": "major 6th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Sevenths",
+      "body": "Ten half steps make a **minor 7th** (C to B♭). Eleven make a **major 7th** (C to B), one half step short of the octave.\n\nThe minor 7th is the \"7\" in chords like G7. The major 7th is the dreamy sound in \"maj7\" chords.",
+      "exampleMidi": [
+        60,
+        70,
+        71
+      ],
+      "labels": {
+        "60": "C",
+        "70": "minor 7th",
+        "71": "major 7th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "The octave",
+      "body": "Twelve half steps bring you back to the same letter: the **octave**. You now have a name for every distance from one half step to twelve.",
+      "exampleMidi": [
+        60,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "72": "octave"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Every interval above C",
+      "body": "- C♯: minor 2nd\n- D: major 2nd\n- E♭: minor 3rd\n- E: major 3rd\n- F: perfect 4th\n- F♯: tritone\n- G: perfect 5th\n- A♭: minor 6th\n- A: major 6th\n- B♭: minor 7th\n- B: major 7th\n- C: octave",
+      "highlightMidi": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "61": "minor 2nd",
+        "62": "major 2nd",
+        "63": "minor 3rd",
+        "64": "major 3rd",
+        "65": "perfect 4th",
+        "66": "tritone",
+        "67": "perfect 5th",
+        "68": "minor 6th",
+        "69": "major 6th",
+        "70": "minor 7th",
+        "71": "major 7th",
+        "72": "octave"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play the wide intervals",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-p1",
+          "prompt": "Play C4, then go up a major 6th.",
+          "startMidi": 60,
+          "semitones": 9
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-p2",
+          "prompt": "Play C4, then go up a minor 7th.",
+          "startMidi": 60,
+          "semitones": 10
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-p3",
+          "prompt": "Play C4, then go up a major 7th.",
+          "startMidi": 60,
+          "semitones": 11
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-p4",
+          "prompt": "Play C4, then go up an octave.",
+          "startMidi": 60,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-p5",
+          "prompt": "Play E4, then go up a minor 6th.",
+          "startMidi": 64,
+          "semitones": 8
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "All twelve",
+      "body": "Hold a low note with your left hand and play each interval above it with your right, one at a time. Say the name of each one as you go."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l4-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            70
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "minor 7th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l4-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            71
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "major 6th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l4-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            65,
+            76
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "major 7th"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-q4",
+          "prompt": "Play G4, then go up an octave.",
+          "startMidi": 67,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-q5",
+          "prompt": "Play D4, then go up a minor 6th.",
+          "startMidi": 62,
+          "semitones": 8
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l4-q6",
+          "prompt": "Play C5, then go down a minor 7th.",
+          "startMidi": 72,
+          "semitones": -10
+        }
+      ]
+    }
+  ]
+}

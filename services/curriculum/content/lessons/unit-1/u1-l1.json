@@ -1,0 +1,144 @@
+{
+  "id": "u1-l1",
+  "unitId": "unit-1",
+  "order": 1,
+  "title": "Find your way with the black keys",
+  "summary": "The black keys come in groups of two and three. That pattern is your map, and it leads you to C.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The keyboard repeats",
+      "body": "You already know the keys by feel. Theory just gives them names.\n\nLook at the black keys. They come in **groups of two** and **groups of three**, over and over, all the way up the keyboard. That pattern is your map: every note name hangs off it.",
+      "exampleMidi": [
+        61,
+        63,
+        66,
+        68,
+        70,
+        73,
+        75,
+        78,
+        80,
+        82
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Groups of two and three",
+      "body": "Here is one group of two black keys and one group of three. The same pair of groups repeats in every part of the keyboard.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ],
+      "labels": {
+        "61": "2",
+        "63": "2",
+        "66": "3",
+        "68": "3",
+        "70": "3"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "C sits just left of the two",
+      "body": "The white key just to the left of each group of two black keys is **C**. There is one in every repeat of the pattern, so a full 88-key piano has eight Cs.\n\nThe C nearest the middle of the keyboard, usually right under the brand name, is called **middle C**. It is the landmark everything else is measured from.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "middle C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Every C on the keyboard",
+      "body": "All eight Cs on an 88-key piano. Each one sits just left of a pair of black keys.",
+      "highlightMidi": [
+        24,
+        36,
+        48,
+        60,
+        72,
+        84,
+        96,
+        108
+      ],
+      "labels": {
+        "24": "C1",
+        "36": "C2",
+        "48": "C3",
+        "60": "C4",
+        "72": "C5",
+        "84": "C6",
+        "96": "C7",
+        "108": "C8"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play some Cs",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l1-p1",
+          "prompt": "Play any C: look for a pair of black keys and take the white key just left of it.",
+          "pc": 0
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l1-p2",
+          "prompt": "Play middle C.",
+          "midi": 60
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l1-p3",
+          "prompt": "Play a C in a different part of the keyboard.",
+          "pc": 0
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Free play",
+      "body": "Play anything you like. The app names each key as you press it. Watch for the Cs: each one sits just left of a pair of black keys."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l1-q1",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "C",
+            "D",
+            "E",
+            "B"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l1-q2",
+          "prompt": "Find a C near the top of the keyboard.",
+          "pc": 0
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l1-q3",
+          "prompt": "Find middle C without looking at the screen.",
+          "midi": 60
+        }
+      ]
+    }
+  ]
+}

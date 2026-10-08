@@ -1,0 +1,207 @@
+{
+  "id": "u2-l1",
+  "unitId": "unit-2",
+  "order": 1,
+  "title": "Half steps and whole steps",
+  "summary": "The two smallest moves on the keyboard, and the building blocks of every interval.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The smallest step",
+      "body": "A **half step** is the move from one key to the very next key, black or white, with nothing in between.\n\nC to C♯ is a half step. So is E to F, because there is no black key between them.",
+      "exampleMidi": [
+        60,
+        61
+      ],
+      "labels": {
+        "60": "C",
+        "61": "C♯"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Half steps between white keys",
+      "body": "E to F and B to C are the only places where two white keys are a half step apart.",
+      "highlightMidi": [
+        64,
+        65,
+        71,
+        72
+      ],
+      "labels": {
+        "64": "E",
+        "65": "F",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Two half steps make a whole step",
+      "body": "A **whole step** skips over one key. C to D is a whole step, with C♯ in between. E to F♯ is also a whole step, with F in between.",
+      "exampleMidi": [
+        60,
+        62
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A chain of whole steps",
+      "body": "C, D, E, F♯: each key is a whole step above the one before it.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        66
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "66": "F♯"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Step up and down",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-p1",
+          "prompt": "Play C4, then go up a half step.",
+          "startMidi": 60,
+          "semitones": 1
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-p2",
+          "prompt": "Play E4, then go up a half step.",
+          "startMidi": 64,
+          "semitones": 1
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-p3",
+          "prompt": "Play C4, then go up a whole step.",
+          "startMidi": 60,
+          "semitones": 2
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-p4",
+          "prompt": "Play F4, then go down a whole step.",
+          "startMidi": 65,
+          "semitones": -2
+        },
+        {
+          "kind": "play-scale",
+          "id": "u2-l1-p5",
+          "prompt": "Start on C and play every key going up, a half step at a time, until you reach the next C.",
+          "sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u2-l1-p6",
+          "prompt": "Start on C and go up a whole step at a time until you reach the next C.",
+          "sequence": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Listen for small steps",
+      "body": "Play a tune you know and watch the names. Most melodies move mostly by half steps and whole steps, with the odd bigger jump."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l1-q1",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            64,
+            65
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "half step"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l1-q2",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            67,
+            69
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "whole step"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l1-q3",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            70,
+            72
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "whole step"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-q4",
+          "prompt": "Play B4, then go up a half step.",
+          "startMidi": 71,
+          "semitones": 1
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-q5",
+          "prompt": "Pick any key and go up a whole step.",
+          "startMidi": null,
+          "semitones": 2
+        }
+      ]
+    }
+  ]
+}
