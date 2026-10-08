@@ -1,0 +1,115 @@
+{
+  "id": "u5-l11",
+  "unitId": "unit-5",
+  "order": 11,
+  "title": "The jazz turnaround",
+  "summary": "ii–V–I: the move that leads home in jazz and soul.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Ii–V–I",
+      "body": "The progression **ii–V–I** (2–5–1) steps toward home in two moves, each root a perfect 5th above the next. In C major it is Dm, G, C.\n\n**Why it matters:** It is the most important progression in jazz, and it ends a lot of soul and pop phrases too. Hear it and you know home is coming.",
+      "exampleMidi": [
+        62,
+        67,
+        72
+      ],
+      "labels": {
+        "62": "ii: Dm",
+        "67": "V: G",
+        "72": "I: C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "ii–V–I in F",
+      "body": "Gm, C, F.",
+      "highlightMidi": [
+        67,
+        72,
+        77
+      ],
+      "labels": {
+        "67": "ii: Gm",
+        "72": "V: C",
+        "77": "I: F"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l11-p1",
+          "prompt": "Play ii–V–I in C.",
+          "key": "C",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l11-p2",
+          "prompt": "Play ii–V–I in F.",
+          "key": "F",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Round the circle",
+      "body": "Play ii–V–I in C, then in F, then in B♭. Each new key is a 5th below the last: the circle of fifths again."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l11-q1",
+          "prompt": "Play ii–V–I in Bb.",
+          "key": "Bb",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l11-q2",
+          "prompt": "Play 2–5–1 in G.",
+          "key": "G",
+          "numerals": [
+            "2",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l11-q3",
+          "prompt": "In F major, which chord is the ii?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "Gm",
+            "G",
+            "Dm"
+          ],
+          "answer": "Gm"
+        }
+      ]
+    }
+  ]
+}

@@ -84,4 +84,20 @@ describe('checkItem', () => {
     expect(checkItem({ ...third, answer: 'B' })).toEqual([]);
     expect(checkItem({ ...third, answer: 'D' })).not.toEqual([]);
   });
+
+  it('checks chords in a key and progressions against the numerals', () => {
+    const which = { kind: 'name-it' as const, id: 'x', prompt: 'In G major, which chord is the vi?', shownMidi: [67], choices: ['Em', 'E'] };
+    expect(checkItem({ ...which, answer: 'Em' })).toEqual([]);
+    expect(checkItem({ ...which, answer: 'E' })).not.toEqual([]);
+    const roman = { kind: 'name-it' as const, id: 'x', prompt: 'In C major, which Roman numeral is this chord?', shownMidi: [69, 72, 76], choices: ['vi', 'VI'] };
+    expect(checkItem({ ...roman, answer: 'vi' })).toEqual([]);
+    expect(checkItem({ ...roman, answer: 'VI' })).not.toEqual([]);
+    const chord = { kind: 'build-chord' as const, id: 'x', prompt: 'In F major, play the IV chord.', bassPc: null };
+    expect(checkItem({ ...chord, pitchClasses: [10, 2, 5] })).toEqual([]);
+    expect(checkItem({ ...chord, pitchClasses: [11, 2, 5] })).not.toEqual([]);
+    const prog = { kind: 'play-progression' as const, id: 'x', prompt: 'Play I–V–vi–IV in G.', key: 'G', numerals: ['I', 'V', 'vi', 'IV'] };
+    expect(checkItem(prog)).toEqual([]);
+    expect(checkItem({ ...prog, key: 'D' })).not.toEqual([]);
+    expect(checkItem({ ...prog, numerals: ['I', 'IV', 'vi', 'V'] })).not.toEqual([]);
+  });
 });

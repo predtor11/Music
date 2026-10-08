@@ -1,0 +1,190 @@
+{
+  "id": "unit-5",
+  "order": 5,
+  "title": "Chords in a key",
+  "summary": "Every key has seven chords of its own. Number them, and you can follow any band that says \"1-5-6-4 in G\" or \"go to the four\".",
+  "outcome": "You can play I–V–vi–IV, ii–V–I and the 12-bar blues in any key someone calls.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "id": "u5-cp-1",
+        "prompt": "In C major, what kind of triad is built on scale degree 2?",
+        "shownMidi": [
+          62
+        ],
+        "choices": [
+          "major",
+          "minor",
+          "diminished"
+        ],
+        "answer": "minor"
+      },
+      {
+        "kind": "name-it",
+        "id": "u5-cp-2",
+        "prompt": "In C major, which Roman numeral is this chord?",
+        "shownMidi": [
+          69,
+          72,
+          76
+        ],
+        "choices": [
+          "IV",
+          "vi",
+          "VI"
+        ],
+        "answer": "vi"
+      },
+      {
+        "kind": "name-it",
+        "id": "u5-cp-3",
+        "prompt": "In G major, which chord is the IV?",
+        "shownMidi": [
+          67
+        ],
+        "choices": [
+          "C",
+          "D",
+          "Em"
+        ],
+        "answer": "C"
+      },
+      {
+        "kind": "name-it",
+        "id": "u5-cp-4",
+        "prompt": "In F major, which chord is the V?",
+        "shownMidi": [
+          65
+        ],
+        "choices": [
+          "Bb",
+          "C",
+          "Dm"
+        ],
+        "answer": "C"
+      },
+      {
+        "kind": "name-it",
+        "id": "u5-cp-5",
+        "prompt": "In C major, which number is this chord?",
+        "shownMidi": [
+          62,
+          65,
+          69
+        ],
+        "choices": [
+          "2",
+          "4",
+          "6"
+        ],
+        "answer": "2"
+      },
+      {
+        "kind": "build-chord",
+        "id": "u5-cp-6",
+        "prompt": "In G major, play the vi chord.",
+        "pitchClasses": [
+          4,
+          7,
+          11
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u5-cp-7",
+        "prompt": "In C major, play the vii° chord.",
+        "pitchClasses": [
+          11,
+          2,
+          5
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "play-progression",
+        "id": "u5-cp-8",
+        "prompt": "Play I–IV–V–I in G.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "IV",
+          "V",
+          "I"
+        ]
+      },
+      {
+        "kind": "play-progression",
+        "id": "u5-cp-9",
+        "prompt": "Play I–V–vi–IV in D.",
+        "key": "D",
+        "numerals": [
+          "I",
+          "V",
+          "vi",
+          "IV"
+        ]
+      },
+      {
+        "kind": "play-progression",
+        "id": "u5-cp-10",
+        "prompt": "Play ii–V–I in F.",
+        "key": "F",
+        "numerals": [
+          "ii",
+          "V",
+          "I"
+        ]
+      },
+      {
+        "kind": "play-progression",
+        "id": "u5-cp-11",
+        "prompt": "Play 1–6–4–5 in C.",
+        "key": "C",
+        "numerals": [
+          "1",
+          "6",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "kind": "play-progression",
+        "id": "u5-cp-12",
+        "prompt": "Play the 12-bar blues in G: I–I–I–I–IV–IV–I–I–V–IV–I–I.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "I",
+          "I",
+          "I",
+          "IV",
+          "IV",
+          "I",
+          "I",
+          "V",
+          "IV",
+          "I",
+          "I"
+        ]
+      }
+    ]
+  },
+  "lessonIds": [
+    "u5-l1",
+    "u5-l2",
+    "u5-l3",
+    "u5-l4",
+    "u5-l5",
+    "u5-l6",
+    "u5-l7",
+    "u5-l8",
+    "u5-l9",
+    "u5-l10",
+    "u5-l11",
+    "u5-l12",
+    "u5-l13"
+  ]
+}

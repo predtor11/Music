@@ -1,0 +1,161 @@
+{
+  "id": "u5-l4",
+  "unitId": "unit-5",
+  "order": 4,
+  "title": "The three main chords",
+  "summary": "I, IV and V: home, away and the pull back home.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Primary chord",
+      "body": "The I, IV and V chords are the three **primary chords** of a key. They are all major, and between them they hold every note of the scale. In C major they are C, F and G.\n\n**Why it matters:** Thousands of songs use only these three chords. \"Three chords and the truth\" is a saying for a reason.",
+      "exampleMidi": [
+        60,
+        65,
+        67
+      ],
+      "labels": {
+        "60": "I: C",
+        "65": "IV: F",
+        "67": "V: G"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Dominant",
+      "body": "The V chord is called the **dominant**. It pulls strongly back to I. In C major the dominant is G.\n\n**Why it matters:** Songs build tension on V and release it on I. Hearing that pull lets you guess where a song is going next.",
+      "exampleMidi": [
+        67,
+        71,
+        74
+      ],
+      "labels": {
+        "67": "G (V)",
+        "71": "B pulls to C",
+        "74": "D"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Subdominant",
+      "body": "The IV chord is the **subdominant**. It moves away from home more gently. In C major it is F.\n\n**Why it matters:** When a band says \"go to the four\", they mean the subdominant. It is the usual first step away from I.",
+      "exampleMidi": [
+        65,
+        69,
+        72
+      ],
+      "labels": {
+        "65": "F (IV)",
+        "69": "A",
+        "72": "C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "I, IV and V in G major",
+      "body": "G, C and D: the three primary chords of G major.",
+      "highlightMidi": [
+        67,
+        72,
+        74
+      ],
+      "labels": {
+        "67": "I: G",
+        "72": "IV: C",
+        "74": "V: D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l4-p1",
+          "prompt": "Play I–IV–V–I in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ]
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l4-p2",
+          "prompt": "In G major, play the IV chord.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l4-p3",
+          "prompt": "In G major, play the V chord.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Home, away, back",
+      "body": "Play C, then F, then G, then C. Feel I as home, IV as stepping out, V as wanting to come back."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l4-q1",
+          "prompt": "In G major, which chord is the V?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "C",
+            "D",
+            "G"
+          ],
+          "answer": "D"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l4-q2",
+          "prompt": "In F major, which chord is the IV?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "Bb",
+            "C",
+            "Gm"
+          ],
+          "answer": "Bb"
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l4-q3",
+          "prompt": "Play I–IV–V–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ]
+        }
+      ]
+    }
+  ]
+}

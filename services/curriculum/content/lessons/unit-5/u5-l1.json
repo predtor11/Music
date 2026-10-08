@@ -1,0 +1,147 @@
+{
+  "id": "u5-l1",
+  "unitId": "unit-5",
+  "order": 1,
+  "title": "Chords made from one scale",
+  "summary": "Build triads using only the notes of a key, and they all fit that key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Diatonic chord",
+      "body": "Take a note of the C major scale and stack a triad on it, using only white keys: notes from the C major scale. The result is a **diatonic chord**, a chord made only from the notes of the key. C E G, D F A and E G B are all diatonic to C major.\n\n**Why it matters:** Most songs use mostly diatonic chords. If you know a song is in G, you already know the seven chords it is most likely to use.",
+      "exampleMidi": [
+        60,
+        64,
+        67,
+        74,
+        77,
+        81
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G",
+        "74": "D",
+        "77": "F",
+        "81": "A"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Three diatonic chords",
+      "body": "C, D minor and E minor: only white keys, so only notes of C major.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        74,
+        77,
+        81
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G",
+        "74": "D",
+        "77": "F",
+        "81": "A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l1-p1",
+          "prompt": "Play the triad on D using only white keys: D, F and A.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l1-p2",
+          "prompt": "Play the triad on F using only white keys: F, A and C.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l1-p3",
+          "prompt": "Is this chord diatonic to C major?",
+          "shownMidi": [
+            62,
+            66,
+            69
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Stay in the key",
+      "body": "Play a triad on every white key from C to B, one after another, using only white keys. Every one belongs to C major."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l1-q1",
+          "prompt": "Is this chord diatonic to C major?",
+          "shownMidi": [
+            64,
+            67,
+            71
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "yes"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l1-q2",
+          "prompt": "Is this chord diatonic to C major?",
+          "shownMidi": [
+            60,
+            63,
+            67
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l1-q3",
+          "prompt": "Play the triad on G using only white keys: G, B and D.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

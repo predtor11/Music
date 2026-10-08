@@ -1,0 +1,123 @@
+{
+  "id": "u5-l10",
+  "unitId": "unit-5",
+  "order": 10,
+  "title": "The pop progression",
+  "summary": "I–V–vi–IV: the four chords behind a huge number of hits.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "I–V–vi–IV",
+      "body": "One progression is everywhere in pop: **I–V–vi–IV**, or 1–5–6–4. In C major that is C, G, Am, F.\n\n**Why it matters:** Let It Be, No Woman No Cry, With or Without You and hundreds more use it. Learn it in a few keys and you can join in on a lot of songs.",
+      "exampleMidi": [
+        60,
+        67,
+        69,
+        65
+      ],
+      "labels": {
+        "60": "1: C",
+        "65": "4: F",
+        "67": "2: G",
+        "69": "3: Am"
+      }
+    },
+    {
+      "type": "show",
+      "title": "In G major",
+      "body": "G, D, Em, C.",
+      "highlightMidi": [
+        67,
+        62,
+        64,
+        60
+      ],
+      "labels": {
+        "60": "IV: C",
+        "62": "V: D",
+        "64": "vi: Em",
+        "67": "I: G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l10-p1",
+          "prompt": "Play I–V–vi–IV in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ]
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l10-p2",
+          "prompt": "Play I–V–vi–IV in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Start somewhere else",
+      "body": "Play the same four chords starting on vi: Am, F, C, G. Same chords, a darker feel."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-progression",
+          "id": "u5-l10-q1",
+          "prompt": "Play 1–5–6–4 in D.",
+          "key": "D",
+          "numerals": [
+            "1",
+            "5",
+            "6",
+            "4"
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l10-q2",
+          "prompt": "In D major, which chord is the vi?",
+          "shownMidi": [
+            62
+          ],
+          "choices": [
+            "Bm",
+            "B",
+            "F#m"
+          ],
+          "answer": "Bm"
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l10-q3",
+          "prompt": "Play I–V–vi–IV in F.",
+          "key": "F",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ]
+        }
+      ]
+    }
+  ]
+}

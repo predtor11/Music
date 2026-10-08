@@ -1,0 +1,150 @@
+{
+  "id": "u5-l6",
+  "unitId": "unit-5",
+  "order": 6,
+  "title": "The two and three chords",
+  "summary": "The other two minor chords of a major key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Ii chord",
+      "body": "The chord on the 2nd degree is the **ii chord**, a minor chord. In C major it is D minor.\n\n**Why it matters:** The ii often leads to V. It is a softer way to set up the pull back home, used all over jazz and soul.",
+      "exampleMidi": [
+        62,
+        65,
+        69
+      ],
+      "labels": {
+        "62": "D (ii)",
+        "65": "F",
+        "69": "A"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Iii chord",
+      "body": "The chord on the 3rd degree is the **iii chord**, also minor. In C major it is E minor.\n\n**Why it matters:** It is the least used of the seven, so when a song does use it, it stands out as a fresh colour.",
+      "exampleMidi": [
+        64,
+        67,
+        71
+      ],
+      "labels": {
+        "64": "E (iii)",
+        "67": "G",
+        "71": "B"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The three minor chords",
+      "body": "ii, iii and vi in C major: D minor, E minor and A minor.",
+      "highlightMidi": [
+        62,
+        64,
+        69
+      ],
+      "labels": {
+        "62": "ii: Dm",
+        "64": "iii: Em",
+        "69": "vi: Am"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l6-p1",
+          "prompt": "In C major, play the ii chord.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l6-p2",
+          "prompt": "In C major, play the iii chord.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l6-p3",
+          "prompt": "Play I–iii–IV–V in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "iii",
+            "IV",
+            "V"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Swap a chord",
+      "body": "Play I–IV–V–I in C, then play it again with ii in place of IV. Listen to the change in colour."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l6-q1",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            62,
+            65,
+            69
+          ],
+          "choices": [
+            "ii",
+            "II",
+            "iv"
+          ],
+          "answer": "ii"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l6-q2",
+          "prompt": "In G major, which chord is the ii?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "Am",
+            "A",
+            "Bm"
+          ],
+          "answer": "Am"
+        },
+        {
+          "kind": "name-it",
+          "id": "u5-l6-q3",
+          "prompt": "In G major, which chord is the iii?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "Bm",
+            "Em",
+            "Am"
+          ],
+          "answer": "Bm"
+        }
+      ]
+    }
+  ]
+}

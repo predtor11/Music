@@ -1253,5 +1253,303 @@
       "65": "F (4th)",
       "67": "G (5th)"
     }
+  },
+  {
+    "id": "diatonic-chord",
+    "term": "diatonic chord",
+    "aliases": [
+      "diatonic"
+    ],
+    "meaning": "A chord built only from the notes of one key. In C major, every white-key triad is diatonic.",
+    "whyItMatters": "Most songs use mostly diatonic chords. If you know a song is in G, you already know the seven chords it is most likely to use.",
+    "lessonId": "u5-l1",
+    "exampleMidi": [
+      60,
+      64,
+      67,
+      74,
+      77,
+      81
+    ],
+    "labels": {
+      "60": "C",
+      "64": "E",
+      "67": "G",
+      "74": "D",
+      "77": "F",
+      "81": "A"
+    }
+  },
+  {
+    "id": "roman-numeral",
+    "term": "Roman numeral",
+    "meaning": "A number (I to VII) for a chord, from the scale degree of its root. Upper case is major, lower case is minor, ° is diminished.",
+    "whyItMatters": "Numerals work in every key. \"I–IV–V\" is the same idea in C, in G or in E♭, so one pattern covers every song that uses it.",
+    "lessonId": "u5-l3",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71
+    ],
+    "labels": {
+      "60": "I: C",
+      "62": "ii: Dm",
+      "64": "iii: Em",
+      "65": "IV: F",
+      "67": "V: G",
+      "69": "vi: Am",
+      "71": "vii°: B°"
+    }
+  },
+  {
+    "id": "primary-chord",
+    "term": "primary chord",
+    "meaning": "One of the three main chords of a key: I, IV and V. In C major, C, F and G.",
+    "whyItMatters": "Thousands of songs use only these three chords. \"Three chords and the truth\" is a saying for a reason.",
+    "lessonId": "u5-l4",
+    "exampleMidi": [
+      60,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "I: C",
+      "65": "IV: F",
+      "67": "V: G"
+    }
+  },
+  {
+    "id": "dominant",
+    "term": "dominant",
+    "meaning": "The 5th scale degree, and the V chord built on it. It pulls strongly back to the tonic.",
+    "whyItMatters": "Songs build tension on V and release it on I. Hearing that pull lets you guess where a song is going next.",
+    "lessonId": "u5-l4",
+    "exampleMidi": [
+      67,
+      71,
+      74
+    ],
+    "labels": {
+      "67": "G (V)",
+      "71": "B pulls to C",
+      "74": "D"
+    }
+  },
+  {
+    "id": "subdominant",
+    "term": "subdominant",
+    "meaning": "The 4th scale degree, and the IV chord built on it.",
+    "whyItMatters": "When a band says \"go to the four\", they mean the subdominant. It is the usual first step away from I.",
+    "lessonId": "u5-l4",
+    "exampleMidi": [
+      65,
+      69,
+      72
+    ],
+    "labels": {
+      "65": "F (IV)",
+      "69": "A",
+      "72": "C"
+    }
+  },
+  {
+    "id": "vi-chord",
+    "term": "vi chord",
+    "aliases": [
+      "six chord"
+    ],
+    "meaning": "The minor chord on the 6th degree of a major key. In C major, A minor.",
+    "whyItMatters": "It is the most common minor chord in pop. When a happy song turns wistful for a moment, it has often gone to the vi.",
+    "lessonId": "u5-l5",
+    "exampleMidi": [
+      69,
+      72,
+      76
+    ],
+    "labels": {
+      "69": "A (vi)",
+      "72": "C",
+      "76": "E"
+    }
+  },
+  {
+    "id": "ii-chord",
+    "term": "ii chord",
+    "meaning": "The minor chord on the 2nd degree of a major key. In C major, D minor.",
+    "whyItMatters": "The ii often leads to V. It is a softer way to set up the pull back home, used all over jazz and soul.",
+    "lessonId": "u5-l6",
+    "exampleMidi": [
+      62,
+      65,
+      69
+    ],
+    "labels": {
+      "62": "D (ii)",
+      "65": "F",
+      "69": "A"
+    }
+  },
+  {
+    "id": "iii-chord",
+    "term": "iii chord",
+    "meaning": "The minor chord on the 3rd degree of a major key. In C major, E minor.",
+    "whyItMatters": "It is the least used of the seven, so when a song does use it, it stands out as a fresh colour.",
+    "lessonId": "u5-l6",
+    "exampleMidi": [
+      64,
+      67,
+      71
+    ],
+    "labels": {
+      "64": "E (iii)",
+      "67": "G",
+      "71": "B"
+    }
+  },
+  {
+    "id": "vii-chord",
+    "term": "vii° chord",
+    "meaning": "The diminished chord on the 7th degree of a major key. In C major, B diminished.",
+    "whyItMatters": "It shares two notes with V and pulls hard to I, so it can stand in for V. You will meet it again inside the dominant 7th chord in Unit 6.",
+    "lessonId": "u5-l7",
+    "exampleMidi": [
+      71,
+      74,
+      77
+    ],
+    "labels": {
+      "71": "B (vii°)",
+      "74": "D",
+      "77": "F"
+    }
+  },
+  {
+    "id": "nashville-number-system",
+    "term": "Nashville number system",
+    "aliases": [
+      "Nashville number"
+    ],
+    "meaning": "Naming the chords of a key with plain numbers 1 to 7. A plain number means the chord the key itself gives on that degree.",
+    "whyItMatters": "It is how most working bands call chords: \"it's a 1-5-6-4 in G\". Once you know the numbers, a chart works in any key the singer wants.",
+    "lessonId": "u5-l8",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71
+    ],
+    "labels": {
+      "60": "1: C",
+      "62": "2: Dm",
+      "64": "3: Em",
+      "65": "4: F",
+      "67": "5: G",
+      "69": "6: Am",
+      "71": "7: B°"
+    }
+  },
+  {
+    "id": "chord-progression",
+    "term": "chord progression",
+    "aliases": [
+      "progression"
+    ],
+    "meaning": "A series of chords played one after another, often written as numerals or numbers.",
+    "whyItMatters": "A song is mostly a few progressions repeated: one for the verse, one for the chorus. Spot the progression and you can play along with the whole song.",
+    "lessonId": "u5-l9",
+    "exampleMidi": [
+      60,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "1st: I",
+      "65": "2nd: IV",
+      "67": "3rd: V"
+    }
+  },
+  {
+    "id": "pop-progression",
+    "term": "I–V–vi–IV",
+    "aliases": [
+      "1–5–6–4"
+    ],
+    "meaning": "The progression I, V, vi, IV (1-5-6-4). In C major, C G Am F.",
+    "whyItMatters": "Let It Be, No Woman No Cry, With or Without You and hundreds more use it. Learn it in a few keys and you can join in on a lot of songs.",
+    "lessonId": "u5-l10",
+    "exampleMidi": [
+      60,
+      67,
+      69,
+      65
+    ],
+    "labels": {
+      "60": "1: C",
+      "65": "4: F",
+      "67": "2: G",
+      "69": "3: Am"
+    }
+  },
+  {
+    "id": "two-five-one",
+    "term": "ii–V–I",
+    "aliases": [
+      "2–5–1"
+    ],
+    "meaning": "The progression ii, V, I (2-5-1). In C major, Dm G C.",
+    "whyItMatters": "It is the most important progression in jazz, and it ends a lot of soul and pop phrases too. Hear it and you know home is coming.",
+    "lessonId": "u5-l11",
+    "exampleMidi": [
+      62,
+      67,
+      72
+    ],
+    "labels": {
+      "62": "ii: Dm",
+      "67": "V: G",
+      "72": "I: C"
+    }
+  },
+  {
+    "id": "12-bar-blues",
+    "term": "12-bar blues",
+    "aliases": [
+      "twelve-bar blues"
+    ],
+    "meaning": "A twelve-chord progression of I, IV and V: I I I I, IV IV I I, V IV I I.",
+    "whyItMatters": "Blues, rock and roll and lots of funk are built on it. Band mates can jam on it with no rehearsal: someone just says \"blues in G\".",
+    "lessonId": "u5-l12",
+    "exampleMidi": [
+      60,
+      65,
+      67
+    ],
+    "labels": {
+      "60": "I: C (×8)",
+      "65": "IV: F (×3)",
+      "67": "V: G (×1)"
+    }
+  },
+  {
+    "id": "transpose",
+    "term": "transpose",
+    "meaning": "To move a song to a different key, keeping the same numerals or numbers.",
+    "whyItMatters": "Singers ask for songs in the key that suits their voice. If you think in numbers, you can transpose on the spot.",
+    "lessonId": "u5-l13",
+    "exampleMidi": [
+      60,
+      67
+    ],
+    "labels": {
+      "60": "I in C",
+      "67": "I in G"
+    }
   }
 ]

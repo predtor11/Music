@@ -1,0 +1,119 @@
+{
+  "id": "u5-l5",
+  "unitId": "unit-5",
+  "order": 5,
+  "title": "The six chord",
+  "summary": "The vi chord: the sad-sounding chord inside every major key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Vi chord",
+      "body": "The chord on the 6th degree is the **vi chord**. It is minor, so its numeral is lower case. In C major it is A minor, the tonic chord of C major's relative minor.\n\n**Why it matters:** It is the most common minor chord in pop. When a happy song turns wistful for a moment, it has often gone to the vi.",
+      "exampleMidi": [
+        69,
+        72,
+        76
+      ],
+      "labels": {
+        "69": "A (vi)",
+        "72": "C",
+        "76": "E"
+      }
+    },
+    {
+      "type": "show",
+      "title": "I and vi share two notes",
+      "body": "C major is C E G and A minor is A C E. They share C and E, which is why they sit so well side by side.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        69
+      ],
+      "labels": {
+        "60": "C: both",
+        "64": "E: both",
+        "67": "G: C only",
+        "69": "A: Am only"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u5-l5-p1",
+          "prompt": "In C major, play the vi chord.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l5-p2",
+          "prompt": "Play I–vi–IV–V in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "vi",
+            "IV",
+            "V"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "The 1950s sound",
+      "body": "Loop C, Am, F, G. This is the chord pattern of Stand By Me and countless 1950s songs."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u5-l5-q1",
+          "prompt": "In G major, which chord is the vi?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "Em",
+            "E",
+            "Am"
+          ],
+          "answer": "Em"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u5-l5-q2",
+          "prompt": "In F major, play the vi chord.",
+          "pitchClasses": [
+            2,
+            5,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u5-l5-q3",
+          "prompt": "Play I–vi–IV–V in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "vi",
+            "IV",
+            "V"
+          ]
+        }
+      ]
+    }
+  ]
+}
