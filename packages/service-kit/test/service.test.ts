@@ -6,7 +6,8 @@ describe('createService', () => {
     const app = createService({ name: 'theory', logger: false });
     const res = await app.inject({ method: 'GET', url: '/health' });
     expect(res.json()).toEqual({ service: 'theory', status: 'ok', version: '0.1.0' });
-  });
+    // The first test pays for loading Fastify, which can pass 5 s on a cold Windows run.
+  }, 30_000);
 
   it('returns 401 without a user id', async () => {
     const app = createService({ name: 'practice', logger: false });
