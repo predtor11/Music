@@ -19,6 +19,9 @@ import {
   type Session,
   type TestItem,
   type Unit,
+  type UpdateSettings,
+  type User,
+  UserSchema,
 } from '@music/contracts';
 
 export class ApiError extends Error {
@@ -30,12 +33,27 @@ export class ApiError extends Error {
   }
 }
 
+/** Gives the current Supabase access token, or null when signed out. */
+export type TokenSource = () => Promise<string | null>;
+
+let tokenSource: TokenSource = async () => null;
+
+/** Called once by the auth provider; every later call carries the token as a Bearer header. */
+export function setTokenSource(source: TokenSource): void {
+  tokenSource = source;
+}
+
 async function call(path: string, init?: RequestInit): Promise<unknown> {
   let res: Response;
   try {
+    const token = await tokenSource().catch(() => null);
     res = await fetch(`/api${path}`, {
       ...init,
-      headers: { 'content-type': 'application/json', ...init?.headers },
+      headers: {
+        'content-type': 'application/json',
+        ...(token ? { authorization: `Bearer ${token}` } : {}),
+        ...init?.headers,
+      },
     });
   } catch {
     throw new ApiError("Can't reach the app server.", 0);
@@ -78,4 +96,13 @@ export async function getUnit(id: string): Promise<Unit> {
 /** The next unanswered item of a session, or null when it is done. */
 export async function nextItem(sessionId: string): Promise<TestItem | null> {
   return NextItemSchema.parse(await call(`/practice/sessions/${sessionId}/next-item`));
+}
+
+/** The signed-in user's profile and settings, created on the first call. */
+export async function getMe(): Promise<User> {
+  return UserSchema.parse(await call('/identity/me'));
+}
+
+export async function updateMySettings(patch: UpdateSettings): Promise<User> {
+  return UserSchema.parse(await call('/identity/me/settings', { method: 'PATCH', body: JSON.stringify(patch) }));
 }

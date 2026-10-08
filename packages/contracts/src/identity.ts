@@ -3,6 +3,9 @@ import { z } from 'zod';
 export const NoteNamingSchema = z.enum(['western', 'sargam', 'both']);
 export type NoteNaming = z.infer<typeof NoteNamingSchema>;
 
+export const ThemeSettingSchema = z.enum(['dark', 'light', 'system']);
+export type ThemeSetting = z.infer<typeof ThemeSettingSchema>;
+
 export const KeyboardSizeSchema = z.union([z.literal(25), z.literal(37), z.literal(49), z.literal(61), z.literal(76), z.literal(88)]);
 
 export const UserSettingsSchema = z.object({
@@ -14,6 +17,8 @@ export const UserSettingsSchema = z.object({
   currentKey: z.string().default('C'),
   /** MIDI input id last used, so the app reconnects to the same keyboard. */
   midiInputId: z.string().nullable().default(null),
+  /** Colour theme; system follows the computer's light or dark mode. */
+  theme: ThemeSettingSchema.default('dark'),
 });
 export type UserSettings = z.infer<typeof UserSettingsSchema>;
 

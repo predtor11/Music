@@ -17,6 +17,8 @@ export default defineConfig({
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], ...(executablePath ? { launchOptions: { executablePath } } : {}) } }],
   webServer: {
     command: 'npx vite --port 5179 --strictPort',
+    // Sign-in talks to a fake Supabase on the same origin (see e2e/fake-supabase.ts).
+    env: { VITE_SUPABASE_URL: 'http://localhost:5179/fake-supabase', VITE_SUPABASE_ANON_KEY: 'test-anon-key' },
     url: 'http://localhost:5179',
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

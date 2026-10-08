@@ -1,10 +1,12 @@
 import type { SessionSummary } from '@music/contracts';
 import { Badge, Button, Card, Feedback, fadeUp, stagger } from '@music/ui';
 import { motion } from 'motion/react';
+import { SaveSummaryNote } from './SaveNotice.js';
+import type { SaveState } from './usePractice.js';
 import s from './lesson.module.css';
 
 /** End-of-lesson or checkpoint score. */
-export function Summary({ summary, title, onRetry, backHref, offline }: { summary: SessionSummary; title: string; onRetry: () => void; backHref: string; offline: boolean }) {
+export function Summary({ summary, title, onRetry, backHref, save }: { summary: SessionSummary; title: string; onRetry: () => void; backHref: string; save: SaveState }) {
   const pct = summary.accuracy === null ? null : Math.round(summary.accuracy);
   const passed = summary.passed;
   return (
@@ -29,10 +31,10 @@ export function Summary({ summary, title, onRetry, backHref, offline }: { summar
               </Badge>
             </motion.div>
           )}
-          {offline && (
-            <motion.p variants={fadeUp} className={`ui-muted ${s.small}`}>
-              The practice server wasn't reachable, so this score isn't saved.
-            </motion.p>
+          {(save === 'offline' || save === 'signed-out') && (
+            <motion.div variants={fadeUp}>
+              <SaveSummaryNote save={save} className={`ui-muted ${s.small}`} />
+            </motion.div>
           )}
           <motion.div variants={fadeUp} className={s.summaryActions}>
             <Button variant="secondary" onClick={onRetry}>

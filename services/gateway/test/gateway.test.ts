@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import type { AddressInfo } from 'node:net';
 import Fastify, { type FastifyInstance } from 'fastify';
-import { SignJWT } from 'jose';
+import { SignJWT, createLocalJWKSet, exportJWK, generateKeyPair } from 'jose';
 import { DEV_USER_ID } from '../src/auth.js';
 import { buildApp } from '../src/app.js';
 
@@ -93,18 +93,58 @@ describe('gateway', () => {
   });
 });
 
-describe('gateway in dev mode (no JWT secret)', () => {
+describe('gateway with Supabase signing keys (ES256, JWKS)', () => {
+  let practice: FastifyInstance;
+  let gateway: FastifyInstance;
+  let privateKey: CryptoKey;
+  let otherKey: CryptoKey;
+
+  beforeAll(async () => {
+    const pair = await generateKeyPair('ES256', { extractable: true });
+    privateKey = pair.privateKey;
+    otherKey = (await generateKeyPair('ES256')).privateKey;
+    const jwk = { ...(await exportJWK(pair.publicKey)), kid: 'k1', alg: 'ES256' };
+    practice = await echoService('practice');
+    // No HS256 secret: a project that only uses signing keys.
+    gateway = buildApp({ logger: false, jwtSecret: '', jwks: createLocalJWKSet({ keys: [jwk] }), upstreams: { practice: urlOf(practice) } });
+  });
+
+  afterAll(async () => {
+    await Promise.all([gateway.close(), practice.close()]);
+  });
+
+  const es256 = (claims: Record<string, unknown>, key: CryptoKey) =>
+    new SignJWT(claims).setProtectedHeader({ alg: 'ES256', kid: 'k1' }).setIssuedAt().setExpirationTime('1h').sign(key);
+
+  it('sets x-user-id from a token signed with the project key', async () => {
+    const res = await gateway.inject({ url: '/api/practice/me', headers: { authorization: `Bearer ${await es256({ sub: USER }, privateKey)}` } });
+    expect(res.statusCode).toBe(200);
+    expect(res.json().userId).toBe(USER);
+  });
+
+  it.each([
+    ['a token signed with another key', async () => `Bearer ${await es256({ sub: USER }, otherKey)}`],
+    ['an HS256 token when there is no secret', async () => `Bearer ${await token({ sub: USER })}`],
+  ])('returns 401 for %s', async (_label, header) => {
+    const res = await gateway.inject({ url: '/api/practice/me', headers: { authorization: await header() } });
+    expect(res.statusCode).toBe(401);
+  });
+});
+
+describe('gateway in dev mode (no Supabase URL or JWT secret)', () => {
   let theory: FastifyInstance;
   let gateway: FastifyInstance;
-  const saved = process.env.SUPABASE_JWT_SECRET;
+  const saved = { secret: process.env.SUPABASE_JWT_SECRET, url: process.env.SUPABASE_URL };
 
   beforeAll(async () => {
     delete process.env.SUPABASE_JWT_SECRET;
+    delete process.env.SUPABASE_URL;
     theory = await echoService('theory');
   });
 
   afterAll(async () => {
-    if (saved !== undefined) process.env.SUPABASE_JWT_SECRET = saved;
+    if (saved.secret !== undefined) process.env.SUPABASE_JWT_SECRET = saved.secret;
+    if (saved.url !== undefined) process.env.SUPABASE_URL = saved.url;
     await Promise.all([gateway?.close(), theory.close()]);
   });
 

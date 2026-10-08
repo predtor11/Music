@@ -3,8 +3,12 @@
  * current screen.
  */
 
-import { Badge, Button, StatusDot, fadeUp, spring, useTheme, type ThemeSetting } from '@music/ui';
+import type { UserSettings } from '@music/contracts';
+import { Badge, Button, StatusDot, fadeUp, spring, useTheme } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
+import { useEffect } from 'react';
+import { useAuth } from './auth/AuthProvider.js';
+import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
@@ -18,8 +22,10 @@ import { href, useRoute, type Route } from './router.js';
 import { useSettings } from './settings/useSettings.js';
 import s from './App.module.css';
 
-const THEME_NEXT: Record<ThemeSetting, ThemeSetting> = { dark: 'light', light: 'system', system: 'dark' };
-const THEME_LABEL: Record<ThemeSetting, string> = { dark: 'Dark', light: 'Light', system: 'Auto' };
+type Theme = UserSettings['theme'];
+
+const THEME_NEXT: Record<Theme, Theme> = { dark: 'light', light: 'system', system: 'dark' };
+const THEME_LABEL: Record<Theme, string> = { dark: 'Dark', light: 'Light', system: 'Auto' };
 
 const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
@@ -73,9 +79,43 @@ function MidiStatus() {
   );
 }
 
+/** Header account button: Sign in, or your initial when signed in. */
+function AccountButton({ active }: { active: boolean }) {
+  const auth = useAuth();
+  if (auth.status === 'loading') return null;
+  if (auth.status === 'signed-in' && auth.user) {
+    const email = auth.user.email ?? 'Account';
+    return (
+      <Button
+        variant={active ? 'secondary' : 'ghost'}
+        size="sm"
+        onClick={() => (location.hash = href.settings)}
+        aria-label={`Account: ${email}`}
+        title={email}
+        data-testid="account"
+        data-signed-in="true"
+      >
+        <span className={authStyles.avatar} aria-hidden>
+          {email.charAt(0)}
+        </span>
+        Account
+      </Button>
+    );
+  }
+  return (
+    <Button variant="primary" size="sm" onClick={() => (location.hash = href.signin)} data-testid="account" data-signed-in="false">
+      Sign in
+    </Button>
+  );
+}
+
 export function App() {
-  const [settings, update] = useSettings();
+  const auth = useAuth();
+  const [settings, update, sync] = useSettings(auth.user?.id ?? null);
   const theme = useTheme();
+  const { setSetting: applyTheme } = theme;
+  // Settings own the theme (so it follows your account); ThemeProvider applies it.
+  useEffect(() => applyTheme(settings.theme), [applyTheme, settings.theme]);
   const route = useRoute();
   const current = section(route);
   const pageKey = route.page === 'lesson' ? `lesson-${route.id}` : route.page === 'checkpoint' ? `cp-${route.unitId}` : route.page;
@@ -105,8 +145,8 @@ export function App() {
           </nav>
           <div className={s.tools}>
             <MidiStatus />
-            <Button variant="ghost" size="sm" onClick={() => theme.setSetting(THEME_NEXT[theme.setting])} data-testid="theme">
-              Theme: {THEME_LABEL[theme.setting]}
+            <Button variant="ghost" size="sm" onClick={() => update({ theme: THEME_NEXT[settings.theme] })} data-testid="theme">
+              Theme: {THEME_LABEL[settings.theme]}
             </Button>
             <Button
               variant={route.page === 'settings' ? 'secondary' : 'ghost'}
@@ -117,6 +157,7 @@ export function App() {
             >
               Settings
             </Button>
+            <AccountButton active={route.page === 'signin'} />
           </div>
         </motion.header>
 
@@ -128,7 +169,7 @@ export function App() {
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
-            {route.page === 'settings' && <SettingsPage settings={settings} update={update} />}
+            {route.page === 'settings' && <SettingsPage settings={settings} update={update} sync={sync} />}
             {route.page === 'signin' && <SignInPage />}
           </motion.main>
         </AnimatePresence>

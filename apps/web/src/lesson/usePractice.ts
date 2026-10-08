@@ -6,7 +6,7 @@
 
 import type { MistakeKind, SessionSummary, TestItem } from '@music/contracts';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { endSession, recordAttempt, startSession } from '../api/client.js';
+import { ApiError, endSession, recordAttempt, startSession } from '../api/client.js';
 import { expectedFor, skillFor } from './grade.js';
 
 export interface AttemptInput {
@@ -18,7 +18,16 @@ export interface AttemptInput {
   timeMs: number;
 }
 
-export type SaveState = 'starting' | 'saving' | 'offline';
+/**
+ * offline: the practice server can't be reached.
+ * signed-out: the server is there but needs you signed in to save (a 401).
+ */
+export type SaveState = 'starting' | 'saving' | 'offline' | 'signed-out';
+
+/** Why saving stopped, from the error a practice call threw. */
+export function saveFailure(error: unknown): SaveState {
+  return error instanceof ApiError && error.status === 401 ? 'signed-out' : 'offline';
+}
 
 const LESSON_PASS_PERCENT = 80;
 
@@ -47,7 +56,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint', refId: string, passPe
         setSessionId(session.id);
         setSave('saving');
       })
-      .catch(() => live && setSave('offline'));
+      .catch((err: unknown) => live && setSave(saveFailure(err)));
     return () => {
       live = false;
     };
@@ -77,7 +86,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint', refId: string, passPe
             playedAt: new Date().toISOString(),
           }),
         )
-        .catch(() => setSave('offline'));
+        .catch((err: unknown) => setSave(saveFailure(err)));
     },
     [sessionId],
   );
@@ -87,8 +96,8 @@ export function usePractice(kind: 'lesson' | 'checkpoint', refId: string, passPe
     if (sessionId) {
       try {
         return (await endSession(sessionId)).summary;
-      } catch {
-        setSave('offline');
+      } catch (err) {
+        setSave(saveFailure(err));
       }
     }
     const total = items.current.size;

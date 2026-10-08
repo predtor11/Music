@@ -3,7 +3,7 @@ import { AttemptSchema, ChordQuerySchema, LessonStepSchema, TestItemSchema, User
 
 describe('contracts', () => {
   it('fills settings defaults', () => {
-    expect(UserSettingsSchema.parse({})).toEqual({ noteNaming: 'western', keyboardSize: 61, lowestNote: 36, currentKey: 'C', midiInputId: null });
+    expect(UserSettingsSchema.parse({})).toEqual({ noteNaming: 'western', keyboardSize: 61, lowestNote: 36, currentKey: 'C', midiInputId: null, theme: 'dark' });
   });
 
   it('accepts a chord test item', () => {
