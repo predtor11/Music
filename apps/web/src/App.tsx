@@ -10,6 +10,10 @@ import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { LessonPage } from './pages/LessonPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
+import { ProgressPage } from './pages/ProgressPage.js';
+import { ReviewPage } from './pages/ReviewPage.js';
+import { SettingsPage } from './pages/SettingsPage.js';
+import { SignInPage } from './pages/SignInPage.js';
 import { href, useRoute, type Route } from './router.js';
 import { useSettings } from './settings/useSettings.js';
 import s from './App.module.css';
@@ -20,10 +24,25 @@ const THEME_LABEL: Record<ThemeSetting, string> = { dark: 'Dark', light: 'Light'
 const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
   { id: 'lessons', label: 'Lessons', href: href.lessons },
+  { id: 'review', label: 'Review', href: href.review },
+  { id: 'progress', label: 'Progress', href: href.progress },
 ] as const;
 
-function section(route: Route): 'chords' | 'lessons' {
-  return route.page === 'chords' ? 'chords' : 'lessons';
+type Section = (typeof NAV)[number]['id'] | null;
+
+function section(route: Route): Section {
+  switch (route.page) {
+    case 'chords':
+    case 'review':
+    case 'progress':
+      return route.page;
+    case 'lessons':
+    case 'lesson':
+    case 'checkpoint':
+      return 'lessons';
+    default:
+      return null;
+  }
 }
 
 /** Small keyboard status for the header, so every screen shows whether MIDI is live. */
@@ -89,6 +108,15 @@ export function App() {
             <Button variant="ghost" size="sm" onClick={() => theme.setSetting(THEME_NEXT[theme.setting])} data-testid="theme">
               Theme: {THEME_LABEL[theme.setting]}
             </Button>
+            <Button
+              variant={route.page === 'settings' ? 'secondary' : 'ghost'}
+              size="sm"
+              onClick={() => (location.hash = href.settings)}
+              aria-current={route.page === 'settings' ? 'page' : undefined}
+              data-testid="nav-settings"
+            >
+              Settings
+            </Button>
           </div>
         </motion.header>
 
@@ -98,6 +126,10 @@ export function App() {
             {route.page === 'lessons' && <LessonsPage />}
             {route.page === 'lesson' && <LessonPage id={route.id} settings={settings} />}
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
+            {route.page === 'review' && <ReviewPage settings={settings} />}
+            {route.page === 'progress' && <ProgressPage />}
+            {route.page === 'settings' && <SettingsPage settings={settings} update={update} />}
+            {route.page === 'signin' && <SignInPage />}
           </motion.main>
         </AnimatePresence>
       </div>

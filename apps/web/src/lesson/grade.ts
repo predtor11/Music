@@ -7,11 +7,13 @@
 
 import type { MistakeKind, TestItem } from '@music/contracts';
 import {
+  chordFromNumeral,
   gradeInterval,
   gradeNote,
   gradePitchClassSet,
   intervalInfo,
   C_MAJOR,
+  parseKey,
   mod12,
   noteToString,
   octave,
@@ -85,7 +87,21 @@ export function answerKeys(item: TestItem, played: readonly MidiNote[] = []): Mi
     }
     case 'name-it':
       return item.shownMidi;
+    case 'play-progression': {
+      const first = progressionChords(item)[0];
+      return first ? placeUpward([first.bassPc, ...first.pitchClasses.filter((pc) => pc !== first.bassPc)]) : [];
+    }
+    case 'read-staff':
+      return item.midi;
+    case 'tap-rhythm':
+      return [];
   }
+}
+
+/** The chords a progression item asks for, in order; numerals that don't parse are left out. */
+export function progressionChords(item: Extract<TestItem, { kind: 'play-progression' }>) {
+  const key = parseKey(item.key) ?? C_MAJOR;
+  return item.numerals.flatMap((n) => chordFromNumeral(n, key) ?? []);
 }
 
 /** What the attempt reports as expected (MIDI notes, or pitch classes when any octave is fine). */
@@ -115,6 +131,12 @@ export function skillFor(item: TestItem): string {
       return `chord:${item.pitchClasses.map((pc) => pcName(pc)).join('-')}`;
     case 'name-it':
       return `name-it:${item.answer}`;
+    case 'play-progression':
+      return `progression:${item.numerals.join('-')}`;
+    case 'read-staff':
+      return `staff:${item.clef}`;
+    case 'tap-rhythm':
+      return `rhythm:${item.timeSignature.join('/')}`;
   }
 }
 
@@ -206,7 +228,10 @@ export function pressNote(item: TestItem, state: ItemState, n: MidiNote): ItemSt
 
     case 'build-chord':
     case 'name-it':
-      // Chords are graded on the held keys, choices on a click.
+    case 'play-progression':
+    case 'read-staff':
+    case 'tap-rhythm':
+      // Chords are graded on the held keys, choices on a click; the newer kinds have their own runners (kinds.tsx).
       return state;
   }
 }
