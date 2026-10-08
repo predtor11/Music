@@ -7,7 +7,8 @@
 import type { MistakeKind, SessionSummary, TestItem } from '@music/contracts';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { endSession, recordAttempt, startSession } from '../api/client.js';
-import { expectedFor, skillFor } from './grade.js';
+import { skillFor } from '@music/skills';
+import { expectedFor } from './grade.js';
 
 export interface AttemptInput {
   item: TestItem;
@@ -22,7 +23,7 @@ export type SaveState = 'starting' | 'saving' | 'offline';
 
 const LESSON_PASS_PERCENT = 80;
 
-export function usePractice(kind: 'lesson' | 'checkpoint', refId: string, passPercent = LESSON_PASS_PERCENT) {
+export function usePractice(kind: 'lesson' | 'checkpoint' | 'review', refId?: string, passPercent = LESSON_PASS_PERCENT) {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [save, setSave] = useState<SaveState>('starting');
   const firstTry = useRef(new Map<string, boolean>());
@@ -33,7 +34,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint', refId: string, passPe
 
   useEffect(() => {
     let live = true;
-    const key = `${kind}:${refId}`;
+    const key = `${kind}:${refId ?? ''}`;
     if (starting.current?.key !== key) {
       firstTry.current.clear();
       items.current.clear();

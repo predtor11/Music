@@ -12,6 +12,7 @@
   "dependencies": {
     "@music/contracts": "*",
     "@music/service-kit": "*",
+    "@music/skills": "*",
     "postgres": "^3.4.9",
     "tsx": "^4.19.2",
     "zod": "^3.25.76"

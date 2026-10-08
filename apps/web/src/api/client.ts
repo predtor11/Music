@@ -32,7 +32,7 @@ export class ApiError extends Error {
   }
 }
 
-async function call(path: string, init?: RequestInit): Promise<unknown> {
+export async function call(path: string, init?: RequestInit): Promise<unknown> {
   let res: Response;
   try {
     res = await fetch(`/api${path}`, {
