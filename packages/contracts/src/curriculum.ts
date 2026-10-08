@@ -42,8 +42,10 @@ export const TestItemSchema = z.discriminatedUnion('kind', [
     kind: z.literal('name-it'),
     id: z.string(),
     prompt: z.string(),
-    /** Keys lit on screen. */
+    /** Keys lit on screen, or only played as sound when `audioOnly` is set. */
     shownMidi: z.array(z.number().int()).min(1),
+    /** Ear training: play the notes without lighting the keys. */
+    audioOnly: z.boolean().optional(),
     choices: z.array(z.string()).min(2),
     answer: z.string(),
   }),
@@ -90,5 +92,5 @@ export const UnitSchema = z.object({
 });
 export type Unit = z.infer<typeof UnitSchema>;
 
-/** GET /api/curriculum/units */
+/** GET /api/curriculum/units. Also: GET /units/:id → Unit (with checkpoint), GET /lessons/:id → Lesson, 404 when unknown. */
 export const UnitListSchema = z.array(UnitSchema.omit({ checkpoint: true }));
