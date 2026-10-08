@@ -144,9 +144,10 @@ export function speedChange(changePercent: number | null): { text: string; tone:
 export function suggestionLink(s: ProgressReport['suggestions'][number]): { href: string; action: string } {
   if (s.lessonId) return { href: href.lesson(s.lessonId), action: 'Open lesson' };
   if (s.unitId) return { href: href.checkpoint(s.unitId), action: 'Take the unit test' };
-  if (/review/i.test(s.text)) return { href: href.review, action: 'Start a review' };
   if (/free play/i.test(s.text)) return { href: href.chords, action: 'Free play' };
-  return { href: href.lessons, action: 'Go to lessons' };
+  if (/streak|ten minutes|no practice/i.test(s.text)) return { href: href.lessons, action: 'Go to lessons' };
+  // Mistake patterns, weak topics and due reviews: practise the weak spots.
+  return { href: href.review, action: 'Start a review' };
 }
 
 /** Nothing practised this week (and nothing to chart). */

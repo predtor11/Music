@@ -65,6 +65,7 @@ function TopicRow({ t, days }: { t: TopicSummary; days: Day[] }) {
         slots={days.length}
         label={`${t.label}: right first time each day`}
         edges={[days[0]!.short, days.at(-1)!.short]}
+        height={72}
       />
       <div className={s.topicScore}>
         <span className={s.bigNum} data-testid="topic-accuracy">

@@ -68,7 +68,9 @@ describe('progress format', () => {
     expect(suggestionLink({ text: 'Start your next lesson.', lessonId: 'u1-l3', unitId: 'u1' }).href).toBe('#/lesson/u1-l3');
     expect(suggestionLink({ text: 'Take the checkpoint.', unitId: 'u1' }).href).toBe('#/checkpoint/u1');
     expect(suggestionLink({ text: '3 skills are due for review.' }).href).toBe('#/review');
-    expect(suggestionLink({ text: 'Ten minutes today.' }).href).toBe('#/lessons');
+    expect(suggestionLink({ text: 'You often mix up M3 and m3.' }).href).toBe('#/review');
+    expect(suggestionLink({ text: 'Play for ten minutes today to start a new streak.' }).href).toBe('#/lessons');
+    expect(suggestionLink({ text: 'Try free play.' }).href).toBe('#/');
   });
 
   it('knows an empty week', () => {
