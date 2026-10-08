@@ -1,0 +1,23 @@
+{
+  "name": "@music/analysis",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Song analysis: read MIDI files and audio, find the key and the chords over time, and say it in plain English",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@music/theory": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}
