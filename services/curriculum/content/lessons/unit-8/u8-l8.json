@@ -1,0 +1,133 @@
+{
+  "id": "u8-l8",
+  "unitId": "unit-8",
+  "order": 8,
+  "title": "Dots and ties",
+  "summary": "Two ways to make a note longer.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Dotted note",
+      "body": "A dot after a note makes it half as long again. A **dotted note** of a half note lasts 3 beats (2 + 1). A dotted quarter lasts 1½ beats.\n\n**Why it matters:** The dotted quarter then eighth is one of the most common rhythms in pop, the \"long-short\" swing of countless choruses.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "3 beats"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Tie",
+      "body": "A **tie** is a curved line joining two notes of the same pitch: play the first and hold it through the second, without playing again.\n\n**Why it matters:** Ties let a note last across a bar line, which no single note can show.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "one tap, held"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Two ways to last three beats",
+      "body": "A dotted half note, or a half note tied to a quarter: one tap, held for three beats.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "2 + 1 = 3 beats"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l8-p1",
+          "prompt": "Tap a dotted half note, then a quarter note: 2 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            3
+          ],
+          "durations": [
+            3,
+            1
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l8-p2",
+          "prompt": "Tap a dotted quarter, an eighth, then a half note: 3 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1.5,
+            2
+          ],
+          "durations": [
+            1.5,
+            0.5,
+            2
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Long-short",
+      "body": "Play C as a dotted quarter, then an eighth, over and over. Sing \"long, short, long, short\"."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l8-q1",
+          "prompt": "How many quarter notes last as long as one dotted half note?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l8-q2",
+          "prompt": "Tap a half note tied to a quarter note, then a quarter: 2 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            3
+          ],
+          "durations": [
+            3,
+            1
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

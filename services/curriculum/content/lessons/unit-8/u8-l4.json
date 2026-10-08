@@ -1,0 +1,179 @@
+{
+  "id": "u8-l4",
+  "unitId": "unit-8",
+  "order": 4,
+  "title": "Long and short notes",
+  "summary": "Whole, half and quarter notes: how many beats each note lasts.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Quarter note",
+      "body": "A **quarter note** lasts one beat. Four of them fill a bar of four beats. It is drawn as a filled-in dot with a stem.\n\n**Why it matters:** It is the basic unit you count in. When you tap a steady beat you are tapping quarter notes.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 beat"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Half note",
+      "body": "A **half note** lasts two beats: tap on one and hold through two. It is drawn as a hollow dot with a stem.\n\n**Why it matters:** Long notes give music room to breathe. Ballad chords often last a half note or longer.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "2 beats"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Whole note",
+      "body": "A **whole note** lasts four beats, a whole bar of four. It is drawn as a hollow dot with no stem.\n\n**Why it matters:** On a chart, a chord held for a whole note means \"play it once and let it ring for the bar\".",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "4 beats"
+      }
+    },
+    {
+      "type": "show",
+      "title": "One bar, three ways",
+      "body": "A whole note, two half notes, or four quarter notes: each fills a bar of four beats.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "4 = 2 + 2 = 1 + 1 + 1 + 1"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l4-p1",
+          "prompt": "Tap four quarter notes: 4 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "durations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l4-p2",
+          "prompt": "Tap two half notes: 2 taps, each held for two beats.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            2
+          ],
+          "durations": [
+            2,
+            2
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l4-p3",
+          "prompt": "Tap a whole note: 1 tap, held for the whole bar.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0
+          ],
+          "durations": [
+            4
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Mix them",
+      "body": "Play a C chord as a whole note, then two half notes, then four quarter notes. Count out loud the whole time."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l4-q1",
+          "prompt": "How many quarter notes last as long as one half note?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "1",
+            "2",
+            "4"
+          ],
+          "answer": "2"
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l4-q2",
+          "prompt": "How many half notes last as long as one whole note?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "2"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l4-q3",
+          "prompt": "Tap a half note, then two quarter notes: 3 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            2,
+            3
+          ],
+          "durations": [
+            2,
+            1,
+            1
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

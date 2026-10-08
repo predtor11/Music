@@ -1,0 +1,160 @@
+{
+  "id": "u8-l13",
+  "unitId": "unit-8",
+  "order": 13,
+  "title": "The bass clef",
+  "summary": "The clef for the left hand, with its two dots round the F line.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Bass clef",
+      "body": "The **bass clef** is for lower notes. Its two dots sit either side of the fourth line, marking it as the F below middle C. Its lines from the bottom are G B D F A (\"Good Boys Do Fine Always\") and its spaces A C E G (\"All Cows Eat Grass\").\n\n**Why it matters:** Bass lines and the left-hand part of piano music are written in bass clef, so it is the clef that shows you what the bass player plays.",
+      "exampleMidi": [
+        43,
+        47,
+        50,
+        53,
+        57,
+        45,
+        48,
+        52,
+        55
+      ],
+      "labels": {
+        "43": "G line",
+        "45": "A space",
+        "47": "B line",
+        "48": "C space",
+        "50": "D line",
+        "52": "E space",
+        "53": "F line",
+        "55": "G space",
+        "57": "A line"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Good Boys Do Fine Always",
+      "body": "The five lines of the bass clef, from the bottom.",
+      "highlightMidi": [
+        43,
+        47,
+        50,
+        53,
+        57
+      ],
+      "labels": {
+        "43": "G",
+        "47": "B",
+        "50": "D",
+        "53": "F",
+        "57": "A"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l13-p1",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            53
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l13-p2",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            43
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l13-p3",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            48
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l13-p4",
+          "prompt": "On the bass clef, which note sits on the 4th line from the bottom?",
+          "shownMidi": [
+            53
+          ],
+          "choices": [
+            "E",
+            "F",
+            "G"
+          ],
+          "answer": "F"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Both hands",
+      "body": "Play the bass clef lines with your left hand while your right plays the treble clef lines."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l13-q1",
+          "prompt": "On the bass clef, which note sits on the 1st line from the bottom?",
+          "shownMidi": [
+            43
+          ],
+          "choices": [
+            "G",
+            "A",
+            "B"
+          ],
+          "answer": "G"
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l13-q2",
+          "prompt": "On the bass clef, which note sits on the 2nd space from the bottom?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "B",
+            "C",
+            "D"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l13-q3",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            57
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l13-q4",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            52
+          ]
+        }
+      ]
+    }
+  ]
+}

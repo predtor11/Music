@@ -1,0 +1,148 @@
+{
+  "id": "u8-l9",
+  "unitId": "unit-8",
+  "order": 9,
+  "title": "Waltz time and 6/8",
+  "summary": "Not everything counts in four.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "3/4",
+      "body": "In **3/4** there are three quarter-note beats in a bar: ONE two three, ONE two three. It is waltz time.\n\n**Why it matters:** Waltzes, many folk songs and some ballads (like Norwegian Wood) are in 3/4. Counting four to them feels wrong at once.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "ONE 2 3"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "6/8",
+      "body": "In **6/8** there are six eighth-note beats in a bar, felt as two groups of three: ONE two three FOUR five six.\n\n**Why it matters:** It has a rolling, lilting feel heard in slow soul ballads and Irish jigs. House of the Rising Sun is in 6/8.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "ONE 2 3 FOUR 5 6"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Three or six",
+      "body": "Count \"ONE two three\" for 3/4, and \"ONE two three FOUR five six\" for 6/8.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "3/4 or 6/8"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l9-p1",
+          "prompt": "Tap two bars of 3/4: 6 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            3,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l9-p2",
+          "prompt": "Tap one bar of 6/8, every eighth note: 6 taps.",
+          "bpm": 120,
+          "timeSignature": [
+            6,
+            8
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Waltz chords",
+      "body": "Play a C chord on ONE and then two light taps on beats two and three. You are playing a waltz."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l9-q1",
+          "prompt": "How many beats are in a bar of 3/4?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l9-q2",
+          "prompt": "How many beats are in a bar of 6/8?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "3",
+            "6",
+            "8"
+          ],
+          "answer": "6"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l9-q3",
+          "prompt": "Tap three bars of 3/4: 9 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            3,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

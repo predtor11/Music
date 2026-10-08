@@ -1,0 +1,160 @@
+{
+  "id": "u8-l12",
+  "unitId": "unit-8",
+  "order": 12,
+  "title": "The treble clef",
+  "summary": "The clef for the right hand, curling round the G line.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Treble clef",
+      "body": "The curly sign at the start of the staff is a clef; this one is the **treble clef**. It curls round the second line, marking it as the G above middle C. With it, the lines from the bottom are E G B D F (\"Every Good Boy Does Fine\") and the spaces spell F A C E.\n\n**Why it matters:** Melodies and the right-hand part of piano music are written in treble clef. It is the first clef most people learn.",
+      "exampleMidi": [
+        64,
+        67,
+        71,
+        74,
+        77,
+        65,
+        69,
+        72,
+        76
+      ],
+      "labels": {
+        "64": "E line",
+        "65": "F space",
+        "67": "G line",
+        "69": "A space",
+        "71": "B line",
+        "72": "C space",
+        "74": "D line",
+        "76": "E space",
+        "77": "F line"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Every Good Boy Does Fine",
+      "body": "The five lines of the treble clef, from the bottom.",
+      "highlightMidi": [
+        64,
+        67,
+        71,
+        74,
+        77
+      ],
+      "labels": {
+        "64": "E",
+        "67": "G",
+        "71": "B",
+        "74": "D",
+        "77": "F"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l12-p1",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            67
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l12-p2",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            72
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l12-p3",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            74
+          ]
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l12-p4",
+          "prompt": "On the treble clef, which note sits on the 1st line from the bottom?",
+          "shownMidi": [
+            64
+          ],
+          "choices": [
+            "E",
+            "F",
+            "G"
+          ],
+          "answer": "E"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "FACE",
+      "body": "Play the four spaces of the treble clef from the bottom: F A C E. Then the lines: E G B D F."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l12-q1",
+          "prompt": "On the treble clef, which note sits on the 3rd line from the bottom?",
+          "shownMidi": [
+            71
+          ],
+          "choices": [
+            "A",
+            "B",
+            "C"
+          ],
+          "answer": "B"
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l12-q2",
+          "prompt": "On the treble clef, which note sits on the 2nd space from the bottom?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "A",
+            "F",
+            "C"
+          ],
+          "answer": "A"
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l12-q3",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            77
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l12-q4",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            76
+          ]
+        }
+      ]
+    }
+  ]
+}

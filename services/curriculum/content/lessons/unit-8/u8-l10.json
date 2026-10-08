@@ -1,0 +1,114 @@
+{
+  "id": "u8-l10",
+  "unitId": "unit-8",
+  "order": 10,
+  "title": "Playing off the beat",
+  "summary": "Accent the \"and\" instead of the beat, and the rhythm starts to dance.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Syncopation",
+      "body": "Playing a note on an \"and\" and holding it over the next beat, instead of landing on the beat, is **syncopation**. It puts the accent where you don't expect it.\n\n**Why it matters:** It is what makes funk, reggae, Latin music and most modern pop groove. Without it, rhythms sound stiff.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 (2) & (3) & 4"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Count it first",
+      "body": "1, then the \"and\" of 2, then the \"and\" of 3, then 4.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 . & . & 4"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l10-p1",
+          "prompt": "Tap on 1, the \"and\" of 2, the \"and\" of 3, and on 4: 4 taps.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1.5,
+            2.5,
+            3
+          ],
+          "durations": [
+            1.5,
+            1,
+            0.5,
+            1
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l10-p2",
+          "prompt": "Tap on 1 and on the \"and\" of 2, holding it: 2 taps.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1.5
+          ],
+          "durations": [
+            1.5,
+            2.5
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Push the chord",
+      "body": "Play C on beat 1, then play the next chord early, on the \"and\" of 4. That push is everywhere in pop."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l10-q1",
+          "prompt": "Tap on 1, the \"and\" of 2, the \"and\" of 3, and on 4: 4 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1.5,
+            2.5,
+            3
+          ],
+          "durations": [
+            1.5,
+            1,
+            0.5,
+            1
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}
