@@ -6,3 +6,6 @@ export * from './practice.js';
 export * from './progress.js';
 export * from './theory-api.js';
 export * from './events.js';
+export * from './performance.js';
+export * from './charts.js';
+export * from './analysis.js';

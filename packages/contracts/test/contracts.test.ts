@@ -50,3 +50,23 @@ describe('lesson steps', () => {
     expect(step.type === 'show' && step.labels).toEqual({ '60': 'Sa' });
   });
 });
+
+describe('charts and analysis', () => {
+  it('fills chart defaults and keeps numerals so it transposes', async () => {
+    const { ChordChartSchema } = await import('../src/index.js');
+    const chart = ChordChartSchema.parse({
+      id: 'axis',
+      title: '1-5-6-4',
+      key: 'G',
+      sections: [{ name: 'Verse', bars: [{ chords: [{ numeral: 'I', beats: 4 }] }, { chords: [{ numeral: 'V', beats: 2 }, { numeral: 'vi', beats: 2 }] }] }],
+    });
+    expect(chart.timeSignature).toEqual({ beats: 4, unit: 4 });
+    expect(chart.sections[0]!.repeat).toBe(1);
+  });
+
+  it('validates an analysis request and rejects a silent note', async () => {
+    const { SongAnalysisRequestSchema } = await import('../src/index.js');
+    expect(SongAnalysisRequestSchema.safeParse({ notes: [{ midi: 60, velocity: 80, startMs: 0, durationMs: 400 }], keyHint: 'C' }).success).toBe(true);
+    expect(SongAnalysisRequestSchema.safeParse({ notes: [{ midi: 60, velocity: 0, startMs: 0, durationMs: 400 }] }).success).toBe(false);
+  });
+});
