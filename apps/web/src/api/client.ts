@@ -9,6 +9,7 @@ import {
   EndSessionResponseSchema,
   LessonSchema,
   NextItemSchema,
+  ProgressReportSchema,
   UnitSchema,
   SessionSchema,
   UnitListSchema,
@@ -16,6 +17,7 @@ import {
   type CreateSession,
   type EndSessionResponse,
   type Lesson,
+  type ProgressReport,
   type Session,
   type TestItem,
   type Unit,
@@ -43,7 +45,7 @@ export function setTokenSource(source: TokenSource): void {
   tokenSource = source;
 }
 
-async function call(path: string, init?: RequestInit): Promise<unknown> {
+export async function call(path: string, init?: RequestInit): Promise<unknown> {
   let res: Response;
   try {
     const token = await tokenSource().catch(() => null);
@@ -105,4 +107,12 @@ export async function getMe(): Promise<User> {
 
 export async function updateMySettings(patch: UpdateSettings): Promise<User> {
   return UserSchema.parse(await call('/identity/me/settings', { method: 'PATCH', body: JSON.stringify(patch) }));
+}
+
+/**
+ * The weekly progress report for the 7 days up to now. `tzOffset` is minutes
+ * ahead of UTC, so days split at the learner's own midnight.
+ */
+export async function getReport(tzOffset = -new Date().getTimezoneOffset()): Promise<ProgressReport> {
+  return ProgressReportSchema.parse(await call(`/progress/reports/weekly?tzOffset=${tzOffset}`));
 }

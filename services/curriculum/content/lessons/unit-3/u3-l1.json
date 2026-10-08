@@ -1,0 +1,145 @@
+{
+  "id": "u3-l1",
+  "unitId": "unit-3",
+  "order": 1,
+  "title": "What a scale is",
+  "summary": "A scale is a set of notes in order, from one note up to the same letter again.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Scale",
+      "body": "A **scale** is a set of notes played in order, going up or down, from one note to the same letter an octave away. You already played one in Unit 2: every key from C to C, a half step at a time.\n\n**Why it matters:** Most tunes are built from the notes of one scale. When a band mate says \"just stay in the scale\", they mean these notes will all fit.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A scale on the white keys",
+      "body": "The white keys from C up to the next C are a scale: eight notes, starting and ending on C.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l1-p1",
+          "prompt": "Play C D E F G A B C going up.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l1-p2",
+          "prompt": "Start on C and play every key going up, a half step at a time, until you reach the next C.",
+          "sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Stay in the scale",
+      "body": "Play the white keys from C to C slowly, then make up a tune using only those notes. Everything you play will fit together."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l1-q1",
+          "prompt": "Play C D E F G A B C going up, without looking.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l1-q2",
+          "prompt": "Start on D and go up a whole step at a time until you reach the next D.",
+          "sequence": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            0,
+            2
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

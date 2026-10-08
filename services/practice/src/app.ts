@@ -12,7 +12,9 @@ import {
 import { createService, requireUserId, type EventBus } from '@music/service-kit';
 import { z } from 'zod';
 import type { CurriculumClient } from './curriculum-client.js';
+import type { ProgressClient } from './progress-client.js';
 import type { PracticeRepository, SessionRecord } from './repository.js';
+import { candidates, pickReviewItems, reachedContent } from './review.js';
 import { nextItem, summarize, type SessionSummary } from './scoring.js';
 
 /** Pass mark for lesson quizzes. Checkpoints use the unit's own passPercent. */
@@ -22,6 +24,8 @@ export interface PracticeDeps {
   repo: PracticeRepository;
   bus: EventBus;
   curriculum: CurriculumClient;
+  /** Needed for review sessions; without it a review has no items. */
+  progress?: ProgressClient;
   logger?: boolean;
   /** Clock, replaceable in tests. */
   now?: () => Date;
@@ -59,7 +63,7 @@ export function lessonItems(lesson: Lesson): TestItem[] {
  * attempt.recorded, and scores the session when it ends (session.ended).
  */
 export function buildApp(deps: PracticeDeps) {
-  const { repo, bus, curriculum } = deps;
+  const { repo, bus, curriculum, progress } = deps;
   const now = deps.now ?? (() => new Date());
   const app = createService({ name: 'practice', logger: deps.logger });
 
@@ -68,6 +72,22 @@ export function buildApp(deps: PracticeDeps) {
     const session = await repo.getSession(id);
     if (!session || session.userId !== userId) throw httpError(404, 'session not found');
     return session;
+  }
+
+  /**
+   * Items for the skills due now, weakest first, taken only from lessons the
+   * learner has reached and checkpoints they passed.
+   */
+  async function reviewItems(userId: string): Promise<TestItem[]> {
+    const [queue, standing] = await Promise.all([progress!.getReviewQueue(userId), progress!.getProgress(userId)]);
+    if (queue.length === 0) return [];
+    const reached = reachedContent(standing);
+    const [lessons, units] = await Promise.all([
+      Promise.all(reached.lessonIds.map((id) => curriculum.getLesson(id))),
+      Promise.all(reached.unitIds.map((id) => curriculum.getUnit(id))),
+    ]);
+    const present = <T>(x: T | null): x is T => x !== null;
+    return pickReviewItems(queue, candidates(lessons.filter(present), units.filter(present)));
   }
 
   // POST /sessions { kind, refId? } → Session
@@ -90,6 +110,8 @@ export function buildApp(deps: PracticeDeps) {
         items = unit.checkpoint.items;
         passPercent = unit.checkpoint.passPercent;
       }
+    } else if (body.kind === 'review' && progress) {
+      items = await reviewItems(userId);
     }
 
     const record: SessionRecord = {

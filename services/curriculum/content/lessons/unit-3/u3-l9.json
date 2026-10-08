@@ -1,0 +1,176 @@
+{
+  "id": "u3-l9",
+  "unitId": "unit-3",
+  "order": 9,
+  "title": "Key signatures",
+  "summary": "Each key has its own set of sharps or flats, written once at the start of the music.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Key signature",
+      "body": "Instead of writing ♯ or ♭ next to every note, written music lists the sharps or flats of the key once, at the start. That list is the **key signature**. G major's key signature is one sharp, F♯. F major's is one flat, B♭. C major's is empty.\n\n**Why it matters:** The number of sharps or flats tells you the key at a glance. On a chart, two sharps means the notes of D major.",
+      "exampleMidi": [
+        66,
+        70
+      ],
+      "labels": {
+        "66": "F♯: G major",
+        "70": "B♭: F major"
+      }
+    },
+    {
+      "type": "show",
+      "title": "D major: two sharps",
+      "body": "Build D major with the formula and you get two sharps, F♯ and C♯.",
+      "highlightMidi": [
+        62,
+        64,
+        66,
+        67,
+        69,
+        71,
+        73,
+        74
+      ],
+      "labels": {
+        "62": "D",
+        "64": "E",
+        "66": "F♯",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "73": "C♯",
+        "74": "D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l9-p1",
+          "prompt": "Play the D major scale.",
+          "sequence": [
+            2,
+            4,
+            6,
+            7,
+            9,
+            11,
+            1,
+            2
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l9-p2",
+          "prompt": "How many sharps are in the key of D major?",
+          "shownMidi": [
+            62,
+            64,
+            66,
+            67,
+            69,
+            71,
+            73,
+            74
+          ],
+          "choices": [
+            "1",
+            "2",
+            "3"
+          ],
+          "answer": "2"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l9-p3",
+          "prompt": "Play the Bb major scale.",
+          "sequence": [
+            10,
+            0,
+            2,
+            3,
+            5,
+            7,
+            9,
+            10
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Count the black keys",
+      "body": "Play D major and Bb major slowly. Count the black keys each one uses."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l9-q1",
+          "prompt": "How many flats are in the key of Bb major?",
+          "shownMidi": [
+            58,
+            60,
+            62,
+            63,
+            65,
+            67,
+            69,
+            70
+          ],
+          "choices": [
+            "1",
+            "2",
+            "3"
+          ],
+          "answer": "2"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l9-q2",
+          "prompt": "How many sharps are in the key of A major?",
+          "shownMidi": [
+            57,
+            59,
+            61,
+            62,
+            64,
+            66,
+            68,
+            69
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l9-q3",
+          "prompt": "Play the A major scale.",
+          "sequence": [
+            9,
+            11,
+            1,
+            2,
+            4,
+            6,
+            8,
+            9
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

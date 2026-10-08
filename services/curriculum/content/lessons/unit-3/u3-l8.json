@@ -1,0 +1,166 @@
+{
+  "id": "u3-l8",
+  "unitId": "unit-3",
+  "order": 8,
+  "title": "What \"the key\" of a song means",
+  "summary": "A song built on one scale, at home on its tonic, is in that key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The key of a song",
+      "body": "When a song takes its notes from one major scale and feels at home on that scale's tonic, the song is in that scale's **key**. A song built on G major that ends on G is \"in the key of G major\", or just \"in G\". (This is a different meaning from a piano key.)\n\n**Why it matters:** \"What key is it in?\" is the first question a band asks. The key tells you which notes will fit and which black keys you will use.",
+      "exampleMidi": [
+        67,
+        69,
+        71,
+        72,
+        74,
+        76,
+        78,
+        79
+      ],
+      "labels": {
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C",
+        "74": "D",
+        "76": "E",
+        "78": "F♯",
+        "79": "G"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Same tune, different key",
+      "body": "Play a tune that starts on C using the C major scale, then start the same tune on G using the G major scale. The tune is the same. Only the key changed.\n\n**Why it matters:** this is what singers mean when they ask for a song \"in a different key\": same tune, moved to suit their voice.",
+      "exampleMidi": [
+        60,
+        67
+      ],
+      "labels": {
+        "60": "start in C",
+        "67": "start in G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The key of F major",
+      "body": "A song in F major uses these notes and feels at home on F.",
+      "highlightMidi": [
+        65,
+        67,
+        69,
+        70,
+        72,
+        74,
+        76,
+        77
+      ],
+      "labels": {
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "70": "B♭",
+        "72": "C",
+        "74": "D",
+        "76": "E",
+        "77": "F"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l8-p1",
+          "prompt": "Play the scale for the key of F major.",
+          "sequence": [
+            5,
+            7,
+            9,
+            10,
+            0,
+            2,
+            4,
+            5
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l8-p2",
+          "prompt": "Play the scale for the key of G major.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Move a tune",
+      "body": "Play a short tune you know in C, then try it in G and in F. Listen for the one black key each new key needs."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l8-q1",
+          "prompt": "A song uses the notes G A B C D E F# and ends on G. What key is it in?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "C major",
+            "G major",
+            "F major"
+          ],
+          "answer": "G major"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l8-q2",
+          "prompt": "A song uses the notes F G A Bb C D E and ends on F. What key is it in?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "C major",
+            "G major",
+            "F major"
+          ],
+          "answer": "F major"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l8-q3",
+          "prompt": "Play the scale for the key of C major.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    }
+  ]
+}

@@ -8,3 +8,4 @@ export * from './components/Select.js';
 export * from './components/Switch.js';
 export * from './components/Swap.js';
 export * from './components/Feedback.js';
+export * from './components/Charts.js';

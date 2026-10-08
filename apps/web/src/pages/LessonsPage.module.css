@@ -1,0 +1,71 @@
+/* Lessons list: gating states, the unit meter and the "up next" cards. */
+
+.upNext {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-3);
+}
+
+.upNextCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.unitSide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.meter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.track {
+  flex: 1;
+  height: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-gradient);
+}
+
+.card {
+  transition: opacity var(--dur-base) ease;
+}
+
+.card[data-status='locked'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.num[data-status='done'] {
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.num[data-status='locked'] {
+  background: var(--surface-hover);
+  color: var(--text-faint);
+}
+
+.num[data-status='in-progress'] {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}

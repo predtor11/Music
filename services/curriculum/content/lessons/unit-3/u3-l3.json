@@ -1,0 +1,165 @@
+{
+  "id": "u3-l3",
+  "unitId": "unit-3",
+  "order": 3,
+  "title": "C major, the all-white scale",
+  "summary": "A major scale is named after its first note. C major uses only white keys.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "C major scale",
+      "body": "A major scale is named after its first note. The one that starts on C is the **C major scale**: C D E F G A B C, all white keys.\n\n**Why it matters:** It is the only major scale with no black keys, so it is the easiest one to see, and every other scale is compared with it.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C major in two octaves",
+      "body": "The same scale from C3 up to C5.",
+      "highlightMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "48": "C",
+        "50": "D",
+        "52": "E",
+        "53": "F",
+        "55": "G",
+        "57": "A",
+        "59": "B",
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l3-p1",
+          "prompt": "Play the C major scale going up from middle C.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "play-scale",
+          "id": "u3-l3-p2",
+          "prompt": "Play the C major scale again, starting on C3.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Improvise in C major",
+      "body": "Make up a tune using only the C major scale. Try ending it on C and notice how settled that sounds."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "play-scale",
+          "id": "u3-l3-q1",
+          "prompt": "Play the C major scale.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l3-q2",
+          "prompt": "Is this key in the C major scale?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l3-q3",
+          "prompt": "Is this key in the C major scale?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "yes"
+        }
+      ]
+    }
+  ]
+}
