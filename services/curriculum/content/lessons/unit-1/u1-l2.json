@@ -1,0 +1,156 @@
+{
+  "id": "u1-l2",
+  "unitId": "unit-1",
+  "order": 2,
+  "title": "The seven letter names",
+  "summary": "White keys use only seven letters, A to G, and then start again.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Only seven letters",
+      "body": "The white keys are named with the first seven letters of the alphabet: **A B C D E F G**. After G, the names start again at A.\n\nGoing right (up in pitch), the letters go forward. Going left (down), they go backward.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ]
+    },
+    {
+      "type": "show",
+      "title": "C, D and E",
+      "body": "Around each group of two black keys sit C, D and E. D is the white key in the middle of the pair.",
+      "highlightMidi": [
+        60,
+        62,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "F, G, A and B",
+      "body": "Around each group of three black keys sit F, G, A and B. Then the next C starts the pattern again.",
+      "highlightMidi": [
+        65,
+        67,
+        69,
+        71
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Play the white keys by name",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p1",
+          "prompt": "Play D, the white key between the two black keys.",
+          "pc": 2
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p2",
+          "prompt": "Play E.",
+          "pc": 4
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p3",
+          "prompt": "Play F, the white key just left of the three black keys.",
+          "pc": 5
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p4",
+          "prompt": "Play G.",
+          "pc": 7
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p5",
+          "prompt": "Play A.",
+          "pc": 9
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-p6",
+          "prompt": "Play B.",
+          "pc": 11
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Name your tune",
+      "body": "Play a tune you know by ear and watch the names come up. Don't try to remember them yet. Just notice which letters your tune uses."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l2-q1",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            64
+          ],
+          "choices": [
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "answer": "E"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l2-q2",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "F",
+            "G",
+            "A",
+            "B"
+          ],
+          "answer": "A"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-q3",
+          "prompt": "Find F.",
+          "pc": 5
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l2-q4",
+          "prompt": "Find B.",
+          "pc": 11
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l2-q5",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "E",
+            "F",
+            "G",
+            "A"
+          ],
+          "answer": "G"
+        }
+      ]
+    }
+  ]
+}

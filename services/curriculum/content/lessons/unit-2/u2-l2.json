@@ -1,0 +1,157 @@
+{
+  "id": "u2-l2",
+  "unitId": "unit-2",
+  "order": 2,
+  "title": "Seconds and thirds",
+  "summary": "Intervals name the distance between two notes. Start with the small ones.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "What an interval is",
+      "body": "An **interval** is the distance between two notes. Musicians name it with a number and a word, like \"major 3rd\". The name tells everyone exactly how far apart two notes are, and you can always work it out by counting half steps."
+    },
+    {
+      "type": "explain",
+      "title": "Seconds",
+      "body": "You already know two intervals. A half step is also called a **minor 2nd**, and a whole step is a **major 2nd**. Minor is the smaller one, major the bigger one.",
+      "exampleMidi": [
+        60,
+        62
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Thirds",
+      "body": "Three half steps make a **minor 3rd** (C to E♭). Four half steps make a **major 3rd** (C to E).\n\nThirds are what chords are built from. A major 3rd sounds bright and a minor 3rd sounds darker. That is most of the difference between a major chord and a minor chord.",
+      "exampleMidi": [
+        60,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Thirds above C",
+      "body": "E♭ is a minor 3rd above C, and E is a major 3rd above C.",
+      "highlightMidi": [
+        60,
+        63,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Play seconds and thirds",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-p1",
+          "prompt": "Play C4, then go up a major 3rd.",
+          "startMidi": 60,
+          "semitones": 4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-p2",
+          "prompt": "Play C4, then go up a minor 3rd.",
+          "startMidi": 60,
+          "semitones": 3
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-p3",
+          "prompt": "Play G4, then go up a major 3rd.",
+          "startMidi": 67,
+          "semitones": 4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-p4",
+          "prompt": "Play D4, then go up a minor 3rd.",
+          "startMidi": 62,
+          "semitones": 3
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-p5",
+          "prompt": "Play E4, then go up a major 2nd.",
+          "startMidi": 64,
+          "semitones": 2
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Slide a pair of thirds",
+      "body": "Hold two white keys a 3rd apart, like C and E, and slide the pair up one white key at a time. Some pairs are major 3rds and some are minor. Listen for bright and dark."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l2-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            64
+          ],
+          "choices": [
+            "minor 2nd",
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd"
+          ],
+          "answer": "major 3rd"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l2-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            69,
+            72
+          ],
+          "choices": [
+            "minor 2nd",
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd"
+          ],
+          "answer": "minor 3rd"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l2-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            65,
+            67
+          ],
+          "choices": [
+            "minor 2nd",
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd"
+          ],
+          "answer": "major 2nd"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-q4",
+          "prompt": "Play F4, then go up a major 3rd.",
+          "startMidi": 65,
+          "semitones": 4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l2-q5",
+          "prompt": "Play E4, then go up a minor 2nd.",
+          "startMidi": 64,
+          "semitones": 1
+        }
+      ]
+    }
+  ]
+}
