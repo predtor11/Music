@@ -5,6 +5,7 @@
 
 import { Badge, Button, StatusDot, fadeUp, spring, useTheme, type ThemeSetting } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
+import { useKeySound } from './audio/useKeySound.js';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
@@ -73,6 +74,12 @@ function MidiStatus() {
   );
 }
 
+/** Sound for on-screen and computer keys (see useKeySound). */
+function KeySound() {
+  useKeySound();
+  return null;
+}
+
 export function App() {
   const [settings, update] = useSettings();
   const theme = useTheme();
@@ -82,6 +89,7 @@ export function App() {
 
   return (
     <NoteInputProvider settings={settings} update={update}>
+      <KeySound />
       <div className={`ui-container ${s.shell}`}>
         <motion.header className={s.header} variants={fadeUp} initial="hidden" animate="show">
           <a className={s.brand} href={href.chords}>

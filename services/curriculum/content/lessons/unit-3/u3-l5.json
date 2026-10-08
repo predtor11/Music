@@ -1,0 +1,135 @@
+{
+  "id": "u3-l5",
+  "unitId": "unit-3",
+  "order": 5,
+  "title": "Numbering the notes",
+  "summary": "Every note of a scale gets a number from 1 to 7: its scale degree.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Scale degree",
+      "body": "Each note of a scale has a number, counting up from the tonic: the tonic is 1, the next note is 2, and so on up to 7. These numbers are **scale degrees**.\n\n**Why it matters:** Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5 chord\", they mean scale degrees, and you will use them all through Unit 5.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "1",
+        "62": "2",
+        "64": "3",
+        "65": "4",
+        "67": "5",
+        "69": "6",
+        "71": "7",
+        "72": "1"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Degrees in C major",
+      "body": "C is 1, D is 2, E is 3, F is 4, G is 5, A is 6, B is 7, and the top C is 1 again.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C = 1",
+        "62": "D = 2",
+        "64": "E = 3",
+        "65": "F = 4",
+        "67": "G = 5",
+        "69": "A = 6",
+        "71": "B = 7",
+        "72": "C = 1"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u3-l5-p1",
+          "prompt": "In C major, play scale degree 5.",
+          "pc": 7
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l5-p2",
+          "prompt": "In C major, play scale degree 3.",
+          "pc": 4
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l5-p3",
+          "prompt": "In C major, play scale degree 7.",
+          "pc": 11
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l5-p4",
+          "prompt": "In C major, play scale degree 4.",
+          "pc": 5
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Sing the numbers",
+      "body": "Play the C major scale and sing the numbers: 1 2 3 4 5 6 7 1. Then play a tune and try to name the degree of each note."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u3-l5-q1",
+          "prompt": "In C major, which scale degree is this note?",
+          "shownMidi": [
+            64
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "3"
+        },
+        {
+          "kind": "name-it",
+          "id": "u3-l5-q2",
+          "prompt": "In C major, which scale degree is this note?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": "6"
+        },
+        {
+          "kind": "find-note",
+          "id": "u3-l5-q3",
+          "prompt": "In C major, play scale degree 2.",
+          "pc": 2
+        }
+      ]
+    }
+  ]
+}

@@ -14,11 +14,13 @@
   "dependencies": {
     "@music/contracts": "*",
     "@music/midi": "*",
+    "@music/skills": "*",
     "@music/theory": "*",
     "@music/ui": "*",
     "motion": "^14.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "tone": "^15.1.22",
     "vexflow": "^5.0.0"
   },
   "devDependencies": {

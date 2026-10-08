@@ -1,6 +1,7 @@
-import { InMemoryEventBus, startService } from '@music/service-kit';
+import { createEventBus, startService } from '@music/service-kit';
 import { buildApp } from './app.js';
 import { HttpCurriculumClient } from './curriculum-client.js';
+import { HttpProgressClient } from './progress-client.js';
 import { InMemoryPracticeRepository, type PracticeRepository } from './repository.js';
 
 // Postgres when SUPABASE_DB_URL is set, otherwise in memory (data is lost on restart).
@@ -13,7 +14,7 @@ if (dbUrl) {
   repo = new InMemoryPracticeRepository();
 }
 
-// TODO: switch to the Redis bus once service-kit has one.
-const bus = new InMemoryEventBus();
+// Redis Streams when REDIS_URL is set, so attempts and session ends reach the progress service.
+const bus = createEventBus();
 
-await startService(buildApp({ repo, bus, curriculum: new HttpCurriculumClient() }), 'practice');
+await startService(buildApp({ repo, bus, curriculum: new HttpCurriculumClient(), progress: new HttpProgressClient() }), 'practice');

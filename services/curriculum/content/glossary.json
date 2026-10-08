@@ -690,5 +690,348 @@
       "60": "C",
       "67": "perfect 5th"
     }
+  },
+  {
+    "id": "scale",
+    "term": "scale",
+    "meaning": "A set of notes in order, going up or down from one note to the same letter an octave away.",
+    "whyItMatters": "Most tunes are built from the notes of one scale. When a band mate says \"just stay in the scale\", they mean these notes will all fit.",
+    "lessonId": "u3-l1",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D",
+      "64": "E",
+      "65": "F",
+      "67": "G",
+      "69": "A",
+      "71": "B",
+      "72": "C"
+    }
+  },
+  {
+    "id": "major-scale",
+    "term": "major scale",
+    "meaning": "The scale with the step pattern whole, whole, half, whole, whole, whole, half: the sound of do re mi fa so la ti do.",
+    "whyItMatters": "Most pop, film and folk tunes use the major scale. Its sound is so familiar that you recognise it at once.",
+    "lessonId": "u3-l2",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D",
+      "64": "E",
+      "65": "F",
+      "67": "G",
+      "69": "A",
+      "71": "B",
+      "72": "C"
+    }
+  },
+  {
+    "id": "scale-formula",
+    "term": "scale formula",
+    "meaning": "The pattern of whole and half steps that builds a scale. The major scale's formula is W W H W W W H.",
+    "whyItMatters": "The formula works from any starting note. Learn it once and you can build a major scale on any of the twelve keys, white or black.",
+    "lessonId": "u3-l2",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "start",
+      "62": "W",
+      "64": "W",
+      "65": "H",
+      "67": "W",
+      "69": "W",
+      "71": "W",
+      "72": "H"
+    }
+  },
+  {
+    "id": "c-major-scale",
+    "term": "C major scale",
+    "meaning": "The major scale that starts on C: C D E F G A B C, all white keys.",
+    "whyItMatters": "It is the only major scale with no black keys, so it is the easiest one to see, and every other scale is compared with it.",
+    "lessonId": "u3-l3",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "C",
+      "62": "D",
+      "64": "E",
+      "65": "F",
+      "67": "G",
+      "69": "A",
+      "71": "B",
+      "72": "C"
+    }
+  },
+  {
+    "id": "tonic",
+    "term": "tonic",
+    "meaning": "The first note of a scale: the home note, where a tune feels finished.",
+    "whyItMatters": "Songs usually end on the tonic. When you play by ear, the note that feels like home is the tonic, and finding it is the first step to working out what a song is built on.",
+    "lessonId": "u3-l4",
+    "exampleMidi": [
+      60,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "tonic",
+      "71": "B wants to go home",
+      "72": "tonic"
+    }
+  },
+  {
+    "id": "scale-degree",
+    "term": "scale degree",
+    "meaning": "A note's position in its scale, counted from the tonic as 1 up to 7.",
+    "whyItMatters": "Numbers work in any key. When your band says \"start on the 3\" or \"go to the 5 chord\", they mean scale degrees, and you will use them all through Unit 5.",
+    "lessonId": "u3-l5",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      65,
+      67,
+      69,
+      71,
+      72
+    ],
+    "labels": {
+      "60": "1",
+      "62": "2",
+      "64": "3",
+      "65": "4",
+      "67": "5",
+      "69": "6",
+      "71": "7",
+      "72": "1"
+    }
+  },
+  {
+    "id": "key",
+    "term": "key",
+    "meaning": "The scale a song is built from, named after its tonic. A song in G major uses the G major scale and feels at home on G.",
+    "whyItMatters": "\"What key is it in?\" is the first question a band asks. The key tells you which notes will fit and which black keys you will use.",
+    "lessonId": "u3-l8",
+    "exampleMidi": [
+      67,
+      69,
+      71,
+      72,
+      74,
+      76,
+      78,
+      79
+    ],
+    "labels": {
+      "67": "G",
+      "69": "A",
+      "71": "B",
+      "72": "C",
+      "74": "D",
+      "76": "E",
+      "78": "F♯",
+      "79": "G"
+    }
+  },
+  {
+    "id": "key-signature",
+    "term": "key signature",
+    "meaning": "The sharps or flats of a key, written once at the start of a piece of music.",
+    "whyItMatters": "The number of sharps or flats tells you the key at a glance. On a chart, two sharps means the notes of D major.",
+    "lessonId": "u3-l9",
+    "exampleMidi": [
+      66,
+      70
+    ],
+    "labels": {
+      "66": "F♯: G major",
+      "70": "B♭: F major"
+    }
+  },
+  {
+    "id": "order-of-sharps",
+    "term": "order of sharps",
+    "meaning": "The order sharps are added to key signatures: F♯ C♯ G♯ D♯ A♯ E♯ B♯.",
+    "whyItMatters": "If a key has three sharps, you know which three: F♯, C♯ and G♯. No guessing.",
+    "lessonId": "u3-l10",
+    "exampleMidi": [
+      66,
+      61,
+      68,
+      63,
+      70
+    ],
+    "labels": {
+      "61": "2nd: C♯",
+      "63": "4th: D♯",
+      "66": "1st: F♯",
+      "68": "3rd: G♯",
+      "70": "5th: A♯"
+    }
+  },
+  {
+    "id": "order-of-flats",
+    "term": "order of flats",
+    "meaning": "The order flats are added to key signatures: B♭ E♭ A♭ D♭ G♭ C♭ F♭, the order of sharps backwards.",
+    "whyItMatters": "Band charts are full of flat keys, especially with horns. Knowing the order tells you exactly which black keys a flat key uses.",
+    "lessonId": "u3-l11",
+    "exampleMidi": [
+      70,
+      63,
+      68,
+      61,
+      66
+    ],
+    "labels": {
+      "61": "4th: D♭",
+      "63": "2nd: E♭",
+      "66": "5th: G♭",
+      "68": "3rd: A♭",
+      "70": "1st: B♭"
+    }
+  },
+  {
+    "id": "circle-of-fifths",
+    "term": "circle of fifths",
+    "meaning": "All twelve major keys in a ring, each a perfect 5th from the next. One direction adds a sharp at each step; the other adds a flat.",
+    "whyItMatters": "It is a map of how keys relate. Keys next to each other share all but one note, which is why songs often move to a neighbouring key, and why the chords in Unit 5 follow the circle.",
+    "lessonId": "u3-l12",
+    "exampleMidi": [
+      60,
+      62,
+      64,
+      67,
+      69,
+      71
+    ],
+    "labels": {
+      "60": "C: 0",
+      "62": "D: 2♯",
+      "64": "E: 4♯",
+      "67": "G: 1♯",
+      "69": "A: 3♯",
+      "71": "B: 5♯"
+    }
+  },
+  {
+    "id": "minor-scale",
+    "term": "minor scale",
+    "meaning": "A scale with a darker sound than the major scale, with a minor 3rd between its tonic and its 3rd degree.",
+    "whyItMatters": "Sad songs, many film themes and lots of rock are in minor keys. Telling major from minor is one of the first things a band ear needs.",
+    "lessonId": "u3-l13",
+    "exampleMidi": [
+      57,
+      59,
+      60,
+      62,
+      64,
+      65,
+      67,
+      69
+    ],
+    "labels": {
+      "57": "A",
+      "59": "B",
+      "60": "C",
+      "62": "D",
+      "64": "E",
+      "65": "F",
+      "67": "G",
+      "69": "A"
+    }
+  },
+  {
+    "id": "natural-minor",
+    "term": "natural minor",
+    "meaning": "The basic minor scale, with the step pattern W H W W H W W. A natural minor is A B C D E F G A.",
+    "whyItMatters": "There are other minor scales you may meet later, but the natural minor is the one the others start from, and the one most songs use.",
+    "lessonId": "u3-l13",
+    "exampleMidi": [
+      57,
+      59,
+      60,
+      62,
+      64,
+      65,
+      67,
+      69
+    ],
+    "labels": {
+      "57": "start",
+      "59": "W",
+      "60": "H",
+      "62": "W",
+      "64": "W",
+      "65": "H",
+      "67": "W",
+      "69": "W"
+    }
+  },
+  {
+    "id": "relative-minor",
+    "term": "relative minor",
+    "meaning": "The minor key that shares all its notes with a major key. It starts on the major key's 6th degree, 3 half steps below its tonic.",
+    "whyItMatters": "Relative keys share a key signature, so one sharp could mean G major or E minor. Lots of songs move between the two.",
+    "lessonId": "u3-l14",
+    "exampleMidi": [
+      57,
+      60
+    ],
+    "labels": {
+      "57": "A: relative minor",
+      "60": "C major"
+    }
+  },
+  {
+    "id": "relative-major",
+    "term": "relative major",
+    "meaning": "The major key that shares all its notes with a minor key, 3 half steps above the minor tonic.",
+    "whyItMatters": "If a song in a minor key brightens up halfway through, it has often moved to its relative major.",
+    "lessonId": "u3-l14",
+    "exampleMidi": [
+      57,
+      60
+    ],
+    "labels": {
+      "57": "A minor",
+      "60": "C: relative major"
+    }
   }
 ]

@@ -43,13 +43,19 @@ function usePattern(words: string[]): RegExp {
 /** ASCII spellings in prompts and choices: "F#" uses a sharp, "Bb" a flat. */
 const EXTRA_USES: Record<string, RegExp> = { sharp: /[A-G]#/, flat: /(?<![A-Za-z])[A-G]b(?![A-Za-z])/ };
 
+/**
+ * Terms whose plain word means something else too. "key" is also a piano key,
+ * so only its musical uses count: "the key of G", "what key is it in?".
+ */
+const USE_PATTERNS: Record<string, RegExp> = { key: /\b(?:the key of|in the key|what key is|which (?:major )?key has)\b/i };
+
 const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) => ({ unitId: unit.id, id })));
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2']);
-    expect(curriculum.lessonsById.size).toBe(26);
-    expect(curriculum.glossary.length).toBe(42);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3']);
+    expect(curriculum.lessonsById.size).toBe(41);
+    expect(curriculum.glossary.length).toBe(57);
   });
 
   for (const unit of curriculum.units) {
@@ -110,7 +116,7 @@ describe('glossary', () => {
     });
 
     it(`"${term.term}" is not used before ${term.lessonId}`, () => {
-      const pattern = usePattern([term.term, ...term.aliases]);
+      const pattern = USE_PATTERNS[term.id] ?? usePattern([term.term, ...term.aliases]);
       const extra = EXTRA_USES[term.id];
       const earlyUses = lessonOrder
         .slice(0, at)

@@ -10,6 +10,9 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { useComputerKeys } from '../keyboard/useComputerKeys.js';
 import { useMidi, type MidiState } from '../midi/useMidi.js';
 
+/** Where a key press came from. A MIDI keyboard makes its own sound; the others don't. */
+export type NoteSource = 'midi' | 'computer' | 'click';
+
 export interface NoteInput {
   midi: MidiState;
   /** Every key down right now, from any source, low to high. */
@@ -23,17 +26,17 @@ export interface NoteInput {
   clear: () => void;
   computerBase: MidiNote;
   /** Called on every new key press from any source. Returns an unsubscribe. */
-  onNoteOn: (listener: (note: MidiNote) => void) => () => void;
+  onNoteOn: (listener: (note: MidiNote, source: NoteSource) => void) => () => void;
 }
 
 const Ctx = createContext<NoteInput | null>(null);
 
 export function NoteInputProvider({ settings, update, children }: { settings: UserSettings; update: (patch: Partial<UserSettings>) => void; children: ReactNode }) {
-  const listeners = useRef(new Set<(note: MidiNote) => void>());
-  const emit = useCallback((note: MidiNote) => listeners.current.forEach((l) => l(note)), []);
+  const listeners = useRef(new Set<(note: MidiNote, source: NoteSource) => void>());
+  const emit = useCallback((note: MidiNote, source: NoteSource) => listeners.current.forEach((l) => l(note, source)), []);
   const onSelectInput = useCallback((id: string | null) => update({ midiInputId: id }), [update]);
-  const midi = useMidi(settings.midiInputId, onSelectInput, emit);
-  const computer = useComputerKeys(emit);
+  const midi = useMidi(settings.midiInputId, onSelectInput, useCallback((n: MidiNote) => emit(n, 'midi'), [emit]));
+  const computer = useComputerKeys(useCallback((n: MidiNote) => emit(n, 'computer'), [emit]));
   const [clicked, setClicked] = useState<ReadonlySet<MidiNote>>(new Set());
 
   const clickedRef = useRef(clicked);
@@ -44,7 +47,7 @@ export function NoteInputProvider({ settings, update, children }: { settings: Us
       if (next.has(note)) next.delete(note);
       else {
         next.add(note);
-        emit(note);
+        emit(note, 'click');
       }
       clickedRef.current = next;
       setClicked(next);
@@ -64,7 +67,7 @@ export function NoteInputProvider({ settings, update, children }: { settings: Us
     return () => window.removeEventListener('keydown', onKey);
   }, [clear]);
 
-  const onNoteOn = useCallback((l: (note: MidiNote) => void) => {
+  const onNoteOn = useCallback((l: (note: MidiNote, source: NoteSource) => void) => {
     listeners.current.add(l);
     return () => {
       listeners.current.delete(l);
@@ -96,9 +99,9 @@ export function useNoteInput(): NoteInput {
 }
 
 /** Subscribe to key presses for as long as the component is mounted. */
-export function useNoteOn(listener: (note: MidiNote) => void): void {
+export function useNoteOn(listener: (note: MidiNote, source: NoteSource) => void): void {
   const { onNoteOn } = useNoteInput();
   const ref = useRef(listener);
   ref.current = listener;
-  useEffect(() => onNoteOn((n) => ref.current(n)), [onNoteOn]);
+  useEffect(() => onNoteOn((n, source) => ref.current(n, source)), [onNoteOn]);
 }

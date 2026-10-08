@@ -1,0 +1,218 @@
+{
+  "id": "unit-3",
+  "order": 3,
+  "title": "Scales and keys",
+  "summary": "Build scales from steps, find the home note, and learn what \"the key of a song\" means, one idea at a time.",
+  "outcome": "You know what \"we're in E♭\" means for your hands, and which notes will fit.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "play-scale",
+        "id": "u3-cp-1",
+        "prompt": "Play the C major scale.",
+        "sequence": [
+          0,
+          2,
+          4,
+          5,
+          7,
+          9,
+          11,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "kind": "play-scale",
+        "id": "u3-cp-2",
+        "prompt": "Play the G major scale.",
+        "sequence": [
+          7,
+          9,
+          11,
+          0,
+          2,
+          4,
+          6,
+          7
+        ],
+        "direction": "up"
+      },
+      {
+        "kind": "play-scale",
+        "id": "u3-cp-3",
+        "prompt": "Play the F major scale.",
+        "sequence": [
+          5,
+          7,
+          9,
+          10,
+          0,
+          2,
+          4,
+          5
+        ],
+        "direction": "up"
+      },
+      {
+        "kind": "play-scale",
+        "id": "u3-cp-4",
+        "prompt": "Play the A natural minor scale.",
+        "sequence": [
+          9,
+          11,
+          0,
+          2,
+          4,
+          5,
+          7,
+          9
+        ],
+        "direction": "up"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-5",
+        "prompt": "How many sharps are in the key of D major?",
+        "shownMidi": [
+          62,
+          64,
+          66,
+          67,
+          69,
+          71,
+          73,
+          74
+        ],
+        "choices": [
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": "2"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-6",
+        "prompt": "How many flats are in the key of Bb major?",
+        "shownMidi": [
+          58,
+          60,
+          62,
+          63,
+          65,
+          67,
+          69,
+          70
+        ],
+        "choices": [
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": "2"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-7",
+        "prompt": "Which major key has 3 sharps?",
+        "shownMidi": [
+          66,
+          61,
+          68
+        ],
+        "choices": [
+          "D major",
+          "A major",
+          "E major"
+        ],
+        "answer": "A major"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-8",
+        "prompt": "What is the relative minor of C major?",
+        "shownMidi": [
+          60
+        ],
+        "choices": [
+          "A minor",
+          "E minor",
+          "D minor"
+        ],
+        "answer": "A minor"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-9",
+        "prompt": "Is this key in the G major scale?",
+        "shownMidi": [
+          66
+        ],
+        "choices": [
+          "yes",
+          "no"
+        ],
+        "answer": "yes"
+      },
+      {
+        "kind": "find-note",
+        "id": "u3-cp-10",
+        "prompt": "In D major, play scale degree 3.",
+        "pc": 6
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-11",
+        "prompt": "Going round the circle of fifths in the sharp direction, which key comes after D major?",
+        "shownMidi": [
+          62
+        ],
+        "choices": [
+          "G major",
+          "A major",
+          "E major"
+        ],
+        "answer": "A major"
+      },
+      {
+        "kind": "name-it",
+        "id": "u3-cp-12",
+        "prompt": "Is this scale major or natural minor?",
+        "shownMidi": [
+          64,
+          66,
+          67,
+          69,
+          71,
+          72,
+          74,
+          76
+        ],
+        "choices": [
+          "major",
+          "natural minor"
+        ],
+        "answer": "natural minor"
+      }
+    ]
+  },
+  "lessonIds": [
+    "u3-l1",
+    "u3-l2",
+    "u3-l3",
+    "u3-l4",
+    "u3-l5",
+    "u3-l6",
+    "u3-l7",
+    "u3-l8",
+    "u3-l9",
+    "u3-l10",
+    "u3-l11",
+    "u3-l12",
+    "u3-l13",
+    "u3-l14",
+    "u3-l15"
+  ]
+}

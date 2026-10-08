@@ -17,7 +17,6 @@ import {
   mod12,
   noteToString,
   octave,
-  pcName,
   pitchClass,
   pretty,
   spellInKey,
@@ -113,32 +112,16 @@ export function expectedFor(item: TestItem, played: readonly MidiNote[] = []): n
       return scaleOrder(item);
     case 'build-chord':
       return item.pitchClasses;
+    case 'play-progression':
+      // Every chord's pitch classes, one chord after another.
+      return progressionChords(item).flatMap((c) => c.pitchClasses);
     default:
       return answerKeys(item, played);
   }
 }
 
-/** Concept tag for the progress report. */
-export function skillFor(item: TestItem): string {
-  switch (item.kind) {
-    case 'find-note':
-      return `note:${pcName(item.midi !== undefined ? pitchClass(item.midi) : item.pc!)}`;
-    case 'play-interval':
-      return `interval:${intervalInfo(item.semitones).short}`;
-    case 'play-scale':
-      return `scale:${pcName(item.sequence[0]!)}`;
-    case 'build-chord':
-      return `chord:${item.pitchClasses.map((pc) => pcName(pc)).join('-')}`;
-    case 'name-it':
-      return `name-it:${item.answer}`;
-    case 'play-progression':
-      return `progression:${item.numerals.join('-')}`;
-    case 'read-staff':
-      return `staff:${item.clef}`;
-    case 'tap-rhythm':
-      return `rhythm:${item.timeSignature.join('/')}`;
-  }
-}
+/** Skill tags live in @music/skills so the services tag items the same way. */
+export { skillFor } from '@music/skills';
 
 // Black keys use the spellings bands use most: C♯, E♭, F♯, A♭, B♭.
 const pcText = (pc: PitchClass) => pretty(noteToString(spellInKey(pc, C_MAJOR)));
