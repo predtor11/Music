@@ -9,6 +9,8 @@ import { Badge, Button } from '@music/ui';
 import type { ComponentType } from 'react';
 import type { ItemRunnerProps } from './ItemRunner.js';
 import { Progression } from './kinds/Progression.js';
+import { ReadStaff } from './kinds/ReadStaff.js';
+import { TapRhythm } from './kinds/TapRhythm.js';
 import s from './lesson.module.css';
 
 /** Shown for a kind whose runner isn't built yet, so a lesson using it can still be skipped. */
@@ -33,6 +35,6 @@ function NotYet({ item, onDone }: ItemRunnerProps) {
 
 export const KIND_RUNNERS: Partial<Record<TestItemKind, ComponentType<ItemRunnerProps>>> = {
   'play-progression': Progression,
-  'read-staff': NotYet,
-  'tap-rhythm': NotYet,
+  'read-staff': ReadStaff,
+  'tap-rhythm': TapRhythm,
 };
