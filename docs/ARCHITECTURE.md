@@ -59,3 +59,13 @@ the fixed dev user `00000000-0000-4000-8000-000000000001`. Without
 don't cross services. Service tests that need Redis run only when `REDIS_URL`
 is set. The gateway finds each service at `http://127.0.0.1:<port>` unless
 `<NAME>_URL` (for example `THEORY_URL`) says otherwise.
+
+## Database
+
+Supabase project `music` (ref `iecxugzgkupflnayweyx`, region ap-south-1).
+Each service applies its own `migrations/*.sql` at start-up and records them
+in `<schema>.schema_migrations`. Migrations already applied to the hosted
+project through the Supabase MCP are recorded there too, so start-up skips
+them. Every service table has row level security on with no policies: only
+the services (connecting as the database owner) can read them, and the
+schemas are not exposed through Supabase's public API.
