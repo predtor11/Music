@@ -54,11 +54,22 @@ export type TestItem = z.infer<typeof TestItemSchema>;
 export const TestItemKindSchema = z.enum(['find-note', 'play-interval', 'play-scale', 'build-chord', 'name-it']);
 export type TestItemKind = z.infer<typeof TestItemKindSchema>;
 
+/** Text drawn on keys, keyed by MIDI note number as a string: { "60": "Sa" }. */
+export const KeyLabelsSchema = z.record(z.string().regex(/^\d{1,3}$/), z.string());
+export type KeyLabels = z.infer<typeof KeyLabelsSchema>;
+
 export const LessonStepSchema = z.discriminatedUnion('type', [
   /** Short explanation; markdown body, optional notes to play as a sound example. */
-  z.object({ type: z.literal('explain'), title: z.string(), body: z.string(), exampleMidi: z.array(z.number().int()).optional() }),
+  z.object({
+    type: z.literal('explain'),
+    title: z.string(),
+    body: z.string(),
+    /** Notes sounded and lit on the keyboard as the example. */
+    exampleMidi: z.array(z.number().int()).optional(),
+    labels: KeyLabelsSchema.optional(),
+  }),
   /** Concept shown on the on-screen keyboard. */
-  z.object({ type: z.literal('show'), title: z.string(), body: z.string(), highlightMidi: z.array(z.number().int()) }),
+  z.object({ type: z.literal('show'), title: z.string(), body: z.string(), highlightMidi: z.array(z.number().int()), labels: KeyLabelsSchema.optional() }),
   /** App lights keys and checks you play them. */
   z.object({ type: z.literal('play-along'), title: z.string(), items: z.array(TestItemSchema).min(1) }),
   /** Free play: the app names whatever you play. */
