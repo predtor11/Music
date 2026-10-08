@@ -2,9 +2,13 @@ name: Desktop installer
 
 # Builds the Windows installer (Music-Theory-Trainer-Setup-<version>.exe).
 # Download it from the run's Artifacts. Run it by hand from the Actions tab,
-# or it runs when main changes the desktop app.
+# or it runs when main changes the app and on PRs that change the desktop app.
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'apps/desktop/**'
+      - '.github/workflows/desktop.yml'
   push:
     branches: [main]
     paths:
