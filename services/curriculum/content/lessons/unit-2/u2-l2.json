@@ -2,27 +2,14 @@
   "id": "u2-l2",
   "unitId": "unit-2",
   "order": 2,
-  "title": "Seconds and thirds",
-  "summary": "Intervals name the distance between two notes. Start with the small ones.",
-  "minutes": 6,
+  "title": "The whole step",
+  "summary": "Two half steps make a whole step: a move that skips exactly one key.",
+  "minutes": 5,
   "steps": [
     {
       "type": "explain",
-      "title": "What an interval is",
-      "body": "An **interval** is the distance between two notes. Musicians name it with a number and a word, like \"major 3rd\". The name tells everyone exactly how far apart two notes are, and you can always work it out by counting half steps.",
-      "exampleMidi": [
-        60,
-        64
-      ],
-      "labels": {
-        "60": "C",
-        "64": "major 3rd"
-      }
-    },
-    {
-      "type": "explain",
-      "title": "Seconds",
-      "body": "You already know two intervals. A half step is also called a **minor 2nd**, and a whole step is a **major 2nd**. Minor is the smaller one, major the bigger one.",
+      "title": "Whole step",
+      "body": "A **whole step** is two half steps: it skips over exactly one key. C to D is a whole step, with C♯ in between.\n\n**Why it matters:** Most tunes move mainly in half steps and whole steps. Telling the two apart is the first step to hearing how a tune is built.",
       "exampleMidi": [
         60,
         61,
@@ -30,85 +17,88 @@
       ],
       "labels": {
         "60": "C",
-        "61": "minor 2nd",
-        "62": "major 2nd"
+        "61": "skipped",
+        "62": "D, a whole step up"
       }
     },
     {
       "type": "explain",
-      "title": "Thirds",
-      "body": "Three half steps make a **minor 3rd** (C to E♭). Four half steps make a **major 3rd** (C to E).\n\nThirds are what chords are built from. A major 3rd sounds bright and a minor 3rd sounds darker. That is most of the difference between a major chord and a minor chord.",
+      "title": "White to black can be a whole step",
+      "body": "E to F♯ is a whole step too, even though one key is white and one is black: F sits in between.\n\n**Why it matters:** count the keys, not the colours. A whole step always skips exactly one key.",
       "exampleMidi": [
-        60,
-        63,
-        64
+        64,
+        65,
+        66
       ],
       "labels": {
-        "60": "C",
-        "63": "minor 3rd",
-        "64": "major 3rd"
+        "64": "E",
+        "65": "skipped",
+        "66": "F♯"
       }
     },
     {
       "type": "show",
-      "title": "Thirds above C",
-      "body": "E♭ is a minor 3rd above C, and E is a major 3rd above C.",
+      "title": "A chain of whole steps",
+      "body": "C, D, E, F♯: each key is a whole step above the one before it.",
       "highlightMidi": [
         60,
-        63,
-        64
+        62,
+        64,
+        66
       ],
       "labels": {
         "60": "C",
-        "63": "minor 3rd",
-        "64": "major 3rd"
+        "62": "D",
+        "64": "E",
+        "66": "F♯"
       }
     },
     {
       "type": "play-along",
-      "title": "Play seconds and thirds",
+      "title": "Play along",
       "items": [
         {
           "kind": "play-interval",
           "id": "u2-l2-p1",
-          "prompt": "Play C4, then go up a major 3rd.",
+          "prompt": "Play C4, then go up a whole step.",
           "startMidi": 60,
-          "semitones": 4
+          "semitones": 2
         },
         {
           "kind": "play-interval",
           "id": "u2-l2-p2",
-          "prompt": "Play C4, then go up a minor 3rd.",
-          "startMidi": 60,
-          "semitones": 3
+          "prompt": "Play E4, then go up a whole step.",
+          "startMidi": 64,
+          "semitones": 2
         },
         {
           "kind": "play-interval",
           "id": "u2-l2-p3",
-          "prompt": "Play G4, then go up a major 3rd.",
-          "startMidi": 67,
-          "semitones": 4
+          "prompt": "Play F4, then go down a whole step.",
+          "startMidi": 65,
+          "semitones": -2
         },
         {
-          "kind": "play-interval",
+          "kind": "play-scale",
           "id": "u2-l2-p4",
-          "prompt": "Play D4, then go up a minor 3rd.",
-          "startMidi": 62,
-          "semitones": 3
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l2-p5",
-          "prompt": "Play E4, then go up a major 2nd.",
-          "startMidi": 64,
-          "semitones": 2
+          "prompt": "Start on C and go up a whole step at a time until you reach the next C.",
+          "sequence": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            0
+          ],
+          "direction": "up"
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Slide a pair of thirds",
-      "body": "Hold two white keys a 3rd apart, like C and E, and slide the pair up one white key at a time. Some pairs are major 3rds and some are minor. Listen for bright and dark."
+      "title": "Half or whole?",
+      "body": "Play a tune you know and watch the names. For each move, ask yourself whether it was a half step, a whole step or a bigger jump."
     },
     {
       "type": "quiz",
@@ -117,64 +107,65 @@
         {
           "kind": "name-it",
           "id": "u2-l2-q1",
-          "prompt": "Which interval is this?",
+          "prompt": "How far apart are these two keys?",
           "shownMidi": [
-            60,
-            64
+            64,
+            65
           ],
           "choices": [
-            "minor 2nd",
-            "major 2nd",
-            "minor 3rd",
-            "major 3rd"
+            "half step",
+            "whole step"
           ],
-          "answer": "major 3rd"
+          "answer": "half step"
         },
         {
           "kind": "name-it",
           "id": "u2-l2-q2",
-          "prompt": "Which interval is this?",
+          "prompt": "How far apart are these two keys?",
           "shownMidi": [
-            69,
-            72
+            67,
+            69
           ],
           "choices": [
-            "minor 2nd",
-            "major 2nd",
-            "minor 3rd",
-            "major 3rd"
+            "half step",
+            "whole step"
           ],
-          "answer": "minor 3rd"
+          "answer": "whole step"
         },
         {
           "kind": "name-it",
           "id": "u2-l2-q3",
-          "prompt": "Which interval is this?",
+          "prompt": "How far apart are these two keys?",
           "shownMidi": [
-            65,
-            67
+            70,
+            72
           ],
           "choices": [
-            "minor 2nd",
-            "major 2nd",
-            "minor 3rd",
-            "major 3rd"
+            "half step",
+            "whole step"
           ],
-          "answer": "major 2nd"
+          "answer": "whole step"
         },
         {
-          "kind": "play-interval",
+          "kind": "name-it",
           "id": "u2-l2-q4",
-          "prompt": "Play F4, then go up a major 3rd.",
-          "startMidi": 65,
-          "semitones": 4
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            71,
+            72
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "half step"
         },
         {
           "kind": "play-interval",
           "id": "u2-l2-q5",
-          "prompt": "Play E4, then go up a minor 2nd.",
-          "startMidi": 64,
-          "semitones": 1
+          "prompt": "Pick any key and go up a whole step.",
+          "startMidi": null,
+          "semitones": 2
         }
       ]
     }

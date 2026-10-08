@@ -2,7 +2,7 @@
   "id": "unit-2",
   "order": 2,
   "title": "Steps and intervals",
-  "summary": "Measure the distance between notes: half steps, whole steps, and every interval up to the octave, by name and by ear.",
+  "summary": "Measure the distance between notes, one size at a time: half steps, whole steps, and every interval up to the octave, by name and by ear.",
   "outcome": "You can name the distance between any two notes, and hear when your band says \"a 5th\" or \"a minor 3rd\".",
   "checkpoint": {
     "passPercent": 80,
@@ -158,6 +158,13 @@
     "u2-l2",
     "u2-l3",
     "u2-l4",
-    "u2-l5"
+    "u2-l5",
+    "u2-l6",
+    "u2-l7",
+    "u2-l8",
+    "u2-l9",
+    "u2-l10",
+    "u2-l11",
+    "u2-l12"
   ]
 }

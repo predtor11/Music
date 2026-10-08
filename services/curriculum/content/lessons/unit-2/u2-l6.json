@@ -1,0 +1,148 @@
+{
+  "id": "u2-l6",
+  "unitId": "unit-2",
+  "order": 6,
+  "title": "The perfect 4th",
+  "summary": "Some intervals have one plain, stable size, called perfect. The first is the 4th.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Perfect intervals",
+      "body": "The 4th, the 5th and the octave have one main size, and it sounds so open and stable that it is called **perfect**. They do not come in minor and major.\n\n**Why it matters:** When someone says \"a perfect 4th\", the word perfect tells you it is the plain, stable version of that interval.",
+      "exampleMidi": [
+        60,
+        65,
+        67,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "65": "4th",
+        "67": "5th",
+        "72": "octave"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Perfect 4th",
+      "body": "A **perfect 4th** is 5 half steps and spans four letters, like C to F.\n\n**Why it matters:** It is the sound of Here Comes the Bride, and of many bass lines that jump from one chord to the next.",
+      "exampleMidi": [
+        60,
+        65
+      ],
+      "labels": {
+        "60": "C",
+        "65": "perfect 4th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A 4th from D",
+      "body": "D up to G is also a perfect 4th: 5 half steps.",
+      "highlightMidi": [
+        62,
+        67
+      ],
+      "labels": {
+        "62": "D",
+        "67": "perfect 4th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l6-p1",
+          "prompt": "Play C4, then go up a perfect 4th.",
+          "startMidi": 60,
+          "semitones": 5
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l6-p2",
+          "prompt": "Play D4, then go up a perfect 4th.",
+          "startMidi": 62,
+          "semitones": 5
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l6-p3",
+          "prompt": "Play G4, then go down a perfect 4th.",
+          "startMidi": 67,
+          "semitones": -5
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l6-p4",
+          "prompt": "Play A4, then go up a perfect 4th.",
+          "startMidi": 69,
+          "semitones": 5
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Open sound",
+      "body": "Play a perfect 4th with both notes together, then move it around the white keys. Most of them sound open; listen for the one starting on F, which sounds different. You will meet it in two lessons."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l6-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            65
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th"
+          ],
+          "answer": "perfect 4th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l6-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            64,
+            68
+          ],
+          "choices": [
+            "major 3rd",
+            "perfect 4th"
+          ],
+          "answer": "major 3rd"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l6-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            64,
+            69
+          ],
+          "choices": [
+            "minor 3rd",
+            "major 3rd",
+            "perfect 4th"
+          ],
+          "answer": "perfect 4th"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l6-q4",
+          "prompt": "Play E4, then go up a perfect 4th.",
+          "startMidi": 64,
+          "semitones": 5
+        }
+      ]
+    }
+  ]
+}

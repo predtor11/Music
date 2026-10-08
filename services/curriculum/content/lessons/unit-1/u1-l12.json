@@ -1,0 +1,168 @@
+{
+  "id": "u1-l12",
+  "unitId": "unit-1",
+  "order": 12,
+  "title": "Two names for one key",
+  "summary": "C♯ and D♭ are the same key. The natural sign means the plain white key.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Enharmonic",
+      "body": "Every black key now has two names. C♯ and D♭ are the same key and the same sound. Two names for the same key are called **enharmonic**.\n\n**Why it matters:** Both names are correct and you will hear both. Which one a song uses depends on its key, which comes in Unit 3. For now, if someone says D♭ and you think C♯, you are right.",
+      "exampleMidi": [
+        61
+      ],
+      "labels": {
+        "61": "C♯ / D♭"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Both names of each black key",
+      "body": "- C♯ = D♭\n- D♯ = E♭\n- F♯ = G♭\n- G♯ = A♭\n- A♯ = B♭",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ],
+      "labels": {
+        "61": "C♯ / D♭",
+        "63": "D♯ / E♭",
+        "66": "F♯ / G♭",
+        "68": "G♯ / A♭",
+        "70": "A♯ / B♭"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "White keys can have two names too",
+      "body": "There is no black key between E and F, or between B and C. So E♯ is the same key as F, and C♭ is the same key as B.\n\n**Why it matters:** you will not see these often, but now they will not surprise you when you do.",
+      "exampleMidi": [
+        64,
+        65,
+        71,
+        72
+      ],
+      "labels": {
+        "64": "E",
+        "65": "F = E♯",
+        "71": "B = C♭",
+        "72": "C"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "The natural sign",
+      "body": "The third accidental is the **natural** sign, ♮. It means the plain white key, with no sharp or flat. F♮ is just F.\n\n**Why it matters:** You will see ♮ on charts when a note should be the plain white key rather than its sharp or flat neighbour.",
+      "exampleMidi": [
+        65,
+        66
+      ],
+      "labels": {
+        "65": "F♮",
+        "66": "F♯"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l12-p1",
+          "prompt": "Play Eb, the same key as D#.",
+          "pc": 3
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l12-p2",
+          "prompt": "Play Ab, the same key as G#.",
+          "pc": 8
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l12-p3",
+          "prompt": "Play Gb.",
+          "pc": 6
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l12-p4",
+          "prompt": "Play E#.",
+          "pc": 5
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Hold a black key",
+      "body": "Press a black key and hold it. The app shows both of its names. Try all five black keys in one octave."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l12-q1",
+          "prompt": "This key is C#. What is its other name?",
+          "shownMidi": [
+            61
+          ],
+          "choices": [
+            "Db",
+            "D",
+            "Cb",
+            "Eb"
+          ],
+          "answer": "Db"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l12-q2",
+          "prompt": "What is the flat name of this key?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "Gb",
+            "Ab",
+            "Db",
+            "Eb"
+          ],
+          "answer": "Gb"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l12-q3",
+          "prompt": "Find Cb.",
+          "pc": 11
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l12-q4",
+          "prompt": "This white key has a second name. Which one?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "E#",
+            "Fb",
+            "Gb",
+            "D#"
+          ],
+          "answer": "E#"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l12-q5",
+          "prompt": "Find A#, then say its other name to yourself.",
+          "pc": 10
+        }
+      ]
+    }
+  ]
+}

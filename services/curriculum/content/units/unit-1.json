@@ -2,7 +2,7 @@
   "id": "unit-1",
   "order": 1,
   "title": "The keyboard map",
-  "summary": "Give every key its name: the seven letters, octaves, sharps and flats, and middle C.",
+  "summary": "Start from nothing: notes, high and low, the black-key pattern, the seven letter names, octaves, sharps and flats.",
   "outcome": "You can name any key on the keyboard, and find any note your band mates call out.",
   "checkpoint": {
     "passPercent": 80,
@@ -123,6 +123,14 @@
     "u1-l3",
     "u1-l4",
     "u1-l5",
-    "u1-l6"
+    "u1-l6",
+    "u1-l7",
+    "u1-l8",
+    "u1-l9",
+    "u1-l10",
+    "u1-l11",
+    "u1-l12",
+    "u1-l13",
+    "u1-l14"
   ]
 }

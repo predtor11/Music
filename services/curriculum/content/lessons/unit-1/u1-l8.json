@@ -1,0 +1,113 @@
+{
+  "id": "u1-l8",
+  "unitId": "unit-1",
+  "order": 8,
+  "title": "The octave",
+  "summary": "Every letter comes back higher and lower. The jump between two of them is an octave.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Same name, higher or lower",
+      "body": "Play a C, then the next C to the right. They sound like the same note, one higher than the other. The jump from a note to the next note with the same letter is an **octave**.\n\n**Why it matters:** Notes an octave apart share a name and blend so well they almost sound like one note. That is why a tune played higher is still the same tune, and why the band can say \"play it an octave up\".",
+      "exampleMidi": [
+        60,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "72": "C, an octave up"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Octaves of G",
+      "body": "Each G is an octave away from the next one.",
+      "highlightMidi": [
+        43,
+        55,
+        67,
+        79
+      ],
+      "labels": {
+        "43": "G",
+        "55": "G",
+        "67": "G",
+        "79": "G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u1-l8-p1",
+          "prompt": "Play middle C, then go up an octave.",
+          "startMidi": 60,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u1-l8-p2",
+          "prompt": "Play the lit G, then go up an octave.",
+          "startMidi": 55,
+          "semitones": 12
+        },
+        {
+          "kind": "play-interval",
+          "id": "u1-l8-p3",
+          "prompt": "Pick any key and go down an octave.",
+          "startMidi": null,
+          "semitones": -12
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Same tune, new place",
+      "body": "Play a tune you know, then play it again an octave higher. Same tune, brighter sound."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l8-q1",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            60,
+            72
+          ],
+          "choices": [
+            "one octave",
+            "two octaves"
+          ],
+          "answer": "one octave"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l8-q2",
+          "prompt": "How far apart are these two keys?",
+          "shownMidi": [
+            48,
+            72
+          ],
+          "choices": [
+            "one octave",
+            "two octaves"
+          ],
+          "answer": "two octaves"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u1-l8-q3",
+          "prompt": "Pick any key and go up an octave.",
+          "startMidi": null,
+          "semitones": 12
+        }
+      ]
+    }
+  ]
+}

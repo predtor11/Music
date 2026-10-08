@@ -2,130 +2,102 @@
   "id": "u2-l5",
   "unitId": "unit-2",
   "order": 5,
-  "title": "Hearing intervals",
-  "summary": "Tie each interval to a song you already know, so you can hear it without counting keys.",
-  "minutes": 7,
+  "title": "Thirds",
+  "summary": "A 3rd spans three letters. The minor 3rd sounds dark and the major 3rd sounds bright.",
+  "minutes": 6,
   "steps": [
     {
       "type": "explain",
-      "title": "Songs you already know",
-      "body": "Your ear already knows these intervals from songs. The opening notes of a familiar tune make a handy hook:\n\n- minor 2nd: the *Jaws* theme\n- major 2nd: *Happy Birthday*, from \"-py\" to \"birth\"\n- minor 3rd: *Greensleeves*\n- major 3rd: *Oh When the Saints*\n- perfect 4th: *Here Comes the Bride*\n- tritone: *The Simpsons* theme\n- perfect 5th: *Twinkle Twinkle Little Star*, the jump to the second \"twinkle\"\n- major 6th: *My Bonnie Lies Over the Ocean*\n- minor 7th: the original *Star Trek* theme\n- octave: *Somewhere Over the Rainbow*\n\nIf another song works better for you, use that one.",
+      "title": "3rd",
+      "body": "Count three letters: C, D, E. C to E is a **3rd**. Like 2nds, 3rds come in a minor and a major size.\n\n**Why it matters:** Chords are stacked out of 3rds. When you learn chords in Unit 4, you will build them from the 3rds in this lesson.",
       "exampleMidi": [
         60,
-        61,
-        62,
-        63,
-        64,
-        65,
-        66,
-        67,
-        69,
-        70,
-        72
+        64
       ],
       "labels": {
-        "60": "C",
-        "61": "Jaws",
-        "62": "Happy Birthday",
-        "63": "Greensleeves",
-        "64": "Oh When the Saints",
-        "65": "Here Comes the Bride",
-        "66": "The Simpsons",
-        "67": "Twinkle Twinkle",
-        "69": "My Bonnie",
-        "70": "Star Trek",
-        "72": "Over the Rainbow"
+        "60": "C (1)",
+        "64": "E (3)"
       }
     },
     {
       "type": "explain",
-      "title": "Ear first, names second",
-      "body": "Listen to two notes, sing them back, then find them on the keys. That is how you already learned to play, so it is the fastest way for you to learn intervals too.",
+      "title": "Minor 3rd",
+      "body": "A **minor 3rd** is 3 half steps, like C to E♭ or A to C. It sounds darker.\n\n**Why it matters:** The minor 3rd is the sound that makes a minor chord sound sad. Greensleeves opens with one.",
       "exampleMidi": [
         60,
-        67
+        63
       ],
       "labels": {
         "60": "C",
-        "67": "perfect 5th"
+        "63": "minor 3rd"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Major 3rd",
+      "body": "A **major 3rd** is 4 half steps, like C to E. It sounds brighter.\n\n**Why it matters:** The major 3rd makes a major chord sound happy. Oh When the Saints opens with one.",
+      "exampleMidi": [
+        60,
+        64
+      ],
+      "labels": {
+        "60": "C",
+        "64": "major 3rd"
       }
     },
     {
       "type": "show",
-      "title": "The intervals with a song hook",
-      "body": "From C: C♯, D, E♭, E, F, F♯, G, A, B♭ and the C above. Play each one against C and hum its song.",
+      "title": "Thirds above C",
+      "body": "E♭ is a minor 3rd above C, and E is a major 3rd above C.",
       "highlightMidi": [
         60,
-        61,
-        62,
         63,
-        64,
-        65,
-        66,
-        67,
-        69,
-        70,
-        72
+        64
       ],
       "labels": {
         "60": "C",
-        "61": "Jaws",
-        "62": "Happy Birthday",
-        "63": "Greensleeves",
-        "64": "Oh When the Saints",
-        "65": "Here Comes the Bride",
-        "66": "The Simpsons",
-        "67": "Twinkle Twinkle",
-        "69": "My Bonnie",
-        "70": "Star Trek",
-        "72": "Over the Rainbow"
+        "63": "minor 3rd",
+        "64": "major 3rd"
       }
     },
     {
       "type": "play-along",
-      "title": "Find it by ear",
+      "title": "Play along",
       "items": [
         {
           "kind": "play-interval",
           "id": "u2-l5-p1",
-          "prompt": "Pick any key and play a perfect 5th up from it. Hum Twinkle Twinkle to check.",
-          "startMidi": null,
-          "semitones": 7
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l5-p2",
-          "prompt": "Pick any key and play a major 3rd up from it. Hum Oh When the Saints to check.",
-          "startMidi": null,
+          "prompt": "Play C4, then go up a major 3rd.",
+          "startMidi": 60,
           "semitones": 4
         },
         {
           "kind": "play-interval",
-          "id": "u2-l5-p3",
-          "prompt": "Pick any key and play a perfect 4th up from it. Hum Here Comes the Bride to check.",
-          "startMidi": null,
-          "semitones": 5
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l5-p4",
-          "prompt": "Pick any key and play a minor 3rd up from it. Hum Greensleeves to check.",
-          "startMidi": null,
+          "id": "u2-l5-p2",
+          "prompt": "Play C4, then go up a minor 3rd.",
+          "startMidi": 60,
           "semitones": 3
         },
         {
           "kind": "play-interval",
-          "id": "u2-l5-p5",
-          "prompt": "Pick any key and play an octave up from it. Hum Somewhere Over the Rainbow to check.",
-          "startMidi": null,
-          "semitones": 12
+          "id": "u2-l5-p3",
+          "prompt": "Play G4, then go up a major 3rd.",
+          "startMidi": 67,
+          "semitones": 4
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l5-p4",
+          "prompt": "Play D4, then go up a minor 3rd.",
+          "startMidi": 62,
+          "semitones": 3
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Guess before you look",
-      "body": "Play any two notes, hum the song that fits, and guess the interval. Then check the name the app shows."
+      "title": "Slide a pair of thirds",
+      "body": "Hold two white keys a 3rd apart, like C and E, and slide the pair up one white key at a time. Some pairs are major 3rds and some are minor. Listen for bright and dark."
     },
     {
       "type": "quiz",
@@ -134,104 +106,57 @@
         {
           "kind": "name-it",
           "id": "u2-l5-q1",
-          "prompt": "Listen to the two notes. Which interval is it?",
-          "shownMidi": [
-            60,
-            67
-          ],
-          "choices": [
-            "perfect 4th",
-            "perfect 5th",
-            "major 6th",
-            "octave"
-          ],
-          "answer": "perfect 5th",
-          "audioOnly": true
-        },
-        {
-          "kind": "name-it",
-          "id": "u2-l5-q2",
-          "prompt": "Listen to the two notes. Which interval is it?",
+          "prompt": "Which interval is this?",
           "shownMidi": [
             60,
             64
           ],
           "choices": [
+            "minor 2nd",
             "major 2nd",
             "minor 3rd",
-            "major 3rd",
-            "perfect 4th"
+            "major 3rd"
           ],
-          "answer": "major 3rd",
-          "audioOnly": true
+          "answer": "major 3rd"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l5-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            69,
+            72
+          ],
+          "choices": [
+            "minor 2nd",
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd"
+          ],
+          "answer": "minor 3rd"
         },
         {
           "kind": "name-it",
           "id": "u2-l5-q3",
-          "prompt": "Listen to the two notes. Which interval is it?",
+          "prompt": "Which interval is this?",
           "shownMidi": [
-            62,
-            74
+            65,
+            67
           ],
           "choices": [
-            "perfect 5th",
-            "major 6th",
-            "minor 7th",
-            "octave"
+            "minor 2nd",
+            "major 2nd",
+            "minor 3rd",
+            "major 3rd"
           ],
-          "answer": "octave",
-          "audioOnly": true
+          "answer": "major 2nd"
         },
         {
-          "kind": "name-it",
+          "kind": "play-interval",
           "id": "u2-l5-q4",
-          "prompt": "Listen to the two notes. Which interval is it?",
-          "shownMidi": [
-            60,
-            65
-          ],
-          "choices": [
-            "major 3rd",
-            "perfect 4th",
-            "tritone",
-            "perfect 5th"
-          ],
-          "answer": "perfect 4th",
-          "audioOnly": true
-        },
-        {
-          "kind": "name-it",
-          "id": "u2-l5-q5",
-          "prompt": "Listen to the two notes. Which interval is it?",
-          "shownMidi": [
-            64,
-            70
-          ],
-          "choices": [
-            "perfect 4th",
-            "tritone",
-            "perfect 5th",
-            "minor 6th"
-          ],
-          "answer": "tritone",
-          "audioOnly": true
-        },
-        {
-          "kind": "name-it",
-          "id": "u2-l5-q6",
-          "prompt": "Listen to the two notes. Which interval is it?",
-          "shownMidi": [
-            60,
-            69
-          ],
-          "choices": [
-            "perfect 5th",
-            "minor 6th",
-            "major 6th",
-            "minor 7th"
-          ],
-          "answer": "major 6th",
-          "audioOnly": true
+          "prompt": "Play F4, then go up a major 3rd.",
+          "startMidi": 65,
+          "semitones": 4
         }
       ]
     }

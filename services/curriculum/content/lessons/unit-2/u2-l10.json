@@ -1,0 +1,151 @@
+{
+  "id": "u2-l10",
+  "unitId": "unit-2",
+  "order": 10,
+  "title": "Sevenths",
+  "summary": "A 7th spans seven letters and sits just below the octave.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Minor 7th",
+      "body": "Count seven letters from C and you reach B, so C to B is a 7th. A **minor 7th** is 10 half steps, like C to B♭.\n\n**Why it matters:** The minor 7th is the \"7\" in chord names like G7, which you will meet in Unit 6. The original Star Trek theme opens with one.",
+      "exampleMidi": [
+        60,
+        70
+      ],
+      "labels": {
+        "60": "C",
+        "70": "minor 7th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Major 7th",
+      "body": "A **major 7th** is 11 half steps, like C to B: just one half step short of the octave.\n\n**Why it matters:** It is the dreamy sound in \"maj7\" chords, which are all over soul, jazz and pop ballads.",
+      "exampleMidi": [
+        60,
+        71
+      ],
+      "labels": {
+        "60": "C",
+        "71": "major 7th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Sevenths above C",
+      "body": "B♭ is a minor 7th above C, and B is a major 7th.",
+      "highlightMidi": [
+        60,
+        70,
+        71
+      ],
+      "labels": {
+        "60": "C",
+        "70": "minor 7th",
+        "71": "major 7th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "u2-l10-p1",
+          "prompt": "Play C4, then go up a minor 7th.",
+          "startMidi": 60,
+          "semitones": 10
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l10-p2",
+          "prompt": "Play C4, then go up a major 7th.",
+          "startMidi": 60,
+          "semitones": 11
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l10-p3",
+          "prompt": "Play G4, then go up a minor 7th.",
+          "startMidi": 67,
+          "semitones": 10
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l10-p4",
+          "prompt": "Play F4, then go up a major 7th.",
+          "startMidi": 65,
+          "semitones": 11
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Almost an octave",
+      "body": "Play a major 7th, then move the top note up one half step to the octave. Hear how the 7th leans towards it."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u2-l10-q1",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            60,
+            70
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "minor 7th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l10-q2",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            65,
+            76
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "major 7th"
+        },
+        {
+          "kind": "name-it",
+          "id": "u2-l10-q3",
+          "prompt": "Which interval is this?",
+          "shownMidi": [
+            62,
+            71
+          ],
+          "choices": [
+            "major 6th",
+            "minor 7th",
+            "major 7th",
+            "octave"
+          ],
+          "answer": "major 6th"
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l10-q4",
+          "prompt": "Play D4, then go up a minor 7th.",
+          "startMidi": 62,
+          "semitones": 10
+        }
+      ]
+    }
+  ]
+}

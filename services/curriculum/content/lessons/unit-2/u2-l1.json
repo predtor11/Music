@@ -2,28 +2,28 @@
   "id": "u2-l1",
   "unitId": "unit-2",
   "order": 1,
-  "title": "Half steps and whole steps",
-  "summary": "The two smallest moves on the keyboard, and the building blocks of every interval.",
-  "minutes": 6,
+  "title": "The half step",
+  "summary": "The smallest move on the keyboard: from one key to the very next.",
+  "minutes": 5,
   "steps": [
     {
       "type": "explain",
-      "title": "The smallest step",
-      "body": "A **half step** is the move from one key to the very next key, black or white, with nothing in between.\n\nC to C♯ is a half step. So is E to F, because there is no black key between them.",
+      "title": "Half step",
+      "body": "A **half step** is the move from one key to the very next key, with nothing in between. It can be white to black, black to white, or even white to white.\n\n**Why it matters:** The half step is the ruler of music: every distance between notes is measured by counting half steps. When a band mate says \"take it up a half step\", they want the whole song one key higher.",
       "exampleMidi": [
         60,
         61
       ],
       "labels": {
         "60": "C",
-        "61": "C♯"
+        "61": "C♯, a half step up"
       }
     },
     {
-      "type": "show",
-      "title": "Half steps between white keys",
-      "body": "E to F and B to C are the only places where two white keys are a half step apart.",
-      "highlightMidi": [
+      "type": "explain",
+      "title": "Two white keys a half step apart",
+      "body": "There is no black key between E and F, or between B and C, so those white keys are only a half step apart.\n\n**Why it matters:** these two spots are why the white keys are not evenly spaced, and they shape every tune you play on white keys.",
+      "exampleMidi": [
         64,
         65,
         71,
@@ -37,38 +37,25 @@
       }
     },
     {
-      "type": "explain",
-      "title": "Two half steps make a whole step",
-      "body": "A **whole step** skips over one key. C to D is a whole step, with C♯ in between. E to F♯ is also a whole step, with F in between.",
-      "exampleMidi": [
-        60,
-        62
-      ],
-      "labels": {
-        "60": "C",
-        "62": "D"
-      }
-    },
-    {
       "type": "show",
-      "title": "A chain of whole steps",
-      "body": "C, D, E, F♯: each key is a whole step above the one before it.",
+      "title": "Half steps from C",
+      "body": "Each lit key is a half step above the one before it.",
       "highlightMidi": [
         60,
+        61,
         62,
-        64,
-        66
+        63
       ],
       "labels": {
         "60": "C",
+        "61": "C♯",
         "62": "D",
-        "64": "E",
-        "66": "F♯"
+        "63": "E♭"
       }
     },
     {
       "type": "play-along",
-      "title": "Step up and down",
+      "title": "Play along",
       "items": [
         {
           "kind": "play-interval",
@@ -87,20 +74,13 @@
         {
           "kind": "play-interval",
           "id": "u2-l1-p3",
-          "prompt": "Play C4, then go up a whole step.",
-          "startMidi": 60,
-          "semitones": 2
-        },
-        {
-          "kind": "play-interval",
-          "id": "u2-l1-p4",
-          "prompt": "Play F4, then go down a whole step.",
-          "startMidi": 65,
-          "semitones": -2
+          "prompt": "Play D4, then go down a half step.",
+          "startMidi": 62,
+          "semitones": -1
         },
         {
           "kind": "play-scale",
-          "id": "u2-l1-p5",
+          "id": "u2-l1-p4",
           "prompt": "Start on C and play every key going up, a half step at a time, until you reach the next C.",
           "sequence": [
             0,
@@ -118,88 +98,38 @@
             0
           ],
           "direction": "up"
-        },
-        {
-          "kind": "play-scale",
-          "id": "u2-l1-p6",
-          "prompt": "Start on C and go up a whole step at a time until you reach the next C.",
-          "sequence": [
-            0,
-            2,
-            4,
-            6,
-            8,
-            10,
-            0
-          ],
-          "direction": "up"
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Listen for small steps",
-      "body": "Play a tune you know and watch the names. Most melodies move mostly by half steps and whole steps, with the odd bigger jump."
+      "title": "Walk in half steps",
+      "body": "Pick any key and walk up and down one half step at a time. Listen to how small and tight each step sounds."
     },
     {
       "type": "quiz",
       "title": "Quick check",
       "items": [
         {
-          "kind": "name-it",
-          "id": "u2-l1-q1",
-          "prompt": "How far apart are these two keys?",
-          "shownMidi": [
-            64,
-            65
-          ],
-          "choices": [
-            "half step",
-            "whole step"
-          ],
-          "answer": "half step"
-        },
-        {
-          "kind": "name-it",
-          "id": "u2-l1-q2",
-          "prompt": "How far apart are these two keys?",
-          "shownMidi": [
-            67,
-            69
-          ],
-          "choices": [
-            "half step",
-            "whole step"
-          ],
-          "answer": "whole step"
-        },
-        {
-          "kind": "name-it",
-          "id": "u2-l1-q3",
-          "prompt": "How far apart are these two keys?",
-          "shownMidi": [
-            70,
-            72
-          ],
-          "choices": [
-            "half step",
-            "whole step"
-          ],
-          "answer": "whole step"
-        },
-        {
           "kind": "play-interval",
-          "id": "u2-l1-q4",
+          "id": "u2-l1-q1",
           "prompt": "Play B4, then go up a half step.",
           "startMidi": 71,
           "semitones": 1
         },
         {
           "kind": "play-interval",
-          "id": "u2-l1-q5",
-          "prompt": "Pick any key and go up a whole step.",
+          "id": "u2-l1-q2",
+          "prompt": "Play F4, then go down a half step.",
+          "startMidi": 65,
+          "semitones": -1
+        },
+        {
+          "kind": "play-interval",
+          "id": "u2-l1-q3",
+          "prompt": "Pick any key and go up a half step.",
           "startMidi": null,
-          "semitones": 2
+          "semitones": 1
         }
       ]
     }

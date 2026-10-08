@@ -5,6 +5,7 @@ import { LessonSchema, UnitListSchema, UnitSchema } from '@music/contracts';
 import { describe, expect, it } from 'vitest';
 import { buildApp } from '../src/app.js';
 import { ContentError, loadCurriculum } from '../src/content.js';
+import { GlossarySchema } from '../src/glossary.js';
 
 const app = buildApp({ logger: false });
 
@@ -34,6 +35,14 @@ describe('curriculum service', () => {
         expect(LessonSchema.parse(res.json())).toMatchObject({ id, unitId });
       }
     }
+  });
+
+  it('returns the glossary in teaching order', async () => {
+    const res = await app.inject({ url: '/glossary' });
+    expect(res.statusCode).toBe(200);
+    const terms = GlossarySchema.parse(res.json());
+    expect(terms[0]).toMatchObject({ id: 'note', lessonId: 'u1-l1' });
+    expect(terms.map((t) => t.term)).toContain('half step');
   });
 
   it('answers 404 for unknown ids', async () => {
@@ -72,6 +81,13 @@ describe('content loading', () => {
 
   it('refuses a unit that lists a missing lesson', () => {
     expect(() => loadCurriculum(contentDir({ ...unit, lessonIds: ['l1', 'l2'] }, [lesson]))).toThrow(/l2, which doesn't exist/);
+  });
+
+  it('refuses a glossary term for a missing lesson', () => {
+    const dir = contentDir(unit, [lesson]);
+    const term = { id: 't', term: 'T', meaning: 'M', whyItMatters: 'W', lessonId: 'nope', exampleMidi: [60] };
+    writeFileSync(join(dir, 'glossary.json'), JSON.stringify([term]));
+    expect(() => loadCurriculum(dir)).toThrow(/lesson nope, which doesn't exist/);
   });
 
   it('refuses repeated test item ids', () => {

@@ -2,14 +2,14 @@
   "id": "u1-l2",
   "unitId": "unit-1",
   "order": 2,
-  "title": "The seven letter names",
-  "summary": "White keys use only seven letters, A to G, and then start again.",
-  "minutes": 6,
+  "title": "White keys and black keys",
+  "summary": "The black keys come in groups of two and three. That pattern is your map of the keyboard.",
+  "minutes": 4,
   "steps": [
     {
       "type": "explain",
-      "title": "Only seven letters",
-      "body": "The white keys are named with the first seven letters of the alphabet: **A B C D E F G**. After G, the names start again at A.\n\nGoing right (up in pitch), the letters go forward. Going left (down), they go backward.",
+      "title": "White key",
+      "body": "The long keys at the front are the **white keys**. A full 88-key piano has 52 of them.\n\n**Why it matters:** The first notes you learn by name are all white keys, and many simple tunes use nothing else.",
       "exampleMidi": [
         60,
         62,
@@ -17,98 +17,78 @@
         65,
         67,
         69,
-        71,
-        72
-      ],
-      "labels": {
-        "60": "C",
-        "62": "D",
-        "64": "E",
-        "65": "F",
-        "67": "G",
-        "69": "A",
-        "71": "B",
-        "72": "C"
-      }
-    },
-    {
-      "type": "show",
-      "title": "C, D and E",
-      "body": "Around each group of two black keys sit C, D and E. D is the white key in the middle of the pair.",
-      "highlightMidi": [
-        60,
-        62,
-        64
-      ],
-      "labels": {
-        "60": "C",
-        "62": "D",
-        "64": "E"
-      }
-    },
-    {
-      "type": "show",
-      "title": "F, G, A and B",
-      "body": "Around each group of three black keys sit F, G, A and B. Then the next C starts the pattern again.",
-      "highlightMidi": [
-        65,
-        67,
-        69,
         71
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Black key",
+      "body": "The shorter, raised keys are the **black keys**. They sit in **groups of two** and **groups of three**, over and over, all the way up the keyboard.\n\n**Why it matters:** The groups of two and three are your map. Every key gets its name from where it sits next to these groups, so once you can spot them you can find anything.",
+      "exampleMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
       ],
       "labels": {
-        "65": "F",
-        "67": "G",
-        "69": "A",
-        "71": "B"
+        "61": "2",
+        "63": "2",
+        "66": "3",
+        "68": "3",
+        "70": "3"
       }
+    },
+    {
+      "type": "show",
+      "title": "The pattern repeats",
+      "body": "Two black keys, then three, then two again. The same pattern runs along the whole keyboard.",
+      "highlightMidi": [
+        49,
+        51,
+        54,
+        56,
+        58,
+        61,
+        63,
+        66,
+        68,
+        70,
+        73,
+        75,
+        78,
+        80,
+        82
+      ]
     },
     {
       "type": "play-along",
-      "title": "Play the white keys by name",
+      "title": "Play along",
       "items": [
         {
           "kind": "find-note",
           "id": "u1-l2-p1",
-          "prompt": "Play D, the white key between the two black keys.",
-          "pc": 2
+          "prompt": "Play the lit black key, in a group of two.",
+          "midi": 61
         },
         {
           "kind": "find-note",
           "id": "u1-l2-p2",
-          "prompt": "Play E.",
-          "pc": 4
+          "prompt": "Play the lit black key, in a group of three.",
+          "midi": 68
         },
         {
           "kind": "find-note",
           "id": "u1-l2-p3",
-          "prompt": "Play F, the white key just left of the three black keys.",
-          "pc": 5
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l2-p4",
-          "prompt": "Play G.",
-          "pc": 7
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l2-p5",
-          "prompt": "Play A.",
-          "pc": 9
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l2-p6",
-          "prompt": "Play B.",
-          "pc": 11
+          "prompt": "Play the lit white key.",
+          "midi": 64
         }
       ]
     },
     {
       "type": "explore",
-      "title": "Name your tune",
-      "body": "Play a tune you know by ear and watch the names come up. Don't try to remember them yet. Just notice which letters your tune uses."
+      "title": "Feel the groups",
+      "body": "Play only the black keys for a while, in any order. Feel the groups of two and three under your fingers without looking."
     },
     {
       "type": "quiz",
@@ -117,59 +97,54 @@
         {
           "kind": "name-it",
           "id": "u1-l2-q1",
-          "prompt": "Which key is lit?",
+          "prompt": "Is the lit key a white key or a black key?",
           "shownMidi": [
-            64
+            63
           ],
           "choices": [
-            "C",
-            "D",
-            "E",
-            "F"
+            "white key",
+            "black key"
           ],
-          "answer": "E"
+          "answer": "black key"
         },
         {
           "kind": "name-it",
           "id": "u1-l2-q2",
-          "prompt": "Which key is lit?",
+          "prompt": "Is the lit key a white key or a black key?",
           "shownMidi": [
-            69
+            65
           ],
           "choices": [
-            "F",
-            "G",
-            "A",
-            "B"
+            "white key",
+            "black key"
           ],
-          "answer": "A"
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l2-q3",
-          "prompt": "Find F.",
-          "pc": 5
-        },
-        {
-          "kind": "find-note",
-          "id": "u1-l2-q4",
-          "prompt": "Find B.",
-          "pc": 11
+          "answer": "white key"
         },
         {
           "kind": "name-it",
-          "id": "u1-l2-q5",
-          "prompt": "Which key is lit?",
+          "id": "u1-l2-q3",
+          "prompt": "Is this black key in a group of two or a group of three?",
           "shownMidi": [
-            67
+            70
           ],
           "choices": [
-            "E",
-            "F",
-            "G",
-            "A"
+            "group of two",
+            "group of three"
           ],
-          "answer": "G"
+          "answer": "group of three"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l2-q4",
+          "prompt": "Is this black key in a group of two or a group of three?",
+          "shownMidi": [
+            61
+          ],
+          "choices": [
+            "group of two",
+            "group of three"
+          ],
+          "answer": "group of two"
         }
       ]
     }

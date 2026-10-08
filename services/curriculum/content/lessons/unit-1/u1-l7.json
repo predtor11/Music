@@ -1,0 +1,159 @@
+{
+  "id": "u1-l7",
+  "unitId": "unit-1",
+  "order": 7,
+  "title": "A and B",
+  "summary": "The last two letters, and the seven-letter alphabet that names every white key.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A, B and back to C",
+      "body": "Inside the group of three black keys, after F and G, come **A** and **B**. Then the next C starts again. These seven letters, A B C D E F G, are the **musical alphabet**. There is no H: after G it goes back to A.\n\n**Why it matters:** With only seven letters, you can now name every white key on the piano. Going up, the letters go forward. Going down, they go backward.",
+      "exampleMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "show",
+      "title": "All seven letters",
+      "body": "From C up to the next C: C D E F G A B C.",
+      "highlightMidi": [
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G",
+        "69": "A",
+        "71": "B",
+        "72": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l7-p1",
+          "prompt": "Play A, between the second and third black keys of the three.",
+          "pc": 9
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l7-p2",
+          "prompt": "Play B, just right of the three black keys.",
+          "pc": 11
+        },
+        {
+          "kind": "play-scale",
+          "id": "u1-l7-p3",
+          "prompt": "Play C D E F G A B C going up.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Say the letters",
+      "body": "Play a tune you know and say each letter out loud as you play it. Check against the names the app shows."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u1-l7-q1",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            69
+          ],
+          "choices": [
+            "G",
+            "A",
+            "B"
+          ],
+          "answer": "A"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l7-q2",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            71
+          ],
+          "choices": [
+            "A",
+            "B",
+            "C"
+          ],
+          "answer": "B"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l7-q3",
+          "prompt": "Find A.",
+          "pc": 9
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l7-q4",
+          "prompt": "Which key is lit?",
+          "shownMidi": [
+            65
+          ],
+          "choices": [
+            "E",
+            "F",
+            "G"
+          ],
+          "answer": "F"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l7-q5",
+          "prompt": "Find B.",
+          "pc": 11
+        }
+      ]
+    }
+  ]
+}
