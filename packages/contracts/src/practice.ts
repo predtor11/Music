@@ -57,3 +57,19 @@ export type Attempt = z.infer<typeof AttemptSchema>;
 /** Stored attempt as returned by the service. */
 export const StoredAttemptSchema = AttemptSchema.extend({ id: z.string().uuid(), userId: z.string().uuid() });
 export type StoredAttempt = z.infer<typeof StoredAttemptSchema>;
+
+/** POST /api/practice/sessions/:id/end → the ended session and its score. */
+export const SessionSummarySchema = z.object({
+  total: z.number().int().min(0),
+  answered: z.number().int().min(0),
+  /** Items whose first attempt was right without a retry. */
+  firstTryCorrect: z.number().int().min(0),
+  /** firstTryCorrect / total as a percentage, or null for a session with no items. */
+  accuracy: z.number().min(0).max(100).nullable(),
+  /** Checkpoint or lesson pass; null for review and free play. */
+  passed: z.boolean().nullable(),
+});
+export type SessionSummary = z.infer<typeof SessionSummarySchema>;
+
+export const EndSessionResponseSchema = z.object({ session: SessionSchema, summary: SessionSummarySchema });
+export type EndSessionResponse = z.infer<typeof EndSessionResponseSchema>;

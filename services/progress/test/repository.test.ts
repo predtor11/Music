@@ -80,7 +80,7 @@ repositoryContract('Postgres repository', async () => {
   server = new PGLiteSocketServer({ db, port: 0, host: '127.0.0.1' });
   await server.start();
   const sql = postgres(`postgres://postgres@${server.getServerConn()}/postgres`, { max: 1, onnotice: () => {} });
-  expect(await migrate(sql)).toEqual(['001_init.sql']);
+  expect(await migrate(sql)).toEqual(['001_init.sql', '002_enable_rls.sql']);
   expect(await migrate(sql)).toEqual([]);
   pgRepo = new PostgresProgressRepository(sql);
   return pgRepo;

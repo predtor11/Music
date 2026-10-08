@@ -1,0 +1,141 @@
+{
+  "id": "u1-l4",
+  "unitId": "unit-1",
+  "order": 4,
+  "title": "Sharps and flats",
+  "summary": "Black keys borrow their names from the white keys next to them.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sharp means up, flat means down",
+      "body": "A black key takes its name from a white key beside it.\n\n- **Sharp** (♯) means one key to the right, a little higher.\n- **Flat** (♭) means one key to the left, a little lower.\n\nThe black key just right of C is **C sharp**, written C♯.",
+      "exampleMidi": [
+        60,
+        61
+      ]
+    },
+    {
+      "type": "show",
+      "title": "The sharp names",
+      "body": "Read from the left: C♯, D♯, F♯, G♯ and A♯. Each one is the key just right of the white key it is named after.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Flats work the other way",
+      "body": "The same black keys can also be named from the white key on their right. The black key just left of B is **B flat**, written B♭.",
+      "exampleMidi": [
+        71,
+        70
+      ]
+    },
+    {
+      "type": "show",
+      "title": "The flat names",
+      "body": "The same five keys, now read as flats: D♭, E♭, G♭, A♭ and B♭.",
+      "highlightMidi": [
+        61,
+        63,
+        66,
+        68,
+        70
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Find the black keys",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l4-p1",
+          "prompt": "Play F#: find F, then go one key to the right.",
+          "pc": 6
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l4-p2",
+          "prompt": "Play Bb: find B, then go one key to the left.",
+          "pc": 10
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l4-p3",
+          "prompt": "Play C#.",
+          "pc": 1
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l4-p4",
+          "prompt": "Play Eb.",
+          "pc": 3
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Black keys only",
+      "body": "Play only the black keys for a while, in any order. It always sounds good, because the five black keys make a scale you will meet in a later unit. Watch the names come up as you play."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "u1-l4-q1",
+          "prompt": "Find G#.",
+          "pc": 8
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l4-q2",
+          "prompt": "Find Db.",
+          "pc": 1
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l4-q3",
+          "prompt": "What is the sharp name of this key?",
+          "shownMidi": [
+            66
+          ],
+          "choices": [
+            "C#",
+            "F#",
+            "G#",
+            "A#"
+          ],
+          "answer": "F#"
+        },
+        {
+          "kind": "name-it",
+          "id": "u1-l4-q4",
+          "prompt": "What is the flat name of this key?",
+          "shownMidi": [
+            70
+          ],
+          "choices": [
+            "Ab",
+            "Bb",
+            "Db",
+            "Eb"
+          ],
+          "answer": "Bb"
+        },
+        {
+          "kind": "find-note",
+          "id": "u1-l4-q5",
+          "prompt": "Find D#.",
+          "pc": 3
+        }
+      ]
+    }
+  ]
+}

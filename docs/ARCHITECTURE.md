@@ -11,7 +11,8 @@ Read this before changing code. The full plan lives in the Claude Doc
 | `packages/midi` | MIDI parsing, held notes, chord grouping, `MidiSource` (Web MIDI today, native later) | MIDI work |
 | `packages/contracts` | zod schemas + types for every API body and event. The single source of truth between app and services. | integrator (change by PR comment, not silently) |
 | `packages/service-kit` | `createService()` (Fastify + `/health` + JSON errors), `requireUserId()`, `EventBus` + `InMemoryEventBus` | platform work |
-| `apps/web` | React app (Vite). Grades MIDI in the browser, calls only the gateway at `/api`. | web work |
+| `packages/ui` | Design system: tokens, dark and light themes, motion presets, base components. See `docs/UI.md`. | integrator |
+| `apps/web` | React app (Vite), built on `@music/ui`. Grades MIDI in the browser, calls only the gateway at `/api`. | web work |
 | `services/gateway` | Single entry point on port 4000. Checks the Supabase login, sets `x-user-id`, proxies `/api/<service>/*`. | platform work |
 | `services/identity` | Users and settings. Port 4001. Emits `user.created`. | identity work |
 | `services/curriculum` | Units, lessons, test items as JSON content. Port 4002. Read-only API. | curriculum work |
@@ -47,6 +48,24 @@ instead of editing it.
 npm install
 npm test                 # all unit tests
 npm run dev              # web app on http://localhost:5173
+npm run dev:all          # every service, the gateway and the web app together
 npm start -w @music/theory-service   # one service
 docker compose up -d     # Redis
 ```
+
+Without `SUPABASE_JWT_SECRET` the gateway runs in dev mode: every request is
+the fixed dev user `00000000-0000-4000-8000-000000000001`. Without
+`REDIS_URL`, `createEventBus()` falls back to an in-memory bus, so events
+don't cross services. Service tests that need Redis run only when `REDIS_URL`
+is set. The gateway finds each service at `http://127.0.0.1:<port>` unless
+`<NAME>_URL` (for example `THEORY_URL`) says otherwise.
+
+## Database
+
+Supabase project `music` (ref `iecxugzgkupflnayweyx`, region ap-south-1).
+Each service applies its own `migrations/*.sql` at start-up and records them
+in `<schema>.schema_migrations`. Migrations already applied to the hosted
+project through the Supabase MCP are recorded there too, so start-up skips
+them. Every service table has row level security on with no policies: only
+the services (connecting as the database owner) can read them, and the
+schemas are not exposed through Supabase's public API.
