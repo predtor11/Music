@@ -161,7 +161,10 @@
 }
 
 @media (max-width: 600px) {
-  .facts {
-    grid-template-columns: minmax(0, 1fr);
+  .fact {
+    padding: var(--space-2);
+  }
+  .factValue {
+    font-size: var(--text-md);
   }
 }

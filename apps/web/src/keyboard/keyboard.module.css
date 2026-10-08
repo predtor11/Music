@@ -1,8 +1,14 @@
 .scroller {
   overflow-x: auto;
   overflow-y: hidden;
-  padding: var(--space-1) var(--space-1) var(--space-3);
   scrollbar-width: thin;
+  /* The keyboard's case: dark in both themes, like the real thing. */
+  padding: var(--space-3) var(--space-2) var(--space-2);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, var(--key-black-shade), var(--key-black));
+  box-shadow:
+    inset 0 2px 0 var(--key-active-glow),
+    var(--shadow-md);
 }
 
 .keyboard {
@@ -10,7 +16,7 @@
   display: flex;
   /* White keys never get narrower than 28px; small boards stretch to fit. */
   min-width: calc(var(--white-count) * 28px);
-  height: clamp(150px, 20vw, 220px);
+  height: clamp(160px, 21vw, 240px);
   user-select: none;
   touch-action: manipulation;
 }
@@ -109,4 +115,83 @@
   padding: 0 3px;
   border-radius: 3px;
   box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.keyboard:not([data-interactive]) .white,
+.keyboard:not([data-interactive]) .black {
+  cursor: default;
+}
+
+/* ---- Lesson and test marks ---- */
+
+.white[data-mark='target'],
+.black[data-mark='target'] {
+  box-shadow:
+    inset 0 0 0 2px var(--accent),
+    0 0 18px var(--key-active-glow);
+}
+
+.white[data-mark='target']:not([data-active]) {
+  background: linear-gradient(180deg, var(--key-white) 30%, var(--accent-soft));
+}
+
+.black[data-mark='target']:not([data-active]) {
+  background: linear-gradient(180deg, var(--key-black) 30%, var(--key-active-glow));
+}
+
+.white[data-mark='target']:not([data-active])::after,
+.black[data-mark='target']:not([data-active])::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--accent);
+  animation: target-breathe 1.6s var(--ease-in-out) infinite;
+  pointer-events: none;
+}
+
+@keyframes target-breathe {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.white[data-mark='good'],
+.black[data-mark='good'] {
+  background: linear-gradient(180deg, var(--good), var(--good-soft));
+  box-shadow: var(--glow-good);
+  color: var(--text-on-accent);
+}
+
+.white[data-mark='bad'],
+.black[data-mark='bad'] {
+  background: linear-gradient(180deg, var(--bad), var(--bad-soft));
+  box-shadow: var(--glow-bad);
+  color: var(--text-on-accent);
+  animation: key-shake var(--dur-slow) var(--ease-out);
+}
+
+.white[data-mark='missed'],
+.black[data-mark='missed'] {
+  box-shadow: inset 0 0 0 2px var(--good);
+  outline: 2px dashed var(--good);
+  outline-offset: -6px;
+}
+
+@keyframes key-shake {
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
+.caption {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
 }
