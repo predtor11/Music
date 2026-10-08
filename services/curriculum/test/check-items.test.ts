@@ -113,4 +113,16 @@ describe('checkItem', () => {
     expect(checkItem({ ...symbol, answer: 'C6' })).toEqual([]);
     expect(checkItem({ ...symbol, answer: 'Am7' })).not.toEqual([]);
   });
+
+  it('checks inversions, bass notes and common tones', () => {
+    const inverted = { kind: 'build-chord' as const, id: 'x', prompt: 'Play a C major triad in first inversion.', pitchClasses: [0, 4, 7] };
+    expect(checkItem({ ...inverted, bassPc: 4 })).toEqual([]);
+    expect(checkItem({ ...inverted, bassPc: 7 })).not.toEqual([]);
+    const which = { kind: 'name-it' as const, id: 'x', prompt: 'Which inversion is this chord?', shownMidi: [67, 72, 76], choices: ['root position', 'first inversion', 'second inversion'] };
+    expect(checkItem({ ...which, answer: 'second inversion' })).toEqual([]);
+    expect(checkItem({ ...which, answer: 'first inversion' })).not.toEqual([]);
+    const share = { kind: 'name-it' as const, id: 'x', prompt: 'Which note do C and G share?', shownMidi: [60], choices: ['C', 'G'] };
+    expect(checkItem({ ...share, answer: 'G' })).toEqual([]);
+    expect(checkItem({ ...share, answer: 'C' })).not.toEqual([]);
+  });
 });

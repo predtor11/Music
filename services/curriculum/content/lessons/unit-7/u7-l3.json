@@ -1,0 +1,135 @@
+{
+  "id": "u7-l3",
+  "unitId": "unit-7",
+  "order": 3,
+  "title": "The 3rd on the bottom",
+  "summary": "Move the root up an octave and the 3rd becomes the lowest note.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "First inversion",
+      "body": "Take C E G and move the C up an octave: E G C. Now the 3rd is lowest. That is **first inversion**.\n\n**Why it matters:** First inversion sounds lighter than root position, and it lets the bass climb or fall step by step. On a chart, C/E is C in first inversion.",
+      "exampleMidi": [
+        64,
+        67,
+        72
+      ],
+      "labels": {
+        "64": "E: 3rd, lowest",
+        "67": "G",
+        "72": "C: root, moved up"
+      }
+    },
+    {
+      "type": "show",
+      "title": "F in first inversion",
+      "body": "A, C and F: the 3rd of F major is at the bottom.",
+      "highlightMidi": [
+        57,
+        60,
+        65
+      ],
+      "labels": {
+        "57": "A: 3rd",
+        "60": "C",
+        "65": "F: root"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l3-p1",
+          "prompt": "Play a C major triad in first inversion.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 4
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l3-p2",
+          "prompt": "Play a G major triad in first inversion.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": 11
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l3-p3",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            57,
+            60,
+            65
+          ],
+          "choices": [
+            "root position",
+            "first inversion"
+          ],
+          "answer": "first inversion"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Flip and back",
+      "body": "Play C in root position, then lift the C over the top for first inversion, then back. Do it with your eyes closed."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l3-q1",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            62,
+            65,
+            69
+          ],
+          "choices": [
+            "root position",
+            "first inversion"
+          ],
+          "answer": "root position"
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l3-q2",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            64,
+            67,
+            72
+          ],
+          "choices": [
+            "root position",
+            "first inversion"
+          ],
+          "answer": "first inversion"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l3-q3",
+          "prompt": "Play an A minor triad in first inversion.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": 0
+        }
+      ]
+    }
+  ]
+}

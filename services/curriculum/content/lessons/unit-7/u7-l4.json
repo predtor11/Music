@@ -1,0 +1,142 @@
+{
+  "id": "u7-l4",
+  "unitId": "unit-7",
+  "order": 4,
+  "title": "The 5th on the bottom",
+  "summary": "Move the 3rd up too, and the 5th is lowest.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Second inversion",
+      "body": "Take E G C and move the E up an octave: G C E. Now the 5th is lowest. That is **second inversion**.\n\n**Why it matters:** Second inversion is the handiest layout for many changes: C in second inversion to F in root position moves only two fingers, by a step each.",
+      "exampleMidi": [
+        67,
+        72,
+        76
+      ],
+      "labels": {
+        "67": "G: 5th, lowest",
+        "72": "C: root",
+        "76": "E: 3rd"
+      }
+    },
+    {
+      "type": "show",
+      "title": "All three layouts of C",
+      "body": "Root position, first inversion, second inversion.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        72,
+        76
+      ],
+      "labels": {
+        "60": "root position starts here",
+        "64": "first inversion starts here",
+        "67": "second inversion starts here",
+        "72": "C",
+        "76": "E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l4-p1",
+          "prompt": "Play a C major triad in second inversion.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 7
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l4-p2",
+          "prompt": "Play an F major triad in second inversion.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 0
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l4-p3",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            67,
+            72,
+            76
+          ],
+          "choices": [
+            "root position",
+            "first inversion",
+            "second inversion"
+          ],
+          "answer": "second inversion"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Climb the inversions",
+      "body": "Play C in root position, first inversion, second inversion and root position again, climbing up the keyboard."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l4-q1",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            60,
+            65,
+            69
+          ],
+          "choices": [
+            "root position",
+            "first inversion",
+            "second inversion"
+          ],
+          "answer": "second inversion"
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l4-q2",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            59,
+            62,
+            67
+          ],
+          "choices": [
+            "root position",
+            "first inversion",
+            "second inversion"
+          ],
+          "answer": "first inversion"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l4-q3",
+          "prompt": "Play a D major triad in second inversion.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": 9
+        }
+      ]
+    }
+  ]
+}
