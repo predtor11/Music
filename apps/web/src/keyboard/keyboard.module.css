@@ -196,3 +196,9 @@
   font-size: var(--text-sm);
   font-weight: 700;
 }
+
+/* Room below the keys for an overlay's lane (the hands' palms). */
+.scroller[data-overlay] {
+  --lane: 72px;
+  padding-bottom: calc(var(--lane) + var(--space-2));
+}

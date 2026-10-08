@@ -1,0 +1,518 @@
+{
+  "id": "h9",
+  "order": 9,
+  "title": "Both hands together",
+  "summary": "Start with mirror moves, then move side by side.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Mirror fingers",
+      "body": "Both hands in C position: left thumb on G, right thumb on middle C.\n\nThe easiest way to start playing hands together is to use the **same finger numbers at the same time**. The hands move apart and back like a mirror, so your brain only tracks one number.\n\nPress **Watch**.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        },
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Mirror out and back",
+      "body": "Same finger in each hand, together. Both notes should sound as one.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        },
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "explain",
+      "title": "Side by side",
+      "body": "Now move both hands the same way, up the keyboard. The left hand plays C, D, E, F, G with 5 to 1 while the right plays C, D, E, F, G with 1 to 5.\n\nThe finger numbers differ now, so go slowly and watch the hand on screen.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        },
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Side by side, up and down",
+      "body": "Both hands climb together and come back down.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        },
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            },
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            },
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            },
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { midiName, type MidiNote } from '@music/theory';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, type ReactNode } from 'react';
 import { keyboardKeys, noteToComputerKey, type KeyboardSize } from './layout.js';
 import s from './keyboard.module.css';
 
@@ -35,6 +35,8 @@ export interface PianoKeyboardProps {
   computerBase?: MidiNote | null;
   /** Scrolls this note into view on wide boards. Default middle C. */
   focusNote?: MidiNote;
+  /** Drawn over the keys and in a lane below them, for example the animated hands. */
+  overlay?: ReactNode;
 }
 
 const defaultLabel = (note: MidiNote) => midiName(note).replace(/-?\d+$/, '');
@@ -55,6 +57,7 @@ export function PianoKeyboard({
   onToggle,
   computerBase = null,
   focusNote = 60,
+  overlay,
 }: PianoKeyboardProps) {
   const keys = useMemo(() => keyboardKeys(size), [size]);
   const whiteCount = keys.filter((k) => !k.black).length;
@@ -72,7 +75,7 @@ export function PianoKeyboard({
   const interactive = !!onToggle;
 
   return (
-    <div className={s.scroller} ref={scroller}>
+    <div className={s.scroller} ref={scroller} data-overlay={overlay ? true : undefined}>
       <div
         className={s.keyboard}
         style={{ ['--white-count' as string]: whiteCount }}
@@ -130,6 +133,7 @@ export function PianoKeyboard({
             </button>
           );
         })}
+        {overlay}
       </div>
     </div>
   );

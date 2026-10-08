@@ -1,0 +1,476 @@
+{
+  "id": "h4",
+  "order": 4,
+  "title": "Five-finger position: left hand",
+  "summary": "The mirror image: little finger on C, thumb on G.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Left hand in C position",
+      "body": "Put your left little finger (5) on the C below middle C and rest one finger on each white key going up. Your thumb (1) lands on G.\n\nBecause the left hand is a mirror, playing 5, 4, 3, 2, 1 goes **up** the keyboard, and 1, 2, 3, 4, 5 goes down.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Up and down",
+      "body": "From the little finger up to the thumb, and back.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Skipping",
+      "body": "Fingers 5, 3 and 1, and back. Hand still, fingers round.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Thumb and friends",
+      "body": "The thumb comes back between every finger.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "G position",
+      "body": "Move the left hand up: little finger on the G below middle C, thumb on the D above it.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            62,
+            60,
+            59,
+            57,
+            55
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

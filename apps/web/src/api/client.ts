@@ -12,6 +12,8 @@ import {
   ProgressReportSchema,
   UnitSchema,
   SessionSchema,
+  TechniqueListSchema,
+  TechniqueSessionSchema,
   UnitListSchema,
   type Attempt,
   type CreateSession,
@@ -19,6 +21,8 @@ import {
   type Lesson,
   type ProgressReport,
   type Session,
+  type TechniqueSession,
+  type TechniqueSummary,
   type TestItem,
   type Unit,
   type UpdateSettings,
@@ -119,4 +123,13 @@ export async function updateMySettings(patch: UpdateSettings): Promise<User> {
  */
 export async function getReport(tzOffset = -new Date().getTimezoneOffset()): Promise<ProgressReport> {
   return ProgressReportSchema.parse(await call(`/progress/reports/weekly?tzOffset=${tzOffset}`));
+}
+
+/** The hand and finger sessions, in order, without their steps. */
+export async function getTechniqueSessions(): Promise<TechniqueSummary[]> {
+  return TechniqueListSchema.parse(await call('/curriculum/technique'));
+}
+
+export async function getTechniqueSession(id: string): Promise<TechniqueSession> {
+  return TechniqueSessionSchema.parse(await call(`/curriculum/technique/${encodeURIComponent(id)}`));
 }

@@ -1,20 +1,23 @@
-import type { Lesson, Unit } from '@music/contracts';
+import type { Lesson, TechniqueSession, TechniqueSummary, Unit } from '@music/contracts';
 import { createService } from '@music/service-kit';
 import { loadCurriculum } from './content.js';
 import type { GlossaryTerm } from './glossary.js';
+import { loadTechnique } from './technique.js';
 
 function notFound(message: string): Error {
   return Object.assign(new Error(message), { statusCode: 404 });
 }
 
 /**
- * The curriculum service: units, lessons, test items and the glossary, read from the JSON
+ * The curriculum service: units, lessons, test items, the glossary and the
+ * hand and finger (technique) sessions, read from the JSON
  * files in content/. The content is checked when the app is built, so a bad
  * file stops start-up instead of reaching a learner. Read-only; stores nothing.
  */
 export function buildApp(options: { logger?: boolean; contentDir?: string } = {}) {
   const app = createService({ name: 'curriculum', logger: options.logger });
   const curriculum = loadCurriculum(options.contentDir);
+  const technique = loadTechnique(options.contentDir);
 
   // GET /units: every unit in order, without its checkpoint.
   app.get('/units', async (): Promise<Array<Omit<Unit, 'checkpoint'>>> => curriculum.units.map(({ checkpoint: _, ...unit }) => unit));
@@ -35,6 +38,19 @@ export function buildApp(options: { logger?: boolean; contentDir?: string } = {}
 
   // GET /glossary: every term, in teaching order. The app shows the ones whose lesson you have reached.
   app.get('/glossary', async (): Promise<GlossaryTerm[]> => curriculum.glossary);
+
+  // GET /technique: the hand and finger sessions in order, without their steps.
+  app.get('/technique', async (): Promise<TechniqueSummary[]> => technique.sessions.map(({ steps: _, ...session }) => session));
+
+  // GET /technique/glossary: the terms the technique sessions teach (lessonId names the session).
+  app.get('/technique/glossary', async (): Promise<GlossaryTerm[]> => technique.glossary);
+
+  // GET /technique/:id
+  app.get<{ Params: { id: string } }>('/technique/:id', async (req): Promise<TechniqueSession> => {
+    const session = technique.sessionsById.get(req.params.id);
+    if (!session) throw notFound(`Unknown technique session: ${req.params.id}`);
+    return session;
+  });
 
   return app;
 }

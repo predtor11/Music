@@ -1,0 +1,403 @@
+{
+  "id": "h1",
+  "order": 1,
+  "title": "Your fingers have numbers",
+  "summary": "Thumb is 1, little finger is 5, on both hands.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Finger numbers",
+      "body": "Pianists give each finger a number, so a teacher or a page of music can say which finger to use.\n\n**Finger numbers**: your thumb is 1, the pointing finger is 2, the middle finger is 3, the ring finger is 4 and the little finger is 5. Both hands count the same way, always starting from the thumb.\n\n**Why it matters:** music often prints a small number over a note to tell you which finger plays it, and every hand exercise in this app uses these numbers.\n\nPress **Watch** to see the right hand count 1 to 5.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "The left hand counts the same way",
+      "body": "Your left hand is a mirror of your right. Its thumb is still 1 and its little finger is still 5.\n\nSo on the left hand, finger 1 sits on the right side of the hand and finger 5 on the far left. Counting 1 to 5 on the left hand walks **down** the keyboard.\n\nPress **Watch** to see it.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "How this app checks you",
+      "body": "Your keyboard tells the app which key went down, but not which finger pressed it.\n\nSo the hand on screen shows the finger to use, the key to play glows, and the app marks the key right or wrong. Look at your own hand now and then, and copy the hand on screen.\n\nAfter each run you also get a **steadiness** score: how even the gaps between your notes were, like the ticks of a clock. Slow and even beats fast and bumpy.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        },
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Right hand: count 1 to 5",
+      "body": "Rest your right thumb on the C in the middle of your keyboard, one finger on each white key going up. Play each glowing key with the finger the hand shows, saying the number out loud.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Left hand: count 1 to 5",
+      "body": "Rest your left little finger on the C below, one finger on each white key going up, so your left thumb sits on G. Now count 1 to 5: you start with the thumb and walk down.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Call out the fingers",
+      "body": "Same right-hand place, but the numbers come mixed up now. Say each number before you play it.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            62,
+            64,
+            65,
+            67
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

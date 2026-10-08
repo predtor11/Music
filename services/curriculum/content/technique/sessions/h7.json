@@ -1,0 +1,594 @@
+{
+  "id": "h7",
+  "order": 7,
+  "title": "Crossing over",
+  "summary": "Coming back down: finger 3 reaches over the thumb.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Crossing over",
+      "body": "**Crossing over**: the return trip of thumb under. Coming down with the right hand, after the thumb plays, finger 3 reaches over it to the next key, and the hand follows.\n\n**Why it matters:** it brings a run back down as smoothly as it went up.\n\nPress **Watch**: C, B, A, G, F with fingers 5 to 1, then finger 3 crosses over to E.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            65,
+            67,
+            69,
+            71,
+            72
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 71,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Cross over",
+      "body": "Thumb on F, then finger 3 crosses over to E, then D and C.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            65,
+            67,
+            69,
+            71,
+            72
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 3
+    },
+    {
+      "type": "drill",
+      "title": "Eight keys down",
+      "body": "From the C above middle C down to middle C: 5 4 3 2 1, cross over, 3 2 1.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            65,
+            67,
+            69,
+            71,
+            72
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 71,
+              "hand": "right",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 69,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "explain",
+      "title": "The left hand does it the other way round",
+      "body": "The left hand is a mirror, so its moves swap: going **up**, finger 3 crosses over the thumb; going **down**, the thumb tucks under.\n\nPress **Watch**: the left hand climbs C to G with 5 to 1, then finger 3 crosses over to A.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                60,
+                59,
+                57,
+                55,
+                53
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Left hand: eight keys up",
+      "body": "5 4 3 2 1, finger 3 crosses over, 3 2 1.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                60,
+                59,
+                57,
+                55,
+                53
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Left hand: eight keys down",
+      "body": "Start with the left thumb on middle C: 1 2 3, thumb under, 1 2 3 4 5.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            60,
+            59,
+            57,
+            55,
+            53
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ],
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 1
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 2
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 52,
+              "hand": "left",
+              "finger": 3
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 50,
+              "hand": "left",
+              "finger": 4
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    }
+  ]
+}

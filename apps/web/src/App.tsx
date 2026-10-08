@@ -13,6 +13,8 @@ import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
+import { HandSessionPage } from './pages/HandSessionPage.js';
+import { HandsPage } from './pages/HandsPage.js';
 import { LessonPage } from './pages/LessonPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
 import { ProgressPage } from './pages/ProgressPage.js';
@@ -31,6 +33,7 @@ const THEME_LABEL: Record<Theme, string> = { dark: 'Dark', light: 'Light', syste
 const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
   { id: 'lessons', label: 'Lessons', href: href.lessons },
+  { id: 'hands', label: 'Hands', href: href.hands },
   { id: 'review', label: 'Review', href: href.review },
   { id: 'progress', label: 'Progress', href: href.progress },
 ] as const;
@@ -43,6 +46,9 @@ function section(route: Route): Section {
     case 'review':
     case 'progress':
       return route.page;
+    case 'hands':
+    case 'hand':
+      return 'hands';
     case 'lessons':
     case 'lesson':
     case 'checkpoint':
@@ -125,7 +131,7 @@ export function App() {
   useEffect(() => applyTheme(settings.theme), [applyTheme, settings.theme]);
   const route = useRoute();
   const current = section(route);
-  const pageKey = route.page === 'lesson' ? `lesson-${route.id}` : route.page === 'checkpoint' ? `cp-${route.unitId}` : route.page;
+  const pageKey = route.page === 'lesson' ? `lesson-${route.id}` : route.page === 'checkpoint' ? `cp-${route.unitId}` : route.page === 'hand' ? `hand-${route.id}` : route.page;
 
   return (
     <NoteInputProvider settings={settings} update={update}>
@@ -175,6 +181,8 @@ export function App() {
             {route.page === 'lessons' && <LessonsPage />}
             {route.page === 'lesson' && <LessonPage id={route.id} settings={settings} />}
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
+            {route.page === 'hands' && <HandsPage />}
+            {route.page === 'hand' && <HandSessionPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
             {route.page === 'settings' && <SettingsPage settings={settings} update={update} sync={sync} />}
