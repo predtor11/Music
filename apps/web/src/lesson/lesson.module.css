@@ -1,0 +1,317 @@
+.small {
+  font-size: var(--text-sm);
+}
+
+/* ---- Player layout ---- */
+
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.playerHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.back {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.back:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-right: auto;
+}
+
+.progress {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.progress li {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  background: var(--accent-gradient);
+  transform-origin: left;
+}
+
+.stepCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stepMeta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepMeta > :first-child {
+  color: var(--accent-2);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---- Text ---- */
+
+.prose {
+  max-width: 68ch;
+  font-size: var(--text-lg);
+  line-height: var(--leading);
+}
+
+.prose p,
+.prose ul {
+  margin: 0 0 var(--space-3);
+}
+
+.prose strong {
+  color: var(--accent-strong);
+}
+
+.hearRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.exploreDisplay {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.stepComplete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-10) 0;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+}
+
+
+.stepComplete > span:last-child {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 400;
+}
+
+/* ---- Item ---- */
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.promptRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.prompt {
+  font-size: var(--text-3xl);
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.messageRow {
+  min-height: calc(var(--text-lg) * 2);
+}
+
+.message {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.message[data-status='good'] {
+  color: var(--good);
+}
+
+.message[data-status='bad'] {
+  color: var(--bad);
+}
+
+.retryRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* ---- Summary ---- */
+
+.summary {
+  text-align: center;
+}
+
+.summaryInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) 0;
+}
+
+.score {
+  line-height: 1;
+}
+
+.summaryActions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ---- Lessons list ---- */
+
+.units {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.unitsIntro p {
+  margin: var(--space-2) 0 0;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.unitHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.unitHead p {
+  margin: var(--space-1) 0 0;
+}
+
+.lessonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-3);
+}
+
+.lessonLink {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.lessonCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.lessonNum {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.lessonText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-right: auto;
+}
+
+.lessonCard > :last-child {
+  white-space: nowrap;
+}
+
+.lessonTitle {
+  font-weight: 600;
+}
+
+/* ---- Loading and errors ---- */
+
+.loading,
+.errorCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.errorCard p {
+  margin: 0;
+}
+
+.skTitle {
+  height: var(--space-8);
+  width: 40%;
+}
+
+.skLine {
+  height: var(--space-4);
+  width: 70%;
+}
+
+.skBlock {
+  height: calc(var(--space-16) * 2.5);
+}

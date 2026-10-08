@@ -29,7 +29,9 @@ export interface MidiState {
   select: (id: string | null) => void;
 }
 
-export function useMidi(initialInput: string | null, onSelect: (id: string | null) => void): MidiState {
+export function useMidi(initialInput: string | null, onSelect: (id: string | null) => void, onNoteOn?: (note: number) => void): MidiState {
+  const noteOnRef = useRef(onNoteOn);
+  noteOnRef.current = onNoteOn;
   const source = useMemo(() => new WebMidiSource(), []);
   const heldNotes = useRef(new HeldNotes());
   const [status, setStatus] = useState<MidiStatus>(source.status);
@@ -43,6 +45,7 @@ export function useMidi(initialInput: string | null, onSelect: (id: string | nul
       setInputs(source.inputs());
     });
     const offEvent = source.onEvent((event) => {
+      if (event.type === 'noteOn') noteOnRef.current?.(event.note);
       if (heldNotes.current.apply(event) || event.type === 'sustain') {
         const h = heldNotes.current;
         setNotes({ held: h.keys(), sounding: h.sounding(), pedal: h.pedal });

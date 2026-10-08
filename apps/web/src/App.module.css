@@ -8,7 +8,7 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-4);
   padding-bottom: var(--space-2);
 }
@@ -17,6 +17,26 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  color: inherit;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.tagline {
+  font-size: var(--text-sm);
 }
 
 /* Three equaliser bars on the accent gradient. */
@@ -65,52 +85,47 @@
   }
 }
 
-.tagline {
-  margin: 0;
+.nav {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
   font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out);
 }
 
-.top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-  gap: var(--space-4);
+.navLink[aria-current='page'] {
+  color: var(--text-on-accent);
 }
 
-.connect,
-.controls {
-  height: 100%;
+.navPill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent-gradient);
+  box-shadow: var(--glow-accent);
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: var(--space-4);
+.navLabel {
+  position: relative;
 }
 
-.controls select {
-  min-width: 150px;
-}
-
-.stage {
-  overflow: hidden;
-}
-
-.boardHead {
+.tools {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  padding: var(--space-1) var(--space-2) var(--space-3);
-}
-
-.hint {
-  margin: 0;
-  font-size: var(--text-sm);
-}
-
-@media (max-width: 880px) {
-  .top {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  gap: var(--space-2);
 }
