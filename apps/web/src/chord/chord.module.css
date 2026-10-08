@@ -1,0 +1,170 @@
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 360px;
+  text-align: center;
+}
+
+.kindRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.kindRow > :first-child {
+  color: var(--accent-2);
+}
+
+.sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+
+.hero {
+  padding-block: var(--space-2);
+  max-width: 100%;
+}
+
+.hero[data-small] {
+  font-size: calc(var(--text-3xl) * 1.6);
+}
+
+.hero[data-idle] {
+  font-size: var(--text-3xl);
+  color: var(--text-faint);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-lg);
+  max-width: 40ch;
+}
+
+.to {
+  color: var(--text-faint);
+  font-size: var(--text-sm);
+}
+
+.fullName {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  width: min(600px, 100%);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.factValue {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.tones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.tone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 36px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.tone[data-bass] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---- Note names ---- */
+
+.western {
+  white-space: nowrap;
+}
+
+.octave {
+  font-size: 0.4em;
+  vertical-align: baseline;
+  margin-left: 0.04em;
+  /* Gradient text clips its children, so give the octave a solid colour. */
+  -webkit-text-fill-color: var(--text-faint);
+}
+
+.both {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
+.both > .western + .sargam {
+  font-size: 0.6em;
+  -webkit-text-fill-color: var(--text-muted);
+}
+
+.sargam {
+  white-space: nowrap;
+}
+
+/* Bhatkhande notation: komal underlined, tivra with a line above. */
+.sargam[data-variant='komal'] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+  text-decoration-color: var(--accent-2);
+}
+
+.sargam[data-variant='tivra'] {
+  text-decoration: overline;
+  text-decoration-thickness: 0.08em;
+  text-decoration-color: var(--accent-2);
+}
+
+@media (max-width: 600px) {
+  .fact {
+    padding: var(--space-2);
+  }
+  .factValue {
+    font-size: var(--text-md);
+  }
+}
