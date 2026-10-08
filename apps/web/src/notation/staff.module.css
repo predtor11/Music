@@ -1,0 +1,89 @@
+.staff {
+  position: relative;
+  color: var(--text);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-3) var(--space-4);
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+}
+
+.canvas {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* VexFlow draws in black; draw in the theme's text colour instead. */
+.canvas > div {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.canvas :global(svg) {
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.canvas :global(svg) :is(path, rect, text) {
+  fill: currentColor;
+}
+
+.canvas :global(svg) path {
+  stroke: currentColor;
+}
+
+.canvas :global(svg) :global(.vf-stavenote) {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: noteIn var(--dur-slow) var(--ease-spring) both;
+}
+
+.canvas :global(svg) :global(.tone-good) {
+  color: var(--good);
+}
+
+.canvas :global(svg) :global(.tone-bad) {
+  color: var(--bad);
+}
+
+.canvas :global(svg) :global(.tone-muted) {
+  color: var(--text-faint);
+}
+
+.canvas :global(svg) :global(.tone-accent) {
+  color: var(--accent);
+}
+
+@keyframes noteIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.9);
+  }
+}
+
+.loading {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.captions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.captions [data-tone='good'] {
+  color: var(--good);
+}
+
+.captions [data-tone='bad'] {
+  color: var(--bad);
+}
