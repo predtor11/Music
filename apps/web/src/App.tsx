@@ -19,6 +19,8 @@ import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { HandSessionPage } from './pages/HandSessionPage.js';
 import { HandsPage } from './pages/HandsPage.js';
 import { LessonPage } from './pages/LessonPage.js';
+import { PiecePage } from './pages/PiecePage.js';
+import { PiecesPage } from './pages/PiecesPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
 import { ProgressPage } from './pages/ProgressPage.js';
 import { ReviewPage } from './pages/ReviewPage.js';
@@ -37,6 +39,7 @@ const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
   { id: 'lessons', label: 'Lessons', href: href.lessons },
   { id: 'hands', label: 'Hands', href: href.hands },
+  { id: 'pieces', label: 'Pieces', href: href.pieces },
   { id: 'review', label: 'Review', href: href.review },
   { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
@@ -53,6 +56,9 @@ function section(route: Route): Section {
     case 'hands':
     case 'hand':
       return 'hands';
+    case 'pieces':
+    case 'piece':
+      return 'pieces';
     case 'lessons':
     case 'lesson':
     case 'checkpoint':
@@ -147,9 +153,11 @@ export function App() {
         ? `cp-${route.unitId}`
         : route.page === 'hand'
           ? `hand-${route.id}`
-          : route.page === 'chart' || route.page === 'chartEdit'
-            ? `${route.page}-${route.id ?? 'new'}`
-            : route.page;
+          : route.page === 'piece'
+            ? `piece-${route.id}`
+            : route.page === 'chart' || route.page === 'chartEdit'
+              ? `${route.page}-${route.id ?? 'new'}`
+              : route.page;
 
   return (
     <NoteInputProvider settings={settings} update={update}>
@@ -201,6 +209,8 @@ export function App() {
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
             {route.page === 'hands' && <HandsPage />}
             {route.page === 'hand' && <HandSessionPage id={route.id} settings={settings} />}
+            {route.page === 'pieces' && <PiecesPage />}
+            {route.page === 'piece' && <PiecePage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
             {route.page === 'charts' && <ChartsPage />}

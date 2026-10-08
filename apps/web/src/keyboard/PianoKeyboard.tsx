@@ -37,6 +37,8 @@ export interface PianoKeyboardProps {
   focusNote?: MidiNote;
   /** Drawn over the keys and in a lane below them, for example the animated hands. */
   overlay?: ReactNode;
+  /** Drawn above the keys, as wide as the keyboard and scrolling with it, for example falling notes. */
+  above?: ReactNode;
 }
 
 const defaultLabel = (note: MidiNote) => midiName(note).replace(/-?\d+$/, '');
@@ -58,6 +60,7 @@ export function PianoKeyboard({
   computerBase = null,
   focusNote = 60,
   overlay,
+  above,
 }: PianoKeyboardProps) {
   const keys = useMemo(() => keyboardKeys(size), [size]);
   const whiteCount = keys.filter((k) => !k.black).length;
@@ -76,6 +79,11 @@ export function PianoKeyboard({
 
   return (
     <div className={s.scroller} ref={scroller} data-overlay={overlay ? true : undefined}>
+      {above && (
+        <div className={s.above} style={{ ['--white-count' as string]: whiteCount }}>
+          {above}
+        </div>
+      )}
       <div
         className={s.keyboard}
         style={{ ['--white-count' as string]: whiteCount }}

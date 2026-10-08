@@ -11,6 +11,13 @@
     var(--shadow-md);
 }
 
+/* Above the keys (falling notes): the same width as the keyboard, so x positions line up. */
+.above {
+  position: relative;
+  min-width: calc(var(--white-count) * 28px);
+  margin: 0 1px var(--space-1);
+}
+
 .keyboard {
   position: relative;
   display: flex;
