@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import postgres from 'postgres';
-import { ChordCorrectionSchema, TakeSchema, type Recording, type RecordingSummary, type UpdateRecording } from '@music/contracts';
+import { ChordCorrectionSchema, TakeSchema, editedTake, type Recording, type RecordingSummary, type UpdateRecording } from '@music/contracts';
 import type { RecordingStore } from './store.js';
 
 const MIGRATIONS_DIR = fileURLToPath(new URL('../migrations/', import.meta.url));
@@ -20,6 +20,7 @@ interface SummaryRow {
 interface FullRow extends SummaryRow {
   take: unknown;
   corrections: unknown;
+  original: unknown;
 }
 
 const toSummary = (row: SummaryRow): RecordingSummary => ({
@@ -37,6 +38,7 @@ const toRecording = (row: FullRow): Recording => ({
   ...toSummary(row),
   take: TakeSchema.parse(row.take),
   corrections: ChordCorrectionSchema.array().parse(row.corrections ?? []),
+  original: row.original ? TakeSchema.parse(row.original) : null,
 });
 
 /** Recordings in the `recordings` schema of the Supabase Postgres database. */
@@ -64,9 +66,9 @@ export class PostgresRecordingStore implements RecordingStore {
 
   async create(userId: string, r: Recording): Promise<Recording> {
     const [row] = await this.sql<FullRow[]>`
-      insert into recordings.takes (id, user_id, title, source, duration_ms, note_count, key_override, take, corrections, created_at, updated_at)
+      insert into recordings.takes (id, user_id, title, source, duration_ms, note_count, key_override, take, corrections, original, created_at, updated_at)
       values (${r.id}, ${userId}, ${r.title}, ${r.source}, ${r.durationMs}, ${r.noteCount}, ${r.keyOverride},
-              ${this.sql.json(r.take)}, ${this.sql.json(r.corrections)}, ${r.createdAt}, ${r.updatedAt})
+              ${this.sql.json(r.take)}, ${this.sql.json(r.corrections)}, ${r.original ? this.sql.json(r.original) : null}, ${r.createdAt}, ${r.updatedAt})
       returning *`;
     return toRecording(row!);
   }
@@ -74,10 +76,12 @@ export class PostgresRecordingStore implements RecordingStore {
   async update(userId: string, id: string, patch: UpdateRecording, updatedAt: string): Promise<Recording | null> {
     const existing = await this.get(userId, id);
     if (!existing) return null;
-    const next = { ...existing, ...patch };
+    const next = { ...existing, ...patch, ...editedTake(existing, patch) };
     const [row] = await this.sql<FullRow[]>`
       update recordings.takes
-      set title = ${next.title}, key_override = ${next.keyOverride}, corrections = ${this.sql.json(next.corrections)}, updated_at = ${updatedAt}
+      set title = ${next.title}, key_override = ${next.keyOverride}, corrections = ${this.sql.json(next.corrections)},
+          take = ${this.sql.json(next.take)}, original = ${next.original ? this.sql.json(next.original) : null},
+          duration_ms = ${next.durationMs}, note_count = ${next.noteCount}, updated_at = ${updatedAt}
       where user_id = ${userId} and id = ${id}
       returning *`;
     return row ? toRecording(row) : null;

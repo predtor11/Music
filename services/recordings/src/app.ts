@@ -28,7 +28,7 @@ const notFound = () => Object.assign(new Error('recording not found'), { statusC
  *   GET    /takes       your recordings, newest first (no notes)
  *   POST   /takes       save one, returns it with its id
  *   GET    /takes/:id   one recording with its notes
- *   PATCH  /takes/:id   change title, key or corrections
+ *   PATCH  /takes/:id   change title, key, corrections or the notes (the first edit keeps the take as played)
  *   DELETE /takes/:id   delete it
  */
 export function buildApp(options: AppOptions = {}) {
@@ -62,6 +62,7 @@ export function buildApp(options: AppOptions = {}) {
       updatedAt: at,
       take: body.take,
       corrections: body.corrections,
+      original: body.original,
     };
     reply.status(201);
     return store.create(userId, recording);
