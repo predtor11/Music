@@ -1,0 +1,475 @@
+{
+  "id": "h13",
+  "order": 13,
+  "title": "Leaps to a far key",
+  "summary": "Reach for a far key and come back, the move behind La Campanella's bell.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The bell",
+      "body": "La Campanella means \"the little bell\". The right hand keeps playing one high note, the bell, between the notes of the tune, so it is always reaching up and coming back.\n\nA move to a key far from the last one is a **leap**.\n\n**Why it matters:** a leap is aimed with the eyes before the hand goes. Look at the landing key, then move. Practise slowly until you hit it every time; speed comes later.\n\nHere the bell is the top C on your keyboard. Press **Watch**: the thumb plays the tune, the little finger plays the bell.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            63,
+            66,
+            69,
+            72
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                63,
+                66,
+                69,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                64,
+                66,
+                68,
+                70,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                67,
+                68,
+                70,
+                71,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Tune and bell",
+      "body": "Thumb on the tune, **C, D, E, F, G**, and the little finger on the bell after each one. Your hand opens wider for the low notes and closes as the tune climbs.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            60,
+            63,
+            66,
+            69,
+            72
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                63,
+                66,
+                69,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 62,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                62,
+                64,
+                67,
+                70,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 64,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                64,
+                66,
+                68,
+                70,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 65,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                65,
+                67,
+                68,
+                70,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 67,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                67,
+                68,
+                70,
+                71,
+                72
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 72,
+              "hand": "right",
+              "finger": 5
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "Jump the whole hand",
+      "body": "Now a real jump: thumb on the low **C**, then the thumb on the next C up, and back. Look at where you will land before each jump.",
+      "hands": [
+        {
+          "hand": "right",
+          "keys": [
+            48,
+            50,
+            52,
+            53,
+            55
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                48,
+                50,
+                52,
+                53,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                48,
+                50,
+                52,
+                53,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                48,
+                50,
+                52,
+                53,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                48,
+                50,
+                52,
+                53,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "right",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "right",
+              "keys": [
+                60,
+                62,
+                64,
+                65,
+                67
+              ]
+            }
+          ]
+        }
+      ],
+      "rounds": 3
+    }
+  ]
+}

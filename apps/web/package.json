@@ -12,6 +12,7 @@
     "e2e": "playwright test"
   },
   "dependencies": {
+    "@music/analysis": "*",
     "@music/charts": "*",
     "@music/contracts": "*",
     "@music/midi": "*",
