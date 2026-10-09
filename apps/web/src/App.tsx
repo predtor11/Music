@@ -15,6 +15,7 @@ import { BandTalkPage } from './pages/BandTalkPage.js';
 import { ChartEditPage } from './pages/ChartEditPage.js';
 import { ChartImportPage, ChartPage } from './pages/ChartPage.js';
 import { ChartsPage } from './pages/ChartsPage.js';
+import { DailyPage } from './pages/DailyPage.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { HandSessionPage } from './pages/HandSessionPage.js';
@@ -44,6 +45,7 @@ const THEME_LABEL: Record<Theme, string> = { dark: 'Dark', light: 'Light', syste
 const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
   { id: 'lessons', label: 'Lessons', href: href.lessons },
+  { id: 'daily', label: 'Daily', href: href.daily },
   { id: 'hands', label: 'Hands', href: href.hands },
   { id: 'pieces', label: 'Pieces', href: href.pieces },
   { id: 'ear', label: 'By Ear', href: href.ear },
@@ -66,6 +68,7 @@ function section(route: Route): Section {
     case 'jam':
     case 'bandtalk':
     case 'songs':
+    case 'daily':
       return route.page;
     case 'hands':
     case 'hand':
@@ -231,6 +234,7 @@ export function App() {
             {route.page === 'lessons' && <LessonsPage />}
             {route.page === 'lesson' && <LessonPage id={route.id} settings={settings} />}
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
+            {route.page === 'daily' && <DailyPage settings={settings} />}
             {route.page === 'hands' && <HandsPage />}
             {route.page === 'hand' && <HandSessionPage id={route.id} settings={settings} />}
             {route.page === 'pieces' && <PiecesPage />}

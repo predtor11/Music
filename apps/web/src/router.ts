@@ -4,6 +4,7 @@
  *   #/lessons          Units and lessons
  *   #/lesson/:id       Lesson player
  *   #/checkpoint/:id   Unit checkpoint test
+ *   #/daily            Daily hand training
  *   #/hands            Hand and finger sessions
  *   #/hands/:id        One hand session
  *   #/pieces           Pieces to learn
@@ -43,6 +44,7 @@ export type Route =
   | { page: 'lessons' }
   | { page: 'lesson'; id: string }
   | { page: 'checkpoint'; unitId: string }
+  | { page: 'daily' }
   | { page: 'hands' }
   | { page: 'hand'; id: string }
   | { page: 'pieces' }
@@ -89,6 +91,7 @@ export function parseRoute(hash: string): Route {
   if (parts[0] === 'lessons') return { page: 'lessons' };
   if (parts[0] === 'lesson' && parts[1]) return { page: 'lesson', id: parts[1] };
   if (parts[0] === 'checkpoint' && parts[1]) return { page: 'checkpoint', unitId: parts[1] };
+  if (parts[0] === 'daily') return { page: 'daily' };
   if (parts[0] === 'hands' && parts[1]) return { page: 'hand', id: parts[1] };
   if (parts[0] === 'hands') return { page: 'hands' };
   if (parts[0] === 'pieces' && parts[1]) return { page: 'piece', id: parts[1] };
@@ -117,6 +120,7 @@ export const href = {
   lessons: '#/lessons',
   lesson: (id: string) => `#/lesson/${encodeURIComponent(id)}`,
   checkpoint: (unitId: string) => `#/checkpoint/${encodeURIComponent(unitId)}`,
+  daily: '#/daily',
   hands: '#/hands',
   hand: (id: string) => `#/hands/${encodeURIComponent(id)}`,
   pieces: '#/pieces',
