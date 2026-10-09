@@ -22,8 +22,9 @@ export class TakePlayer {
   /**
    * Play `notes` (as they sounded, pedal included) from `from` seconds.
    * `onTime` gets the position every frame; `onEnd` runs when it finishes.
+   * `end` stops it early, for looping part of a song.
    */
-  play(notes: readonly NoteEvent[], duration: number, from: number, onTime: (sec: number) => void, onEnd: () => void): void {
+  play(notes: readonly NoteEvent[], duration: number, from: number, onTime: (sec: number) => void, onEnd: () => void, end = duration): void {
     this.stop();
     const sorted = [...notes].sort((a, b) => a.start - b.start);
     const t0 = performance.now();
@@ -33,14 +34,14 @@ export class TakePlayer {
     const pump = () => {
       const now = position();
       const batch: Array<{ midi: number; at: number; dur: number; velocity: number }> = [];
-      while (next < sorted.length && sorted[next]!.start < now + LOOKAHEAD) {
+      while (next < sorted.length && sorted[next]!.start < Math.min(end, now + LOOKAHEAD)) {
         const n = sorted[next++]!;
         batch.push({ midi: n.midi, at: Math.max(0, n.start - now), dur: Math.max(0.05, n.end - n.start), velocity: n.velocity });
       }
       playEvents(batch);
-      if (now >= duration) {
+      if (now >= end) {
         this.stop();
-        onTime(duration);
+        onTime(end);
         onEnd();
       }
     };

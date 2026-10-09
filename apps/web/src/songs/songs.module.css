@@ -1,0 +1,95 @@
+/* Songs: the drop area, the loop controls and the section list. The chord lane and fix card share record.module.css. */
+
+.drop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-style: dashed;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+
+.drop[data-dragging] {
+  border-color: var(--accent);
+  box-shadow: var(--glow-accent);
+}
+
+.drop h2,
+.drop p {
+  margin: 0;
+}
+
+.dropActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.loopBand {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--accent-soft);
+  border-inline: 2px solid var(--accent-2);
+  pointer-events: none;
+}
+
+.scrub {
+  width: 100%;
+  margin-top: var(--space-3);
+  accent-color: var(--accent);
+}
+
+.loopRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.boardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-3);
+}
+
+.nowChord {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+}
+
+.sections {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.section {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.section p {
+  margin: var(--space-1) 0 0;
+}
+
+.sectionTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sectionChords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
