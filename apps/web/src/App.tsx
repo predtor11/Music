@@ -23,6 +23,7 @@ import { JamPage } from './pages/JamPage.js';
 import { LessonPage } from './pages/LessonPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
 import { ProgressPage } from './pages/ProgressPage.js';
+import { RecordingPage, RecordPage } from './pages/RecordPage.js';
 import { ReviewPage } from './pages/ReviewPage.js';
 import { SettingsPage } from './pages/SettingsPage.js';
 import { SignInPage } from './pages/SignInPage.js';
@@ -42,6 +43,7 @@ const NAV = [
   { id: 'jam', label: 'Jam', href: href.jam() },
   { id: 'bandtalk', label: 'Band talk', href: href.bandtalk() },
   { id: 'review', label: 'Review', href: href.review },
+  { id: 'record', label: 'Record', href: href.record },
   { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
 ] as const;
@@ -63,6 +65,9 @@ function section(route: Route): Section {
     case 'lesson':
     case 'checkpoint':
       return 'lessons';
+    case 'record':
+    case 'recording':
+      return 'record';
     case 'charts':
     case 'chart':
     case 'chartEdit':
@@ -155,7 +160,9 @@ export function App() {
           ? `hand-${route.id}`
           : route.page === 'chart' || route.page === 'chartEdit'
             ? `${route.page}-${route.id ?? 'new'}`
-            : route.page;
+            : route.page === 'recording'
+              ? `recording-${route.id}`
+              : route.page;
 
   return (
     <NoteInputProvider settings={settings} update={update}>
@@ -211,6 +218,8 @@ export function App() {
             {route.page === 'bandtalk' && <BandTalkPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
+            {route.page === 'record' && <RecordPage settings={settings} />}
+            {route.page === 'recording' && <RecordingPage id={route.id} settings={settings} />}
             {route.page === 'charts' && <ChartsPage />}
             {route.page === 'chart' && <ChartPage id={route.id} settings={settings} />}
             {route.page === 'chartEdit' && <ChartEditPage id={route.id} settings={settings} />}

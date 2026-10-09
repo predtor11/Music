@@ -73,3 +73,14 @@ describe('charts and analysis', () => {
     expect(SongAnalysisRequestSchema.safeParse({ notes: [{ midi: 60, velocity: 0, startMs: 0, durationMs: 400 }] }).success).toBe(false);
   });
 });
+
+describe('recordings', () => {
+  it('accepts a take in the analysis note shape, with the pedal and corrections', async () => {
+    const { CreateRecordingSchema, TakeSchema } = await import('../src/index.js');
+    const take = { notes: [{ midi: 60, velocity: 80, startMs: 0, durationMs: 400 }], pedal: [{ atMs: 0, down: true }], durationMs: 600 };
+    expect(TakeSchema.safeParse(take).success).toBe(true);
+    const parsed = CreateRecordingSchema.parse({ title: 'Jam', take, corrections: [{ atMs: 100, rootPc: 0, quality: 'major' }] });
+    expect(parsed).toMatchObject({ source: 'played', keyOverride: null });
+    expect(CreateRecordingSchema.safeParse({ title: 'Jam', take, corrections: [{ atMs: 1, rootPc: 0, quality: 'power' }] }).success).toBe(false);
+  });
+});

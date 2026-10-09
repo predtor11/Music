@@ -8,11 +8,11 @@ const headers = { 'x-user-id': USER };
 
 const TAKE = {
   notes: [
-    { midi: 55, start: 0, dur: 900, velocity: 90 },
-    { midi: 59, start: 0, dur: 900, velocity: 90 },
-    { midi: 62, start: 0, dur: 900, velocity: 90 },
+    { midi: 55, velocity: 90, startMs: 0, durationMs: 900 },
+    { midi: 59, velocity: 90, startMs: 0, durationMs: 900 },
+    { midi: 62, velocity: 90, startMs: 0, durationMs: 900 },
   ],
-  pedal: [{ at: 0, down: true }, { at: 950, down: false }],
+  pedal: [{ atMs: 0, down: true }, { atMs: 950, down: false }],
   durationMs: 1200,
 };
 
@@ -40,9 +40,9 @@ describe('recordings service', () => {
       method: 'PATCH',
       url: `/takes/${saved.id}`,
       headers,
-      payload: { title: 'Sunday jam', keyOverride: 'G', corrections: [{ at: 100, rootPc: 7, quality: 'major' }] },
+      payload: { title: 'Sunday jam', keyOverride: 'G', corrections: [{ atMs: 100, rootPc: 7, quality: 'major' }] },
     });
-    expect(patched.json()).toMatchObject({ title: 'Sunday jam', keyOverride: 'G', corrections: [{ at: 100, rootPc: 7, quality: 'major' }] });
+    expect(patched.json()).toMatchObject({ title: 'Sunday jam', keyOverride: 'G', corrections: [{ atMs: 100, rootPc: 7, quality: 'major' }] });
     expect(patched.json().updatedAt > saved.updatedAt).toBe(true);
 
     expect((await a.inject({ method: 'DELETE', url: `/takes/${saved.id}`, headers })).statusCode).toBe(204);
@@ -63,13 +63,13 @@ describe('recordings service', () => {
     const a = app();
     expect((await a.inject({ url: '/takes' })).statusCode).toBe(401);
     expect((await a.inject({ method: 'POST', url: '/takes', headers, payload: { title: '', take: TAKE } })).statusCode).toBe(400);
-    const badNote = { ...TAKE, notes: [{ midi: 200, start: 0, dur: 1, velocity: 1 }] };
+    const badNote = { ...TAKE, notes: [{ midi: 200, velocity: 1, startMs: 0, durationMs: 1 }] };
     expect((await a.inject({ method: 'POST', url: '/takes', headers, payload: { title: 'x', take: badNote } })).statusCode).toBe(400);
     expect((await a.inject({ url: '/takes/not-a-uuid', headers })).statusCode).toBe(404);
   });
 
   it('accepts a long take (more than the 1 MB default body)', async () => {
-    const notes = Array.from({ length: 30_000 }, (_, i) => ({ midi: 40 + (i % 40), start: i * 100, dur: 90, velocity: 64 }));
+    const notes = Array.from({ length: 30_000 }, (_, i) => ({ midi: 40 + (i % 40), velocity: 64, startMs: i * 100, durationMs: 90 }));
     const res = await buildApp({ logger: false }).inject({
       method: 'POST',
       url: '/takes',

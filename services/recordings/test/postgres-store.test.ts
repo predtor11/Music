@@ -27,12 +27,12 @@ describe.skipIf(!url)('PostgresRecordingStore', () => {
   it('stores, updates and deletes through the app', async () => {
     const app = buildApp({ logger: false, store });
     const headers = { 'x-user-id': USER };
-    const take = { notes: [{ midi: 60, start: 0, dur: 500, velocity: 80 }], pedal: [], durationMs: 700 };
+    const take = { notes: [{ midi: 60, velocity: 80, startMs: 0, durationMs: 500 }], pedal: [], durationMs: 700 };
     const saved = (await app.inject({ method: 'POST', url: '/takes', headers, payload: { title: 'A', take } })).json();
     expect((await app.inject({ url: '/takes', headers })).json()).toHaveLength(1);
     expect((await app.inject({ url: `/takes/${saved.id}`, headers })).json().take).toEqual(take);
-    const patched = await app.inject({ method: 'PATCH', url: `/takes/${saved.id}`, headers, payload: { corrections: [{ at: 10, rootPc: null, quality: null }] } });
-    expect(patched.json().corrections).toEqual([{ at: 10, rootPc: null, quality: null }]);
+    const patched = await app.inject({ method: 'PATCH', url: `/takes/${saved.id}`, headers, payload: { corrections: [{ atMs: 10, rootPc: null, quality: null }] } });
+    expect(patched.json().corrections).toEqual([{ atMs: 10, rootPc: null, quality: null }]);
     expect((await app.inject({ method: 'DELETE', url: `/takes/${saved.id}`, headers })).statusCode).toBe(204);
   });
 });

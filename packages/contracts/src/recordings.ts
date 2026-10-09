@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { NoteEventSchema, PerformanceSchema } from './performance.js';
 
 /**
  * Recordings: whatever you play, kept as notes (not audio) so the app can play
@@ -11,27 +12,22 @@ export const MAX_TAKE_MS = 3 * 60 * 60 * 1000;
 /** Most notes in one take; a fast pianist plays about 10 a second, so this is hours of playing. */
 export const MAX_TAKE_NOTES = 50_000;
 
-export const TakeNoteSchema = z.object({
-  midi: z.number().int().min(0).max(127),
-  /** When the key went down. */
-  start: z.number().int().min(0).max(MAX_TAKE_MS),
-  /** How long the key was held (the pedal is kept separately). */
-  dur: z.number().int().min(0).max(MAX_TAKE_MS),
-  velocity: z.number().int().min(1).max(127),
-});
-export type TakeNote = z.infer<typeof TakeNoteSchema>;
-
 /** The sustain pedal going down or up. */
 export const PedalChangeSchema = z.object({
-  at: z.number().int().min(0).max(MAX_TAKE_MS),
+  atMs: z.number().min(0).max(MAX_TAKE_MS),
   down: z.boolean(),
 });
 export type PedalChange = z.infer<typeof PedalChangeSchema>;
 
-export const TakeSchema = z.object({
-  notes: z.array(TakeNoteSchema).max(MAX_TAKE_NOTES),
+/**
+ * A take: the notes as played (NoteEventSchema, the same shape song analysis
+ * reads; each note's length is how long its key was held), the pedal, and the
+ * length of the take. Allows longer takes than a Performance sent for analysis.
+ */
+export const TakeSchema = PerformanceSchema.extend({
+  notes: z.array(NoteEventSchema).max(MAX_TAKE_NOTES),
   pedal: z.array(PedalChangeSchema).max(MAX_TAKE_NOTES),
-  durationMs: z.number().int().min(0).max(MAX_TAKE_MS),
+  durationMs: z.number().min(0).max(MAX_TAKE_MS),
 });
 export type Take = z.infer<typeof TakeSchema>;
 
@@ -60,11 +56,11 @@ export const ChordQualitySchema = z.enum([
 ]);
 
 /**
- * A chord the learner fixed by hand. `at` is a time inside the chord they
+ * A chord the learner fixed by hand. `atMs` is a time inside the chord they
  * corrected; `rootPc` null means "no chord here, just melody".
  */
 export const ChordCorrectionSchema = z.object({
-  at: z.number().int().min(0).max(MAX_TAKE_MS),
+  atMs: z.number().min(0).max(MAX_TAKE_MS),
   rootPc: z.number().int().min(0).max(11).nullable(),
   quality: ChordQualitySchema.nullable(),
 });
@@ -97,7 +93,7 @@ export const RecordingSummarySchema = z.object({
   id: z.string().uuid(),
   title: z.string(),
   source: RecordingSourceSchema,
-  durationMs: z.number().int(),
+  durationMs: z.number(),
   noteCount: z.number().int(),
   keyOverride: z.string().nullable(),
   createdAt: z.string().datetime(),

@@ -8,7 +8,6 @@ Read this before changing code. The full plan lives in the Claude Doc
 | Path | What | Owner of changes |
 | --- | --- | --- |
 | `packages/theory` | Theory engine: notes, scales, chords, Roman numerals, sargam, graders. Pure functions, no I/O. | theory work |
-| `packages/recording` | Recording what you play: `TakeRecorder`, `.mid` export and import, and the analysis (key, chords over time, plain-English summary, chord chart). Pure functions over `@music/theory`. | recording work |
 | `packages/midi` | MIDI parsing, held notes, chord grouping, `MidiSource` (Web MIDI today, native later) | MIDI work |
 | `packages/contracts` | zod schemas + types for every API body and event. The single source of truth between app and services. | integrator (change by PR comment, not silently) |
 | `packages/service-kit` | `createService()` (Fastify + `/health` + JSON errors), `requireUserId()`, `EventBus` + `InMemoryEventBus` | platform work |
@@ -20,7 +19,7 @@ Read this before changing code. The full plan lives in the Claude Doc
 | `services/practice` | Sessions and attempts. Port 4003. Emits `attempt.recorded`, `session.ended`. | practice work |
 | `services/progress` | Unlocks, skill scores, review queue, progress report. Port 4004. Listens to `attempt.recorded`, `session.ended`. | progress work |
 | `services/theory` | HTTP wrapper over `@music/theory` (chord and scale lookups). Port 4005. Stores nothing. | theory work |
-| `services/recordings` | Saved recordings (notes, pedal, picked key, chord corrections). Port 4006. Analysis runs in the browser. | recording work |
+| `services/recordings` | Saved recordings (notes, pedal, picked key, chord corrections). Port 4006. The web app records, plays back and exports; `@music/analysis` names the chords in the browser. | recording work |
 
 Ports and route prefixes are in `packages/contracts/src/services.ts`.
 
