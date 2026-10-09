@@ -8,9 +8,10 @@ import s from './keyboard.module.css';
  * - target: a key the lesson is pointing at, or asking you to play;
  * - good: played and right;
  * - bad: played and wrong;
- * - missed: should have been played but wasn't.
+ * - missed: should have been played but wasn't;
+ * - fit: a quiet dot on a key that fits, for example the key's scale in the jam-along.
  */
-export type KeyMark = 'target' | 'good' | 'bad' | 'missed';
+export type KeyMark = 'target' | 'good' | 'bad' | 'missed' | 'fit';
 
 /** Which keys show a note name. */
 export type KeyNames = 'none' | 'c' | 'held' | 'all';

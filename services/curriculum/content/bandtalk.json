@@ -1,0 +1,1905 @@
+[
+  {
+    "id": "pop-progression",
+    "phrase": "one-five-six-four",
+    "aliases": [
+      "1-5-6-4",
+      "the four chords",
+      "the axis progression"
+    ],
+    "category": "chords",
+    "glossaryId": "pop-progression",
+    "sayIt": "It's just a one-five-six-four in G the whole way through.",
+    "related": [
+      "nashville-number-system",
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "C, G, Am, F: the chords behind hundreds of pop songs.",
+      "bpm": 100,
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "5",
+        "6",
+        "4"
+      ],
+      "style": "pop",
+      "bpm": 96
+    }
+  },
+  {
+    "id": "two-five-one",
+    "phrase": "two-five-one",
+    "aliases": [
+      "2-5-1",
+      "ii-V-I",
+      "a two-five"
+    ],
+    "category": "chords",
+    "glossaryId": "two-five-one",
+    "sayIt": "There's a two-five-one into C at the end of the bridge.",
+    "related": [
+      "ii-chord",
+      "dominant"
+    ],
+    "example": {
+      "caption": "Dm, G, C: the strongest way to land on the home chord.",
+      "steps": [
+        {
+          "numeral": "2"
+        },
+        {
+          "numeral": "5"
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "ii7",
+        "V7",
+        "Imaj7",
+        "Imaj7"
+      ],
+      "style": "ballad",
+      "bpm": 80
+    }
+  },
+  {
+    "id": "twelve-bar-blues",
+    "phrase": "twelve-bar blues",
+    "aliases": [
+      "12-bar",
+      "a blues in A"
+    ],
+    "category": "chords",
+    "glossaryId": "12-bar-blues",
+    "sayIt": "Let's warm up with a twelve-bar in A.",
+    "related": [
+      "primary-chord"
+    ],
+    "example": {
+      "caption": "The first line: four bars of the one chord, then the four chord.",
+      "bpm": 120,
+      "steps": [
+        {
+          "numeral": "I7",
+          "beats": 4
+        },
+        {
+          "numeral": "IV7",
+          "beats": 4
+        },
+        {
+          "numeral": "I7",
+          "beats": 4
+        },
+        {
+          "numeral": "V7",
+          "beats": 2
+        },
+        {
+          "numeral": "IV7",
+          "beats": 2
+        },
+        {
+          "numeral": "I7",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "I7",
+        "I7",
+        "I7",
+        "I7",
+        "IV7",
+        "IV7",
+        "I7",
+        "I7",
+        "V7",
+        "IV7",
+        "I7",
+        "V7"
+      ],
+      "key": "A",
+      "style": "shuffle",
+      "bpm": 100
+    }
+  },
+  {
+    "id": "the-four",
+    "phrase": "\"go to the four\"",
+    "aliases": [
+      "the one chord",
+      "the five chord",
+      "the six minor"
+    ],
+    "category": "chords",
+    "meaning": "A number on its own means the chord built on that note of the key. In G, \"the four\" is C and \"the five\" is D. \"The six minor\" is the minor chord on the 6th note: Em in G.",
+    "whyItMatters": "Bands talk in numbers so the same instructions work in any key. If you know the key, you can turn \"go to the four\" into a chord straight away.",
+    "sayIt": "Stay on the one for the intro, then go to the four when the vocals come in.",
+    "related": [
+      "nashville-number-system",
+      "roman-numeral",
+      "scale-degree"
+    ],
+    "example": {
+      "caption": "In G: the one (G), the four (C), the five (D), back to the one.",
+      "key": "G",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "4"
+      ],
+      "key": "G",
+      "style": "pop",
+      "bpm": 92
+    }
+  },
+  {
+    "id": "three-chord-trick",
+    "phrase": "three-chord trick",
+    "aliases": [
+      "one-four-five",
+      "1-4-5"
+    ],
+    "category": "chords",
+    "meaning": "A song built from just the one, four and five chords of a key.",
+    "whyItMatters": "Thousands of rock, folk, country and church songs use only these three chords. Know them in a key and you can follow a huge number of songs by ear.",
+    "sayIt": "Don't worry, it's a three-chord trick: one, four, five.",
+    "related": [
+      "primary-chord",
+      "dominant",
+      "subdominant"
+    ],
+    "example": {
+      "caption": "C, F, G, C: the one, four and five in C.",
+      "bpm": 110,
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "4",
+        "1",
+        "5"
+      ],
+      "style": "rock",
+      "bpm": 116
+    }
+  },
+  {
+    "id": "the-changes",
+    "phrase": "the changes",
+    "aliases": [
+      "the chords"
+    ],
+    "category": "chords",
+    "meaning": "The chords of a song, in order. Each chord is \"a change\" because it is where the harmony changes.",
+    "whyItMatters": "When someone asks \"do you know the changes?\" they are asking whether you know the chords, not the melody.",
+    "sayIt": "Send me the changes and I'll learn it before Saturday.",
+    "related": [
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "The changes of a simple song in C: C, Am, F, G.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "6",
+        "4",
+        "5"
+      ],
+      "style": "ballad",
+      "bpm": 76
+    }
+  },
+  {
+    "id": "turnaround",
+    "phrase": "turnaround",
+    "aliases": [
+      "turn it around"
+    ],
+    "category": "chords",
+    "meaning": "A short run of chords at the end of a section that leads back to its start, often 1-6-2-5.",
+    "whyItMatters": "The turnaround tells everyone the section is about to repeat. Hearing it coming means you are never caught out by the next \"one\".",
+    "sayIt": "Play the turnaround twice, then we go into the second verse.",
+    "related": [
+      "vi-chord",
+      "ii-chord",
+      "dominant"
+    ],
+    "example": {
+      "caption": "C, Am, Dm, G, then back home to C.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "2",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "6",
+        "2",
+        "5"
+      ],
+      "style": "pop",
+      "beatsPerChord": 2,
+      "bpm": 96
+    }
+  },
+  {
+    "id": "resolve",
+    "phrase": "resolve",
+    "aliases": [
+      "resolution",
+      "land on the one"
+    ],
+    "category": "chords",
+    "meaning": "To move from a chord that sounds tense to one that sounds settled, usually from the five chord to the one.",
+    "whyItMatters": "Endings, choruses and turnarounds are all built on this pull. Knowing which chord wants to resolve tells you where the song is heading.",
+    "sayIt": "Hold the five for a bar before you resolve; let them wait for it.",
+    "related": [
+      "dominant",
+      "tonic"
+    ],
+    "example": {
+      "caption": "G7 pulls hard towards C. Hear the tension, then the relief.",
+      "bpm": 80,
+      "steps": [
+        {
+          "numeral": "V7",
+          "beats": 4
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "passing-chord",
+    "phrase": "passing chord",
+    "aliases": [],
+    "category": "chords",
+    "meaning": "A quick chord played on the way between two others, to make the move smoother.",
+    "whyItMatters": "Passing chords are why a song can sound fancier than its chord chart. If you hear an extra chord you cannot place, it is often one of these.",
+    "sayIt": "Throw a passing chord in between the one and the two.",
+    "related": [
+      "diminished-triad",
+      "half-step"
+    ],
+    "example": {
+      "caption": "C, then C♯dim for a moment, then Dm: the bass climbs by half steps.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "#1°",
+          "beats": 1
+        },
+        {
+          "numeral": "2",
+          "beats": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "walk-down",
+    "phrase": "walk-down",
+    "aliases": [
+      "walk-up",
+      "walking the bass down"
+    ],
+    "category": "chords",
+    "meaning": "A bass line that moves one step at a time between two chords, while the chords above it change little.",
+    "whyItMatters": "Walk-downs are the stepping bass you hear under ballads and gospel. They also make jumping between chords easier, because the left hand only moves one key at a time.",
+    "sayIt": "Do the walk-down from the one to the four going into the chorus.",
+    "related": [
+      "whole-step",
+      "half-step"
+    ],
+    "example": {
+      "caption": "C, C/B, Am, Am/G, F: the lowest note steps down C, B, A, G, F.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "1/7",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "6/5",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "pedal",
+    "phrase": "pedal",
+    "aliases": [
+      "pedal note",
+      "pedal point"
+    ],
+    "category": "chords",
+    "meaning": "One note held or repeated in the bass while the chords above it change. Not the sustain pedal under your foot.",
+    "whyItMatters": "A pedal builds tension and is very easy for your left hand: it stays on one key while the right hand moves.",
+    "sayIt": "Keep a C pedal in the left hand under the whole intro.",
+    "related": [
+      "root"
+    ],
+    "example": {
+      "caption": "C stays in the bass while the chords above move.",
+      "steps": [
+        {
+          "midi": [
+            48,
+            60,
+            64,
+            67
+          ],
+          "label": "C"
+        },
+        {
+          "midi": [
+            48,
+            62,
+            65,
+            69
+          ],
+          "label": "Dm over C"
+        },
+        {
+          "midi": [
+            48,
+            60,
+            65,
+            69
+          ],
+          "label": "F over C"
+        },
+        {
+          "midi": [
+            48,
+            62,
+            67,
+            71
+          ],
+          "label": "G over C"
+        },
+        {
+          "midi": [
+            48,
+            60,
+            64,
+            67
+          ],
+          "label": "C",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "power-chord",
+    "phrase": "power chord",
+    "aliases": [
+      "a five chord",
+      "C5"
+    ],
+    "category": "chords",
+    "meaning": "Just the root and the 5th, with no 3rd. Written with a 5, as in C5.",
+    "whyItMatters": "Guitarists use it all over rock music. Because it has no 3rd it is neither major nor minor, so if the guitar plays C5 you can play C or Cm under it.",
+    "sayIt": "It's all power chords in the verse, so keep the keys simple.",
+    "related": [
+      "root",
+      "perfect-5th"
+    ],
+    "example": {
+      "caption": "C5, F5, G5: root and 5th, plus the root an octave up.",
+      "bpm": 120,
+      "steps": [
+        {
+          "midi": [
+            48,
+            55,
+            60
+          ],
+          "label": "C5",
+          "beats": 2
+        },
+        {
+          "midi": [
+            53,
+            60,
+            65
+          ],
+          "label": "F5",
+          "beats": 2
+        },
+        {
+          "midi": [
+            55,
+            62,
+            67
+          ],
+          "label": "G5",
+          "beats": 2
+        },
+        {
+          "midi": [
+            48,
+            55,
+            60
+          ],
+          "label": "C5",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "sus-it",
+    "phrase": "\"sus it\"",
+    "aliases": [
+      "sus to major",
+      "four-three"
+    ],
+    "category": "chords",
+    "meaning": "Play the suspended (sus4) version of a chord first, then let the 4th fall to the 3rd for the normal chord.",
+    "whyItMatters": "Sus-to-major moves are a favourite in worship, pop and film music. They add a little tension and release without changing the chord.",
+    "sayIt": "On the last chord, sus it and then resolve.",
+    "related": [
+      "sus4",
+      "suspended-chord"
+    ],
+    "example": {
+      "caption": "Gsus4 then G: the C drops to B.",
+      "bpm": 76,
+      "steps": [
+        {
+          "numeral": "5sus4",
+          "beats": 3
+        },
+        {
+          "numeral": "5",
+          "beats": 3
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "intro",
+    "phrase": "intro",
+    "aliases": [
+      "the top"
+    ],
+    "category": "form",
+    "meaning": "The opening of a song before the singing starts. Often it is the chorus chords, or a riff.",
+    "whyItMatters": "The intro sets the key and speed for everyone, including the singer, so it needs to be steady and clear.",
+    "sayIt": "Four bars of intro on the one, then the verse.",
+    "related": [
+      "key"
+    ],
+    "example": {
+      "caption": "A simple intro in C: the one and the four, twice.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "verse",
+    "phrase": "verse",
+    "aliases": [],
+    "category": "form",
+    "meaning": "The part of a song that tells the story. The music repeats each time, but the words change.",
+    "whyItMatters": "Verses are usually quieter and simpler than the chorus, so play less here and save energy for later.",
+    "sayIt": "Keep it soft in the first verse, just the left hand.",
+    "related": [
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "A typical verse in C: C, Am, F, G.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "6",
+        "4",
+        "5"
+      ],
+      "style": "ballad",
+      "bpm": 76
+    }
+  },
+  {
+    "id": "pre-chorus",
+    "phrase": "pre-chorus",
+    "aliases": [
+      "the build",
+      "the lift",
+      "the climb"
+    ],
+    "category": "form",
+    "meaning": "A short section between the verse and the chorus that builds up to the chorus.",
+    "whyItMatters": "It often ends on the five chord, which makes the chorus feel like an arrival. Play a little louder each bar.",
+    "sayIt": "Build through the pre-chorus and stop dead on the last beat.",
+    "related": [
+      "dominant"
+    ],
+    "example": {
+      "caption": "F, G, Am, then a long G that leans into the chorus.",
+      "steps": [
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "chorus",
+    "phrase": "chorus",
+    "aliases": [
+      "refrain",
+      "the hook"
+    ],
+    "category": "form",
+    "meaning": "The part of a song that comes back with the same words and music each time. Usually the catchiest and loudest part.",
+    "whyItMatters": "Everyone knows the chorus, so it is the part to learn first. Its chords often start on the four or the one.",
+    "sayIt": "Double the last chorus and end on the one.",
+    "related": [
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "A chorus in C that starts on the four: F, C, G, Am.",
+      "steps": [
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "4",
+        "1",
+        "5",
+        "6"
+      ],
+      "style": "pop",
+      "bpm": 100
+    }
+  },
+  {
+    "id": "bridge",
+    "phrase": "the bridge",
+    "aliases": [
+      "middle eight",
+      "the B section"
+    ],
+    "category": "form",
+    "meaning": "A section that comes once, usually after the second chorus, with chords and a melody not heard before.",
+    "whyItMatters": "The bridge gives the ear a break before the last chorus. It often starts on a chord the song has not leaned on yet, such as the six minor or the four.",
+    "sayIt": "Let's take it from the bridge.",
+    "related": [
+      "vi-chord",
+      "relative-minor"
+    ],
+    "example": {
+      "caption": "A bridge in C that starts on Am: Am, F, C, G.",
+      "steps": [
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "6",
+        "4",
+        "1",
+        "5"
+      ],
+      "style": "half-time",
+      "bpm": 92
+    }
+  },
+  {
+    "id": "outro",
+    "phrase": "outro",
+    "aliases": [
+      "the ending",
+      "the coda"
+    ],
+    "category": "form",
+    "meaning": "The closing part of a song, after the last chorus.",
+    "whyItMatters": "Endings are where bands fall apart. Agree how it ends: a fade, a repeat of the chorus, or one last chord together.",
+    "sayIt": "For the outro, repeat the last line three times and hold the one.",
+    "related": [
+      "tonic"
+    ],
+    "example": {
+      "caption": "F, G, then a long C to finish.",
+      "bpm": 80,
+      "steps": [
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 6
+        }
+      ]
+    }
+  },
+  {
+    "id": "tag",
+    "phrase": "tag",
+    "aliases": [
+      "tag it",
+      "tag the ending"
+    ],
+    "category": "form",
+    "meaning": "Repeat the last line of the song, usually two or three times, before the ending.",
+    "whyItMatters": "A tag is called on the spot, so watch the leader and keep cycling the last few chords until the final one.",
+    "sayIt": "Tag the last line twice, I'll nod on the final time.",
+    "related": [
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "The last line, F, G, C, played again before the end.",
+      "steps": [
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "vamp",
+    "phrase": "vamp",
+    "aliases": [
+      "vamp on it",
+      "loop it"
+    ],
+    "category": "form",
+    "meaning": "Repeat a short chord pattern, often two chords, over and over until someone cues the next part.",
+    "whyItMatters": "Vamps fill time during a speech, a solo or a long intro. Keep it steady and keep your eyes on whoever will cue the change.",
+    "sayIt": "Vamp on the one and the four until the singer's ready.",
+    "related": [
+      "chord-progression"
+    ],
+    "example": {
+      "caption": "C and F, back and forth.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "4"
+      ],
+      "style": "pop",
+      "bpm": 96
+    }
+  },
+  {
+    "id": "from-the-top",
+    "phrase": "take it from the top",
+    "aliases": [
+      "from the top",
+      "top of the song"
+    ],
+    "category": "form",
+    "meaning": "Start the song again from the very beginning.",
+    "whyItMatters": "It is the most common call in rehearsal. Go back to the intro chord and wait for the count in.",
+    "sayIt": "Nearly. Let's take it from the top.",
+    "related": [],
+    "example": {
+      "caption": "Back to the first chord of the intro: C.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "breakdown",
+    "phrase": "breakdown",
+    "aliases": [
+      "break it down",
+      "drop it down"
+    ],
+    "category": "form",
+    "meaning": "A section where most of the band stops or plays very quietly, leaving one or two instruments.",
+    "whyItMatters": "If the keys are left alone in a breakdown, simple held chords sound best. Play less, not more.",
+    "sayIt": "Break it down to just keys and voice for the last chorus.",
+    "related": [],
+    "example": {
+      "caption": "Soft, long chords: Am, F, C, G.",
+      "bpm": 70,
+      "steps": [
+        {
+          "numeral": "6",
+          "beats": 4
+        },
+        {
+          "numeral": "4",
+          "beats": 4
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        },
+        {
+          "numeral": "5",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "solo",
+    "phrase": "take a solo",
+    "aliases": [
+      "solo section",
+      "your solo"
+    ],
+    "category": "form",
+    "meaning": "Your turn to make up a melody over the chords while the rest of the band keeps playing them.",
+    "whyItMatters": "The notes of the key's scale always fit, and the chord's own notes fit best. The jam-along shows you both while you try.",
+    "sayIt": "Take a solo over the verse chords, sixteen bars.",
+    "related": [
+      "scale",
+      "chord-tone"
+    ],
+    "example": {
+      "caption": "A short idea using notes of C major over C and F.",
+      "steps": [
+        {
+          "midi": [
+            60
+          ],
+          "label": "C",
+          "beats": 1
+        },
+        {
+          "midi": [
+            64
+          ],
+          "label": "E",
+          "beats": 1
+        },
+        {
+          "midi": [
+            67
+          ],
+          "label": "G",
+          "beats": 1
+        },
+        {
+          "midi": [
+            69
+          ],
+          "label": "A",
+          "beats": 1
+        },
+        {
+          "midi": [
+            67
+          ],
+          "label": "G",
+          "beats": 2
+        },
+        {
+          "midi": [
+            64
+          ],
+          "label": "E",
+          "beats": 2
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "4",
+        "1",
+        "5"
+      ],
+      "style": "pop",
+      "bpm": 90
+    }
+  },
+  {
+    "id": "what-key",
+    "phrase": "\"what key is it in?\"",
+    "aliases": [
+      "what key are we in",
+      "it's in G"
+    ],
+    "category": "key",
+    "glossaryId": "key",
+    "sayIt": "It's in G, starts on the one.",
+    "related": [
+      "tonic",
+      "key-signature"
+    ],
+    "example": {
+      "caption": "In G, the song feels at home on G.",
+      "key": "G",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "transpose",
+    "phrase": "transpose it",
+    "aliases": [
+      "take it down",
+      "put it up"
+    ],
+    "category": "key",
+    "glossaryId": "transpose",
+    "sayIt": "That's too high for me; can we take it down to A?",
+    "related": [
+      "nashville-number-system"
+    ],
+    "example": {
+      "caption": "1-5-6-4 in C, then the same numbers in A.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "6",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2,
+          "key": "A"
+        },
+        {
+          "numeral": "5",
+          "beats": 2,
+          "key": "A"
+        },
+        {
+          "numeral": "6",
+          "beats": 2,
+          "key": "A"
+        },
+        {
+          "numeral": "4",
+          "beats": 2,
+          "key": "A"
+        }
+      ]
+    }
+  },
+  {
+    "id": "up-a-tone",
+    "phrase": "modulate up a tone",
+    "aliases": [
+      "up a tone",
+      "key change",
+      "modulate",
+      "up a whole step"
+    ],
+    "category": "key",
+    "meaning": "Move the song into a new key part way through. \"Up a tone\" means up a whole step, so C becomes D and every chord moves up two half steps.",
+    "whyItMatters": "Last choruses often go up a tone to lift the energy. Use the numbers: the chords keep the same numbers, only the key changes.",
+    "sayIt": "We modulate up a tone for the last chorus, so C goes to D.",
+    "related": [
+      "whole-step",
+      "key",
+      "transpose"
+    ],
+    "example": {
+      "caption": "C, F, G in C, then A leads into the same chords in D: D, G, A.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2,
+          "key": "D"
+        },
+        {
+          "numeral": "1",
+          "beats": 2,
+          "key": "D"
+        },
+        {
+          "numeral": "4",
+          "beats": 2,
+          "key": "D"
+        },
+        {
+          "numeral": "5",
+          "beats": 2,
+          "key": "D"
+        },
+        {
+          "numeral": "1",
+          "beats": 4,
+          "key": "D"
+        }
+      ]
+    }
+  },
+  {
+    "id": "up-a-half-step",
+    "phrase": "up a half step",
+    "aliases": [
+      "up a semitone",
+      "truck driver's key change"
+    ],
+    "category": "key",
+    "meaning": "A key change where everything moves up one half step: C becomes D♭. Often done suddenly between choruses.",
+    "whyItMatters": "It is the most dramatic key change in pop. Your hand shape stays the same; every key just moves one to the right.",
+    "sayIt": "Last chorus goes up a half step, straight in, no warning.",
+    "related": [
+      "half-step",
+      "key"
+    ],
+    "example": {
+      "caption": "C, F, G in C, then D♭, G♭, A♭ a half step up.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 2
+        },
+        {
+          "numeral": "4",
+          "beats": 2
+        },
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 2,
+          "key": "Db"
+        },
+        {
+          "numeral": "4",
+          "beats": 2,
+          "key": "Db"
+        },
+        {
+          "numeral": "5",
+          "beats": 2,
+          "key": "Db"
+        },
+        {
+          "numeral": "1",
+          "beats": 4,
+          "key": "Db"
+        }
+      ]
+    }
+  },
+  {
+    "id": "relative-minor",
+    "phrase": "go to the relative minor",
+    "aliases": [
+      "the six minor"
+    ],
+    "category": "key",
+    "glossaryId": "relative-minor",
+    "sayIt": "The bridge drops to the relative minor.",
+    "related": [
+      "vi-chord",
+      "minor-triad"
+    ],
+    "example": {
+      "caption": "C major, then its relative minor, A minor: same notes, sadder home.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 4
+        },
+        {
+          "numeral": "6",
+          "beats": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "capo",
+    "phrase": "capo",
+    "aliases": [
+      "capo 2",
+      "capo on the third fret"
+    ],
+    "category": "key",
+    "meaning": "A clamp a guitarist puts across the strings to raise everything they play. \"Capo 2\" means their chords sound two half steps (a tone) higher than the shapes they hold.",
+    "whyItMatters": "A guitarist with a capo often calls chords by their shapes, not by what sounds. If they say \"G, capo 2\", the real chord is A, so play A.",
+    "sayIt": "I'm playing G shapes with a capo on 2.",
+    "related": [
+      "transpose",
+      "whole-step"
+    ],
+    "example": {
+      "caption": "G (the shape the guitarist holds), then A (what you hear with capo 2).",
+      "steps": [
+        {
+          "midi": [
+            55,
+            59,
+            62
+          ],
+          "label": "G shape",
+          "beats": 2
+        },
+        {
+          "midi": [
+            57,
+            61,
+            64
+          ],
+          "label": "A sounds",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "count-in",
+    "phrase": "count it in",
+    "aliases": [
+      "count-in",
+      "count off",
+      "\"one, two, three, four\""
+    ],
+    "category": "rhythm",
+    "meaning": "The \"one, two, three, four\" someone calls before the band starts, at the speed of the song.",
+    "whyItMatters": "The count-in sets the speed. You come in on the \"one\" right after it, all together.",
+    "sayIt": "I'll count it in: one, two, one-two-three-four.",
+    "related": [],
+    "example": {
+      "caption": "Four beats counted, then everyone comes in on the next one.",
+      "bpm": 90,
+      "steps": [
+        {
+          "midi": [
+            72
+          ],
+          "label": "1"
+        },
+        {
+          "midi": [
+            72
+          ],
+          "label": "2"
+        },
+        {
+          "midi": [
+            72
+          ],
+          "label": "3"
+        },
+        {
+          "midi": [
+            72
+          ],
+          "label": "4"
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "5",
+        "6",
+        "4"
+      ],
+      "style": "pop",
+      "bpm": 90
+    }
+  },
+  {
+    "id": "the-one",
+    "phrase": "on the one",
+    "aliases": [
+      "the downbeat",
+      "beat one"
+    ],
+    "category": "rhythm",
+    "meaning": "The first beat of each bar, where the music feels strongest. Chord changes almost always land on it.",
+    "whyItMatters": "If you know where the one is, you know when to change chord. Count \"1, 2, 3, 4\" and move on the 1.",
+    "sayIt": "Everybody hits the last chord on the one.",
+    "related": [],
+    "example": {
+      "caption": "Chords that change on each one: C, then G, then Am, then F.",
+      "bpm": 90,
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 4
+        },
+        {
+          "numeral": "5",
+          "beats": 4
+        },
+        {
+          "numeral": "6",
+          "beats": 4
+        },
+        {
+          "numeral": "4",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "5",
+        "6",
+        "4"
+      ],
+      "style": "rock",
+      "bpm": 100
+    }
+  },
+  {
+    "id": "four-on-the-floor",
+    "phrase": "four on the floor",
+    "aliases": [
+      "four to the floor"
+    ],
+    "category": "rhythm",
+    "meaning": "A bass drum on every beat: boom, boom, boom, boom. The beat of disco and dance music.",
+    "whyItMatters": "It is very steady, so it is the easiest beat to lock into. Short chords on the off beats (between the booms) sound great over it.",
+    "sayIt": "Go four on the floor for the last chorus.",
+    "related": [],
+    "example": {
+      "caption": "Short chords between the kicks, Am to F.",
+      "bpm": 120,
+      "steps": [
+        {
+          "numeral": "6",
+          "beats": 1
+        },
+        {
+          "numeral": "6",
+          "beats": 1
+        },
+        {
+          "numeral": "4",
+          "beats": 1
+        },
+        {
+          "numeral": "4",
+          "beats": 1
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "6",
+        "4",
+        "1",
+        "5"
+      ],
+      "style": "four-on-the-floor",
+      "bpm": 118
+    }
+  },
+  {
+    "id": "half-time",
+    "phrase": "half time",
+    "aliases": [
+      "half-time feel"
+    ],
+    "category": "rhythm",
+    "meaning": "The drums play as if the song were half as fast (the snare on beat 3 instead of 2 and 4), while the chords keep the same speed.",
+    "whyItMatters": "Half time makes a section feel bigger and heavier without slowing down. Hold your chords longer to match it.",
+    "sayIt": "Drop to half time in the bridge, then back to the full beat.",
+    "related": [],
+    "example": {
+      "caption": "Long, heavy chords: Am, F, C, G.",
+      "bpm": 84,
+      "steps": [
+        {
+          "numeral": "6",
+          "beats": 4
+        },
+        {
+          "numeral": "4",
+          "beats": 4
+        },
+        {
+          "numeral": "1",
+          "beats": 4
+        },
+        {
+          "numeral": "5",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "6",
+        "4",
+        "1",
+        "5"
+      ],
+      "style": "half-time",
+      "bpm": 84
+    }
+  },
+  {
+    "id": "shuffle",
+    "phrase": "shuffle",
+    "aliases": [
+      "swing",
+      "swung"
+    ],
+    "category": "rhythm",
+    "meaning": "A bouncy feel where each beat is split long-short (\"da-ba, da-ba\") instead of evenly.",
+    "whyItMatters": "Blues and a lot of old rock and roll are played with a shuffle. If straight notes sound stiff, the song is probably swung.",
+    "sayIt": "It's a shuffle; think long-short.",
+    "related": [
+      "12-bar-blues"
+    ],
+    "example": {
+      "caption": "The one and four of a blues in A.",
+      "key": "A",
+      "bpm": 100,
+      "steps": [
+        {
+          "numeral": "I7",
+          "beats": 4
+        },
+        {
+          "numeral": "IV7",
+          "beats": 4
+        },
+        {
+          "numeral": "I7",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "I7",
+        "IV7",
+        "I7",
+        "V7"
+      ],
+      "key": "A",
+      "style": "shuffle",
+      "bpm": 100
+    }
+  },
+  {
+    "id": "in-the-pocket",
+    "phrase": "in the pocket",
+    "aliases": [
+      "the pocket",
+      "groove",
+      "lock in"
+    ],
+    "category": "rhythm",
+    "meaning": "Playing steadily, right in time with the drums and bass, so the band sounds like one machine.",
+    "whyItMatters": "Being in the pocket matters more than playing lots of notes. A simple part right on the beat beats a busy part that drifts.",
+    "sayIt": "Keys, sit in the pocket with the bass; don't rush.",
+    "related": [],
+    "example": {
+      "caption": "One chord a bar, steady: C, Am, F, G.",
+      "bpm": 92,
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 4
+        },
+        {
+          "numeral": "6",
+          "beats": 4
+        },
+        {
+          "numeral": "4",
+          "beats": 4
+        },
+        {
+          "numeral": "5",
+          "beats": 4
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "6",
+        "4",
+        "5"
+      ],
+      "style": "pop",
+      "bpm": 92
+    }
+  },
+  {
+    "id": "hits",
+    "phrase": "hits",
+    "aliases": [
+      "stabs",
+      "band hits"
+    ],
+    "category": "rhythm",
+    "meaning": "Short, loud chords the whole band plays together at the same moment.",
+    "whyItMatters": "Hits only work if everyone lands together, so count carefully and lift your hands straight after.",
+    "sayIt": "There are three hits before the chorus: F, G, C, then silence.",
+    "related": [],
+    "example": {
+      "caption": "Three short hits: F, G, C.",
+      "bpm": 100,
+      "steps": [
+        {
+          "numeral": "4",
+          "beats": 1
+        },
+        {
+          "numeral": "5",
+          "beats": 1
+        },
+        {
+          "numeral": "1",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "comping",
+    "phrase": "comping",
+    "aliases": [
+      "comp",
+      "comp behind them"
+    ],
+    "category": "playing",
+    "meaning": "Playing the chords in a rhythm to back up a singer or soloist, without playing the tune.",
+    "whyItMatters": "Most of a keyboard player's time in a band is comping. Leave space for the singer and keep the rhythm steady.",
+    "sayIt": "Just comp behind me on the verses, I'll take the melody.",
+    "related": [
+      "chord"
+    ],
+    "example": {
+      "caption": "Chords on the beats, not the melody: C, Am, F, G.",
+      "steps": [
+        {
+          "numeral": "1",
+          "beats": 1
+        },
+        {
+          "numeral": "1",
+          "beats": 1
+        },
+        {
+          "numeral": "6",
+          "beats": 1
+        },
+        {
+          "numeral": "6",
+          "beats": 1
+        },
+        {
+          "numeral": "4",
+          "beats": 1
+        },
+        {
+          "numeral": "4",
+          "beats": 1
+        },
+        {
+          "numeral": "5",
+          "beats": 1
+        },
+        {
+          "numeral": "5",
+          "beats": 1
+        }
+      ]
+    },
+    "jam": {
+      "numerals": [
+        "1",
+        "6",
+        "4",
+        "5"
+      ],
+      "style": "pop",
+      "bpm": 92
+    }
+  },
+  {
+    "id": "fill",
+    "phrase": "fill",
+    "aliases": [
+      "a lick",
+      "a run"
+    ],
+    "category": "playing",
+    "meaning": "A short burst of notes in a gap, usually at the end of a phrase or section, before the next one starts.",
+    "whyItMatters": "Fills keep a song moving between lines. One short fill where the singer breathes beats ten that get in the way.",
+    "sayIt": "Give me a little fill going into the chorus.",
+    "related": [
+      "scale"
+    ],
+    "example": {
+      "caption": "Hold C, then a quick run G, A, B into the next C.",
+      "bpm": 100,
+      "steps": [
+        {
+          "midi": [
+            48,
+            52,
+            55
+          ],
+          "label": "C",
+          "beats": 3
+        },
+        {
+          "midi": [
+            67
+          ],
+          "label": "G",
+          "beats": 1
+        },
+        {
+          "midi": [
+            69
+          ],
+          "label": "A",
+          "beats": 1
+        },
+        {
+          "midi": [
+            71
+          ],
+          "label": "B",
+          "beats": 1
+        },
+        {
+          "midi": [
+            48,
+            52,
+            55,
+            72
+          ],
+          "label": "C",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "riff",
+    "phrase": "riff",
+    "aliases": [
+      "the hook line"
+    ],
+    "category": "playing",
+    "meaning": "A short pattern of notes that repeats through a song and is part of what makes it recognisable.",
+    "whyItMatters": "Learn the riff first and the song falls into place, because it often outlines the chords.",
+    "sayIt": "Bass and keys double the riff in the intro.",
+    "related": [],
+    "example": {
+      "caption": "A riff that walks up through the C chord and back.",
+      "bpm": 110,
+      "steps": [
+        {
+          "midi": [
+            48
+          ],
+          "label": "C"
+        },
+        {
+          "midi": [
+            52
+          ],
+          "label": "E"
+        },
+        {
+          "midi": [
+            55
+          ],
+          "label": "G"
+        },
+        {
+          "midi": [
+            57
+          ],
+          "label": "A"
+        },
+        {
+          "midi": [
+            55
+          ],
+          "label": "G"
+        },
+        {
+          "midi": [
+            52
+          ],
+          "label": "E"
+        },
+        {
+          "midi": [
+            48
+          ],
+          "label": "C",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "up-an-octave",
+    "phrase": "up an octave",
+    "aliases": [
+      "octave up",
+      "down an octave",
+      "8va"
+    ],
+    "category": "playing",
+    "meaning": "Play the same notes, but 12 keys higher (or lower), where they sound brighter (or deeper).",
+    "whyItMatters": "Moving a part up an octave keeps it out of the way of the bass and the singer without changing any notes.",
+    "sayIt": "Take that line up an octave; you're clashing with the guitar.",
+    "related": [
+      "octave"
+    ],
+    "example": {
+      "caption": "C, E, G low, then the same up an octave.",
+      "steps": [
+        {
+          "midi": [
+            48,
+            52,
+            55
+          ],
+          "label": "C low",
+          "beats": 2
+        },
+        {
+          "midi": [
+            60,
+            64,
+            67
+          ],
+          "label": "C up an octave",
+          "beats": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "let-it-ring",
+    "phrase": "let it ring",
+    "aliases": [
+      "hold it",
+      "fermata",
+      "the button"
+    ],
+    "category": "playing",
+    "meaning": "Hold the last chord and let it sound until the leader cuts everyone off together.",
+    "whyItMatters": "Endings sound tidy when everyone stops at the same moment. Watch the leader's hand, not your keys.",
+    "sayIt": "Let the last chord ring and watch me for the cut.",
+    "related": [
+      "tonic"
+    ],
+    "example": {
+      "caption": "G, then C held to the end.",
+      "bpm": 76,
+      "steps": [
+        {
+          "numeral": "5",
+          "beats": 2
+        },
+        {
+          "numeral": "1",
+          "beats": 8
+        }
+      ]
+    }
+  }
+]

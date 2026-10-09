@@ -1,0 +1,108 @@
+{
+  "id": "u8-l1",
+  "unitId": "unit-8",
+  "order": 1,
+  "title": "The pulse",
+  "summary": "Under every song is a steady pulse you can tap your foot to.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Beat",
+      "body": "Tap your foot to a song and you are tapping its **beat**: the steady pulse under the music, evenly spaced like a clock ticking.\n\n**Why it matters:** Everything in rhythm is measured in beats. A band stays together because everyone feels the same beat.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "tap any key"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Tap on any key",
+      "body": "In rhythm lessons any key works as a drum. Press it in time with the clicks.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "tap any key"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l1-p1",
+          "prompt": "Tap along with the clicks: 4 taps, one on each beat.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l1-p2",
+          "prompt": "Keep going for longer: 8 taps, one on each beat.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find the beat",
+      "body": "Put on a song you like and tap any key along with it. Try not to speed up or slow down."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l1-q1",
+          "prompt": "Tap a steady beat: 8 taps, one on each click.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

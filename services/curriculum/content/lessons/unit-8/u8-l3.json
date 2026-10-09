@@ -1,0 +1,112 @@
+{
+  "id": "u8-l3",
+  "unitId": "unit-8",
+  "order": 3,
+  "title": "Grouping beats",
+  "summary": "Beats come in groups, and each group has a name.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Bar",
+      "body": "Beats fall into groups, usually of four: ONE two three four, ONE two three four. Each group is a **bar** (also called a **measure**). The first beat of each bar feels strongest.\n\n**Why it matters:** Songs are counted in bars: \"the verse is 8 bars\", \"change chord every bar\". It is how a band knows where it is in a song.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "ONE two three four"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Count out loud",
+      "body": "Say \"ONE two three four\" as you tap, leaning on the ONE.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "ONE 2 3 4"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l3-p1",
+          "prompt": "Tap one bar of four beats, counting out loud: 4 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l3-p2",
+          "prompt": "Tap two bars of four beats: 8 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Count a song",
+      "body": "Play a song and count \"ONE two three four\" along with it. Notice the chords often change on ONE."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l3-q1",
+          "prompt": "Tap three bars of four beats: 12 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

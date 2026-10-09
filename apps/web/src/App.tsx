@@ -11,13 +11,17 @@ import { useKeySound } from './audio/useKeySound.js';
 import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
+import { BandTalkPage } from './pages/BandTalkPage.js';
 import { ChartEditPage } from './pages/ChartEditPage.js';
 import { ChartImportPage, ChartPage } from './pages/ChartPage.js';
 import { ChartsPage } from './pages/ChartsPage.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { HandSessionPage } from './pages/HandSessionPage.js';
+import { EarPage } from './pages/EarPage.js';
+import { EarSessionPage } from './pages/EarSessionPage.js';
 import { HandsPage } from './pages/HandsPage.js';
+import { JamPage } from './pages/JamPage.js';
 import { LessonPage } from './pages/LessonPage.js';
 import { PiecePage } from './pages/PiecePage.js';
 import { PiecesPage } from './pages/PiecesPage.js';
@@ -40,6 +44,9 @@ const NAV = [
   { id: 'lessons', label: 'Lessons', href: href.lessons },
   { id: 'hands', label: 'Hands', href: href.hands },
   { id: 'pieces', label: 'Pieces', href: href.pieces },
+  { id: 'ear', label: 'By Ear', href: href.ear },
+  { id: 'jam', label: 'Jam', href: href.jam() },
+  { id: 'bandtalk', label: 'Band talk', href: href.bandtalk() },
   { id: 'review', label: 'Review', href: href.review },
   { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
@@ -52,6 +59,8 @@ function section(route: Route): Section {
     case 'chords':
     case 'review':
     case 'progress':
+    case 'jam':
+    case 'bandtalk':
       return route.page;
     case 'hands':
     case 'hand':
@@ -59,6 +68,9 @@ function section(route: Route): Section {
     case 'pieces':
     case 'piece':
       return 'pieces';
+    case 'ear':
+    case 'ear-level':
+      return 'ear';
     case 'lessons':
     case 'lesson':
     case 'checkpoint':
@@ -155,6 +167,8 @@ export function App() {
           ? `hand-${route.id}`
           : route.page === 'piece'
             ? `piece-${route.id}`
+          : route.page === 'ear-level'
+            ? `ear-${route.id}`
             : route.page === 'chart' || route.page === 'chartEdit'
               ? `${route.page}-${route.id ?? 'new'}`
               : route.page;
@@ -211,6 +225,10 @@ export function App() {
             {route.page === 'hand' && <HandSessionPage id={route.id} settings={settings} />}
             {route.page === 'pieces' && <PiecesPage />}
             {route.page === 'piece' && <PiecePage id={route.id} settings={settings} />}
+            {route.page === 'ear' && <EarPage />}
+            {route.page === 'ear-level' && <EarSessionPage id={route.id} settings={settings} />}
+            {route.page === 'jam' && <JamPage setup={route.setup} settings={settings} />}
+            {route.page === 'bandtalk' && <BandTalkPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
             {route.page === 'charts' && <ChartsPage />}

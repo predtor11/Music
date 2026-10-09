@@ -186,6 +186,27 @@
   outline-offset: -6px;
 }
 
+/* A small dot near the front of the key: it fits, but isn't asked for. */
+.white[data-mark='fit']::before,
+.black[data-mark='fit']::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.white[data-mark='fit'][data-active]::before,
+.black[data-mark='fit'][data-active]::before {
+  background: var(--text-on-accent);
+}
+
 @keyframes key-shake {
   25% {
     transform: translateX(-2px);

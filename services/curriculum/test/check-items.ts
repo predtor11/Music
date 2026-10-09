@@ -145,6 +145,31 @@ function chordKind(shown: number[]): string | undefined {
   return Object.keys(CHORD_SHAPES).find((kind) => CHORD_SHAPES[kind]!.join() === shape);
 }
 
+/** Note lengths in beats (quarter-note beats). */
+const NOTE_BEATS: Record<string, number> = { whole: 4, half: 2, quarter: 1, eighth: 0.5, 'dotted half': 3, 'dotted quarter': 1.5 };
+/** Letters on the staff, from the bottom line up: line, space, line ... */
+const STAFF_LETTERS: Record<string, string[]> = { treble: ['E', 'F', 'G', 'A', 'B', 'C', 'D', 'E', 'F'], bass: ['G', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A'] };
+/** Lowest and highest MIDI note a clef is drawn for, ledger lines included. */
+const CLEF_RANGE: Record<string, [number, number]> = { treble: [55, 88], bass: [33, 67] };
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+
+/** Answers to questions about rhythm and the staff (Unit 8). undefined means the prompt is not one of these. */
+function isRightReadingAnswer(choice: string, prompt: string): boolean | undefined {
+  let m: RegExpExecArray | null;
+  if ((m = /^How many beats are in a bar of (\d+)\/(\d+)\?$/.exec(prompt))) return choice === m[1];
+  if ((m = /^How many (\w+) notes last as long as one ((?:dotted )?\w+) note\?$/.exec(prompt))) {
+    const [small, big] = [NOTE_BEATS[m[1]!], NOTE_BEATS[m[2]!]];
+    if (small === undefined || big === undefined) throw new Error(`unknown note length in: ${prompt}`);
+    return Number(choice) === big / small;
+  }
+  if ((m = /^Which is faster: (\d+) BPM or (\d+) BPM\?$/.exec(prompt))) return choice === `${Math.max(Number(m[1]), Number(m[2]))} BPM`;
+  if ((m = /^On the (treble|bass) clef, which note sits on the (\d)(?:st|nd|rd|th) (line|space) from the bottom\?$/.exec(prompt))) {
+    const n = Number(m[2]);
+    return choice === STAFF_LETTERS[m[1]!]![m[3] === 'line' ? (n - 1) * 2 : (n - 1) * 2 + 1];
+  }
+  return undefined;
+}
+
 /** Answers to questions about chords (Unit 4 on). undefined means the prompt is not one of these. */
 function isRightChordAnswer(choice: string, shown: number[], prompt: string): boolean | undefined {
   const sorted = [...shown].sort((a, b) => a - b);
@@ -283,6 +308,8 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
 
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const readingAnswer = isRightReadingAnswer(choice, prompt);
+  if (readingAnswer !== undefined) return readingAnswer;
   const chordAnswer = isRightChordAnswer(choice, shown, prompt);
   if (chordAnswer !== undefined) return chordAnswer;
   const keyAnswer = isRightKeyAnswer(choice, shown, prompt);
@@ -393,6 +420,37 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
         if (choice === item.answer && !right) problems.push(`answer ${choice} is wrong for the keys shown`);
         if (choice !== item.answer && right) problems.push(`choice ${choice} is also right, so the question is ambiguous`);
       }
+      break;
+    }
+    case 'tap-rhythm': {
+      // Onsets in order, each note over before the next starts, and "N taps" in the prompt matching.
+      const { onsets, durations } = item;
+      if (onsets.some((o, i) => i > 0 && o <= onsets[i - 1]!)) problems.push('onsets are not in order');
+      if (durations) {
+        if (durations.length !== onsets.length) problems.push('durations and onsets differ in length');
+        onsets.forEach((o, i) => {
+          const next = onsets[i + 1];
+          if (next !== undefined && o + durations[i]! > next + 1e-9) problems.push(`note ${i + 1} overlaps the next one`);
+        });
+      }
+      const taps = /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) taps?\b/.exec(item.prompt);
+      if (!taps) problems.push('prompt should say how many taps');
+      else {
+        const n = /^\d+$/.test(taps[1]!) ? Number(taps[1]) : NUMBER_WORDS.indexOf(taps[1]!);
+        if (n !== onsets.length) problems.push(`prompt says ${taps[1]} taps, but there are ${onsets.length} onsets`);
+      }
+      const sig = /\b(\d+)\/(\d+)\b/.exec(item.prompt);
+      if (sig && item.timeSignature.join('/') !== `${sig[1]}/${sig[2]}`) problems.push(`prompt says ${sig[0]}, but the time signature is ${item.timeSignature.join('/')}`);
+      const bpm = /\b(\d+) BPM\b/.exec(item.prompt);
+      if (bpm && Number(bpm[1]) !== item.bpm) problems.push(`prompt says ${bpm[0]}, but bpm is ${item.bpm}`);
+      break;
+    }
+    case 'read-staff': {
+      const [low, high] = CLEF_RANGE[item.clef]!;
+      for (const m of item.midi) if (m < low || m > high) problems.push(`midi ${m} is too far off the ${item.clef} staff`);
+      if (item.key && !parseKey(item.key)) problems.push(`key ${item.key} does not parse`);
+      if (noteTokens(item.prompt).length) problems.push('prompt should not name the notes; the staff shows them');
+      if (/\bchord\b/.test(item.prompt) !== item.midi.length > 1) problems.push('prompt should say "chord" exactly when more than one note is drawn');
       break;
     }
     case 'play-progression': {

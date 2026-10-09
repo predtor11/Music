@@ -2,6 +2,7 @@ export * from './services.js';
 export * from './identity.js';
 export * from './curriculum.js';
 export * from './technique.js';
+export * from './bandtalk.js';
 export * from './practice.js';
 export * from './progress.js';
 export * from './theory-api.js';

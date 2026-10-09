@@ -2033,5 +2033,331 @@
       "47": "B: 3rd",
       "53": "F: 7th"
     }
+  },
+  {
+    "id": "beat",
+    "term": "beat",
+    "meaning": "The steady pulse of music, the one you tap your foot or nod your head to.",
+    "whyItMatters": "Everything in rhythm is measured in beats. A band stays together because everyone feels the same beat.",
+    "lessonId": "u8-l1",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "tap any key"
+    }
+  },
+  {
+    "id": "tempo",
+    "term": "tempo",
+    "meaning": "The speed of the beat.",
+    "whyItMatters": "Bands agree the tempo before they start, and a drummer \"counts in\" at that tempo so everyone starts together.",
+    "lessonId": "u8-l2",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "tap any key"
+    }
+  },
+  {
+    "id": "bpm",
+    "term": "BPM",
+    "aliases": [
+      "beats per minute"
+    ],
+    "meaning": "Beats per minute: the number that measures tempo. 60 BPM is one beat a second.",
+    "whyItMatters": "Metronomes, drum machines and recording apps all use BPM. \"This one's about 90\" means 90 BPM.",
+    "lessonId": "u8-l2",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "tap any key"
+    }
+  },
+  {
+    "id": "bar",
+    "term": "bar",
+    "aliases": [
+      "measure"
+    ],
+    "meaning": "A group of beats, usually four, with the strongest on the first beat. Also called a measure.",
+    "whyItMatters": "Songs are counted in bars: \"the verse is 8 bars\", \"change chord every bar\". It is how a band knows where it is in a song.",
+    "lessonId": "u8-l3",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "ONE two three four"
+    }
+  },
+  {
+    "id": "quarter-note",
+    "term": "quarter note",
+    "meaning": "A note one beat long. Four fill a bar of four beats.",
+    "whyItMatters": "It is the basic unit you count in. When you tap a steady beat you are tapping quarter notes.",
+    "lessonId": "u8-l4",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "1 beat"
+    }
+  },
+  {
+    "id": "half-note",
+    "term": "half note",
+    "meaning": "A note two beats long. Two fill a bar of four beats.",
+    "whyItMatters": "Long notes give music room to breathe. Ballad chords often last a half note or longer.",
+    "lessonId": "u8-l4",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "2 beats"
+    }
+  },
+  {
+    "id": "whole-note",
+    "term": "whole note",
+    "meaning": "A note four beats long: a whole bar of four beats.",
+    "whyItMatters": "On a chart, a chord held for a whole note means \"play it once and let it ring for the bar\".",
+    "lessonId": "u8-l4",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "4 beats"
+    }
+  },
+  {
+    "id": "time-signature",
+    "term": "time signature",
+    "meaning": "Two stacked numbers at the start of music: the top is beats per bar, the bottom is which note gets one beat.",
+    "whyItMatters": "It tells you how to count before you play a note, so the strong beats land in the right place.",
+    "lessonId": "u8-l5",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "tap any key"
+    }
+  },
+  {
+    "id": "four-four",
+    "term": "4/4",
+    "aliases": [
+      "common time"
+    ],
+    "meaning": "Four beats in a bar, each a quarter note. Also called common time.",
+    "whyItMatters": "Almost all pop, rock and hip hop is in 4/4. If you are not sure how a song counts, try four.",
+    "lessonId": "u8-l5",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "1 2 3 4"
+    }
+  },
+  {
+    "id": "eighth-note",
+    "term": "eighth note",
+    "meaning": "A note half a beat long in 4/4. Two fill one beat; eight fill a bar.",
+    "whyItMatters": "Eighth notes drive most rock and pop: the steady \"chug\" of a guitar or the hi-hat of a drum kit.",
+    "lessonId": "u8-l6",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "1 and 2 and"
+    }
+  },
+  {
+    "id": "rest",
+    "term": "rest",
+    "meaning": "A written silence that lasts a set number of beats, like a note you don't play.",
+    "whyItMatters": "Rests are what make a rhythm groove. The gaps between notes matter as much as the notes.",
+    "lessonId": "u8-l7",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "1 2 (rest) 4"
+    }
+  },
+  {
+    "id": "dotted-note",
+    "term": "dotted note",
+    "meaning": "A note with a dot after it, which lasts half as long again: a dotted half note is 3 beats.",
+    "whyItMatters": "The dotted quarter then eighth is one of the most common rhythms in pop, the \"long-short\" swing of countless choruses.",
+    "lessonId": "u8-l8",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "3 beats"
+    }
+  },
+  {
+    "id": "tie",
+    "term": "tie",
+    "meaning": "A curved line joining two notes of the same pitch, so they sound as one long note.",
+    "whyItMatters": "Ties let a note last across a bar line, which no single note can show.",
+    "lessonId": "u8-l8",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "one tap, held"
+    }
+  },
+  {
+    "id": "three-four",
+    "term": "3/4",
+    "meaning": "Three beats in a bar, each a quarter note: waltz time.",
+    "whyItMatters": "Waltzes, many folk songs and some ballads (like Norwegian Wood) are in 3/4. Counting four to them feels wrong at once.",
+    "lessonId": "u8-l9",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "ONE 2 3"
+    }
+  },
+  {
+    "id": "six-eight",
+    "term": "6/8",
+    "meaning": "Six eighth-note beats in a bar, felt as two groups of three.",
+    "whyItMatters": "It has a rolling, lilting feel heard in slow soul ballads and Irish jigs. House of the Rising Sun is in 6/8.",
+    "lessonId": "u8-l9",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "ONE 2 3 FOUR 5 6"
+    }
+  },
+  {
+    "id": "syncopation",
+    "term": "syncopation",
+    "meaning": "Accenting the off-beats (the \"and\"s) instead of the main beats.",
+    "whyItMatters": "It is what makes funk, reggae, Latin music and most modern pop groove. Without it, rhythms sound stiff.",
+    "lessonId": "u8-l10",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "1 (2) & (3) & 4"
+    }
+  },
+  {
+    "id": "staff",
+    "term": "staff",
+    "aliases": [
+      "stave"
+    ],
+    "meaning": "The five lines (and four spaces) that written notes sit on. Higher on the staff means higher in pitch.",
+    "whyItMatters": "Reading the staff opens up every songbook and piano part. Even a little reading helps you check a melody you are learning by ear.",
+    "lessonId": "u8-l11",
+    "exampleMidi": [
+      64,
+      65,
+      67,
+      69,
+      71,
+      72,
+      74,
+      76,
+      77
+    ],
+    "labels": {
+      "64": "line",
+      "65": "space",
+      "67": "line",
+      "69": "space",
+      "71": "line",
+      "72": "space",
+      "74": "line",
+      "76": "space",
+      "77": "line"
+    }
+  },
+  {
+    "id": "treble-clef",
+    "term": "treble clef",
+    "aliases": [
+      "G clef"
+    ],
+    "meaning": "The clef for higher notes, usually the right hand. Its lines are E G B D F and its spaces F A C E.",
+    "whyItMatters": "Melodies and the right-hand part of piano music are written in treble clef. It is the first clef most people learn.",
+    "lessonId": "u8-l12",
+    "exampleMidi": [
+      64,
+      67,
+      71,
+      74,
+      77,
+      65,
+      69,
+      72,
+      76
+    ],
+    "labels": {
+      "64": "E line",
+      "65": "F space",
+      "67": "G line",
+      "69": "A space",
+      "71": "B line",
+      "72": "C space",
+      "74": "D line",
+      "76": "E space",
+      "77": "F line"
+    }
+  },
+  {
+    "id": "bass-clef",
+    "term": "bass clef",
+    "aliases": [
+      "F clef"
+    ],
+    "meaning": "The clef for lower notes, usually the left hand. Its lines are G B D F A and its spaces A C E G.",
+    "whyItMatters": "Bass lines and the left-hand part of piano music are written in bass clef, so it is the clef that shows you what the bass player plays.",
+    "lessonId": "u8-l13",
+    "exampleMidi": [
+      43,
+      47,
+      50,
+      53,
+      57,
+      45,
+      48,
+      52,
+      55
+    ],
+    "labels": {
+      "43": "G line",
+      "45": "A space",
+      "47": "B line",
+      "48": "C space",
+      "50": "D line",
+      "52": "E space",
+      "53": "F line",
+      "55": "G space",
+      "57": "A line"
+    }
+  },
+  {
+    "id": "ledger-line",
+    "term": "ledger line",
+    "meaning": "A short extra line above or below the staff for notes outside its five lines.",
+    "whyItMatters": "Middle C, and many melody notes, are written on ledger lines. Seeing middle C on one is your anchor between the two clefs.",
+    "lessonId": "u8-l14",
+    "exampleMidi": [
+      60
+    ],
+    "labels": {
+      "60": "middle C: one ledger line"
+    }
   }
 ]

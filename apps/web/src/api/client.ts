@@ -6,6 +6,8 @@
 
 import {
   AttemptSchema,
+  BandTalkSchema,
+  GlossarySchema,
   EndSessionResponseSchema,
   LessonSchema,
   NextItemSchema,
@@ -16,8 +18,10 @@ import {
   TechniqueSessionSchema,
   UnitListSchema,
   type Attempt,
+  type BandTalkTerm,
   type CreateSession,
   type EndSessionResponse,
+  type GlossaryTerm,
   type Lesson,
   type ProgressReport,
   type Session,
@@ -132,4 +136,14 @@ export async function getTechniqueSessions(): Promise<TechniqueSummary[]> {
 
 export async function getTechniqueSession(id: string): Promise<TechniqueSession> {
   return TechniqueSessionSchema.parse(await call(`/curriculum/technique/${encodeURIComponent(id)}`));
+}
+
+/** The band-talk cheat sheet: what musicians say, with examples. */
+export async function getBandTalk(): Promise<BandTalkTerm[]> {
+  return BandTalkSchema.parse(await call('/curriculum/bandtalk'));
+}
+
+/** Every glossary term the course teaches, in teaching order. */
+export async function getGlossary(): Promise<GlossaryTerm[]> {
+  return GlossarySchema.parse(await call('/curriculum/glossary'));
 }
