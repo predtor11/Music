@@ -49,6 +49,21 @@ describe('recordings service', () => {
     expect((await a.inject({ url: `/takes/${saved.id}`, headers })).statusCode).toBe(404);
   });
 
+  it('keeps the take as played when the notes are edited', async () => {
+    const a = app();
+    const saved = (await a.inject({ method: 'POST', url: '/takes', headers, payload: { title: 'Messy', take: TAKE } })).json();
+    expect(saved.original).toBeNull();
+    const trimmed = { ...TAKE, notes: TAKE.notes.slice(0, 2) };
+    const first = RecordingSchema.parse((await a.inject({ method: 'PATCH', url: `/takes/${saved.id}`, headers, payload: { take: trimmed } })).json());
+    expect(first).toMatchObject({ take: trimmed, original: TAKE, noteCount: 2 });
+    // A second edit does not overwrite the original.
+    const fewer = { ...TAKE, notes: TAKE.notes.slice(0, 1) };
+    const second = (await a.inject({ method: 'PATCH', url: `/takes/${saved.id}`, headers, payload: { take: fewer } })).json();
+    expect(second).toMatchObject({ take: fewer, original: TAKE, noteCount: 1 });
+    const list = (await a.inject({ url: '/takes', headers })).json();
+    expect(list[0].noteCount).toBe(1);
+  });
+
   it("keeps each person's recordings to themselves", async () => {
     const a = app();
     const saved = (await a.inject({ method: 'POST', url: '/takes', headers, payload: { title: 'Mine', take: TAKE } })).json();

@@ -11,6 +11,7 @@ import { Badge, Button, Card, Select, fadeUp, stagger } from '@music/ui';
 import { motion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { playChord } from '../audio/sound.js';
+import { NoteEditor } from './NoteEditor.js';
 import { importChart } from '../charts/store.js';
 import { href } from '../router.js';
 import { TakePlayer } from './playback.js';
@@ -35,6 +36,10 @@ export interface TakeViewProps {
   naming: NoteNaming;
   onKey: (key: string | null) => void;
   onCorrections: (corrections: ChordCorrection[]) => void;
+  /** The take as played, once it has been edited. */
+  original?: Take | null;
+  /** Called with the new notes after each edit. Without it the notes can't be edited. */
+  onTake?: (take: Take) => void;
   /** Extra buttons next to Play and Export (Save, Delete). */
   actions?: ReactNode;
 }
@@ -48,7 +53,7 @@ function chordName(seg: ChordSegment, naming: NoteNaming): string {
   return seg.chord.symbol;
 }
 
-export function TakeView({ take, title, keyOverride, corrections, naming, onKey, onCorrections, actions }: TakeViewProps) {
+export function TakeView({ take, title, keyOverride, corrections, naming, onKey, onCorrections, original = null, onTake, actions }: TakeViewProps) {
   const analysis: Analysis = useMemo(() => analyseTake(take, title, keyOverride, corrections), [take, title, keyOverride, corrections]);
   // analysis.key is what the app heard; the numbers count from the learner's key when they picked one.
   const key = (keyOverride && parseKey(keyOverride)) || analysis.key.key;
@@ -211,6 +216,12 @@ export function TakeView({ take, title, keyOverride, corrections, naming, onKey,
           </p>
         </Card>
       </motion.div>
+
+      {onTake && (
+        <motion.div variants={fadeUp}>
+          <NoteEditor take={take} original={original} analysis={analysis} musicKey={key} time={time} onSeek={seek} onTake={onTake} />
+        </motion.div>
+      )}
 
       {sel && selected !== null && (
         <motion.div variants={fadeUp} initial="hidden" animate="show">

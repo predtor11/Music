@@ -5,7 +5,7 @@
  * one. Saved recordings are listed underneath.
  */
 
-import type { ChordCorrection, Recording, Take, UserSettings } from '@music/contracts';
+import { editedTake, type ChordCorrection, type Recording, type Take, type UserSettings } from '@music/contracts';
 import { Badge, Button, Card, fadeUp, stagger } from '@music/ui';
 import { motion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -24,6 +24,8 @@ interface Draft {
   source: 'played' | 'imported';
   keyOverride: string | null;
   corrections: ChordCorrection[];
+  /** The take as played, once the notes have been edited. */
+  original: Take | null;
 }
 
 const defaultTitle = () => `Recording ${new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}`;
@@ -72,14 +74,14 @@ function Recorder({ onTake }: { onTake: (draft: Draft) => void }) {
     recorder.current = null;
     setRecording(false);
     if (take.notes.length === 0) return setError('Nothing was played. Press record, play something, then press stop.');
-    onTake({ take, title: defaultTitle(), source: 'played', keyOverride: null, corrections: [] });
+    onTake({ take, title: defaultTitle(), source: 'played', keyOverride: null, corrections: [], original: null });
   };
 
   const importFile = async (f: File) => {
     setError(null);
     try {
       const { take, title } = midiToTake(new Uint8Array(await f.arrayBuffer()));
-      onTake({ take, title: title || f.name.replace(/\.(mid|midi|kar)$/i, ''), source: 'imported', keyOverride: null, corrections: [] });
+      onTake({ take, title: title || f.name.replace(/\.(mid|midi|kar)$/i, ''), source: 'imported', keyOverride: null, corrections: [], original: null });
     } catch (err) {
       setError((err as Error).message);
     }
@@ -177,7 +179,7 @@ export function RecordPage({ settings }: { settings: UserSettings }) {
     setSaving(true);
     setError(null);
     try {
-      const saved = await store.create({ title: draft.title.trim() || defaultTitle(), source: draft.source, take: draft.take, keyOverride: draft.keyOverride, corrections: draft.corrections });
+      const saved = await store.create({ title: draft.title.trim() || defaultTitle(), source: draft.source, take: draft.take, keyOverride: draft.keyOverride, corrections: draft.corrections, original: draft.original });
       location.hash = href.recording(saved.id);
     } catch (err) {
       setError((err as Error).message);
@@ -230,6 +232,8 @@ export function RecordPage({ settings }: { settings: UserSettings }) {
             naming={settings.noteNaming}
             onKey={(keyOverride) => patch({ keyOverride })}
             onCorrections={(corrections) => patch({ corrections })}
+            original={draft.original}
+            onTake={(take) => setDraft((d) => (d ? { ...d, take, original: d.original ?? d.take } : d))}
           />
         </motion.div>
       )}
@@ -274,8 +278,8 @@ export function RecordingPage({ id, settings }: { id: string; settings: UserSett
   }
 
   const r = state.recording;
-  const update = (p: Partial<Pick<Recording, 'title' | 'keyOverride' | 'corrections'>>) => {
-    setState({ status: 'ready', recording: { ...r, ...p } });
+  const update = (p: Partial<Pick<Recording, 'title' | 'keyOverride' | 'corrections' | 'take'>>) => {
+    setState({ status: 'ready', recording: { ...r, ...p, ...(p.take ? editedTake(r, { take: p.take }) : {}) } });
     setSaveError(null);
     store?.update(r.id, p).catch((err: Error) => setSaveError(`Couldn't save that change: ${err.message}`));
   };
@@ -316,6 +320,8 @@ export function RecordingPage({ id, settings }: { id: string; settings: UserSett
         naming={settings.noteNaming}
         onKey={(keyOverride) => update({ keyOverride })}
         onCorrections={(corrections) => update({ corrections })}
+        original={r.original}
+        onTake={(take) => update({ take })}
         actions={
           <Button variant="ghost" onClick={() => void remove()} data-testid="recording-delete">
             Delete

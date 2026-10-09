@@ -76,6 +76,8 @@ export const CreateRecordingSchema = z.object({
   /** A key the learner picked instead of the one the app detected, for example "G" or "Em". */
   keyOverride: z.string().max(8).nullable().default(null),
   corrections: z.array(ChordCorrectionSchema).max(2000).default([]),
+  /** The take as it was played, when `take` is an edited version of it. */
+  original: TakeSchema.nullable().default(null),
 });
 export type CreateRecording = z.input<typeof CreateRecordingSchema>;
 
@@ -85,9 +87,25 @@ export const UpdateRecordingSchema = z
     title: z.string().trim().min(1).max(120),
     keyOverride: z.string().max(8).nullable(),
     corrections: z.array(ChordCorrectionSchema).max(2000),
+    /** The edited notes. The service keeps the take as first saved in `original`. */
+    take: TakeSchema,
   })
   .partial();
 export type UpdateRecording = z.infer<typeof UpdateRecordingSchema>;
+
+/**
+ * What an edit of the notes does to a recording. The first edit keeps the take
+ * as played in `original`, and later edits leave it alone; the summary numbers
+ * follow the edited take. Shared by the service and the browser-only store.
+ */
+export function editedTake(
+  existing: Pick<Recording, 'take' | 'original'>,
+  patch: Pick<UpdateRecording, 'take'>,
+): Pick<Recording, 'take' | 'original' | 'durationMs' | 'noteCount'> {
+  const take = patch.take ?? existing.take;
+  const original = patch.take ? existing.original ?? existing.take : existing.original;
+  return { take, original, durationMs: take.durationMs, noteCount: take.notes.length };
+}
 
 export const RecordingSummarySchema = z.object({
   id: z.string().uuid(),
@@ -108,5 +126,7 @@ export const RecordingListSchema = z.array(RecordingSummarySchema);
 export const RecordingSchema = RecordingSummarySchema.extend({
   take: TakeSchema,
   corrections: z.array(ChordCorrectionSchema),
+  /** The take before any editing, or null when it has never been edited. */
+  original: TakeSchema.nullable().default(null),
 });
 export type Recording = z.infer<typeof RecordingSchema>;

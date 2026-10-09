@@ -1,4 +1,4 @@
-import type { Recording, RecordingSummary, UpdateRecording } from '@music/contracts';
+import { editedTake, type Recording, type RecordingSummary, type UpdateRecording } from '@music/contracts';
 
 /** Where recordings live: Postgres (schema `recordings`) in production, memory in tests and local runs. */
 export interface RecordingStore {
@@ -15,7 +15,7 @@ export interface RecordingStore {
 }
 
 export function summaryOf(r: Recording): RecordingSummary {
-  const { take: _take, corrections: _corrections, ...summary } = r;
+  const { take: _take, corrections: _corrections, original: _original, ...summary } = r;
   return summary;
 }
 
@@ -42,7 +42,7 @@ export class InMemoryRecordingStore implements RecordingStore {
   async update(userId: string, id: string, patch: UpdateRecording, updatedAt: string): Promise<Recording | null> {
     const existing = await this.get(userId, id);
     if (!existing) return null;
-    const updated = { ...existing, ...patch, updatedAt };
+    const updated = { ...existing, ...patch, ...editedTake(existing, patch), updatedAt };
     this.rows.set(id, { userId, recording: updated });
     return updated;
   }

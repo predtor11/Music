@@ -10,6 +10,7 @@ import {
   type Recording,
   type RecordingSummary,
   CreateRecordingSchema,
+  editedTake,
   type UpdateRecording,
 } from '@music/contracts';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -77,6 +78,7 @@ export const browserStore: RecordingStore = {
       updatedAt: at,
       take: body.take,
       corrections: body.corrections,
+      original: body.original,
     };
     writeLocal([...readLocal(), recording]);
     return recording;
@@ -85,7 +87,7 @@ export const browserStore: RecordingStore = {
     const list = readLocal();
     const i = list.findIndex((r) => r.id === id);
     if (i < 0) throw new Error('That recording is gone. It may have been deleted in another tab.');
-    const updated = { ...list[i]!, ...patch, updatedAt: new Date().toISOString() };
+    const updated = { ...list[i]!, ...patch, ...editedTake(list[i]!, patch), updatedAt: new Date().toISOString() };
     list[i] = updated;
     writeLocal(list);
     return updated;

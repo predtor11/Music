@@ -93,3 +93,65 @@ test('says so when nothing was played or the file is not MIDI', async ({ page })
   await page.getByTestId('rec-import-file').setInputFiles({ name: 'notes.mid', mimeType: 'audio/midi', buffer: Buffer.from('hello') });
   await expect(page.getByTestId('rec-error')).toContainText('MIDI');
 });
+
+test('cleans up a stray note, edits notes, and keeps what you played', async ({ page, midi }) => {
+  await page.getByTestId('rec-toggle').click();
+  // A key brushed for a blink, outside the key, in the middle of the first chord.
+  await midi.on(G.G2, G.B3, G.D4);
+  await page.waitForTimeout(200);
+  await midi.on(56);
+  await midi.off(56);
+  await page.waitForTimeout(300);
+  await midi.off(G.G2, G.B3, G.D4);
+  await page.waitForTimeout(100);
+  const rest = [
+    [G.D3, G.Fs3, G.A3],
+    [G.E3, G.G3, G.B3],
+    [G.C3, G.E3, G.G3],
+  ];
+  for (const c of rest) {
+    await midi.on(...c);
+    await page.waitForTimeout(500);
+    await midi.off(...c);
+    await page.waitForTimeout(40);
+  }
+  await page.getByTestId('rec-toggle').click();
+
+  const notes = page.getByTestId('ed-note');
+  await expect(notes).toHaveCount(13);
+  const suggestion = page.locator('[data-testid="ed-suggestion"][data-kind="remove"]');
+  await expect(suggestion).toHaveCount(1);
+  await expect(suggestion).toContainText('G#3');
+
+  // Accept, undo, redo.
+  await page.getByTestId('ed-accept').click();
+  await expect(notes).toHaveCount(12);
+  await page.getByTestId('ed-undo').click();
+  await expect(notes).toHaveCount(13);
+  await page.getByTestId('ed-redo').click();
+  await expect(notes).toHaveCount(12);
+  await expect(page.getByTestId('ed-clean-none')).toBeVisible();
+
+  // Pick a note and delete it with the keyboard.
+  await notes.first().click();
+  await expect(page.getByTestId('ed-status')).toContainText('long');
+  await page.keyboard.press('Delete');
+  await expect(notes).toHaveCount(11);
+
+  // Move a note up a semitone with the arrow keys.
+  const before = Number(await notes.first().getAttribute('data-midi'));
+  await notes.first().click();
+  await page.keyboard.press('ArrowUp');
+  await expect(notes.first()).toHaveAttribute('data-midi', String(before + 1));
+
+  await page.getByTestId('rec-save').click();
+  await expect(page).toHaveURL(/#\/record\/[0-9a-f-]{36}$/);
+  await expect(page.getByTestId('ed-note')).toHaveCount(11);
+
+  // The take as played came along, and can come back.
+  await expect(page.getByTestId('ed-original')).toBeVisible();
+  await page.getByTestId('ed-original').click();
+  await expect(page.getByTestId('ed-note')).toHaveCount(13);
+  await page.reload();
+  await expect(page.getByTestId('ed-note')).toHaveCount(13);
+});
