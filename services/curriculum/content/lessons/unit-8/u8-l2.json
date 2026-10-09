@@ -1,0 +1,132 @@
+{
+  "id": "u8-l2",
+  "unitId": "unit-8",
+  "order": 2,
+  "title": "How fast",
+  "summary": "The speed of the beat has a name and a number.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Tempo",
+      "body": "How fast the beat goes is the **tempo**. A ballad has a slow tempo; a dance track has a fast one.\n\n**Why it matters:** Bands agree the tempo before they start, and a drummer \"counts in\" at that tempo so everyone starts together.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "tap any key"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "BPM",
+      "body": "Tempo is measured in **BPM**, beats per minute. 60 BPM is one beat a second, like a clock. 120 BPM is two beats a second.\n\n**Why it matters:** Metronomes, drum machines and recording apps all use BPM. \"This one's about 90\" means 90 BPM.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "tap any key"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Slow and fast",
+      "body": "60 BPM is one beat a second. 120 BPM fits two beats in the same second.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "60 or 120 BPM"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l2-p1",
+          "prompt": "Tap at 60 BPM, once each second: 4 taps.",
+          "bpm": 60,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l2-p2",
+          "prompt": "Now faster, at 120 BPM: 8 taps.",
+          "bpm": 120,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Guess the tempo",
+      "body": "Tap along with a song and count your taps for 15 seconds. Multiply by 4 and you have its BPM."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l2-q1",
+          "prompt": "Which is faster: 60 BPM or 120 BPM?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "60 BPM",
+            "120 BPM"
+          ],
+          "answer": "120 BPM"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l2-q2",
+          "prompt": "Tap at 90 BPM: 8 taps.",
+          "bpm": 90,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

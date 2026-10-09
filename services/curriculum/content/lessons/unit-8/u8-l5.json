@@ -1,0 +1,130 @@
+{
+  "id": "u8-l5",
+  "unitId": "unit-8",
+  "order": 5,
+  "title": "Counting in four",
+  "summary": "Two numbers at the start of the music say how to count.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Time signature",
+      "body": "Written music starts with two stacked numbers called the **time signature**. The top number is how many beats are in a bar. The bottom number says which note gets one beat.\n\n**Why it matters:** It tells you how to count before you play a note, so the strong beats land in the right place.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "tap any key"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "4/4",
+      "body": "The most common time signature is **4/4**: four beats in a bar, each one a quarter note. It is so common it is also called common time.\n\n**Why it matters:** Almost all pop, rock and hip hop is in 4/4. If you are not sure how a song counts, try four.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 2 3 4"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Reading 4/4",
+      "body": "Top 4: four beats in each bar. Bottom 4: each beat is a quarter note.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "4 beats, quarter = 1"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l5-p1",
+          "prompt": "Tap two bars of 4/4: 8 taps.",
+          "bpm": 80,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "name-it",
+          "id": "u8-l5-p2",
+          "prompt": "How many beats are in a bar of 4/4?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "4"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Feel the four",
+      "body": "Tap 4/4 with your left hand and play a C chord with your right on every ONE."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l5-q1",
+          "prompt": "How many beats are in a bar of 4/4?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "3",
+            "4",
+            "8"
+          ],
+          "answer": "4"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l5-q2",
+          "prompt": "Tap two bars of 4/4 at 100 BPM: 8 taps.",
+          "bpm": 100,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

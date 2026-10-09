@@ -80,7 +80,7 @@
     {
       "type": "explore",
       "title": "Read a chart",
-      "body": "Play this row of chord symbols, four beats each: C, Am, F, G. That is the chord pattern of many 1950s songs."
+      "body": "Play this row of chord symbols, giving each one the same length: C, Am, F, G. That is the chord pattern of many 1950s songs."
     },
     {
       "type": "quiz",

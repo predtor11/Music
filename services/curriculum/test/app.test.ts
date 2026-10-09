@@ -14,7 +14,7 @@ describe('curriculum service', () => {
     const res = await app.inject({ url: '/units' });
     expect(res.statusCode).toBe(200);
     const units = UnitListSchema.parse(res.json());
-    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7']);
+    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8']);
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
@@ -27,7 +27,7 @@ describe('curriculum service', () => {
   });
 
   it('returns every lesson a unit lists', async () => {
-    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7']) {
+    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8']) {
       const unit = UnitSchema.parse((await app.inject({ url: `/units/${unitId}` })).json());
       for (const id of unit.lessonIds) {
         const res = await app.inject({ url: `/lessons/${id}` });

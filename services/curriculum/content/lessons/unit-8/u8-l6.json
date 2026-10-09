@@ -1,0 +1,122 @@
+{
+  "id": "u8-l6",
+  "unitId": "unit-8",
+  "order": 6,
+  "title": "Smaller notes",
+  "summary": "Split a beat in two and you get eighth notes.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Eighth note",
+      "body": "Split a beat into two equal halves and each half is an **eighth note**. Count them \"1 and 2 and 3 and 4 and\". Eighth notes are drawn with a flag, or joined in pairs by a beam.\n\n**Why it matters:** Eighth notes drive most rock and pop: the steady \"chug\" of a guitar or the hi-hat of a drum kit.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 and 2 and"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Counting eighths",
+      "body": "Say \"1 and 2 and 3 and 4 and\", tapping on every word.",
+      "highlightMidi": [
+        60
+      ],
+      "labels": {
+        "60": "1 & 2 & 3 & 4 &"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l6-p1",
+          "prompt": "Tap eight eighth notes, counting \"1 and 2 and\": 8 taps.",
+          "bpm": 60,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3,
+            3.5
+          ],
+          "toleranceMs": 150
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l6-p2",
+          "prompt": "Tap two quarter notes, then four eighth notes: 6 taps.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            1,
+            2,
+            2.5,
+            3,
+            3.5
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Eighth-note chords",
+      "body": "Play a C chord in eighth notes for a bar, then F, then G. That is the classic rock rhythm."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u8-l6-q1",
+          "prompt": "How many eighth notes last as long as one quarter note?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": "2"
+        },
+        {
+          "kind": "tap-rhythm",
+          "id": "u8-l6-q2",
+          "prompt": "Tap four eighth notes, then two quarter notes: 6 taps.",
+          "bpm": 70,
+          "timeSignature": [
+            4,
+            4
+          ],
+          "onsets": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            3
+          ],
+          "toleranceMs": 150
+        }
+      ]
+    }
+  ]
+}

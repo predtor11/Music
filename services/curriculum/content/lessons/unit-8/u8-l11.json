@@ -1,0 +1,114 @@
+{
+  "id": "u8-l11",
+  "unitId": "unit-8",
+  "order": 11,
+  "title": "The five lines",
+  "summary": "Written notes sit on five lines; higher on the lines means higher in pitch.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Staff",
+      "body": "Written notes sit on a **staff**: five lines with four spaces between them. Each line and each space is one letter of the musical alphabet. The higher a note sits on the staff, the higher its pitch, and the further right you go on the keyboard.\n\n**Why it matters:** Reading the staff opens up every songbook and piano part. Even a little reading helps you check a melody you are learning by ear.",
+      "exampleMidi": [
+        64,
+        65,
+        67,
+        69,
+        71,
+        72,
+        74,
+        76,
+        77
+      ],
+      "labels": {
+        "64": "line",
+        "65": "space",
+        "67": "line",
+        "69": "space",
+        "71": "line",
+        "72": "space",
+        "74": "line",
+        "76": "space",
+        "77": "line"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Line, space, line",
+      "body": "Going up the staff, notes go line, space, line, space: one white key at a time.",
+      "highlightMidi": [
+        64,
+        65,
+        67
+      ],
+      "labels": {
+        "64": "E: line",
+        "65": "F: space",
+        "67": "G: line"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l11-p1",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            64
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l11-p2",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            65
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l11-p3",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            67
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Step and skip",
+      "body": "Notes that go line to the next space move one white key. Line to the next line skips one white key."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l11-q1",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            69
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l11-q2",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            71
+          ]
+        }
+      ]
+    }
+  ]
+}

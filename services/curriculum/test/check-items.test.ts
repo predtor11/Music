@@ -125,4 +125,20 @@ describe('checkItem', () => {
     expect(checkItem({ ...share, answer: 'G' })).toEqual([]);
     expect(checkItem({ ...share, answer: 'C' })).not.toEqual([]);
   });
+
+  it('checks rhythms, staff reading and note-length questions', () => {
+    const tap = { kind: 'tap-rhythm' as const, id: 'x', prompt: 'Tap a half note, then two quarter notes: 3 taps.', bpm: 80, timeSignature: [4, 4] as [number, number], toleranceMs: 150 };
+    expect(checkItem({ ...tap, onsets: [0, 2, 3], durations: [2, 1, 1] })).toEqual([]);
+    expect(checkItem({ ...tap, onsets: [0, 1, 3], durations: [2, 1, 1] })).not.toEqual([]);
+    expect(checkItem({ ...tap, onsets: [0, 2] })).not.toEqual([]);
+    const read = { kind: 'read-staff' as const, id: 'x', prompt: 'Play the note on the staff.', clef: 'bass' as const };
+    expect(checkItem({ ...read, midi: [50] })).toEqual([]);
+    expect(checkItem({ ...read, midi: [84] })).not.toEqual([]);
+    const line = { kind: 'name-it' as const, id: 'x', prompt: 'On the treble clef, which note sits on the 3rd line from the bottom?', shownMidi: [71], choices: ['A', 'B'] };
+    expect(checkItem({ ...line, answer: 'B' })).toEqual([]);
+    expect(checkItem({ ...line, answer: 'A' })).not.toEqual([]);
+    const length = { kind: 'name-it' as const, id: 'x', prompt: 'How many quarter notes last as long as one dotted half note?', shownMidi: [60], choices: ['2', '3'] };
+    expect(checkItem({ ...length, answer: '3' })).toEqual([]);
+    expect(checkItem({ ...length, answer: '2' })).not.toEqual([]);
+  });
 });
