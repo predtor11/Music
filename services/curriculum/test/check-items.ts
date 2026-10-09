@@ -124,6 +124,20 @@ function numeralPcs(numeral: string, key: string): number[] {
 }
 const NUMERAL_CHORD = new RegExp(`^In (${NOTE} major), play the (\\S+) chord\\.`);
 
+const INVERSIONS = ['root position', 'first inversion', 'second inversion', 'third inversion'];
+const INVERSION = /\bin (root position|first inversion|second inversion|third inversion)\b/;
+const LOWEST_NAMED = new RegExp(`\\bwith (${NOTE}) lowest\\b`);
+
+/** A chord in any voicing: its root and its chord type, or undefined. */
+function identify(shown: number[]): { root: number; intervals: readonly number[] } | undefined {
+  const pcs = [...new Set(shown.map(pitchClass))];
+  for (const type of CHORD_TYPES) {
+    const root = pcs.find((r) => type.intervals.length === pcs.length && samePcs(type.intervals.map(mod12), pcs.map((p) => mod12(p - r))));
+    if (root !== undefined) return { root, intervals: type.intervals };
+  }
+  return undefined;
+}
+
 /** The kind of a root-position chord: "major", "minor", ... or undefined. */
 function chordKind(shown: number[]): string | undefined {
   const low = Math.min(...shown);
@@ -139,6 +153,27 @@ function isRightChordAnswer(choice: string, shown: number[], prompt: string): bo
     return parsed ? spelledPc(parsed.note) : undefined;
   };
   if (prompt === 'How many notes are in this chord?') return Number(choice) === new Set(shown).size;
+  if (prompt === 'Which inversion is this chord?' || prompt === 'Is this chord in root position?') {
+    const chord = identify(shown);
+    if (!chord) return false;
+    const inversion = INVERSIONS[chord.intervals.map(mod12).indexOf(mod12(pitchClass(sorted[0]!) - chord.root))];
+    if (prompt === 'Which inversion is this chord?') return choice === inversion;
+    return (choice === 'yes' || choice === 'no') && (inversion === 'root position') === (choice === 'yes');
+  }
+  if (prompt === 'What is the bass note of this chord?') {
+    const parsed = parseNote(choice);
+    return !!parsed && spelledPc(parsed.note) === pitchClass(sorted[0]!);
+  }
+  if (prompt === 'Which chord is this?') {
+    const pcs = symbolPcs(choice);
+    return !!pcs && samePcs(pcs, shown.map(pitchClass));
+  }
+  const share = new RegExp(`^Which note do (\\S+) and (\\S+) share\\?$`).exec(prompt);
+  if (share) {
+    const parsed = parseNote(choice);
+    const [a, b] = [symbolPcs(share[1]!), symbolPcs(share[2]!)];
+    return !!parsed && !!a && !!b && a.includes(spelledPc(parsed.note)) && b.includes(spelledPc(parsed.note));
+  }
   if (prompt === 'Is this chord a triad?') {
     if (choice !== 'yes' && choice !== 'no') return false;
     const gaps = sorted.slice(1).map((k, i) => k - sorted[i]!);
@@ -388,8 +423,17 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       if (!want || want.length === 0) problems.push('prompt names no chord');
       else if (!samePcs(want, item.pitchClasses)) problems.push(`prompt asks for pcs ${[...new Set(want)].join(' ')}, not ${item.pitchClasses.join(' ')}`);
       if (item.bassPc !== null && !item.pitchClasses.includes(item.bassPc)) problems.push('bassPc is not in the chord');
-      const bass = written && !triad && !numeral ? symbolBass(written[1]!) : undefined;
-      if ((bass ?? null) !== item.bassPc) problems.push(`bassPc should be ${bass ?? null}, the note after the slash`);
+      // The lowest note: "in first inversion", "C/E", "with E lowest", or any when the prompt says nothing.
+      const inversion = INVERSION.exec(item.prompt);
+      const lowest = LOWEST_NAMED.exec(item.prompt);
+      const bass = inversion && want
+        ? want[INVERSIONS.indexOf(inversion[1]!)]
+        : lowest
+          ? spelledPc(parseNote(lowest[1]!)!.note)
+          : written && !triad && !numeral
+            ? symbolBass(written[1]!)
+            : undefined;
+      if ((bass ?? null) !== item.bassPc) problems.push(`bassPc should be ${bass ?? null}`);
       break;
     }
   }

@@ -1872,5 +1872,166 @@
       "74": "D",
       "77": "F"
     }
+  },
+  {
+    "id": "voicing",
+    "term": "voicing",
+    "meaning": "How a chord's notes are arranged on the keyboard: their order, their octaves, and how spread out they are.",
+    "whyItMatters": "Band keyboard players rarely play every chord from its root. Choosing voicings is how they sound smooth and stay out of the bass player's and singer's way.",
+    "lessonId": "u7-l1",
+    "exampleMidi": [
+      48,
+      55,
+      64
+    ],
+    "labels": {
+      "48": "C",
+      "55": "G",
+      "64": "E"
+    }
+  },
+  {
+    "id": "root-position",
+    "term": "root position",
+    "meaning": "A chord laid out with its root as the lowest note.",
+    "whyItMatters": "Root position sounds the most solid and settled. It is the layout to fall back on, and the one other layouts are named against.",
+    "lessonId": "u7-l2",
+    "exampleMidi": [
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "60": "C: root, lowest",
+      "64": "E",
+      "67": "G"
+    }
+  },
+  {
+    "id": "first-inversion",
+    "term": "first inversion",
+    "meaning": "A chord laid out with its 3rd as the lowest note. C major in first inversion is E G C.",
+    "whyItMatters": "First inversion sounds lighter than root position, and it lets the bass climb or fall step by step. On a chart, C/E is C in first inversion.",
+    "lessonId": "u7-l3",
+    "exampleMidi": [
+      64,
+      67,
+      72
+    ],
+    "labels": {
+      "64": "E: 3rd, lowest",
+      "67": "G",
+      "72": "C: root, moved up"
+    }
+  },
+  {
+    "id": "second-inversion",
+    "term": "second inversion",
+    "meaning": "A chord laid out with its 5th as the lowest note. C major in second inversion is G C E.",
+    "whyItMatters": "Second inversion is the handiest layout for many changes: C in second inversion to F in root position moves only two fingers, by a step each.",
+    "lessonId": "u7-l4",
+    "exampleMidi": [
+      67,
+      72,
+      76
+    ],
+    "labels": {
+      "67": "G: 5th, lowest",
+      "72": "C: root",
+      "76": "E: 3rd"
+    }
+  },
+  {
+    "id": "third-inversion",
+    "term": "third inversion",
+    "meaning": "A 7th chord laid out with its 7th as the lowest note. G7 in third inversion is F G B D.",
+    "whyItMatters": "With the 7th in the bass, the chord wants to fall a half step to the next one: G7/F to C/E is a classic smooth bass line.",
+    "lessonId": "u7-l5",
+    "exampleMidi": [
+      53,
+      55,
+      59,
+      62
+    ],
+    "labels": {
+      "53": "F: 7th, lowest",
+      "55": "G: root",
+      "59": "B",
+      "62": "D"
+    }
+  },
+  {
+    "id": "bass-note",
+    "term": "bass note",
+    "meaning": "The lowest note of a chord as it is played.",
+    "whyItMatters": "The bass note shapes how a chord feels more than any other note. In a band the bass player usually plays it, so keep your left hand from clashing with theirs.",
+    "lessonId": "u7-l6",
+    "exampleMidi": [
+      43,
+      60,
+      64
+    ],
+    "labels": {
+      "43": "G: bass note",
+      "60": "C",
+      "64": "E"
+    }
+  },
+  {
+    "id": "voice-leading",
+    "term": "voice leading",
+    "meaning": "Moving from one chord to the next so each note moves as little as possible.",
+    "whyItMatters": "Good voice leading is why a band keyboard player sounds smooth instead of jumpy, and it keeps your hand in one place on the keyboard.",
+    "lessonId": "u7-l7",
+    "exampleMidi": [
+      60,
+      64,
+      65,
+      67,
+      69
+    ],
+    "labels": {
+      "60": "C stays",
+      "64": "E → F",
+      "65": "F",
+      "67": "G → A",
+      "69": "A"
+    }
+  },
+  {
+    "id": "common-tone",
+    "term": "common tone",
+    "meaning": "A note that two chords share.",
+    "whyItMatters": "Holding common tones is the simplest voice-leading trick there is. It makes chord changes smooth with almost no effort.",
+    "lessonId": "u7-l8",
+    "exampleMidi": [
+      57,
+      60,
+      64,
+      67
+    ],
+    "labels": {
+      "57": "A: Am only",
+      "60": "C: common",
+      "64": "E: common",
+      "67": "G: C only"
+    }
+  },
+  {
+    "id": "shell-voicing",
+    "term": "shell voicing",
+    "meaning": "A chord played with just its root, 3rd and 7th, leaving out the 5th.",
+    "whyItMatters": "It is the classic left-hand shape for jazz and soul piano: light, clear, and it leaves the right hand free for the tune.",
+    "lessonId": "u7-l9",
+    "exampleMidi": [
+      43,
+      47,
+      53
+    ],
+    "labels": {
+      "43": "G: root",
+      "47": "B: 3rd",
+      "53": "F: 7th"
+    }
   }
 ]

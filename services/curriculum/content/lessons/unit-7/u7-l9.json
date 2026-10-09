@@ -1,0 +1,112 @@
+{
+  "id": "u7-l9",
+  "unitId": "unit-7",
+  "order": 9,
+  "title": "Left-hand shapes",
+  "summary": "Root, 3rd and 7th: a light left-hand version of a 7th chord.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Shell voicing",
+      "body": "The 3rd and 7th say what kind of 7th chord it is, and the root says which one. Play just those three, root, 3rd and 7th, and leave out the 5th. That is a **shell voicing**: G7 as G, B and F.\n\n**Why it matters:** It is the classic left-hand shape for jazz and soul piano: light, clear, and it leaves the right hand free for the tune.",
+      "exampleMidi": [
+        43,
+        47,
+        53
+      ],
+      "labels": {
+        "43": "G: root",
+        "47": "B: 3rd",
+        "53": "F: 7th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Dm7 shell",
+      "body": "D, F and C: root, 3rd and 7th.",
+      "highlightMidi": [
+        50,
+        53,
+        60
+      ],
+      "labels": {
+        "50": "D: root",
+        "53": "F: 3rd",
+        "60": "C: 7th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l9-p1",
+          "prompt": "Play G, B and F together: a G7 shell voicing.",
+          "pitchClasses": [
+            7,
+            11,
+            5
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l9-p2",
+          "prompt": "Play D, F and C together: a Dm7 shell voicing.",
+          "pitchClasses": [
+            2,
+            5,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l9-p3",
+          "prompt": "Play C, E and B together: a Cmaj7 shell voicing.",
+          "pitchClasses": [
+            0,
+            4,
+            11
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Shells for ii–V–I",
+      "body": "Play the shells for Dm7, G7 and Cmaj7 in your left hand, then add any notes of C major on top with your right."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l9-q1",
+          "prompt": "Play A, C and G together: an Am7 shell voicing.",
+          "pitchClasses": [
+            9,
+            0,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l9-q2",
+          "prompt": "Play F, A and E together: an Fmaj7 shell voicing.",
+          "pitchClasses": [
+            5,
+            9,
+            4
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

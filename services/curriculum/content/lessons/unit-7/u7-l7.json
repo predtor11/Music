@@ -1,0 +1,120 @@
+{
+  "id": "u7-l7",
+  "unitId": "unit-7",
+  "order": 7,
+  "title": "Moving as little as possible",
+  "summary": "Pick each next voicing so your fingers barely move.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Voice leading",
+      "body": "Each finger in a chord is like a singer holding one note. Moving from chord to chord so each \"singer\" moves as little as possible is called **voice leading**. C (C E G) to F is smoothest as C F A: C stays, E steps up to F, G steps up to A.\n\n**Why it matters:** Good voice leading is why a band keyboard player sounds smooth instead of jumpy, and it keeps your hand in one place on the keyboard.",
+      "exampleMidi": [
+        60,
+        64,
+        65,
+        67,
+        69
+      ],
+      "labels": {
+        "60": "C stays",
+        "64": "E → F",
+        "65": "F",
+        "67": "G → A",
+        "69": "A"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C to G, smoothly",
+      "body": "C E G to B D G: G stays, C steps down to B, E steps down to D.",
+      "highlightMidi": [
+        59,
+        60,
+        62,
+        64,
+        67
+      ],
+      "labels": {
+        "59": "B",
+        "60": "C → B",
+        "62": "D",
+        "64": "E → D",
+        "67": "G stays"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l7-p1",
+          "prompt": "Play C, E and G together.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l7-p2",
+          "prompt": "Move to F with as little movement as you can: play the chord written F/C.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 0
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l7-p3",
+          "prompt": "Now move to G the smooth way: play the chord written G/B.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": 11
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find the short way",
+      "body": "Play C, then find the F nearest your hand, then the G nearest that. Count how many fingers move each time."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l7-q1",
+          "prompt": "From A, C and E, move to F the smooth way: play the chord written F/A.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 9
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l7-q2",
+          "prompt": "From G, B and D, move to C the smooth way: play the chord written C/G.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 7
+        }
+      ]
+    }
+  ]
+}

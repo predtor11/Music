@@ -1,0 +1,128 @@
+{
+  "id": "u7-l1",
+  "unitId": "unit-7",
+  "order": 1,
+  "title": "Same chord, different layout",
+  "summary": "C, E and G in any order, at any height, are still a C chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Voicing",
+      "body": "C E G, E G C and G C E are all a C major chord: the same three notes, laid out differently. The way a chord's notes are arranged, which is lowest, which on top, how spread out, is its **voicing**.\n\n**Why it matters:** Band keyboard players rarely play every chord from its root. Choosing voicings is how they sound smooth and stay out of the bass player's and singer's way.",
+      "exampleMidi": [
+        48,
+        55,
+        64
+      ],
+      "labels": {
+        "48": "C",
+        "55": "G",
+        "64": "E"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Three voicings of C",
+      "body": "Close together from C, close together from E, and spread over two octaves.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        76,
+        79,
+        84
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G",
+        "76": "E",
+        "79": "G",
+        "84": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l1-p1",
+          "prompt": "Play C, E and G together, in any order.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l1-p2",
+          "prompt": "Now play E, G and C together, with E lowest.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 4
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Spread it out",
+      "body": "Play C with your left hand and E and G high up with your right. Then try G at the bottom. Same chord, new colours."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l1-q1",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            64,
+            67,
+            72
+          ],
+          "choices": [
+            "C",
+            "Em",
+            "Am"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l1-q2",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            55,
+            62,
+            71
+          ],
+          "choices": [
+            "G",
+            "Bm",
+            "D"
+          ],
+          "answer": "G"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l1-q3",
+          "prompt": "Play an F major triad, with the notes in any order.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

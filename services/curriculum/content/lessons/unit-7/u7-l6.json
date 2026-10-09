@@ -1,0 +1,122 @@
+{
+  "id": "u7-l6",
+  "unitId": "unit-7",
+  "order": 6,
+  "title": "The lowest note",
+  "summary": "Whatever note is lowest decides how the chord sounds.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Bass note",
+      "body": "The lowest note of a chord as you play it is its **bass note**. In root position the bass note is the root; in an inversion it is another chord tone. A slash chord names it: C/G means a C chord with G as its bass note.\n\n**Why it matters:** The bass note shapes how a chord feels more than any other note. In a band the bass player usually plays it, so keep your left hand from clashing with theirs.",
+      "exampleMidi": [
+        43,
+        60,
+        64
+      ],
+      "labels": {
+        "43": "G: bass note",
+        "60": "C",
+        "64": "E"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C/G",
+      "body": "A C chord over G: second inversion, written as a slash chord.",
+      "highlightMidi": [
+        55,
+        60,
+        64
+      ],
+      "labels": {
+        "55": "G: bass note",
+        "60": "C",
+        "64": "E"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l6-p1",
+          "prompt": "Play the chord written C/G.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 7
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l6-p2",
+          "prompt": "What is the bass note of this chord?",
+          "shownMidi": [
+            52,
+            60,
+            67
+          ],
+          "choices": [
+            "C",
+            "E",
+            "G"
+          ],
+          "answer": "E"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Same chord, three basses",
+      "body": "Hold C E G in your right hand and play C, then E, then G underneath with your left. Hear the colour change."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l6-q1",
+          "prompt": "What is the bass note of this chord?",
+          "shownMidi": [
+            57,
+            62,
+            65
+          ],
+          "choices": [
+            "D",
+            "F",
+            "A"
+          ],
+          "answer": "A"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l6-q2",
+          "prompt": "Play the chord written Am/C.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": 0
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l6-q3",
+          "prompt": "Play the chord written F/A.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 9
+        }
+      ]
+    }
+  ]
+}
