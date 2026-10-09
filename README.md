@@ -10,6 +10,10 @@ note and why.
 Phase 1 (foundation) in progress: the theory engine and MIDI input are done;
 the Chord Namer screen and the services are being built.
 
+## Desktop app
+
+A Windows installer that needs nothing else installed: see [docs/DESKTOP.md](docs/DESKTOP.md).
+
 ## Requirements
 
 - Node.js 22 (20.19 or newer works)
