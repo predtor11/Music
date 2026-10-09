@@ -203,7 +203,7 @@ function Overview({ piece, analysis, settings }: { piece: Piece; analysis: Analy
             {pretty(keyLabel(key))}
           </span>
           <span className={`ui-muted ${l.small}`}>
-            {confidence >= 0.5 ? 'The home note is ' : 'Probably; it could also be ' + pretty(keyLabel(runnerUp)) + '. The home note is '}
+            {confidence >= 0.5 ? 'The home note is ' : `Probably; it could also be ${pretty(keyLabel(runnerUp))}. The home note is `}
             {pretty(noteToString(key.tonic))}. The piece mostly uses these notes:
           </span>
           <span className={s.scale}>

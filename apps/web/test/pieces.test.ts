@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { keyName } from '@music/theory';
-import { analyse, detectKey } from '../src/pieces/analyse.js';
-import { barCount, barOf, pieceFromSmf, type Piece } from '../src/pieces/piece.js';
+import { writeMidiFile } from '@music/analysis';
+import { analyse } from '../src/pieces/analyse.js';
+import { barCount, barOf, pieceFromMidiBytes, type Piece } from '../src/pieces/piece.js';
 import { isClean, judgeTimed, judgeWait, nextTempo, steps, troubleBars } from '../src/pieces/practice.js';
-import { parseSmf } from '../src/pieces/smf.js';
 import { STARTER_PIECES } from '../src/pieces/starter.js';
 
-/** A tiny MIDI file writer, just for building test files. */
+const piece = (id: string) => STARTER_PIECES.find((p) => p.id === id)!;
+
+/** A tiny two-track MIDI file builder, for files the app's writer (one track) can't make. */
 function varLen(n: number): number[] {
   const out = [n & 0x7f];
   while ((n >>= 7)) out.unshift((n & 0x7f) | 0x80);
@@ -16,14 +18,12 @@ function track(events: number[][]): number[] {
   const body = [...events.flat(), 0, 0xff, 0x2f, 0];
   return [0x4d, 0x54, 0x72, 0x6b, (body.length >> 24) & 255, (body.length >> 16) & 255, (body.length >> 8) & 255, body.length & 255, ...body];
 }
-function smf(ppq: number, tracks: number[][]): Uint8Array {
-  return new Uint8Array([0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, 1, 0, tracks.length, ppq >> 8, ppq & 255, ...tracks.flat()]);
+function smf(ppq: number, tracks: number[][]): ArrayBuffer {
+  return new Uint8Array([0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, 1, 0, tracks.length, ppq >> 8, ppq & 255, ...tracks.flat()]).buffer;
 }
 
-const piece = (id: string) => STARTER_PIECES.find((p) => p.id === id)!;
-
 describe('MIDI files', () => {
-  const file = smf(480, [
+  const twoTracks = smf(480, [
     track([
       [0, 0xff, 0x51, 3, 0x07, 0xa1, 0x20], // 120 bpm
       [0, 0xff, 0x58, 4, 3, 2, 24, 8], // 3/4
@@ -34,19 +34,9 @@ describe('MIDI files', () => {
     track([[0, 0x91, 48, 80], [...varLen(960), 0x81, 48, 0]]),
   ]);
 
-  it('reads notes, tempo and time signature', () => {
-    const f = parseSmf(file);
-    expect(f.ppq).toBe(480);
-    expect(f.tempos[0]!.usPerQuarter).toBe(500000);
-    expect(f.timeSignatures[0]).toMatchObject({ numerator: 3, denominator: 4 });
-    expect(f.tracks[1]!.notes.map((n) => [n.midi, n.startTick, n.endTick])).toEqual([
-      [72, 0, 480],
-      [76, 480, 960],
-    ]);
-  });
-
-  it('gives the higher track to the right hand', () => {
-    const p = pieceFromSmf(parseSmf(file), { id: 'x', title: 'x' });
+  it('gives the higher track to the right hand, in beats', () => {
+    const p = pieceFromMidiBytes(twoTracks, 'my_song.mid', 'x');
+    expect(p.title).toBe('my song');
     expect(p.bpm).toBe(120);
     expect(p.timeSignature).toEqual([3, 4]);
     expect(p.notes.map((n) => [n.midi, n.hand, n.start, n.dur])).toEqual([
@@ -57,13 +47,16 @@ describe('MIDI files', () => {
   });
 
   it('splits a one-track file at middle C', () => {
-    const one = smf(96, [track([[0, 0x90, 48, 80], [0, 0x90, 67, 80], [...varLen(96), 0x80, 48, 0], [0, 0x80, 67, 0]])]);
-    const p = pieceFromSmf(parseSmf(one), { id: 'y', title: 'y' });
+    const bytes = writeMidiFile([
+      { midi: 48, start: 0, end: 0.5, velocity: 0.7 },
+      { midi: 67, start: 0, end: 0.5, velocity: 0.7 },
+    ]);
+    const p = pieceFromMidiBytes(bytes.slice().buffer, 'one.mid', 'y');
     expect(p.notes.map((n) => n.hand)).toEqual(['left', 'right']);
   });
 
   it('rejects a file that is not MIDI', () => {
-    expect(() => parseSmf(new TextEncoder().encode('hello world, not midi'))).toThrow(/not a MIDI file/);
+    expect(() => pieceFromMidiBytes(new TextEncoder().encode('hello world, not midi').buffer as ArrayBuffer, 'x.mid', 'y')).toThrow();
   });
 });
 
@@ -79,10 +72,10 @@ describe('bars', () => {
 
 describe('analysis of the starter pieces', () => {
   it('finds each key', () => {
-    expect(keyName(detectKey(piece('starter-ode-to-joy').notes).key)).toBe('C');
-    expect(keyName(detectKey(piece('starter-fur-elise').notes).key)).toBe('Am');
-    expect(keyName(detectKey(piece('starter-prelude-c').notes).key)).toBe('C');
-    expect(keyName(detectKey(piece('starter-moonlight').notes).key)).toBe('C#m');
+    expect(keyName(analyse(piece('starter-ode-to-joy')).key.key)).toBe('C');
+    expect(keyName(analyse(piece('starter-fur-elise')).key.key)).toBe('Am');
+    expect(keyName(analyse(piece('starter-prelude-c')).key.key)).toBe('C');
+    expect(keyName(analyse(piece('starter-moonlight')).key.key)).toBe('C#m');
   });
 
   it('names the Prelude in C chord by chord', () => {

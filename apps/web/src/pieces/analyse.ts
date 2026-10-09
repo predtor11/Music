@@ -3,6 +3,12 @@
  * each bar (or half bar when it changes), the melody, and which bars are hard
  * and why. Rule based, so the same file always gets the same answer. Pure, so
  * it is unit tested.
+ *
+ * This works bar by bar on a written-out piece, where the bars are known and
+ * the left hand carries the harmony, so it weights the left hand and names
+ * one chord per bar or half bar. @music/analysis does the same job for takes
+ * and audio with no bar lines; on the starter pieces it names passing-note
+ * chords (Csus2 for Dm7/C in the Prelude), so pieces use this instead.
  */
 
 import type { HandSide } from '@music/contracts';
@@ -17,7 +23,7 @@ import {
   type ChordQuality,
   type Key,
 } from '@music/theory';
-import { barBeats, barCount, barOf, barStart, type Piece, type PieceNote } from './piece.js';
+import { barBeats, barCount, barStart, type Piece, type PieceNote } from './piece.js';
 
 // Krumhansl-Kessler key profiles: how strongly each scale step belongs to a major or minor key.
 const MAJOR_PROFILE = [6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88];
@@ -292,4 +298,3 @@ export function analyse(piece: Piece): Analysis {
   };
 }
 
-export { barOf };
