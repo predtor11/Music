@@ -68,7 +68,7 @@ export function loadPiano(): Promise<Piano | null> {
           // Resumes the audio context if the browser suspended it.
           void Tone.start();
           const now = Tone.now() + 0.03;
-          for (const e of events) sampler.triggerAttackRelease(Tone.Frequency(e.midi, 'midi').toNote(), e.dur, now + e.at, 0.75);
+          for (const e of events) sampler.triggerAttackRelease(Tone.Frequency(e.midi, 'midi').toNote(), e.dur, now + e.at, e.velocity ?? 0.75);
         },
       };
       return ready;

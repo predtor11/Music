@@ -11,6 +11,7 @@ import { useKeySound } from './audio/useKeySound.js';
 import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
+import { BandTalkPage } from './pages/BandTalkPage.js';
 import { ChartEditPage } from './pages/ChartEditPage.js';
 import { ChartImportPage, ChartPage } from './pages/ChartPage.js';
 import { ChartsPage } from './pages/ChartsPage.js';
@@ -18,6 +19,7 @@ import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { HandSessionPage } from './pages/HandSessionPage.js';
 import { HandsPage } from './pages/HandsPage.js';
+import { JamPage } from './pages/JamPage.js';
 import { LessonPage } from './pages/LessonPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
 import { ProgressPage } from './pages/ProgressPage.js';
@@ -37,6 +39,8 @@ const NAV = [
   { id: 'chords', label: 'Chord Namer', href: href.chords },
   { id: 'lessons', label: 'Lessons', href: href.lessons },
   { id: 'hands', label: 'Hands', href: href.hands },
+  { id: 'jam', label: 'Jam', href: href.jam() },
+  { id: 'bandtalk', label: 'Band talk', href: href.bandtalk() },
   { id: 'review', label: 'Review', href: href.review },
   { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
@@ -49,6 +53,8 @@ function section(route: Route): Section {
     case 'chords':
     case 'review':
     case 'progress':
+    case 'jam':
+    case 'bandtalk':
       return route.page;
     case 'hands':
     case 'hand':
@@ -201,6 +207,8 @@ export function App() {
             {route.page === 'checkpoint' && <CheckpointPage unitId={route.unitId} settings={settings} />}
             {route.page === 'hands' && <HandsPage />}
             {route.page === 'hand' && <HandSessionPage id={route.id} settings={settings} />}
+            {route.page === 'jam' && <JamPage setup={route.setup} settings={settings} />}
+            {route.page === 'bandtalk' && <BandTalkPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
             {route.page === 'charts' && <ChartsPage />}
