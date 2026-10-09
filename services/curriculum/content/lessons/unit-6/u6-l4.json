@@ -1,0 +1,137 @@
+{
+  "id": "u6-l4",
+  "unitId": "unit-6",
+  "order": 4,
+  "title": "The minor 7th chord",
+  "summary": "A minor triad plus a minor 7th: smooth and mellow.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "M7",
+      "body": "A minor triad with a minor 7th on top is an **m7** chord. Am7 is A C E G. In a major key, ii, iii and vi are m7 chords.\n\n**Why it matters:** It is the mellow minor sound of soul, funk and jazz. ii7–V7–I is the jazz turnaround with 7ths added.",
+      "exampleMidi": [
+        57,
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "57": "A (root)",
+        "60": "C (3rd)",
+        "64": "E (5th)",
+        "67": "G (7th)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Dm7",
+      "body": "D, F, A and C.",
+      "highlightMidi": [
+        62,
+        65,
+        69,
+        72
+      ],
+      "labels": {
+        "62": "D",
+        "65": "F",
+        "69": "A",
+        "72": "C"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l4-p1",
+          "prompt": "Play the chord written Am7.",
+          "pitchClasses": [
+            9,
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l4-p2",
+          "prompt": "Play the chord written Dm7.",
+          "pitchClasses": [
+            2,
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "play-progression",
+          "id": "u6-l4-p3",
+          "prompt": "Play ii7–V7–Imaj7 in C.",
+          "key": "C",
+          "numerals": [
+            "ii7",
+            "V7",
+            "Imaj7"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Three sevenths",
+      "body": "On C, play Cmaj7, C7 and Cm7 in turn. Only one or two notes change each time. Listen for bright, bluesy and mellow."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l4-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            62,
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "Dm7",
+            "D7",
+            "Dmaj7"
+          ],
+          "answer": "Dm7"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l4-q2",
+          "prompt": "Play the chord written Cm7.",
+          "pitchClasses": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l4-q3",
+          "prompt": "Play the chord written Gm7.",
+          "pitchClasses": [
+            7,
+            10,
+            2,
+            5
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,9 @@ import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
 import { BandTalkPage } from './pages/BandTalkPage.js';
+import { ChartEditPage } from './pages/ChartEditPage.js';
+import { ChartImportPage, ChartPage } from './pages/ChartPage.js';
+import { ChartsPage } from './pages/ChartsPage.js';
 import { CheckpointPage } from './pages/CheckpointPage.js';
 import { ChordNamerPage } from './pages/ChordNamerPage.js';
 import { HandSessionPage } from './pages/HandSessionPage.js';
@@ -39,6 +42,7 @@ const NAV = [
   { id: 'jam', label: 'Jam', href: href.jam() },
   { id: 'bandtalk', label: 'Band talk', href: href.bandtalk() },
   { id: 'review', label: 'Review', href: href.review },
+  { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
 ] as const;
 
@@ -59,6 +63,11 @@ function section(route: Route): Section {
     case 'lesson':
     case 'checkpoint':
       return 'lessons';
+    case 'charts':
+    case 'chart':
+    case 'chartEdit':
+    case 'chartImport':
+      return 'charts';
     default:
       return null;
   }
@@ -137,7 +146,16 @@ export function App() {
   useEffect(() => applyTheme(settings.theme), [applyTheme, settings.theme]);
   const route = useRoute();
   const current = section(route);
-  const pageKey = route.page === 'lesson' ? `lesson-${route.id}` : route.page === 'checkpoint' ? `cp-${route.unitId}` : route.page === 'hand' ? `hand-${route.id}` : route.page;
+  const pageKey =
+    route.page === 'lesson'
+      ? `lesson-${route.id}`
+      : route.page === 'checkpoint'
+        ? `cp-${route.unitId}`
+        : route.page === 'hand'
+          ? `hand-${route.id}`
+          : route.page === 'chart' || route.page === 'chartEdit'
+            ? `${route.page}-${route.id ?? 'new'}`
+            : route.page;
 
   return (
     <NoteInputProvider settings={settings} update={update}>
@@ -193,6 +211,10 @@ export function App() {
             {route.page === 'bandtalk' && <BandTalkPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
+            {route.page === 'charts' && <ChartsPage />}
+            {route.page === 'chart' && <ChartPage id={route.id} settings={settings} />}
+            {route.page === 'chartEdit' && <ChartEditPage id={route.id} settings={settings} />}
+            {route.page === 'chartImport' && <ChartImportPage data={route.data} settings={settings} />}
             {route.page === 'settings' && <SettingsPage settings={settings} update={update} sync={sync} />}
             {route.page === 'signin' && <SignInPage />}
           </motion.main>

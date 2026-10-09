@@ -1,0 +1,105 @@
+{
+  "id": "u6-l11",
+  "unitId": "unit-6",
+  "order": 11,
+  "title": "A chord over a different bass note",
+  "summary": "C/E means a C chord with E in the bass.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Slash chord",
+      "body": "A chord symbol with a slash names the lowest note: **C/E** means a C chord with E at the bottom. This is a **slash chord**. The part before the slash is the chord; the part after is the note your left hand plays.\n\n**Why it matters:** Slash chords make bass lines walk smoothly: C, C/B, Am, Am/G steps down one note at a time. Band charts are full of them.",
+      "exampleMidi": [
+        52,
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "52": "E: bass",
+        "60": "C",
+        "64": "E",
+        "67": "G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "G/B",
+      "body": "A G chord with B in the bass.",
+      "highlightMidi": [
+        47,
+        55,
+        59,
+        62
+      ],
+      "labels": {
+        "47": "B: bass",
+        "55": "G",
+        "59": "B",
+        "62": "D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l11-p1",
+          "prompt": "Play the chord written C/E.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 4
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l11-p2",
+          "prompt": "Play the chord written G/B.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": 11
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Walk the bass down",
+      "body": "Play C, then C/B, then Am, then Am/G, keeping your right hand still and walking the left hand down."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l11-q1",
+          "prompt": "Play the chord written F/A.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 9
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l11-q2",
+          "prompt": "Play the chord written D/F#.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": 6
+        }
+      ]
+    }
+  ]
+}

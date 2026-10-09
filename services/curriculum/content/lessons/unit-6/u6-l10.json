@@ -1,0 +1,135 @@
+{
+  "id": "u6-l10",
+  "unitId": "unit-6",
+  "order": 10,
+  "title": "The 11 and 13 chords",
+  "summary": "The last two extensions, and why players leave notes out.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "11 chord",
+      "body": "The 11th is the 4th counted from the octave above. An **11 chord** is a 7th chord with the 9th and 11th added. In practice players leave out the 3rd, which clashes with the 11th: a common C11 is C, G, B♭, D and F.\n\n**Why it matters:** It is the open, gospel and fusion sound, a bit like a 7sus4 with extra colour.",
+      "exampleMidi": [
+        48,
+        55,
+        58,
+        62,
+        65
+      ],
+      "labels": {
+        "48": "C",
+        "55": "G",
+        "58": "B♭: 7th",
+        "62": "D: 9th",
+        "65": "F: 11th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "13 chord",
+      "body": "The 13th is the 6th counted from the octave above. A **13 chord** is a dominant 7th chord with the 13th added. Players usually keep just the root, 3rd, 7th and 13th: C13 is C, E, B♭ and A.\n\n**Why it matters:** It is the rich, bluesy dominant chord of jazz and soul. Many players use G13 in place of G7.",
+      "exampleMidi": [
+        48,
+        52,
+        58,
+        69
+      ],
+      "labels": {
+        "48": "C",
+        "52": "E: 3rd",
+        "58": "B♭: 7th",
+        "69": "A: 13th"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Leaving notes out",
+      "body": "With seven notes you would need three hands, so players keep the notes that give the chord its colour.",
+      "highlightMidi": [
+        48,
+        52,
+        58,
+        62,
+        69
+      ],
+      "labels": {
+        "48": "root",
+        "52": "3rd",
+        "58": "7th",
+        "62": "9th",
+        "69": "13th"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l10-p1",
+          "prompt": "Play C, E, Bb and A together: a C13.",
+          "pitchClasses": [
+            0,
+            4,
+            10,
+            9
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l10-p2",
+          "prompt": "Play C, G, Bb, D and F together: a C11.",
+          "pitchClasses": [
+            0,
+            7,
+            10,
+            2,
+            5
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Colour a 7th",
+      "body": "Play C7, then move the G up a whole step to A: that is a C13. Hear how much richer it is."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l10-q1",
+          "prompt": "Play G, B, F and E together: a G13.",
+          "pitchClasses": [
+            7,
+            11,
+            5,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l10-q2",
+          "prompt": "Which note is the 3rd of this chord?",
+          "shownMidi": [
+            55,
+            59,
+            62
+          ],
+          "choices": [
+            "G",
+            "B",
+            "D"
+          ],
+          "answer": "B"
+        }
+      ]
+    }
+  ]
+}

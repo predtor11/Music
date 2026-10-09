@@ -1,0 +1,184 @@
+{
+  "id": "unit-6",
+  "order": 6,
+  "title": "Seventh chords and colour",
+  "summary": "Add a fourth note and chords get richer. Learn the 7th chords, the colour chords (6, add9, 9, 11, 13) and slash chords.",
+  "outcome": "You can read a lead sheet with chords like Cmaj7, G7, Am7 and C/E.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-1",
+        "prompt": "Play the chord written Fmaj7.",
+        "pitchClasses": [
+          5,
+          9,
+          0,
+          4
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-2",
+        "prompt": "Play the chord written D7.",
+        "pitchClasses": [
+          2,
+          6,
+          9,
+          0
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-3",
+        "prompt": "Play the chord written Em7.",
+        "pitchClasses": [
+          4,
+          7,
+          11,
+          2
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-4",
+        "prompt": "Play the chord written Bm7b5.",
+        "pitchClasses": [
+          11,
+          2,
+          5,
+          9
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-5",
+        "prompt": "Play the chord written Bdim7.",
+        "pitchClasses": [
+          11,
+          2,
+          5,
+          8
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-6",
+        "prompt": "Play the chord written C6.",
+        "pitchClasses": [
+          0,
+          4,
+          7,
+          9
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-7",
+        "prompt": "Play the chord written Gadd9.",
+        "pitchClasses": [
+          7,
+          11,
+          2,
+          9
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "build-chord",
+        "id": "u6-cp-8",
+        "prompt": "Play the chord written G/B.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "bassPc": 11
+      },
+      {
+        "kind": "name-it",
+        "id": "u6-cp-9",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          55,
+          59,
+          62,
+          65
+        ],
+        "choices": [
+          "Gmaj7",
+          "G7",
+          "Gm7"
+        ],
+        "answer": "G7"
+      },
+      {
+        "kind": "name-it",
+        "id": "u6-cp-10",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          57,
+          60,
+          64,
+          67
+        ],
+        "choices": [
+          "Am7",
+          "Amaj7",
+          "A7"
+        ],
+        "answer": "Am7"
+      },
+      {
+        "kind": "name-it",
+        "id": "u6-cp-11",
+        "prompt": "Listen to the chord. Which chord symbol is it?",
+        "shownMidi": [
+          60,
+          64,
+          67,
+          71
+        ],
+        "choices": [
+          "Cmaj7",
+          "C7",
+          "Cm7"
+        ],
+        "answer": "Cmaj7",
+        "audioOnly": true
+      },
+      {
+        "kind": "play-progression",
+        "id": "u6-cp-12",
+        "prompt": "Play ii7–V7–Imaj7 in F.",
+        "key": "F",
+        "numerals": [
+          "ii7",
+          "V7",
+          "Imaj7"
+        ]
+      }
+    ]
+  },
+  "lessonIds": [
+    "u6-l1",
+    "u6-l2",
+    "u6-l3",
+    "u6-l4",
+    "u6-l5",
+    "u6-l6",
+    "u6-l7",
+    "u6-l8",
+    "u6-l9",
+    "u6-l10",
+    "u6-l11",
+    "u6-l12"
+  ]
+}

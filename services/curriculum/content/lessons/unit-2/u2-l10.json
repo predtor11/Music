@@ -22,7 +22,7 @@
     {
       "type": "explain",
       "title": "Major 7th",
-      "body": "A **major 7th** is 11 half steps, like C to B: just one half step short of the octave.\n\n**Why it matters:** It is the dreamy sound marked \"maj7\" on band charts, all over soul, jazz and pop ballads.",
+      "body": "A **major 7th** is 11 half steps, like C to B: just one half step short of the octave.\n\n**Why it matters:** It is a dreamy, soft sound, all over soul, jazz and pop ballads.",
       "exampleMidi": [
         60,
         71

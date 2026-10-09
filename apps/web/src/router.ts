@@ -10,6 +10,11 @@
  *   #/progress         Progress report
  *   #/jam              Jam-along (?n=1,5,6,4&key=G&style=pop&bpc=4&bpm=96 to preset it)
  *   #/bandtalk/:id     Band-talk cheat sheet, optionally open at one phrase
+ *   #/charts           Band charts
+ *   #/charts/new       New chart
+ *   #/charts/:id       One chart
+ *   #/charts/:id/edit  Edit a chart
+ *   #/charts/import/:c A chart from a share link
  *   #/settings         Settings
  *   #/signin           Sign in
  */
@@ -37,6 +42,10 @@ export type Route =
   | { page: 'progress' }
   | { page: 'jam'; setup: JamSetup }
   | { page: 'bandtalk'; id: string | null }
+  | { page: 'charts' }
+  | { page: 'chart'; id: string }
+  | { page: 'chartEdit'; id: string | null }
+  | { page: 'chartImport'; data: string }
   | { page: 'settings' }
   | { page: 'signin' };
 
@@ -70,6 +79,13 @@ export function parseRoute(hash: string): Route {
   if (parts[0] === 'hands') return { page: 'hands' };
   if (parts[0] === 'review') return { page: 'review' };
   if (parts[0] === 'progress') return { page: 'progress' };
+  if (parts[0] === 'charts') {
+    if (parts[1] === 'new') return { page: 'chartEdit', id: null };
+    if (parts[1] === 'import' && parts[2]) return { page: 'chartImport', data: parts[2] };
+    if (parts[1] && parts[2] === 'edit') return { page: 'chartEdit', id: parts[1] };
+    if (parts[1]) return { page: 'chart', id: parts[1] };
+    return { page: 'charts' };
+  }
   if (parts[0] === 'settings') return { page: 'settings' };
   if (parts[0] === 'signin') return { page: 'signin' };
   return { page: 'chords' };
@@ -95,6 +111,10 @@ export const href = {
     return `#/jam?${q.toString()}`;
   },
   bandtalk: (id?: string) => (id ? `#/bandtalk/${encodeURIComponent(id)}` : '#/bandtalk'),
+  charts: '#/charts',
+  chartNew: '#/charts/new',
+  chart: (id: string) => `#/charts/${encodeURIComponent(id)}`,
+  chartEdit: (id: string) => `#/charts/${encodeURIComponent(id)}/edit`,
   settings: '#/settings',
   signin: '#/signin',
 };

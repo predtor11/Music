@@ -1,0 +1,129 @@
+{
+  "id": "u6-l8",
+  "unitId": "unit-6",
+  "order": 8,
+  "title": "The add9 chord",
+  "summary": "Add the 2nd, an octave up, for a modern, open sound.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The 9th",
+      "body": "Count past the octave and the 2nd comes round again as the **9th**: D is the 2nd above C, and the D an octave higher is the 9th. It is the same letter, just counted from the next octave.\n\n**Why it matters:** Chord names past 7 (9, 11, 13) count this way. Knowing the 9th is the 2nd tells you which key to add.",
+      "exampleMidi": [
+        60,
+        62,
+        74
+      ],
+      "labels": {
+        "60": "C",
+        "62": "D: 2nd",
+        "74": "D: 9th"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Add9",
+      "body": "Add the 9th to a triad, with no 7th, and you get an **add9** chord. Cadd9 is C E G D.\n\n**Why it matters:** It is the open, ringing sound of modern pop and worship music. Guitarists play Cadd9 more than plain C in many songs.",
+      "exampleMidi": [
+        60,
+        64,
+        67,
+        74
+      ],
+      "labels": {
+        "60": "C (root)",
+        "64": "E (3rd)",
+        "67": "G (5th)",
+        "74": "D (9th)"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l8-p1",
+          "prompt": "Play the chord written Cadd9.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l8-p2",
+          "prompt": "Play the chord written Gadd9.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            9
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "show",
+      "title": "add9 versus sus2",
+      "body": "Cadd9 keeps the 3rd (E). Csus2 drops it.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        74
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E: kept in add9",
+        "67": "G",
+        "74": "D: the 9th"
+      }
+    },
+    {
+      "type": "explore",
+      "title": "Ring it out",
+      "body": "Play C, then Cadd9, with the D on top. Then try Fadd9 and Gadd9 for a modern-sounding I–IV–V."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u6-l8-q1",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            60,
+            64,
+            67,
+            74
+          ],
+          "choices": [
+            "Cadd9",
+            "Csus2",
+            "C6"
+          ],
+          "answer": "Cadd9"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l8-q2",
+          "prompt": "Play the chord written Fadd9.",
+          "pitchClasses": [
+            5,
+            9,
+            0,
+            7
+          ],
+          "bassPc": null
+        }
+      ]
+    }
+  ]
+}

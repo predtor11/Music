@@ -1,0 +1,177 @@
+{
+  "id": "u6-l12",
+  "unitId": "unit-6",
+  "order": 12,
+  "title": "Reading a lead sheet",
+  "summary": "Melody plus chord symbols: how bands share songs.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Lead sheet",
+      "body": "A **lead sheet** is a song written as the tune with chord symbols above it. The singer reads the tune, and the band reads the symbols and plays each chord until the next one appears.\n\n**Why it matters:** It is the standard way bands share songs. Read the symbols and you can play along with any song on a lead sheet.",
+      "exampleMidi": [
+        62,
+        65,
+        69,
+        72,
+        67,
+        71,
+        74,
+        77
+      ],
+      "labels": {
+        "62": "Dm7",
+        "65": "F",
+        "67": "G7",
+        "69": "A",
+        "71": "B",
+        "72": "C",
+        "74": "D",
+        "77": "F"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Cmaj7, Am7, Dm7, G7",
+      "body": "A common lead-sheet line. Every chord is from C major.",
+      "highlightMidi": [
+        60,
+        57,
+        62,
+        55
+      ],
+      "labels": {
+        "55": "G7",
+        "57": "Am7",
+        "60": "Cmaj7",
+        "62": "Dm7"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-p1",
+          "prompt": "The lead sheet says Cmaj7. Play it.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-p2",
+          "prompt": "Next it says Am7. Play it.",
+          "pitchClasses": [
+            9,
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-p3",
+          "prompt": "Then Dm7. Play the chord written Dm7.",
+          "pitchClasses": [
+            2,
+            5,
+            9,
+            0
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-p4",
+          "prompt": "Then G7. Play the chord written G7.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": null
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find a lead sheet",
+      "body": "Look up the lead sheet of a song you like and play just the chord symbols, one per bar, while you hum the tune."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-q1",
+          "prompt": "The lead sheet says A7. Play it.",
+          "pitchClasses": [
+            9,
+            1,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u6-l12-q2",
+          "prompt": "The lead sheet says Bb7. Play it.",
+          "pitchClasses": [
+            10,
+            2,
+            5,
+            8
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l12-q3",
+          "prompt": "Listen to the chord. Which chord symbol is it?",
+          "shownMidi": [
+            62,
+            65,
+            69,
+            72
+          ],
+          "choices": [
+            "Dm7",
+            "D7",
+            "Dmaj7"
+          ],
+          "answer": "Dm7",
+          "audioOnly": true
+        },
+        {
+          "kind": "name-it",
+          "id": "u6-l12-q4",
+          "prompt": "Listen to the chord. Which chord symbol is it?",
+          "shownMidi": [
+            62,
+            66,
+            69,
+            72
+          ],
+          "choices": [
+            "Dm7",
+            "D7",
+            "Dmaj7"
+          ],
+          "answer": "D7",
+          "audioOnly": true
+        }
+      ]
+    }
+  ]
+}
