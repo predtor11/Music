@@ -1,0 +1,50 @@
+{
+  "name": "@music/desktop",
+  "productName": "Music Theory Trainer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Music Theory Trainer as a desktop app: the web app and every service in one window",
+  "author": "predtor11",
+  "main": "dist/main.cjs",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && electron .",
+    "dist": "node build.mjs && electron-builder --win nsis --publish never",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@music/contracts": "*",
+    "@music/service-kit": "*",
+    "@types/node": "^22.10.0",
+    "electron": "44.4.3",
+    "electron-builder": "26.15.3",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "com.predtor11.musictheorytrainer",
+    "productName": "Music Theory Trainer",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "package.json"
+    ],
+    "asar": false,
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Music Theory Trainer",
+      "artifactName": "Music-Theory-Trainer-Setup-${version}.${ext}"
+    }
+  }
+}
