@@ -33,9 +33,9 @@ function PieceCard({ piece, onRemove }: { piece: Piece; onRemove?: () => void })
       <a className={s.pieceLink} href={href.piece(piece.id)} data-testid={`piece-${piece.id}`}>
         <Card interactive padding="md" className={s.pieceCard}>
           <div className={s.pieceTop}>
-            <span>
+            <span style={{ display: 'grid' }}>
               <span className={s.pieceTitle}>{piece.title}</span>
-              {piece.composer && <span className={`ui-muted ${l.small}`}> · {piece.composer}</span>}
+              {piece.composer && <span className={`ui-muted ${l.small}`}>{piece.composer}</span>}
             </span>
             <Badge tone={piece.source === 'starter' ? 'accent' : 'neutral'}>{piece.source === 'starter' ? 'Starter' : 'Yours'}</Badge>
           </div>

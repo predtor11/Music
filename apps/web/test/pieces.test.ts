@@ -3,7 +3,7 @@ import { keyName } from '@music/theory';
 import { writeMidiFile } from '@music/analysis';
 import { analyse } from '../src/pieces/analyse.js';
 import { barCount, barOf, pieceFromMidiBytes, type Piece } from '../src/pieces/piece.js';
-import { isClean, judgeTimed, judgeWait, nextTempo, steps, troubleBars } from '../src/pieces/practice.js';
+import { isClean, judgeTimed, judgeWait, nextTempo, steps, troubleBars } from '../src/pieces/loop.js';
 import { STARTER_PIECES } from '../src/pieces/starter.js';
 
 const piece = (id: string) => STARTER_PIECES.find((p) => p.id === id)!;
@@ -149,7 +149,7 @@ describe('practice', () => {
 
 describe('fitting a piece on your keyboard', () => {
   it('moves notes your keyboard lacks by octaves', async () => {
-    const { foldIntoRange } = await import('../src/pieces/practice.js');
+    const { foldIntoRange } = await import('../src/pieces/loop.js');
     const p = piece('starter-moonlight');
     const { piece: folded, moved } = foldIntoRange(p, 36, 96);
     expect(moved).toBeGreaterThan(0);

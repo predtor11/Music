@@ -15,7 +15,7 @@ import { noteLabeller } from '../keyboard/labels.js';
 import { analyse, type Analysis } from '../pieces/analyse.js';
 import { barCount, barOf, resplit, type Piece } from '../pieces/piece.js';
 import { Practice } from '../pieces/Practice.js';
-import { foldIntoRange, troubleBars, type HandChoice, type LoopResult, type Selection } from '../pieces/practice.js';
+import { foldIntoRange, troubleBars, type HandChoice, type LoopResult, type Selection } from '../pieces/loop.js';
 import { findPiece, saveImported } from '../pieces/storage.js';
 import { href } from '../router.js';
 import { PIECE_DRILLS } from './PiecesPage.js';
@@ -233,7 +233,7 @@ function Overview({ piece, analysis, settings }: { piece: Piece; analysis: Analy
         <div className={s.between}>
           <div>
             <span className="ui-eyebrow">Melody</span>
-            <span className={`ui-muted ${l.small}`}> · the top line of the right hand{byBar.size < analysis.melody.length ? `, first ${MELODY_BARS} bars` : ''}</span>
+            <span className={`ui-muted ${l.small}`}> · the top line of the right hand{barCount(piece) > MELODY_BARS ? `, first ${MELODY_BARS} bars` : ''}</span>
           </div>
           <Button size="sm" variant="ghost" onClick={playMelody} data-testid="play-melody">
             ▶ Hear the melody

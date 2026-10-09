@@ -19,7 +19,7 @@ export type RollState = 'hit' | 'miss';
 export interface RollProps {
   size: KeyboardSize;
   notes: readonly PieceNote[];
-  /** Notes you play (by index in `notes`); the rest are drawn faint. */
+  /** True for notes you play; the rest are drawn faint. */
   mine: (n: PieceNote) => boolean;
   state?: ReadonlyMap<number, RollState>;
   /** Wait mode: the beat at the keys. */

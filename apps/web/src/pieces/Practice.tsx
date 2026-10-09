@@ -32,7 +32,7 @@ import {
   type HandChoice,
   type LoopResult,
   type Selection,
-} from './practice.js';
+} from './loop.js';
 import { Roll, type RollState } from './Roll.js';
 import { saveTempo, savedTempo } from './storage.js';
 import s from './pieces.module.css';
