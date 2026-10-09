@@ -27,7 +27,8 @@ test('names the first inversion C/E from E3 G3 C4', async ({ page, midi }) => {
 test('names Am7 from A3 C4 E4 G4', async ({ page, midi }) => {
   await midi.on(N.A3, N.C4, N.E4, N.G4);
   await expect(main(page)).toHaveText('Am7');
-  await expect(page.getByTestId('chord-full-name')).toHaveText('A minor 7th');
+  // the previous chord's name can still be fading out beside the new one
+  await expect(page.getByTestId('chord-full-name').last()).toHaveText('A minor 7th');
 });
 
 test('shows vi as the Roman numeral for A minor in C', async ({ page, midi }) => {
