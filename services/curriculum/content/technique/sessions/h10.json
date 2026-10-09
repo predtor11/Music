@@ -1,0 +1,483 @@
+{
+  "id": "h10",
+  "order": 10,
+  "title": "Left-hand octaves",
+  "summary": "Hold an octave shape and move it, like the left hand of Moonlight Sonata.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The octave shape",
+      "body": "The left hand of Moonlight Sonata plays two keys with the same name at once: a low one with the little finger (5) and the one eight white keys up with the thumb (1).\n\nThat stretched hand is the **octave shape**: thumb and little finger an octave apart, the middle fingers floating, not pressing.\n\n**Why it matters:** keep the shape and move the whole hand as one, and every octave lands without looking. Squeezing the hand to find each key again is what makes octaves slow.\n\nThe real piece is lower than your keyboard may go, so this session plays the same moves higher up, in C minor. Press **Watch**.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            72,
+            70,
+            67,
+            65,
+            60
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "Two octaves, back and forth",
+      "body": "Play **C** (both Cs together), then **B♭**, then back. Keep the stretch; let the arm carry the hand one key along.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            72,
+            70,
+            67,
+            65,
+            60
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "The Moonlight bass line",
+      "body": "Now the whole line from the start of Moonlight Sonata, moved to C minor: **C, B♭, A♭, F, G, G**. The hand travels down, one shape at a time. Slow and even is the goal.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            72,
+            70,
+            67,
+            65,
+            60
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 72,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                72,
+                70,
+                67,
+                65,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 58,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 70,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                70,
+                68,
+                65,
+                63,
+                58
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 56,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 68,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                68,
+                66,
+                63,
+                61,
+                56
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 65,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                65,
+                63,
+                60,
+                58,
+                53
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 67,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                67,
+                65,
+                62,
+                60,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 67,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                67,
+                65,
+                62,
+                60,
+                55
+              ]
+            }
+          ]
+        }
+      ],
+      "rounds": 3
+    }
+  ]
+}

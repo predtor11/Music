@@ -9,12 +9,10 @@
  */
 
 import { clipEvents, type Clip, type NoteEvent } from './events.js';
-
-export type { NoteEvent } from './events.js';
 import { loadPiano, pianoIfReady } from './piano.js';
 import { synthPlay } from './synthVoice.js';
 
-export type { Clip } from './events.js';
+export type { Clip, NoteEvent } from './events.js';
 
 /** How long a prompt waits for the piano to finish loading before using the synth. */
 const PIANO_WAIT_MS = 2500;
@@ -61,9 +59,8 @@ export const playChord = (notes: readonly number[], seconds?: number) => play({ 
 export const playSequence = (notes: readonly number[], gap?: number) => play({ kind: 'sequence', notes: [...notes] }, { gap });
 
 /**
- * Note events straight away, for playing back a recording. Doesn't wait for
- * the piano (the synth plays until it loads). Tests see each batch as a
- * sequence clip.
+ * Notes at set times, right away (no waiting for the piano), for pieces: the
+ * other hand under your practice, and Listen. Recorded as a sequence in tests (and for playing back recordings).
  */
 export function playEvents(events: readonly NoteEvent[]): void {
   if (events.length === 0) return;

@@ -6,6 +6,10 @@
  *   #/checkpoint/:id   Unit checkpoint test
  *   #/hands            Hand and finger sessions
  *   #/hands/:id        One hand session
+ *   #/pieces           Pieces to learn
+ *   #/pieces/:id       One piece: overview and practice
+ *   #/ear              Play-by-ear trainer levels
+ *   #/ear/:id          One round of an ear level
  *   #/review           Practice for weak spots
  *   #/progress         Progress report
  *   #/jam              Jam-along (?n=1,5,6,4&key=G&style=pop&bpc=4&bpm=96 to preset it)
@@ -40,6 +44,10 @@ export type Route =
   | { page: 'checkpoint'; unitId: string }
   | { page: 'hands' }
   | { page: 'hand'; id: string }
+  | { page: 'pieces' }
+  | { page: 'piece'; id: string }
+  | { page: 'ear' }
+  | { page: 'ear-level'; id: string }
   | { page: 'review' }
   | { page: 'progress' }
   | { page: 'jam'; setup: JamSetup }
@@ -81,6 +89,10 @@ export function parseRoute(hash: string): Route {
   if (parts[0] === 'checkpoint' && parts[1]) return { page: 'checkpoint', unitId: parts[1] };
   if (parts[0] === 'hands' && parts[1]) return { page: 'hand', id: parts[1] };
   if (parts[0] === 'hands') return { page: 'hands' };
+  if (parts[0] === 'pieces' && parts[1]) return { page: 'piece', id: parts[1] };
+  if (parts[0] === 'pieces') return { page: 'pieces' };
+  if (parts[0] === 'ear' && parts[1]) return { page: 'ear-level', id: parts[1] };
+  if (parts[0] === 'ear') return { page: 'ear' };
   if (parts[0] === 'review') return { page: 'review' };
   if (parts[0] === 'progress') return { page: 'progress' };
   if (parts[0] === 'record' && parts[1]) return { page: 'recording', id: parts[1] };
@@ -104,6 +116,10 @@ export const href = {
   checkpoint: (unitId: string) => `#/checkpoint/${encodeURIComponent(unitId)}`,
   hands: '#/hands',
   hand: (id: string) => `#/hands/${encodeURIComponent(id)}`,
+  pieces: '#/pieces',
+  piece: (id: string) => `#/pieces/${encodeURIComponent(id)}`,
+  ear: '#/ear',
+  earLevel: (id: string) => `#/ear/${encodeURIComponent(id)}`,
   review: '#/review',
   progress: '#/progress',
   jam: (setup?: JamSetup) => {
