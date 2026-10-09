@@ -27,6 +27,7 @@ import { PiecePage } from './pages/PiecePage.js';
 import { PiecesPage } from './pages/PiecesPage.js';
 import { LessonsPage } from './pages/LessonsPage.js';
 import { ProgressPage } from './pages/ProgressPage.js';
+import { SongsPage } from './pages/SongsPage.js';
 import { RecordingPage, RecordPage } from './pages/RecordPage.js';
 import { ReviewPage } from './pages/ReviewPage.js';
 import { SettingsPage } from './pages/SettingsPage.js';
@@ -49,6 +50,7 @@ const NAV = [
   { id: 'jam', label: 'Jam', href: href.jam() },
   { id: 'bandtalk', label: 'Band talk', href: href.bandtalk() },
   { id: 'review', label: 'Review', href: href.review },
+  { id: 'songs', label: 'Songs', href: href.songs },
   { id: 'record', label: 'Record', href: href.record },
   { id: 'charts', label: 'Charts', href: href.charts },
   { id: 'progress', label: 'Progress', href: href.progress },
@@ -63,6 +65,7 @@ function section(route: Route): Section {
     case 'progress':
     case 'jam':
     case 'bandtalk':
+    case 'songs':
       return route.page;
     case 'hands':
     case 'hand':
@@ -238,6 +241,7 @@ export function App() {
             {route.page === 'bandtalk' && <BandTalkPage id={route.id} settings={settings} />}
             {route.page === 'review' && <ReviewPage settings={settings} />}
             {route.page === 'progress' && <ProgressPage />}
+            {route.page === 'songs' && <SongsPage settings={settings} />}
             {route.page === 'record' && <RecordPage settings={settings} />}
             {route.page === 'recording' && <RecordingPage id={route.id} settings={settings} />}
             {route.page === 'charts' && <ChartsPage />}

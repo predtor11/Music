@@ -14,6 +14,7 @@
  *   #/progress         Progress report
  *   #/jam              Jam-along (?n=1,5,6,4&key=G&style=pop&bpc=4&bpm=96 to preset it)
  *   #/bandtalk/:id     Band-talk cheat sheet, optionally open at one phrase
+ *   #/songs            Songs: open a MIDI or audio file and see its chords
  *   #/record           Record, import and saved recordings
  *   #/record/:id       One saved recording
  *   #/charts           Band charts
@@ -52,6 +53,7 @@ export type Route =
   | { page: 'progress' }
   | { page: 'jam'; setup: JamSetup }
   | { page: 'bandtalk'; id: string | null }
+  | { page: 'songs' }
   | { page: 'record' }
   | { page: 'recording'; id: string }
   | { page: 'charts' }
@@ -95,6 +97,7 @@ export function parseRoute(hash: string): Route {
   if (parts[0] === 'ear') return { page: 'ear' };
   if (parts[0] === 'review') return { page: 'review' };
   if (parts[0] === 'progress') return { page: 'progress' };
+  if (parts[0] === 'songs') return { page: 'songs' };
   if (parts[0] === 'record' && parts[1]) return { page: 'recording', id: parts[1] };
   if (parts[0] === 'record') return { page: 'record' };
   if (parts[0] === 'charts') {
@@ -133,6 +136,7 @@ export const href = {
     return `#/jam?${q.toString()}`;
   },
   bandtalk: (id?: string) => (id ? `#/bandtalk/${encodeURIComponent(id)}` : '#/bandtalk'),
+  songs: '#/songs',
   record: '#/record',
   recording: (id: string) => `#/record/${encodeURIComponent(id)}`,
   charts: '#/charts',

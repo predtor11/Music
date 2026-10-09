@@ -76,3 +76,5 @@ project through the Supabase MCP are recorded there too, so start-up skips
 them. Every service table has row level security on with no policies: only
 the services (connecting as the database owner) can read them, and the
 schemas are not exposed through Supabase's public API.
+
+The Songs screen (`#/songs`) is described in [SONGS.md](SONGS.md).
