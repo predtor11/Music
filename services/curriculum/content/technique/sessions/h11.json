@@ -1,0 +1,587 @@
+{
+  "id": "h11",
+  "order": 11,
+  "title": "Bass note, then chord",
+  "summary": "Jump from a low bass note to a chord and back, the left hand's most common job.",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The jump",
+      "body": "A lot of music has the left hand play a low note on the beat, then a chord higher up, then back down: bass, chord, bass, chord.\n\nThe move between them is a **hand jump**: the whole hand lifts and lands in a new place, already in the shape of what it will play.\n\n**Why it matters:** jumping chords feel hard when the hand hunts for keys after it lands. Shape the hand in the air, look at where it will land just before you go, and it arrives ready.\n\nPress **Watch**: bass C with the little finger, then the C chord with fingers 5, 3 and 1.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "demo": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drill",
+      "title": "C: bass, chord",
+      "body": "Bass **C**, then the chord, four times. Land the chord with all three keys together.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        }
+      ],
+      "rounds": 2
+    },
+    {
+      "type": "drill",
+      "title": "C, F, G, C",
+      "body": "Now change chords: **C, F, G, C**, a bass note and a chord for each. Every jump goes to a new place, so look one jump ahead.",
+      "hands": [
+        {
+          "hand": "left",
+          "keys": [
+            55,
+            53,
+            52,
+            50,
+            48
+          ]
+        }
+      ],
+      "beats": [
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 53,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                60,
+                58,
+                57,
+                55,
+                53
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 57,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 65,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                65,
+                62,
+                60,
+                59,
+                57
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                62,
+                60,
+                59,
+                57,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 59,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 62,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 67,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                67,
+                64,
+                62,
+                60,
+                59
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 48,
+              "hand": "left",
+              "finger": 5
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                55,
+                53,
+                52,
+                50,
+                48
+              ]
+            }
+          ]
+        },
+        {
+          "notes": [
+            {
+              "midi": 55,
+              "hand": "left",
+              "finger": 5
+            },
+            {
+              "midi": 60,
+              "hand": "left",
+              "finger": 3
+            },
+            {
+              "midi": 64,
+              "hand": "left",
+              "finger": 1
+            }
+          ],
+          "move": [
+            {
+              "hand": "left",
+              "keys": [
+                64,
+                62,
+                60,
+                57,
+                55
+              ]
+            }
+          ]
+        }
+      ],
+      "rounds": 3
+    }
+  ]
+}

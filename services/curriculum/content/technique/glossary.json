@@ -125,5 +125,56 @@
       "64": "3",
       "65": "1"
     }
+  },
+  {
+    "id": "octave-shape",
+    "term": "octave shape",
+    "aliases": [],
+    "lessonId": "h10",
+    "meaning": "Thumb and little finger stretched an octave apart, so both keys with the same name play together.",
+    "whyItMatters": "Keeping the shape and moving the whole hand makes octaves land without looking.",
+    "exampleMidi": [
+      60,
+      72
+    ]
+  },
+  {
+    "id": "hand-jump",
+    "term": "hand jump",
+    "aliases": [],
+    "lessonId": "h11",
+    "meaning": "Lifting the whole hand and landing it in a new place, already shaped for what it plays next.",
+    "whyItMatters": "Shaping the hand in the air is what makes jumping chords land cleanly.",
+    "exampleMidi": [
+      48,
+      55,
+      60,
+      64
+    ]
+  },
+  {
+    "id": "broken-chord",
+    "term": "broken chord",
+    "aliases": [],
+    "lessonId": "h12",
+    "meaning": "A chord whose notes are played one after another instead of all at once.",
+    "whyItMatters": "Left-hand parts are full of them; a still hand and busy fingers make them fast and even.",
+    "exampleMidi": [
+      57,
+      64,
+      69
+    ]
+  },
+  {
+    "id": "leap",
+    "term": "leap",
+    "aliases": [],
+    "lessonId": "h13",
+    "meaning": "A move from one key to another far away, more than a hand-width.",
+    "whyItMatters": "Leaps are aimed with the eyes first; looking at the landing key before moving makes them reliable.",
+    "exampleMidi": [
+      48,
+      60
+    ]
   }
 ]
