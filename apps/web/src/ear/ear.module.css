@@ -1,0 +1,71 @@
+/* Play-by-ear trainer: the answer card, the round meter and the level list. */
+
+.prompt {
+  font-size: var(--text-2xl);
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.answer[data-right='true'] {
+  border-color: var(--good);
+}
+
+.answerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.answerName {
+  font-size: var(--text-2xl);
+}
+
+.answerActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dots li {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  transition: background 0.2s;
+}
+
+.dots li[data-state='current'] {
+  background: var(--accent);
+}
+
+.dots li[data-state='good'] {
+  background: var(--good);
+}
+
+.dots li[data-state='missed'] {
+  background: var(--warn);
+}
+
+.roundHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
