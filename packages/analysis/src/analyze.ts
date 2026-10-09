@@ -7,6 +7,8 @@ import { keyTonicPc, type Key } from '@music/theory';
 import { audioFrames } from './audio.js';
 import { findChords, relabel, type ChordOptions } from './chords.js';
 import { framesFromNotes } from './frames.js';
+import { dropMelodyOnly } from './melody.js';
+import { applyPedal, type PedalChange } from './pedal.js';
 import { detectKey } from './key.js';
 import { beatIndex, parseMidiFile } from './smf.js';
 import { summarize } from './summary.js';
@@ -70,12 +72,19 @@ function barPhase(segments: readonly ChordSegment[], grid: BeatGrid): number {
 }
 
 /** Analyse notes: something played on the keyboard, or the notes of a file. */
-export function analyzeNotes(notes: readonly NoteEvent[], opts: AnalyzeOptions & { grid?: BeatGrid; source?: SourceKind; duration?: number } = {}): Analysis {
-  const duration = opts.duration ?? notes.reduce((m, n) => Math.max(m, n.end), 0);
+export function analyzeNotes(
+  keys: readonly NoteEvent[],
+  opts: AnalyzeOptions & { grid?: BeatGrid; source?: SourceKind; duration?: number; pedal?: readonly PedalChange[] } = {},
+): Analysis {
+  const duration = opts.duration ?? keys.reduce((m, n) => Math.max(m, n.end), 0);
+  // With the sustain pedal, notes ring past their keys: analyse what sounded.
+  const notes = opts.pedal ? applyPedal(keys, opts.pedal, duration) : keys;
   const tempo = opts.grid ? { grid: opts.grid, strength: 1 } : gridFromNotes(notes, duration, opts.bpm, opts.beatsPerBar);
   const grid = tempo.grid;
   const frames = framesFromNotes(notes, grid);
-  const { guesses, key, segments } = run(frames, grid, opts, { vocabulary: 'full', changeCost: 0.3 }, false, !opts.grid);
+  const found = run(frames, grid, opts, { vocabulary: 'full', changeCost: 0.3 }, false, !opts.grid);
+  const { guesses, key } = found;
+  const segments = dropMelodyOnly(found.segments, notes);
   const source = opts.source ?? 'recording';
   const steadyBeat = tempo.strength >= 0.2;
   return {
@@ -97,7 +106,7 @@ export function analyzeNotes(notes: readonly NoteEvent[], opts: AnalyzeOptions &
 export function analyzeMidiFile(bytes: ArrayBuffer | Uint8Array, opts: AnalyzeOptions = {}): Analysis {
   const file = parseMidiFile(bytes);
   const title = opts.title ?? file.trackNames.find((n) => n) ?? '';
-  return analyzeNotes(file.notes, { ...opts, title, grid: file.grid, source: 'midi', duration: file.duration });
+  return analyzeNotes(file.notes, { ...opts, title, grid: file.grid, source: 'midi', duration: file.duration, pedal: file.pedal });
 }
 
 /** Analyse decoded audio (one or more channels of samples). */

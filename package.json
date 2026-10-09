@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "npm run dev -w @music/web",
-    "dev:all": "concurrently -n gateway,identity,curriculum,practice,progress,theory,web -c auto \"npm run dev -w @music/gateway-service\" \"npm run dev -w @music/identity-service\" \"npm run dev -w @music/curriculum-service\" \"npm run dev -w @music/practice-service\" \"npm run dev -w @music/progress-service\" \"npm run dev -w @music/theory-service\" \"npm run dev -w @music/web\"",
+    "dev:all": "concurrently -n gateway,identity,curriculum,practice,progress,theory,recordings,web -c auto \"npm run dev -w @music/gateway-service\" \"npm run dev -w @music/identity-service\" \"npm run dev -w @music/curriculum-service\" \"npm run dev -w @music/practice-service\" \"npm run dev -w @music/progress-service\" \"npm run dev -w @music/theory-service\" \"npm run dev -w @music/recordings-service\" \"npm run dev -w @music/web\"",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",

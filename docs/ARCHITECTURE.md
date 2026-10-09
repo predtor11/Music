@@ -19,13 +19,14 @@ Read this before changing code. The full plan lives in the Claude Doc
 | `services/practice` | Sessions and attempts. Port 4003. Emits `attempt.recorded`, `session.ended`. | practice work |
 | `services/progress` | Unlocks, skill scores, review queue, progress report. Port 4004. Listens to `attempt.recorded`, `session.ended`. | progress work |
 | `services/theory` | HTTP wrapper over `@music/theory` (chord and scale lookups). Port 4005. Stores nothing. | theory work |
+| `services/recordings` | Saved recordings (notes, pedal, picked key, chord corrections). Port 4006. The web app records, plays back and exports; `@music/analysis` names the chords in the browser. | recording work |
 
 Ports and route prefixes are in `packages/contracts/src/services.ts`.
 
 ## Rules
 
 - **MIDI is graded in the browser.** Services never sit between a key press and its feedback.
-- **Each service owns its data.** One Postgres schema per service in the Supabase database (`identity`, `practice`, `progress`; curriculum content is JSON files). No service reads another's schema; it calls the API or listens to events.
+- **Each service owns its data.** One Postgres schema per service in the Supabase database (`identity`, `practice`, `progress`, `recordings`; curriculum content is JSON files). No service reads another's schema; it calls the API or listens to events.
 - **Contracts first.** Request and response bodies, and event payloads, come from `@music/contracts`. Validate input with the schema (`Schema.parse(req.body)`); zod errors become 400s automatically.
 - **Events are at-least-once.** Handlers must be safe to run twice (use the event `id`).
 - **Services trust `x-user-id` only from the gateway.** Use `requireUserId(req)`.

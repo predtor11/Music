@@ -60,7 +60,7 @@ export const playSequence = (notes: readonly number[], gap?: number) => play({ k
 
 /**
  * Notes at set times, right away (no waiting for the piano), for pieces: the
- * other hand under your practice, and Listen. Recorded as a sequence in tests.
+ * other hand under your practice, and Listen. Recorded as a sequence in tests (and for playing back recordings).
  */
 export function playEvents(events: readonly NoteEvent[]): void {
   if (events.length === 0) return;

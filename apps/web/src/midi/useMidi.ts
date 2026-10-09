@@ -3,7 +3,7 @@
  * keys held on the MIDI keyboard, and remembers which input was picked.
  */
 
-import { HeldNotes, WebMidiSource, type MidiInputInfo, type MidiStatus } from '@music/midi';
+import { HeldNotes, WebMidiSource, type MidiEvent, type MidiInputInfo, type MidiStatus } from '@music/midi';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 export type Browser = 'firefox' | 'safari' | 'other';
@@ -29,9 +29,17 @@ export interface MidiState {
   select: (id: string | null) => void;
 }
 
-export function useMidi(initialInput: string | null, onSelect: (id: string | null) => void, onNoteOn?: (note: number) => void): MidiState {
+export function useMidi(
+  initialInput: string | null,
+  onSelect: (id: string | null) => void,
+  onNoteOn?: (note: number) => void,
+  /** Every event from the keyboard (note-ons with velocity, note-offs, the pedal), for recording. */
+  onEvent?: (event: MidiEvent) => void,
+): MidiState {
   const noteOnRef = useRef(onNoteOn);
   noteOnRef.current = onNoteOn;
+  const eventRef = useRef(onEvent);
+  eventRef.current = onEvent;
   const source = useMemo(() => new WebMidiSource(), []);
   const heldNotes = useRef(new HeldNotes());
   const [status, setStatus] = useState<MidiStatus>(source.status);
@@ -46,6 +54,7 @@ export function useMidi(initialInput: string | null, onSelect: (id: string | nul
     });
     const offEvent = source.onEvent((event) => {
       if (event.type === 'noteOn') noteOnRef.current?.(event.note);
+      eventRef.current?.(event);
       if (heldNotes.current.apply(event) || event.type === 'sustain') {
         const h = heldNotes.current;
         setNotes({ held: h.keys(), sounding: h.sounding(), pedal: h.pedal });

@@ -7,6 +7,7 @@
  * one song), running status, tempo changes and SMPTE time.
  */
 
+import type { PedalChange } from './pedal.js';
 import type { BeatGrid, NoteEvent } from './types.js';
 
 export interface MidiFile {
@@ -18,6 +19,8 @@ export interface MidiFile {
   notes: NoteEvent[];
   /** Drum hits (channel 10), sorted by start. */
   drums: NoteEvent[];
+  /** Sustain pedal changes (controller 64), sorted by time. `notes` keep how long each key was held. */
+  pedal: PedalChange[];
   /** Tempo changes: time in seconds and quarter notes per minute. */
   tempos: Array<{ time: number; bpm: number }>;
   timeSignature: { numerator: number; denominator: number };
@@ -102,6 +105,7 @@ export function parseMidiFile(input: ArrayBuffer | Uint8Array): MidiFile {
   if (!smpte && ppq === 0) throw new MidiFileError('The MIDI file has no timing.');
 
   const raw: RawNote[] = [];
+  const pedalTicks: Array<{ tick: number; down: boolean }> = [];
   const tempoTicks: Array<{ tick: number; tempo: number }> = [];
   const trackNames: string[] = [];
   let timeSig: { tick: number; numerator: number; denominator: number } | null = null;
@@ -165,6 +169,10 @@ export function parseMidiFile(input: ArrayBuffer | Uint8Array): MidiFile {
           const on = open.get(id)?.shift();
           if (on) raw.push({ tick: on.tick, endTick: tick, midi, velocity: on.velocity, channel, track: t });
         }
+      } else if (kind === 0xb0) {
+        const controller = tr.u8();
+        const value = tr.u8();
+        if (controller === 64 && channel !== 9) pedalTicks.push({ tick, down: value >= 64 });
       } else if (kind === 0xc0 || kind === 0xd0) tr.pos += 1;
       else tr.pos += 2;
     }
@@ -213,8 +221,12 @@ export function parseMidiFile(input: ArrayBuffer | Uint8Array): MidiFile {
     ? steadyGrid(120, duration, numerator)
     : tickGrid(ppq, numerator, denominator, timeSig?.tick ?? 0, lastTick, seconds);
   const tempos = map.map((m) => ({ time: m.sec, bpm: 60e6 / m.tempo }));
+  const pedal: PedalChange[] = [];
+  for (const p of pedalTicks.sort((a, b) => a.tick - b.tick)) {
+    if ((pedal[pedal.length - 1]?.down ?? false) !== p.down) pedal.push({ time: seconds(p.tick), down: p.down });
+  }
 
-  return { format, ppq, trackNames, notes, drums, tempos, timeSignature: { numerator, denominator }, grid, duration };
+  return { format, ppq, trackNames, notes, drums, pedal, tempos, timeSignature: { numerator, denominator }, grid, duration };
 }
 
 /** Beats from the file's own timing, so bars line up with the music. */

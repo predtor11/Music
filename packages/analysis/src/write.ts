@@ -3,6 +3,7 @@
  * be opened in any music program. The recorder exports with this.
  */
 
+import type { PedalChange } from './pedal.js';
 import type { NoteEvent } from './types.js';
 
 const PPQ = 480;
@@ -22,6 +23,10 @@ export interface WriteOptions {
   bpm?: number;
   beatsPerBar?: number;
   title?: string;
+  /** Sustain pedal changes, written as controller 64 so other programs hear the pedal too. */
+  pedal?: readonly PedalChange[];
+  /** Length in seconds; the track ends here when it is after the last note. */
+  duration?: number;
 }
 
 /** Notes (times in seconds) to the bytes of a .mid file. */
@@ -32,9 +37,11 @@ export function writeMidiFile(notes: readonly NoteEvent[], opts: WriteOptions = 
   for (const n of notes) {
     const ch = (n.channel ?? 0) & 0x0f;
     const vel = Math.max(1, Math.min(127, Math.round(n.velocity * 127)));
-    events.push({ tick: ticks(n.start), order: 1, bytes: [0x90 | ch, n.midi & 0x7f, vel] });
+    events.push({ tick: ticks(n.start), order: 2, bytes: [0x90 | ch, n.midi & 0x7f, vel] });
     events.push({ tick: Math.max(ticks(n.start) + 1, ticks(n.end)), order: 0, bytes: [0x80 | ch, n.midi & 0x7f, 0] });
   }
+  // On one tick: note-offs, then the pedal, then note-ons.
+  for (const p of opts.pedal ?? []) events.push({ tick: ticks(p.time), order: 1, bytes: [0xb0, 64, p.down ? 127 : 0] });
   events.sort((a, b) => a.tick - b.tick || a.order - b.order);
 
   const track: number[] = [];
@@ -50,7 +57,8 @@ export function writeMidiFile(notes: readonly NoteEvent[], opts: WriteOptions = 
     track.push(...vlq(e.tick - last), ...e.bytes);
     last = e.tick;
   }
-  track.push(0, 0xff, 0x2f, 0);
+  const endTick = Math.max(last, opts.duration === undefined ? 0 : ticks(opts.duration));
+  track.push(...vlq(endTick - last), 0xff, 0x2f, 0);
 
   const len = track.length;
   const header = [0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, 0, 0, 1, PPQ >> 8, PPQ & 0xff];
