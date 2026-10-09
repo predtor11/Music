@@ -3,6 +3,8 @@ export interface NoteEvent {
   midi: number;
   at: number;
   dur: number;
+  /** 0 to 1; default 0.75. */
+  velocity?: number;
 }
 
 /** What was asked for, in the shape tests record (see window.__sound in sound.ts). */

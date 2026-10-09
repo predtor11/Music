@@ -124,11 +124,50 @@ function numeralPcs(numeral: string, key: string): number[] {
 }
 const NUMERAL_CHORD = new RegExp(`^In (${NOTE} major), play the (\\S+) chord\\.`);
 
+const INVERSIONS = ['root position', 'first inversion', 'second inversion', 'third inversion'];
+const INVERSION = /\bin (root position|first inversion|second inversion|third inversion)\b/;
+const LOWEST_NAMED = new RegExp(`\\bwith (${NOTE}) lowest\\b`);
+
+/** A chord in any voicing: its root and its chord type, or undefined. */
+function identify(shown: number[]): { root: number; intervals: readonly number[] } | undefined {
+  const pcs = [...new Set(shown.map(pitchClass))];
+  for (const type of CHORD_TYPES) {
+    const root = pcs.find((r) => type.intervals.length === pcs.length && samePcs(type.intervals.map(mod12), pcs.map((p) => mod12(p - r))));
+    if (root !== undefined) return { root, intervals: type.intervals };
+  }
+  return undefined;
+}
+
 /** The kind of a root-position chord: "major", "minor", ... or undefined. */
 function chordKind(shown: number[]): string | undefined {
   const low = Math.min(...shown);
   const shape = [...new Set(shown.map((k) => mod12(k - low)))].sort((a, b) => a - b).join();
   return Object.keys(CHORD_SHAPES).find((kind) => CHORD_SHAPES[kind]!.join() === shape);
+}
+
+/** Note lengths in beats (quarter-note beats). */
+const NOTE_BEATS: Record<string, number> = { whole: 4, half: 2, quarter: 1, eighth: 0.5, 'dotted half': 3, 'dotted quarter': 1.5 };
+/** Letters on the staff, from the bottom line up: line, space, line ... */
+const STAFF_LETTERS: Record<string, string[]> = { treble: ['E', 'F', 'G', 'A', 'B', 'C', 'D', 'E', 'F'], bass: ['G', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A'] };
+/** Lowest and highest MIDI note a clef is drawn for, ledger lines included. */
+const CLEF_RANGE: Record<string, [number, number]> = { treble: [55, 88], bass: [33, 67] };
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+
+/** Answers to questions about rhythm and the staff (Unit 8). undefined means the prompt is not one of these. */
+function isRightReadingAnswer(choice: string, prompt: string): boolean | undefined {
+  let m: RegExpExecArray | null;
+  if ((m = /^How many beats are in a bar of (\d+)\/(\d+)\?$/.exec(prompt))) return choice === m[1];
+  if ((m = /^How many (\w+) notes last as long as one ((?:dotted )?\w+) note\?$/.exec(prompt))) {
+    const [small, big] = [NOTE_BEATS[m[1]!], NOTE_BEATS[m[2]!]];
+    if (small === undefined || big === undefined) throw new Error(`unknown note length in: ${prompt}`);
+    return Number(choice) === big / small;
+  }
+  if ((m = /^Which is faster: (\d+) BPM or (\d+) BPM\?$/.exec(prompt))) return choice === `${Math.max(Number(m[1]), Number(m[2]))} BPM`;
+  if ((m = /^On the (treble|bass) clef, which note sits on the (\d)(?:st|nd|rd|th) (line|space) from the bottom\?$/.exec(prompt))) {
+    const n = Number(m[2]);
+    return choice === STAFF_LETTERS[m[1]!]![m[3] === 'line' ? (n - 1) * 2 : (n - 1) * 2 + 1];
+  }
+  return undefined;
 }
 
 /** Answers to questions about chords (Unit 4 on). undefined means the prompt is not one of these. */
@@ -139,6 +178,27 @@ function isRightChordAnswer(choice: string, shown: number[], prompt: string): bo
     return parsed ? spelledPc(parsed.note) : undefined;
   };
   if (prompt === 'How many notes are in this chord?') return Number(choice) === new Set(shown).size;
+  if (prompt === 'Which inversion is this chord?' || prompt === 'Is this chord in root position?') {
+    const chord = identify(shown);
+    if (!chord) return false;
+    const inversion = INVERSIONS[chord.intervals.map(mod12).indexOf(mod12(pitchClass(sorted[0]!) - chord.root))];
+    if (prompt === 'Which inversion is this chord?') return choice === inversion;
+    return (choice === 'yes' || choice === 'no') && (inversion === 'root position') === (choice === 'yes');
+  }
+  if (prompt === 'What is the bass note of this chord?') {
+    const parsed = parseNote(choice);
+    return !!parsed && spelledPc(parsed.note) === pitchClass(sorted[0]!);
+  }
+  if (prompt === 'Which chord is this?') {
+    const pcs = symbolPcs(choice);
+    return !!pcs && samePcs(pcs, shown.map(pitchClass));
+  }
+  const share = new RegExp(`^Which note do (\\S+) and (\\S+) share\\?$`).exec(prompt);
+  if (share) {
+    const parsed = parseNote(choice);
+    const [a, b] = [symbolPcs(share[1]!), symbolPcs(share[2]!)];
+    return !!parsed && !!a && !!b && a.includes(spelledPc(parsed.note)) && b.includes(spelledPc(parsed.note));
+  }
   if (prompt === 'Is this chord a triad?') {
     if (choice !== 'yes' && choice !== 'no') return false;
     const gaps = sorted.slice(1).map((k, i) => k - sorted[i]!);
@@ -248,6 +308,8 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
 
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const readingAnswer = isRightReadingAnswer(choice, prompt);
+  if (readingAnswer !== undefined) return readingAnswer;
   const chordAnswer = isRightChordAnswer(choice, shown, prompt);
   if (chordAnswer !== undefined) return chordAnswer;
   const keyAnswer = isRightKeyAnswer(choice, shown, prompt);
@@ -360,6 +422,37 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       }
       break;
     }
+    case 'tap-rhythm': {
+      // Onsets in order, each note over before the next starts, and "N taps" in the prompt matching.
+      const { onsets, durations } = item;
+      if (onsets.some((o, i) => i > 0 && o <= onsets[i - 1]!)) problems.push('onsets are not in order');
+      if (durations) {
+        if (durations.length !== onsets.length) problems.push('durations and onsets differ in length');
+        onsets.forEach((o, i) => {
+          const next = onsets[i + 1];
+          if (next !== undefined && o + durations[i]! > next + 1e-9) problems.push(`note ${i + 1} overlaps the next one`);
+        });
+      }
+      const taps = /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) taps?\b/.exec(item.prompt);
+      if (!taps) problems.push('prompt should say how many taps');
+      else {
+        const n = /^\d+$/.test(taps[1]!) ? Number(taps[1]) : NUMBER_WORDS.indexOf(taps[1]!);
+        if (n !== onsets.length) problems.push(`prompt says ${taps[1]} taps, but there are ${onsets.length} onsets`);
+      }
+      const sig = /\b(\d+)\/(\d+)\b/.exec(item.prompt);
+      if (sig && item.timeSignature.join('/') !== `${sig[1]}/${sig[2]}`) problems.push(`prompt says ${sig[0]}, but the time signature is ${item.timeSignature.join('/')}`);
+      const bpm = /\b(\d+) BPM\b/.exec(item.prompt);
+      if (bpm && Number(bpm[1]) !== item.bpm) problems.push(`prompt says ${bpm[0]}, but bpm is ${item.bpm}`);
+      break;
+    }
+    case 'read-staff': {
+      const [low, high] = CLEF_RANGE[item.clef]!;
+      for (const m of item.midi) if (m < low || m > high) problems.push(`midi ${m} is too far off the ${item.clef} staff`);
+      if (item.key && !parseKey(item.key)) problems.push(`key ${item.key} does not parse`);
+      if (noteTokens(item.prompt).length) problems.push('prompt should not name the notes; the staff shows them');
+      if (/\bchord\b/.test(item.prompt) !== item.midi.length > 1) problems.push('prompt should say "chord" exactly when more than one note is drawn');
+      break;
+    }
     case 'play-progression': {
       // "Play I–V–vi–IV in G.": the numerals and the key in the prompt must match the item.
       const key = parseKey(item.key);
@@ -388,8 +481,17 @@ export function checkItem(item: TestItem, mode: 'play-along' | 'quiz' = 'quiz'):
       if (!want || want.length === 0) problems.push('prompt names no chord');
       else if (!samePcs(want, item.pitchClasses)) problems.push(`prompt asks for pcs ${[...new Set(want)].join(' ')}, not ${item.pitchClasses.join(' ')}`);
       if (item.bassPc !== null && !item.pitchClasses.includes(item.bassPc)) problems.push('bassPc is not in the chord');
-      const bass = written && !triad && !numeral ? symbolBass(written[1]!) : undefined;
-      if ((bass ?? null) !== item.bassPc) problems.push(`bassPc should be ${bass ?? null}, the note after the slash`);
+      // The lowest note: "in first inversion", "C/E", "with E lowest", or any when the prompt says nothing.
+      const inversion = INVERSION.exec(item.prompt);
+      const lowest = LOWEST_NAMED.exec(item.prompt);
+      const bass = inversion && want
+        ? want[INVERSIONS.indexOf(inversion[1]!)]
+        : lowest
+          ? spelledPc(parseNote(lowest[1]!)!.note)
+          : written && !triad && !numeral
+            ? symbolBass(written[1]!)
+            : undefined;
+      if ((bass ?? null) !== item.bassPc) problems.push(`bassPc should be ${bass ?? null}`);
       break;
     }
   }

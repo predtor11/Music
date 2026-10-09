@@ -1,0 +1,163 @@
+{
+  "id": "u7-l10",
+  "unitId": "unit-7",
+  "order": 10,
+  "title": "Smooth changes in I–V–vi–IV",
+  "summary": "Put it together: the pop progression with smooth voicings.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One hand position",
+      "body": "Play I–V–vi–IV in C without moving your hand: C (C E G), G/B (B D G), Am (A C E) and F/A (A C F). Each change moves one or two fingers a step, and the common tones stay put.\n\n**Why it matters:** this is exactly how band keyboard players play the four chords behind a huge number of songs.",
+      "exampleMidi": [
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67
+      ],
+      "labels": {
+        "57": "A",
+        "59": "B",
+        "60": "C",
+        "62": "D",
+        "64": "E",
+        "65": "F",
+        "67": "G"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The four voicings",
+      "body": "C E G, B D G, A C E, A C F.",
+      "highlightMidi": [
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67
+      ],
+      "labels": {
+        "57": "Am, F",
+        "59": "G",
+        "60": "C, Am, F",
+        "62": "G",
+        "64": "C, Am",
+        "65": "F",
+        "67": "C, G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-p1",
+          "prompt": "Play C, E and G together.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-p2",
+          "prompt": "Play the chord written G/B.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": 11
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-p3",
+          "prompt": "Play A, C and E together.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "bassPc": null
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-p4",
+          "prompt": "Play the chord written F/A.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 9
+        },
+        {
+          "kind": "play-progression",
+          "id": "u7-l10-p5",
+          "prompt": "Play I–V–vi–IV in C.",
+          "key": "C",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Other keys",
+      "body": "Find the same smooth shapes for I–V–vi–IV in G: G, D/F♯, Em, C/E."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-q1",
+          "prompt": "Play the chord written D/F#.",
+          "pitchClasses": [
+            2,
+            6,
+            9
+          ],
+          "bassPc": 6
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l10-q2",
+          "prompt": "Play the chord written C/E.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": 4
+        },
+        {
+          "kind": "play-progression",
+          "id": "u7-l10-q3",
+          "prompt": "Play I–V–vi–IV in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ]
+        }
+      ]
+    }
+  ]
+}

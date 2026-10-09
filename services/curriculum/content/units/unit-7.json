@@ -1,0 +1,181 @@
+{
+  "id": "unit-7",
+  "order": 7,
+  "title": "Inversions and voicing",
+  "summary": "The same chord can be laid out many ways. Learn inversions and smooth changes, the way a band keyboard player moves between chords.",
+  "outcome": "You can change chords smoothly, moving your fingers as little as possible.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-1",
+        "prompt": "Play an F major triad in first inversion.",
+        "pitchClasses": [
+          5,
+          9,
+          0
+        ],
+        "bassPc": 9
+      },
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-2",
+        "prompt": "Play a G major triad in second inversion.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "bassPc": 2
+      },
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-3",
+        "prompt": "Play a D minor triad in root position.",
+        "pitchClasses": [
+          2,
+          5,
+          9
+        ],
+        "bassPc": 2
+      },
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-4",
+        "prompt": "Play the chord written C7, in third inversion.",
+        "pitchClasses": [
+          0,
+          4,
+          7,
+          10
+        ],
+        "bassPc": 10
+      },
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-5",
+        "prompt": "Play the chord written D/F#.",
+        "pitchClasses": [
+          2,
+          6,
+          9
+        ],
+        "bassPc": 6
+      },
+      {
+        "kind": "build-chord",
+        "id": "u7-cp-6",
+        "prompt": "Play G, B and F together: a G7 shell voicing.",
+        "pitchClasses": [
+          7,
+          11,
+          5
+        ],
+        "bassPc": null
+      },
+      {
+        "kind": "name-it",
+        "id": "u7-cp-7",
+        "prompt": "Which inversion is this chord?",
+        "shownMidi": [
+          64,
+          67,
+          72
+        ],
+        "choices": [
+          "root position",
+          "first inversion",
+          "second inversion"
+        ],
+        "answer": "first inversion"
+      },
+      {
+        "kind": "name-it",
+        "id": "u7-cp-8",
+        "prompt": "Which inversion is this chord?",
+        "shownMidi": [
+          62,
+          67,
+          71
+        ],
+        "choices": [
+          "root position",
+          "first inversion",
+          "second inversion"
+        ],
+        "answer": "second inversion"
+      },
+      {
+        "kind": "name-it",
+        "id": "u7-cp-9",
+        "prompt": "What is the bass note of this chord?",
+        "shownMidi": [
+          55,
+          60,
+          64
+        ],
+        "choices": [
+          "C",
+          "E",
+          "G"
+        ],
+        "answer": "G"
+      },
+      {
+        "kind": "name-it",
+        "id": "u7-cp-10",
+        "prompt": "Which note do C and Am share?",
+        "shownMidi": [
+          60
+        ],
+        "choices": [
+          "G",
+          "E",
+          "A"
+        ],
+        "answer": "E"
+      },
+      {
+        "kind": "name-it",
+        "id": "u7-cp-11",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          64,
+          69,
+          72
+        ],
+        "choices": [
+          "Am",
+          "C",
+          "Em"
+        ],
+        "answer": "Am"
+      },
+      {
+        "kind": "play-progression",
+        "id": "u7-cp-12",
+        "prompt": "Play I–V–vi–IV in F.",
+        "key": "F",
+        "numerals": [
+          "I",
+          "V",
+          "vi",
+          "IV"
+        ]
+      }
+    ]
+  },
+  "lessonIds": [
+    "u7-l1",
+    "u7-l2",
+    "u7-l3",
+    "u7-l4",
+    "u7-l5",
+    "u7-l6",
+    "u7-l7",
+    "u7-l8",
+    "u7-l9",
+    "u7-l10"
+  ]
+}

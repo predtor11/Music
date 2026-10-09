@@ -113,4 +113,32 @@ describe('checkItem', () => {
     expect(checkItem({ ...symbol, answer: 'C6' })).toEqual([]);
     expect(checkItem({ ...symbol, answer: 'Am7' })).not.toEqual([]);
   });
+
+  it('checks inversions, bass notes and common tones', () => {
+    const inverted = { kind: 'build-chord' as const, id: 'x', prompt: 'Play a C major triad in first inversion.', pitchClasses: [0, 4, 7] };
+    expect(checkItem({ ...inverted, bassPc: 4 })).toEqual([]);
+    expect(checkItem({ ...inverted, bassPc: 7 })).not.toEqual([]);
+    const which = { kind: 'name-it' as const, id: 'x', prompt: 'Which inversion is this chord?', shownMidi: [67, 72, 76], choices: ['root position', 'first inversion', 'second inversion'] };
+    expect(checkItem({ ...which, answer: 'second inversion' })).toEqual([]);
+    expect(checkItem({ ...which, answer: 'first inversion' })).not.toEqual([]);
+    const share = { kind: 'name-it' as const, id: 'x', prompt: 'Which note do C and G share?', shownMidi: [60], choices: ['C', 'G'] };
+    expect(checkItem({ ...share, answer: 'G' })).toEqual([]);
+    expect(checkItem({ ...share, answer: 'C' })).not.toEqual([]);
+  });
+
+  it('checks rhythms, staff reading and note-length questions', () => {
+    const tap = { kind: 'tap-rhythm' as const, id: 'x', prompt: 'Tap a half note, then two quarter notes: 3 taps.', bpm: 80, timeSignature: [4, 4] as [number, number], toleranceMs: 150 };
+    expect(checkItem({ ...tap, onsets: [0, 2, 3], durations: [2, 1, 1] })).toEqual([]);
+    expect(checkItem({ ...tap, onsets: [0, 1, 3], durations: [2, 1, 1] })).not.toEqual([]);
+    expect(checkItem({ ...tap, onsets: [0, 2] })).not.toEqual([]);
+    const read = { kind: 'read-staff' as const, id: 'x', prompt: 'Play the note on the staff.', clef: 'bass' as const };
+    expect(checkItem({ ...read, midi: [50] })).toEqual([]);
+    expect(checkItem({ ...read, midi: [84] })).not.toEqual([]);
+    const line = { kind: 'name-it' as const, id: 'x', prompt: 'On the treble clef, which note sits on the 3rd line from the bottom?', shownMidi: [71], choices: ['A', 'B'] };
+    expect(checkItem({ ...line, answer: 'B' })).toEqual([]);
+    expect(checkItem({ ...line, answer: 'A' })).not.toEqual([]);
+    const length = { kind: 'name-it' as const, id: 'x', prompt: 'How many quarter notes last as long as one dotted half note?', shownMidi: [60], choices: ['2', '3'] };
+    expect(checkItem({ ...length, answer: '3' })).toEqual([]);
+    expect(checkItem({ ...length, answer: '2' })).not.toEqual([]);
+  });
 });

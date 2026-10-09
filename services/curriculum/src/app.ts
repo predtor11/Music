@@ -1,5 +1,6 @@
-import type { Lesson, TechniqueSession, TechniqueSummary, Unit } from '@music/contracts';
+import type { BandTalkTerm, Lesson, TechniqueSession, TechniqueSummary, Unit } from '@music/contracts';
 import { createService } from '@music/service-kit';
+import { loadBandTalk } from './bandtalk.js';
 import { loadCurriculum } from './content.js';
 import type { GlossaryTerm } from './glossary.js';
 import { loadTechnique } from './technique.js';
@@ -10,7 +11,7 @@ function notFound(message: string): Error {
 
 /**
  * The curriculum service: units, lessons, test items, the glossary and the
- * hand and finger (technique) sessions, read from the JSON
+ * hand and finger (technique) sessions and the band-talk cheat sheet, read from the JSON
  * files in content/. The content is checked when the app is built, so a bad
  * file stops start-up instead of reaching a learner. Read-only; stores nothing.
  */
@@ -18,6 +19,7 @@ export function buildApp(options: { logger?: boolean; contentDir?: string } = {}
   const app = createService({ name: 'curriculum', logger: options.logger });
   const curriculum = loadCurriculum(options.contentDir);
   const technique = loadTechnique(options.contentDir);
+  const bandTalk = loadBandTalk(new Set(curriculum.glossary.map((t) => t.id)), options.contentDir);
 
   // GET /units: every unit in order, without its checkpoint.
   app.get('/units', async (): Promise<Array<Omit<Unit, 'checkpoint'>>> => curriculum.units.map(({ checkpoint: _, ...unit }) => unit));
@@ -38,6 +40,9 @@ export function buildApp(options: { logger?: boolean; contentDir?: string } = {}
 
   // GET /glossary: every term, in teaching order. The app shows the ones whose lesson you have reached.
   app.get('/glossary', async (): Promise<GlossaryTerm[]> => curriculum.glossary);
+
+  // GET /bandtalk: what musicians say at rehearsal, each with a playable example.
+  app.get('/bandtalk', async (): Promise<BandTalkTerm[]> => bandTalk);
 
   // GET /technique: the hand and finger sessions in order, without their steps.
   app.get('/technique', async (): Promise<TechniqueSummary[]> => technique.sessions.map(({ steps: _, ...session }) => session));

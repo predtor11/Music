@@ -1,0 +1,103 @@
+{
+  "id": "u8-l14",
+  "unitId": "unit-8",
+  "order": 14,
+  "title": "Notes above and below the staff",
+  "summary": "Short extra lines carry the staff further up and down.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Ledger line",
+      "body": "Notes too high or too low for the five lines get short extra lines of their own, called **ledger lines**. Middle C sits on one ledger line just below the treble clef, and on one just above the bass clef: it is the note the two clefs share.\n\n**Why it matters:** Middle C, and many melody notes, are written on ledger lines. Seeing middle C on one is your anchor between the two clefs.",
+      "exampleMidi": [
+        60
+      ],
+      "labels": {
+        "60": "middle C: one ledger line"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Above the treble clef",
+      "body": "A above the top line sits on one ledger line.",
+      "highlightMidi": [
+        81
+      ],
+      "labels": {
+        "81": "A: ledger line above"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-p1",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            60
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-p2",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            60
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-p3",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            81
+          ]
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find the anchor",
+      "body": "Play middle C, then read upward on the treble clef (D, E, F) and downward on the bass clef (B, A, G)."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-q1",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            62
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-q2",
+          "prompt": "Play the note on the staff.",
+          "clef": "bass",
+          "midi": [
+            40
+          ]
+        },
+        {
+          "kind": "read-staff",
+          "id": "u8-l14-q3",
+          "prompt": "Play the note on the staff.",
+          "clef": "treble",
+          "midi": [
+            60
+          ]
+        }
+      ]
+    }
+  ]
+}

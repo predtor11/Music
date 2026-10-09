@@ -1,0 +1,133 @@
+{
+  "id": "u7-l5",
+  "unitId": "unit-7",
+  "order": 5,
+  "title": "Inverting 7th chords",
+  "summary": "A 7th chord has four notes, so it has one more inversion.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Third inversion",
+      "body": "A 7th chord has four notes, so it has a fourth layout: the 7th at the bottom. G7 with F lowest, F G B D, is in **third inversion**.\n\n**Why it matters:** With the 7th in the bass, the chord wants to fall a half step to the next one: G7/F to C/E is a classic smooth bass line.",
+      "exampleMidi": [
+        53,
+        55,
+        59,
+        62
+      ],
+      "labels": {
+        "53": "F: 7th, lowest",
+        "55": "G: root",
+        "59": "B",
+        "62": "D"
+      }
+    },
+    {
+      "type": "show",
+      "title": "G7 in first inversion",
+      "body": "B, D, F and G: the 3rd is lowest.",
+      "highlightMidi": [
+        59,
+        62,
+        65,
+        67
+      ],
+      "labels": {
+        "59": "B: 3rd",
+        "62": "D",
+        "65": "F",
+        "67": "G"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "build-chord",
+          "id": "u7-l5-p1",
+          "prompt": "Play the chord written G7, in third inversion.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": 5
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l5-p2",
+          "prompt": "Play the chord written G7, in first inversion.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": 11
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Four layouts",
+      "body": "Play Cmaj7 in root position, then each inversion in turn, climbing up the keyboard."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l5-q1",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            53,
+            55,
+            59,
+            62
+          ],
+          "choices": [
+            "root position",
+            "first inversion",
+            "second inversion",
+            "third inversion"
+          ],
+          "answer": "third inversion"
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l5-q2",
+          "prompt": "Which inversion is this chord?",
+          "shownMidi": [
+            55,
+            60,
+            64,
+            71
+          ],
+          "choices": [
+            "root position",
+            "first inversion",
+            "second inversion",
+            "third inversion"
+          ],
+          "answer": "second inversion"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l5-q3",
+          "prompt": "Play the chord written Cmaj7, in third inversion.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": 11
+        }
+      ]
+    }
+  ]
+}

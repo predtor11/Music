@@ -1,0 +1,120 @@
+{
+  "id": "u7-l8",
+  "unitId": "unit-7",
+  "order": 8,
+  "title": "Notes two chords share",
+  "summary": "A note in both chords can simply stay where it is.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Common tone",
+      "body": "C major (C E G) and A minor (A C E) share C and E. A note that is in both chords is a **common tone**. When you change chords, keep the common tones held and move only the rest.\n\n**Why it matters:** Holding common tones is the simplest voice-leading trick there is. It makes chord changes smooth with almost no effort.",
+      "exampleMidi": [
+        57,
+        60,
+        64,
+        67
+      ],
+      "labels": {
+        "57": "A: Am only",
+        "60": "C: common",
+        "64": "E: common",
+        "67": "G: C only"
+      }
+    },
+    {
+      "type": "show",
+      "title": "C and G share G",
+      "body": "C E G and G B D have one common tone: G.",
+      "highlightMidi": [
+        60,
+        64,
+        67,
+        71,
+        74
+      ],
+      "labels": {
+        "60": "C",
+        "64": "E",
+        "67": "G: common",
+        "71": "B",
+        "74": "D"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l8-p1",
+          "prompt": "Which note do C and G share?",
+          "shownMidi": [
+            60,
+            64,
+            67,
+            71,
+            74
+          ],
+          "choices": [
+            "C",
+            "G",
+            "B"
+          ],
+          "answer": "G"
+        },
+        {
+          "kind": "build-chord",
+          "id": "u7-l8-p2",
+          "prompt": "Play C, E and G, then keep C held and play the chord written F/C.",
+          "pitchClasses": [
+            5,
+            9,
+            0
+          ],
+          "bassPc": 0
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Hold and move",
+      "body": "Play C, Am, F and G in turn. Before each change, find the common tones and keep those fingers down."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "u7-l8-q1",
+          "prompt": "Which note do C and F share?",
+          "shownMidi": [
+            60
+          ],
+          "choices": [
+            "C",
+            "F",
+            "G"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "name-it",
+          "id": "u7-l8-q2",
+          "prompt": "Which note do G and D share?",
+          "shownMidi": [
+            67
+          ],
+          "choices": [
+            "G",
+            "D",
+            "A"
+          ],
+          "answer": "D"
+        }
+      ]
+    }
+  ]
+}

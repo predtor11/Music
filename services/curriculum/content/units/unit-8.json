@@ -1,0 +1,219 @@
+{
+  "id": "unit-8",
+  "order": 8,
+  "title": "Rhythm and reading",
+  "summary": "Count beats and bars, tap note lengths and rests, then read notes on the treble and bass staff.",
+  "outcome": "You can read a simple chart that has rhythm on it.",
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-1",
+        "prompt": "Tap a steady beat in 4/4 for two bars: 8 taps.",
+        "bpm": 80,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "onsets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-2",
+        "prompt": "Tap a half note, then two quarter notes: 3 taps.",
+        "bpm": 80,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "onsets": [
+          0,
+          2,
+          3
+        ],
+        "durations": [
+          2,
+          1,
+          1
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-3",
+        "prompt": "Tap eight eighth notes: 8 taps.",
+        "bpm": 70,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "onsets": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          2.5,
+          3,
+          3.5
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-4",
+        "prompt": "Tap quarter, quarter, quarter rest, quarter: 3 taps.",
+        "bpm": 80,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "onsets": [
+          0,
+          1,
+          3
+        ],
+        "durations": [
+          1,
+          1,
+          1
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-5",
+        "prompt": "Tap a dotted quarter, an eighth, then a half note: 3 taps.",
+        "bpm": 80,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "onsets": [
+          0,
+          1.5,
+          2
+        ],
+        "durations": [
+          1.5,
+          0.5,
+          2
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "tap-rhythm",
+        "id": "u8-cp-6",
+        "prompt": "Tap a steady beat in 3/4 for two bars: 6 taps.",
+        "bpm": 80,
+        "timeSignature": [
+          3,
+          4
+        ],
+        "onsets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "toleranceMs": 150
+      },
+      {
+        "kind": "name-it",
+        "id": "u8-cp-7",
+        "prompt": "How many beats are in a bar of 3/4?",
+        "shownMidi": [
+          60
+        ],
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "3"
+      },
+      {
+        "kind": "name-it",
+        "id": "u8-cp-8",
+        "prompt": "How many quarter notes last as long as one whole note?",
+        "shownMidi": [
+          60
+        ],
+        "choices": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "4"
+      },
+      {
+        "kind": "read-staff",
+        "id": "u8-cp-9",
+        "prompt": "Play the note on the staff.",
+        "clef": "treble",
+        "midi": [
+          71
+        ]
+      },
+      {
+        "kind": "read-staff",
+        "id": "u8-cp-10",
+        "prompt": "Play the note on the staff.",
+        "clef": "bass",
+        "midi": [
+          50
+        ]
+      },
+      {
+        "kind": "read-staff",
+        "id": "u8-cp-11",
+        "prompt": "Play the note on the staff.",
+        "clef": "treble",
+        "midi": [
+          60
+        ]
+      },
+      {
+        "kind": "read-staff",
+        "id": "u8-cp-12",
+        "prompt": "Play the chord on the staff.",
+        "clef": "treble",
+        "midi": [
+          67,
+          71,
+          74
+        ]
+      }
+    ]
+  },
+  "lessonIds": [
+    "u8-l1",
+    "u8-l2",
+    "u8-l3",
+    "u8-l4",
+    "u8-l5",
+    "u8-l6",
+    "u8-l7",
+    "u8-l8",
+    "u8-l9",
+    "u8-l10",
+    "u8-l11",
+    "u8-l12",
+    "u8-l13",
+    "u8-l14",
+    "u8-l15"
+  ]
+}

@@ -45,17 +45,21 @@ const EXTRA_USES: Record<string, RegExp> = { sharp: /[A-G]#/, flat: /(?<![A-Za-z
 
 /**
  * Terms whose plain word means something else too. "key" is also a piano key,
- * so only its musical uses count: "the key of G", "what key is it in?".
+ * so only its musical uses count: "the key of G", "what key is it in?". "rest" is
+ * also plain English ("the rest"), so only "a rest" or "quarter rest" counts.
  */
-const USE_PATTERNS: Record<string, RegExp> = { key: /\b(?:the key of|in the key|what key is|which (?:major )?key has)\b/i };
+const USE_PATTERNS: Record<string, RegExp> = {
+  key: /\b(?:the key of|in the key|what key is|which (?:major )?key has)\b/i,
+  rest: /\b(?:quarter|half|whole|eighth|a) rests?\b/i,
+};
 
 const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) => ({ unitId: unit.id, id })));
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6']);
-    expect(curriculum.lessonsById.size).toBe(79);
-    expect(curriculum.glossary.length).toBe(99);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8']);
+    expect(curriculum.lessonsById.size).toBe(104);
+    expect(curriculum.glossary.length).toBe(128);
   });
 
   for (const unit of curriculum.units) {
