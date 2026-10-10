@@ -30,3 +30,7 @@ shapes in `@music/contracts` (`guitar.ts`).
 `guitar-2` is guitar Unit 3, after the intro and `guitar-1`. Six lessons cover note names/pitch, half steps, whole steps, sharps, flats and octaves; a ten-item checkpoint checks naming and playing. Questions accept any position for the exact MIDI sound, so alternate positions work but a different octave does not. All examples use the fretboard, and lit prompts carry `showKeys`.
 
 Guitar attempts and review candidates use `g:` skill tags; piano tags keep their existing values. `skillFor(item, instrument)` defaults to piano for existing callers. Next curriculum PR: scales and keys (`guitar-3`); the remaining units follow the Phase 9b handoff.
+
+### Scales and keys (task 2c)
+
+`guitar-3` is guitar Unit 4. Nine small lessons move from an ordered scale to the major formula, tonic, key, natural minor, relative keys, five-note scales and compact routes. G major uses F sharp; A minor pentatonic uses A, C, D, E, G. The optional additive `Lesson.guitarPattern` stores string/fret positions in playing order and displays numbered tab beside every step. It suggests a route; scale grading checks pitch classes in order, accepting other octaves and positions. The major route stays at frets 2–5; the first pentatonic octave stays at frets 5–8. Existing lesson IDs and piano content are preserved.

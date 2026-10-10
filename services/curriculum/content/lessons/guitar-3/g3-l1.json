@@ -1,0 +1,98 @@
+{
+  "id": "g3-l1",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "One note after another",
+  "summary": "Hear an ordered group of notes.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One note after another",
+      "body": "**scale** means a group of notes played in order, going higher or lower. Play one note, let it go, then play the next. Today use C, D, E, F, G, A, B, C. The last C is one octave above the first.\n\n**Why it matters:** A scale gives you a small set of sounds to learn instead of guessing across the whole guitar.",
+      "exampleMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "Start on string 5, fret 3 for C3. Take your time: the check follows note names in order, without a speed target.",
+      "highlightMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play C, D, E, F, G, A, B, C in that order, one note at a time.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l1-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Play the first three notes C, D, E slowly. Then find another place for C3; moving to another string does not change the sound."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play C, D, E, F, G, A, B, C in that order, one note at a time.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l1-q1"
+        },
+        {
+          "kind": "find-note",
+          "prompt": "Play C3.",
+          "midi": 48,
+          "id": "g3-l1-q2"
+        }
+      ]
+    }
+  ]
+}

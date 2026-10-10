@@ -1,0 +1,99 @@
+{
+  "id": "g3-l2",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "The major scale recipe",
+  "summary": "Follow whole and half steps.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The major scale recipe",
+      "body": "**major scale** means a seven-note scale built with this **scale formula**: whole, whole, half, whole, whole, whole, half. A scale formula is the list of gaps between neighbouring notes. On one string, whole means two frets and half means one.\n\n**Why it matters:** The same recipe works from any starting note; you can check the gaps instead of memorising every fret.",
+      "exampleMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "C to D and D to E are whole steps. E to F is a half step. Continue F to G, G to A and A to B with whole steps; B to C is a half step.",
+      "highlightMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play C, D, E, F, G, A, B, C in that order, one note at a time.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l2-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "On string 5, try frets 3, 5, 7, 8, 10, 12, 14, 15. It is the same C major scale as the shorter route across strings. Stop if the reach feels awkward."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play C, D, E, F, G, A, B, C in that order, one note at a time.",
+          "sequence": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            9,
+            11,
+            0
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l2-q1"
+        },
+        {
+          "kind": "play-interval",
+          "prompt": "Play E3, then go up a half step.",
+          "startMidi": 52,
+          "semitones": 1,
+          "id": "g3-l2-q2"
+        }
+      ]
+    }
+  ]
+}

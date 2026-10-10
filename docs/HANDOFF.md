@@ -28,6 +28,8 @@ Claude publishes these in `@music/contracts` and `@music/theory` in the first PR
 
 ## Phase 9b: complete guitar (Codex-led, Claude paused)
 
+**Review batches (Jayesh, 2026-10-10):** complete two small work items / PRs before requesting Claude’s review; keep each PR separate and merge in dependency order.
+
 **Decision (Jayesh, 2026-10-10):** every instrument gets everything piano has, in every part of the app. Build it in phases if needed, but the plan lists all of it. For now Codex builds the rest of guitar and Claude builds nothing; Claude only reviews when asked and merges nothing.
 
 **Lane for this work.** Because Claude is paused, Codex owns every folder it needs, shared ones included, until Jayesh says otherwise: `apps/web/**`, `apps/api/**`, `apps/desktop/**`, `packages/{contracts,theory,pitch,skills,analysis,charts,ui,service-kit}/**`, `services/**` (including `services/curriculum/content/**`), `docs/**`, `package-lock.json`, CI config. Rules that still hold:
@@ -87,12 +89,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-notes | Task 2b: guitar-2, six notes/steps lessons and checkpoint; g: skill tags for attempts/review. #72 (split intro) is reviewed, merged and integrated. Next is guitar-3 scales/keys. | `services/curriculum/**`, `packages/skills/**`, `services/practice/{src/review.ts,test/review.test.ts}`, `apps/api/test/api.test.ts`, `apps/web/src/{lesson/usePractice.ts,pages/ReviewPage.tsx}`, `apps/web/e2e/guitar-notes.spec.ts`, `docs/**` |
+| Codex | codex/phase-9b-guitar-scales | Task 2c: nine scales/keys lessons, major and pentatonic routes. First of two small PRs in the review batch; starter chords follows. #73 is reviewed and merged. | `services/curriculum/**`, `packages/contracts/**`, `apps/web/src/{guitar/ScaleRoute.tsx,pages/LessonPage.tsx}`, `apps/web/e2e/guitar-scales.spec.ts`, `apps/api/test/api.test.ts`, `docs/**` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
+
+- 2026-10-10 Codex (task 2c): added guitar-3 (order 4), nine lessons and ten-item checkpoint for scales, major formula, tonic, key, natural minor, relatives, pentatonic and compact boxes. Reuses shared glossary definitions; adds pentatonic scale and scale box. Optional `Lesson.guitarPattern` displays an accessible numbered tab route beside the playable fretboard. No migration. Validation: typecheck, 2,143 unit tests (10 optional skips), build, path-case and 28 browser checks passed, including piano regressions and both guided routes/themes. Claude review will be requested with the next starter-chords PR, after both are complete.
 
 - 2026-10-10 Claude (review of #73): reviewed Phase 9b task 2b and fixed one bug on this branch. Guitar skills tagged `g:` are now grouped by topic in the weekly report (`services/progress/src/report.ts`) and labelled correctly on the Progress page (`apps/web/src/progress/format.ts`), with tests. For any later skill code, parse and label skills through `@music/skills` (`topicOf`, `skillLabel`) instead of splitting on `:`.
 - 2026-10-10 Codex (task 2b): added guitar-2 (order 3), six paced lessons and ten-question checkpoint covering note names, half/whole steps, sharps/flats and octaves. Reuses existing shared glossary definitions and explains each concept locally; removed a piano-knowledge assumption from g1-l3. Guitar attempts/review candidates now use g: skill tags, with unchanged piano tags. Added real-content fretboard grading/unlock e2e and mixed-skill review regression. Validation: typecheck, 2,078 unit tests, build, path-case and all 30 targeted browser cases passed (two symbol assertions corrected and rerun), including intro/piano regressions, a completed piano history and octave/alternate-position grading; no migration. Claude: review lesson pacing, fret positions and skill isolation.

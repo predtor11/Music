@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { InstrumentIdSchema } from './instruments.js';
+import { FretPositionSchema } from './guitar.js';
 
 /**
  * A test item is data, so new questions need content, not code. `kind` picks
@@ -146,6 +147,11 @@ export const LessonSchema = z.object({
   instrument: InstrumentIdSchema.optional(),
   /** Optional beginner illustration, shown beside every step in a guitar lesson. */
   guitarDiagram: z.enum(['parts', 'tab']).optional(),
+  /** One suggested route, read left to right; other positions still grade by sound. */
+  guitarPattern: z.object({
+    title: z.string(),
+    positions: z.array(FretPositionSchema).min(2),
+  }).optional(),
   unitId: z.string(),
   order: z.number().int().min(1),
   title: z.string(),

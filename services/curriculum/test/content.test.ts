@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONTENT_DIR, loadCurriculum } from '../src/content.js';
 import { checkItem } from './check-items.js';
+import { fretToMidi, STANDARD_TUNING } from '@music/theory';
 import { instrumentOf } from '@music/contracts';
 
 const curriculum = loadCurriculum();
@@ -60,9 +61,9 @@ const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) =
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2']);
-    expect(curriculum.lessonsById.size).toBe(126);
-    expect(curriculum.glossary.length).toBe(149);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3']);
+    expect(curriculum.lessonsById.size).toBe(135);
+    expect(curriculum.glossary.length).toBe(151);
   });
 
   for (const unit of curriculum.units) {
@@ -142,4 +143,19 @@ describe('glossary', () => {
     const ranks = curriculum.glossary.map((t) => lessonOrder.findIndex((l) => l.id === t.lessonId));
     expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
   });
+});
+
+ describe('guitar scale routes', () => {
+  for (const id of ['g3-l8', 'g3-l9']) {
+    it(`${id} maps its tab route to the taught scale, in ascending order`, () => {
+      const lesson = curriculum.lessonsById.get(id)!;
+      const notes = lesson.guitarPattern!.positions.map((p) => fretToMidi(STANDARD_TUNING, p));
+      const show = lesson.steps.find((s) => s.type === 'show')!;
+      expect(show.type === 'show' && show.highlightMidi).toEqual(notes);
+      expect(notes.every((n, i) => i === 0 || n > notes[i - 1]!)).toBe(true);
+      const play = lesson.steps.find((s) => s.type === 'play-along')!;
+      const item = play.type === 'play-along' && play.items[0];
+      expect(item && item.kind === 'play-scale' && item.sequence).toEqual(notes.map((n) => n % 12));
+    });
+  }
 });

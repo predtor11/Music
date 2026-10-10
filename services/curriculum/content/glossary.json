@@ -2633,5 +2633,39 @@
     "exampleMidi": [
       40
     ]
+  },
+  {
+    "id": "pentatonic-scale",
+    "term": "pentatonic scale",
+    "aliases": [],
+    "meaning": "A scale with five different notes in each octave.",
+    "whyItMatters": "A smaller note set makes inventing a short tune manageable.",
+    "lessonId": "g3-l7",
+    "exampleMidi": [
+      45,
+      48,
+      50,
+      52,
+      55,
+      57
+    ]
+  },
+  {
+    "id": "scale-box",
+    "term": "scale box",
+    "aliases": [],
+    "meaning": "A compact group of fret positions for playing a scale across nearby strings.",
+    "whyItMatters": "Crossing strings can avoid a long reach along one string.",
+    "lessonId": "g3-l8",
+    "exampleMidi": [
+      43,
+      45,
+      47,
+      48,
+      50,
+      52,
+      54,
+      55
+    ]
   }
 ]

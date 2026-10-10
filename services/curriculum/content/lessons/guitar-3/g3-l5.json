@@ -1,0 +1,113 @@
+{
+  "id": "g3-l5",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "A natural minor scale",
+  "summary": "Change the gaps, keep A at home.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A natural minor scale",
+      "body": "**minor scale** means a scale with a different pattern from major. The **natural minor** form uses whole, half, whole, whole, half, whole, whole. A natural minor is A, B, C, D, E, F, G, A.\n\n**Why it matters:** A different set of gaps gives you another sound while keeping a clear home note.",
+      "exampleMidi": [
+        45,
+        47,
+        48,
+        50,
+        52,
+        53,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "A to B is whole, B to C half, C to D whole, D to E whole, E to F half, F to G whole and G to A whole.",
+      "highlightMidi": [
+        45,
+        47,
+        48,
+        50,
+        52,
+        53,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, B, C, D, E, F, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            11,
+            0,
+            2,
+            4,
+            5,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l5-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Start on open string 5 for A2. Pause on C and F to hear where the two smaller gaps arrive."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            45,
+            47,
+            48,
+            50,
+            52,
+            53,
+            55,
+            57
+          ],
+          "choices": [
+            "C",
+            "G",
+            "A"
+          ],
+          "answer": "A",
+          "id": "g3-l5-q1"
+        },
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, B, C, D, E, F, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            11,
+            0,
+            2,
+            4,
+            5,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l5-q2"
+        }
+      ]
+    }
+  ]
+}
