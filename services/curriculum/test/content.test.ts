@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONTENT_DIR, loadCurriculum } from '../src/content.js';
 import { checkItem } from './check-items.js';
+import { instrumentOf } from '@music/contracts';
 
 const curriculum = loadCurriculum();
 const STEP_TYPES = ['explain', 'show', 'play-along', 'explore', 'quiz'];
@@ -51,15 +52,17 @@ const EXTRA_USES: Record<string, RegExp> = { sharp: /[A-G]#/, flat: /(?<![A-Za-z
 const USE_PATTERNS: Record<string, RegExp> = {
   key: /\b(?:the key of|in the key|what key is|which (?:major )?key has)\b/i,
   rest: /\b(?:quarter|half|whole|eighth|a) rests?\b/i,
+  // A tuning peg is a physical part, taught before the act of tuning.
+  tuning: /\btuning\b(?! pegs?\b)/i,
 };
 
 const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) => ({ unitId: unit.id, id })));
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']);
-    expect(curriculum.lessonsById.size).toBe(109);
-    expect(curriculum.glossary.length).toBe(134);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1']);
+    expect(curriculum.lessonsById.size).toBe(119);
+    expect(curriculum.glossary.length).toBe(149);
   });
 
   for (const unit of curriculum.units) {
@@ -120,10 +123,12 @@ describe('glossary', () => {
     });
 
     it(`"${term.term}" is not used before ${term.lessonId}`, () => {
+      const lesson = curriculum.lessonsById.get(term.lessonId)!;
       const pattern = USE_PATTERNS[term.id] ?? usePattern([term.term, ...term.aliases]);
       const extra = EXTRA_USES[term.id];
       const earlyUses = lessonOrder
         .slice(0, at)
+        .filter((l) => instrumentOf(curriculum.lessonsById.get(l.id)!) === instrumentOf(lesson))
         .filter((l) => {
           const text = lessonText(l.unitId, l.id);
           return pattern.test(text) || (extra?.test(text) ?? false);

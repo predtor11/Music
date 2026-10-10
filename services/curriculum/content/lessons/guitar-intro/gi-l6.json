@@ -1,0 +1,64 @@
+{
+  "id": "gi-l6",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Your first open sound",
+  "summary": "Pluck once, listen, and let the sound fade.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Your first open sound",
+      "body": "**pluck** means pull a string a little and release it so it vibrates\n\n**Why it matters:** It is how you start a single sound.\n\n**open string** means a string played with no finger pressing it\n\n**Why it matters:** It is the easiest starting sound on each string.\n\nLeave your fretting hand relaxed. Use your picking hand to pluck string 6 once. Let it ring, then touch it gently to stop it. Tap the lit place on the screen if you do not have a guitar.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Press Hear it for a reference. Pluck the thickest open string gently. You can tap its lit circle instead. The microphone button in the header is optional; it listens to one sound at a time.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "gi-l6-play",
+          "prompt": "Play the lit note. Tap it here, or play one string with the microphone.",
+          "midi": 40,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Pluck an open string softly, listen, then stop it with a gentle touch. Leave the other strings quiet. Take your time."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l6-quiz",
+          "prompt": "What makes a string an open string?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "no finger presses it",
+            "a finger presses it"
+          ],
+          "answer": "no finger presses it"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "id": "guitar-1",
   "instrument": "guitar",
-  "order": 1,
+  "order": 2,
   "title": "Meet the fretboard",
   "summary": "Start from nothing: strings, frets, the six open strings, counting frets and finding the same note in different places.",
   "outcome": "You can name every open string and find any note on the fretboard up to the twelfth fret.",

@@ -144,6 +144,8 @@ export const LessonSchema = z.object({
   id: z.string(),
   /** Missing means piano. */
   instrument: InstrumentIdSchema.optional(),
+  /** Optional beginner illustration, shown beside every step in a guitar lesson. */
+  guitarDiagram: z.enum(['parts', 'tab']).optional(),
   unitId: z.string(),
   order: z.number().int().min(1),
   title: z.string(),

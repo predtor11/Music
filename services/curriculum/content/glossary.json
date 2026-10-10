@@ -155,10 +155,10 @@
     "id": "sharp",
     "term": "sharp",
     "aliases": [
-      "♯"
+      "\u266f"
     ],
-    "meaning": "One key higher. A sharp sign (♯) after a note name means the key just to the right of that note.",
-    "whyItMatters": "Bands use sharps all the time: a song in F♯, a C♯ in the bass line. With sharps you can find every black key by name.",
+    "meaning": "One key higher. A sharp sign (\u266f) after a note name means the key just to the right of that note.",
+    "whyItMatters": "Bands use sharps all the time: a song in F\u266f, a C\u266f in the bass line. With sharps you can find every black key by name.",
     "lessonId": "u1-l10",
     "exampleMidi": [
       60,
@@ -166,13 +166,13 @@
     ],
     "labels": {
       "60": "C",
-      "61": "C♯"
+      "61": "C\u266f"
     }
   },
   {
     "id": "accidental",
     "term": "accidental",
-    "meaning": "A sign that raises or lowers a note from its plain letter name, such as ♯.",
+    "meaning": "A sign that raises or lowers a note from its plain letter name, such as \u266f.",
     "whyItMatters": "When you see a sign next to a note name on a chart or a song sheet, it is an accidental. It tells you to play a neighbouring key instead of the plain white key.",
     "lessonId": "u1-l10",
     "exampleMidi": [
@@ -181,56 +181,56 @@
     ],
     "labels": {
       "65": "F",
-      "66": "F♯"
+      "66": "F\u266f"
     }
   },
   {
     "id": "flat",
     "term": "flat",
     "aliases": [
-      "♭"
+      "\u266d"
     ],
-    "meaning": "One key lower. A flat sign (♭) after a note name means the key just to the left of that note.",
-    "whyItMatters": "Many songs and band charts use flats: B♭, E♭ and A♭ come up all the time, especially with horn players. Knowing flats means you are never lost when someone calls one.",
+    "meaning": "One key lower. A flat sign (\u266d) after a note name means the key just to the left of that note.",
+    "whyItMatters": "Many songs and band charts use flats: B\u266d, E\u266d and A\u266d come up all the time, especially with horn players. Knowing flats means you are never lost when someone calls one.",
     "lessonId": "u1-l11",
     "exampleMidi": [
       71,
       70
     ],
     "labels": {
-      "70": "B♭",
+      "70": "B\u266d",
       "71": "B"
     }
   },
   {
     "id": "enharmonic",
     "term": "enharmonic",
-    "meaning": "Two different names for the same key, such as C♯ and D♭.",
-    "whyItMatters": "Both names are correct and you will hear both. Which one a song uses depends on its key, which comes in Unit 3. For now, if someone says D♭ and you think C♯, you are right.",
+    "meaning": "Two different names for the same key, such as C\u266f and D\u266d.",
+    "whyItMatters": "Both names are correct and you will hear both. Which one a song uses depends on its key, which comes in Unit 3. For now, if someone says D\u266d and you think C\u266f, you are right.",
     "lessonId": "u1-l12",
     "exampleMidi": [
       61
     ],
     "labels": {
-      "61": "C♯ / D♭"
+      "61": "C\u266f / D\u266d"
     }
   },
   {
     "id": "natural",
     "term": "natural",
     "aliases": [
-      "♮"
+      "\u266e"
     ],
-    "meaning": "A sign (♮) that cancels a sharp or flat and means the plain letter note.",
-    "whyItMatters": "You will see ♮ on charts when a note should be the plain white key rather than its sharp or flat neighbour.",
+    "meaning": "A sign (\u266e) that cancels a sharp or flat and means the plain letter note.",
+    "whyItMatters": "You will see \u266e on charts when a note should be the plain white key rather than its sharp or flat neighbour.",
     "lessonId": "u1-l12",
     "exampleMidi": [
       65,
       66
     ],
     "labels": {
-      "65": "F♮",
-      "66": "F♯"
+      "65": "F\u266e",
+      "66": "F\u266f"
     }
   },
   {
@@ -351,7 +351,7 @@
     ],
     "labels": {
       "60": "C",
-      "61": "C♯, a half step up"
+      "61": "C\u266f, a half step up"
     }
   },
   {
@@ -589,7 +589,7 @@
   {
     "id": "minor-6th",
     "term": "minor 6th",
-    "meaning": "An interval of 8 half steps, such as C to A♭.",
+    "meaning": "An interval of 8 half steps, such as C to A\u266d.",
     "whyItMatters": "It has a bittersweet sound, and it turns up in a lot of film and love-song melodies.",
     "lessonId": "u2-l9",
     "exampleMidi": [
@@ -619,7 +619,7 @@
   {
     "id": "minor-7th",
     "term": "minor 7th",
-    "meaning": "An interval of 10 half steps, such as C to B♭.",
+    "meaning": "An interval of 10 half steps, such as C to B\u266d.",
     "whyItMatters": "The minor 7th is the \"7\" in names like G7 on a band chart, which you will meet in Unit 6. The original Star Trek theme opens with one.",
     "lessonId": "u2-l10",
     "exampleMidi": [
@@ -866,7 +866,7 @@
       "72": "C",
       "74": "D",
       "76": "E",
-      "78": "F♯",
+      "78": "F\u266f",
       "79": "G"
     }
   },
@@ -881,15 +881,15 @@
       70
     ],
     "labels": {
-      "66": "F♯: G major",
-      "70": "B♭: F major"
+      "66": "F\u266f: G major",
+      "70": "B\u266d: F major"
     }
   },
   {
     "id": "order-of-sharps",
     "term": "order of sharps",
-    "meaning": "The order sharps are added to key signatures: F♯ C♯ G♯ D♯ A♯ E♯ B♯.",
-    "whyItMatters": "If a key has three sharps, you know which three: F♯, C♯ and G♯. No guessing.",
+    "meaning": "The order sharps are added to key signatures: F\u266f C\u266f G\u266f D\u266f A\u266f E\u266f B\u266f.",
+    "whyItMatters": "If a key has three sharps, you know which three: F\u266f, C\u266f and G\u266f. No guessing.",
     "lessonId": "u3-l10",
     "exampleMidi": [
       66,
@@ -899,17 +899,17 @@
       70
     ],
     "labels": {
-      "61": "2nd: C♯",
-      "63": "4th: D♯",
-      "66": "1st: F♯",
-      "68": "3rd: G♯",
-      "70": "5th: A♯"
+      "61": "2nd: C\u266f",
+      "63": "4th: D\u266f",
+      "66": "1st: F\u266f",
+      "68": "3rd: G\u266f",
+      "70": "5th: A\u266f"
     }
   },
   {
     "id": "order-of-flats",
     "term": "order of flats",
-    "meaning": "The order flats are added to key signatures: B♭ E♭ A♭ D♭ G♭ C♭ F♭, the order of sharps backwards.",
+    "meaning": "The order flats are added to key signatures: B\u266d E\u266d A\u266d D\u266d G\u266d C\u266d F\u266d, the order of sharps backwards.",
     "whyItMatters": "Band charts are full of flat keys, especially with horns. Knowing the order tells you exactly which black keys a flat key uses.",
     "lessonId": "u3-l11",
     "exampleMidi": [
@@ -920,11 +920,11 @@
       66
     ],
     "labels": {
-      "61": "4th: D♭",
-      "63": "2nd: E♭",
-      "66": "5th: G♭",
-      "68": "3rd: A♭",
-      "70": "1st: B♭"
+      "61": "4th: D\u266d",
+      "63": "2nd: E\u266d",
+      "66": "5th: G\u266d",
+      "68": "3rd: A\u266d",
+      "70": "1st: B\u266d"
     }
   },
   {
@@ -943,11 +943,11 @@
     ],
     "labels": {
       "60": "C: 0",
-      "62": "D: 2♯",
-      "64": "E: 4♯",
-      "67": "G: 1♯",
-      "69": "A: 3♯",
-      "71": "B: 5♯"
+      "62": "D: 2\u266f",
+      "64": "E: 4\u266f",
+      "67": "G: 1\u266f",
+      "69": "A: 3\u266f",
+      "71": "B: 5\u266f"
     }
   },
   {
@@ -1150,7 +1150,7 @@
     ],
     "labels": {
       "60": "C / Cm",
-      "63": "E♭ in Cm",
+      "63": "E\u266d in Cm",
       "64": "E in C",
       "67": "G"
     }
@@ -1160,9 +1160,9 @@
     "term": "diminished triad",
     "aliases": [
       "diminished",
-      "°"
+      "\u00b0"
     ],
-    "meaning": "A triad of a root, a minor 3rd above it, and a tritone above the root. Written dim or °. It sounds tense.",
+    "meaning": "A triad of a root, a minor 3rd above it, and a tritone above the root. Written dim or \u00b0. It sounds tense.",
     "whyItMatters": "It is the only triad on the white keys that is neither major nor minor (B D F), and its tension pulls strongly to the next chord. You will see it often in Unit 5.",
     "lessonId": "u4-l9",
     "exampleMidi": [
@@ -1193,7 +1193,7 @@
     "labels": {
       "60": "C (root)",
       "64": "E (major 3rd)",
-      "68": "G♯ (raised 5th)"
+      "68": "G\u266f (raised 5th)"
     }
   },
   {
@@ -1283,8 +1283,8 @@
   {
     "id": "roman-numeral",
     "term": "Roman numeral",
-    "meaning": "A number (I to VII) for a chord, from the scale degree of its root. Upper case is major, lower case is minor, ° is diminished.",
-    "whyItMatters": "Numerals work in every key. \"I–IV–V\" is the same idea in C, in G or in E♭, so one pattern covers every song that uses it.",
+    "meaning": "A number (I to VII) for a chord, from the scale degree of its root. Upper case is major, lower case is minor, \u00b0 is diminished.",
+    "whyItMatters": "Numerals work in every key. \"I\u2013IV\u2013V\" is the same idea in C, in G or in E\u266d, so one pattern covers every song that uses it.",
     "lessonId": "u5-l3",
     "exampleMidi": [
       60,
@@ -1302,7 +1302,7 @@
       "65": "IV: F",
       "67": "V: G",
       "69": "vi: Am",
-      "71": "vii°: B°"
+      "71": "vii\u00b0: B\u00b0"
     }
   },
   {
@@ -1412,7 +1412,7 @@
   },
   {
     "id": "vii-chord",
-    "term": "vii° chord",
+    "term": "vii\u00b0 chord",
     "meaning": "The diminished chord on the 7th degree of a major key. In C major, B diminished.",
     "whyItMatters": "It shares two notes with V and pulls hard to I, so it can stand in for V. You will meet it again in Unit 6.",
     "lessonId": "u5-l7",
@@ -1422,7 +1422,7 @@
       77
     ],
     "labels": {
-      "71": "B (vii°)",
+      "71": "B (vii\u00b0)",
       "74": "D",
       "77": "F"
     }
@@ -1452,7 +1452,7 @@
       "65": "4: F",
       "67": "5: G",
       "69": "6: Am",
-      "71": "7: B°"
+      "71": "7: B\u00b0"
     }
   },
   {
@@ -1477,9 +1477,9 @@
   },
   {
     "id": "pop-progression",
-    "term": "I–V–vi–IV",
+    "term": "I\u2013V\u2013vi\u2013IV",
     "aliases": [
-      "1–5–6–4"
+      "1\u20135\u20136\u20134"
     ],
     "meaning": "The progression I, V, vi, IV (1-5-6-4). In C major, C G Am F.",
     "whyItMatters": "Let It Be, No Woman No Cry, With or Without You and hundreds more use it. Learn it in a few keys and you can join in on a lot of songs.",
@@ -1499,9 +1499,9 @@
   },
   {
     "id": "two-five-one",
-    "term": "ii–V–I",
+    "term": "ii\u2013V\u2013I",
     "aliases": [
-      "2–5–1"
+      "2\u20135\u20131"
     ],
     "meaning": "The progression ii, V, I (2-5-1). In C major, Dm G C.",
     "whyItMatters": "It is the most important progression in jazz, and it ends a lot of soul and pop phrases too. Hear it and you know home is coming.",
@@ -1532,9 +1532,9 @@
       67
     ],
     "labels": {
-      "60": "I: C (×8)",
-      "65": "IV: F (×3)",
-      "67": "V: G (×1)"
+      "60": "I: C (\u00d78)",
+      "65": "IV: F (\u00d73)",
+      "67": "V: G (\u00d71)"
     }
   },
   {
@@ -1625,7 +1625,7 @@
       "minor 7th chord"
     ],
     "meaning": "A minor 7th chord: a minor triad plus a minor 7th above the root. Am7 is A C E G.",
-    "whyItMatters": "It is the mellow minor sound of soul, funk and jazz. ii7–V7–I is the jazz turnaround with 7ths added.",
+    "whyItMatters": "It is the mellow minor sound of soul, funk and jazz. ii7\u2013V7\u2013I is the jazz turnaround with 7ths added.",
     "lessonId": "u6-l4",
     "exampleMidi": [
       57,
@@ -1645,11 +1645,11 @@
     "term": "half-diminished chord",
     "aliases": [
       "half-diminished",
-      "m7♭5",
-      "ø"
+      "m7\u266d5",
+      "\u00f8"
     ],
-    "meaning": "A diminished triad plus a minor 7th above the root. Written m7♭5 or ø. Bm7♭5 is B D F A.",
-    "whyItMatters": "It is the vii chord of a major key with its 7th, and the ii chord of a minor key. Minor-key jazz ballads lean on it for their ii–V–i.",
+    "meaning": "A diminished triad plus a minor 7th above the root. Written m7\u266d5 or \u00f8. Bm7\u266d5 is B D F A.",
+    "whyItMatters": "It is the vii chord of a major key with its 7th, and the ii chord of a minor key. Minor-key jazz ballads lean on it for their ii\u2013V\u2013i.",
     "lessonId": "u6-l5",
     "exampleMidi": [
       59,
@@ -1669,9 +1669,9 @@
     "term": "diminished 7th chord",
     "aliases": [
       "dim7",
-      "°7"
+      "\u00b07"
     ],
-    "meaning": "A chord of three stacked minor 3rds. Written dim7 or °7. Bdim7 is B D F A♭.",
+    "meaning": "A chord of three stacked minor 3rds. Written dim7 or \u00b07. Bdim7 is B D F A\u266d.",
     "whyItMatters": "Every note is 3 half steps from the next, so it sounds suspended in mid-air. It is a classic passing chord between two others, and the spooky sound of old film scores.",
     "lessonId": "u6-l6",
     "exampleMidi": [
@@ -1684,7 +1684,7 @@
       "59": "B (root)",
       "62": "D (minor 3rd)",
       "65": "F (flat 5th)",
-      "68": "A♭ (double-flat 7th)"
+      "68": "A\u266d (double-flat 7th)"
     }
   },
   {
@@ -1693,7 +1693,7 @@
     "aliases": [
       "m6"
     ],
-    "meaning": "A triad plus a major 6th above the root. C6 is C E G A; Am6 is A C E F♯.",
+    "meaning": "A triad plus a major 6th above the root. C6 is C E G A; Am6 is A C E F\u266f.",
     "whyItMatters": "It is the sweet, swing-era sound of a final chord in old standards and Beatles songs. Pianists often use C6 in place of plain C.",
     "lessonId": "u6-l7",
     "exampleMidi": [
@@ -1762,14 +1762,14 @@
       "48": "C",
       "52": "E",
       "55": "G",
-      "58": "B♭: 7th",
+      "58": "B\u266d: 7th",
       "62": "D: 9th"
     }
   },
   {
     "id": "9-chord",
     "term": "9 chord",
-    "meaning": "A dominant 7th chord plus the 9th. C9 is C E G B♭ D.",
+    "meaning": "A dominant 7th chord plus the 9th. C9 is C E G B\u266d D.",
     "whyItMatters": "It is the funk chord: James Brown built whole songs on one 9 chord.",
     "lessonId": "u6-l9",
     "exampleMidi": [
@@ -1783,7 +1783,7 @@
       "48": "C (root)",
       "52": "E (3rd)",
       "55": "G (5th)",
-      "58": "B♭ (7th)",
+      "58": "B\u266d (7th)",
       "62": "D (9th)"
     }
   },
@@ -1803,7 +1803,7 @@
     "labels": {
       "48": "C",
       "55": "G",
-      "58": "B♭: 7th",
+      "58": "B\u266d: 7th",
       "62": "D: 9th",
       "65": "F: 11th"
     }
@@ -1823,7 +1823,7 @@
     "labels": {
       "48": "C",
       "52": "E: 3rd",
-      "58": "B♭: 7th",
+      "58": "B\u266d: 7th",
       "69": "A: 13th"
     }
   },
@@ -1992,9 +1992,9 @@
     ],
     "labels": {
       "60": "C stays",
-      "64": "E → F",
+      "64": "E \u2192 F",
       "65": "F",
-      "67": "G → A",
+      "67": "G \u2192 A",
       "69": "A"
     }
   },
@@ -2364,9 +2364,9 @@
     "id": "string",
     "term": "string",
     "aliases": [],
-    "meaning": "One of the six wires on a guitar. Each string makes one note when you pluck it.",
-    "whyItMatters": "Every instruction on guitar starts with a string: \"play it on the A string\".",
-    "lessonId": "g1-l1",
+    "meaning": "one of the six thin wires stretched along a guitar",
+    "whyItMatters": "Knowing which wire to use makes instructions easy to follow.",
+    "lessonId": "gi-l2",
     "exampleMidi": [
       40,
       64
@@ -2380,13 +2380,11 @@
     "id": "fretboard",
     "term": "fretboard",
     "aliases": [],
-    "meaning": "The long neck of the guitar, where you press the strings to change notes.",
-    "whyItMatters": "The fretboard is the map of every note you can play.",
-    "lessonId": "g1-l1",
+    "meaning": "the playing surface along the neck where you press strings",
+    "whyItMatters": "Its picture is the map we use for playing.",
+    "lessonId": "gi-l9",
     "exampleMidi": [
-      40,
-      41,
-      42
+      40
     ],
     "labels": {
       "40": "no finger",
@@ -2398,13 +2396,12 @@
     "id": "fret",
     "term": "fret",
     "aliases": [],
-    "meaning": "A thin metal bar across the fretboard. Pressing a string just behind a fret makes the note higher.",
-    "whyItMatters": "\"Third fret\" tells you exactly where to put your finger.",
-    "lessonId": "g1-l1",
+    "meaning": "a thin metal bar crossing the fretboard",
+    "whyItMatters": "It marks a place that changes the vibrating string length.",
+    "lessonId": "gi-l9",
     "exampleMidi": [
       40,
-      41,
-      42
+      41
     ],
     "labels": {
       "40": "no finger",
@@ -2416,13 +2413,11 @@
     "id": "open-string",
     "term": "open string",
     "aliases": [],
-    "meaning": "A string played with no finger pressing it.",
-    "whyItMatters": "Open strings are your starting points; every other note on the string is counted from them.",
-    "lessonId": "g1-l1",
+    "meaning": "a string played with no finger pressing it",
+    "whyItMatters": "It is the easiest starting sound on each string.",
+    "lessonId": "gi-l6",
     "exampleMidi": [
-      40,
-      45,
-      50
+      40
     ],
     "labels": {
       "40": "open",
@@ -2434,16 +2429,11 @@
     "id": "tuning",
     "term": "tuning",
     "aliases": [],
-    "meaning": "The set of notes your open strings are set to.",
-    "whyItMatters": "Chords and scales only sound right when the strings are in tune.",
-    "lessonId": "g1-l2",
+    "meaning": "adjusting the open-string sounds to chosen reference sounds",
+    "whyItMatters": "Matching the reference lets guitar players use the same starting sounds.",
+    "lessonId": "gi-l8",
     "exampleMidi": [
-      40,
-      45,
-      50,
-      55,
-      59,
-      64
+      40
     ],
     "labels": {
       "40": "E",
@@ -2458,9 +2448,9 @@
     "id": "standard-tuning",
     "term": "standard tuning",
     "aliases": [],
-    "meaning": "The usual guitar tuning: E, A, D, G, B, E from the thickest string to the thinnest.",
-    "whyItMatters": "Nearly all songs and lessons assume standard tuning.",
-    "lessonId": "g1-l2",
+    "meaning": "the usual set E, A, D, G, B, E from thickest to thinnest",
+    "whyItMatters": "These lessons use that set so the playing picture matches your guitar.",
+    "lessonId": "gi-l8",
     "exampleMidi": [
       40,
       45,
@@ -2477,5 +2467,171 @@
       "59": "B",
       "64": "E"
     }
+  },
+  {
+    "id": "body",
+    "term": "body",
+    "aliases": [],
+    "meaning": "the large main part of the guitar",
+    "whyItMatters": "It supports the instrument against you.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "neck",
+    "term": "neck",
+    "aliases": [],
+    "meaning": "the long narrow part joining the main part to the top",
+    "whyItMatters": "It is where your hand will move.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "headstock",
+    "term": "headstock",
+    "aliases": [],
+    "meaning": "the end at the top of the neck",
+    "whyItMatters": "It holds the controls that adjust the sound.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "guitar-bridge",
+    "term": "bridge",
+    "aliases": [],
+    "meaning": "the small anchor on the body",
+    "whyItMatters": "It holds the lower ends of the six thin wires.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "tuning-peg",
+    "term": "tuning peg",
+    "aliases": [],
+    "meaning": "a small turning control on the headstock",
+    "whyItMatters": "Turning it changes how tight a wire is.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "sound-hole",
+    "term": "sound hole",
+    "aliases": [],
+    "meaning": "the opening in an acoustic guitar body",
+    "whyItMatters": "It lets the moving air out so you can hear it.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "pickup",
+    "term": "pickup",
+    "aliases": [],
+    "meaning": "a device on an electric guitar that senses the motion of its wires",
+    "whyItMatters": "It sends the sound to an amplifier.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "acoustic",
+    "term": "acoustic",
+    "aliases": [],
+    "meaning": "a guitar whose hollow body makes its sound louder",
+    "whyItMatters": "You can hear it without an amplifier.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "electric",
+    "term": "electric",
+    "aliases": [],
+    "meaning": "a guitar designed to send its sound to an amplifier",
+    "whyItMatters": "Its pickups help you hear it through a speaker.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "fretting-hand",
+    "term": "fretting hand",
+    "aliases": [],
+    "meaning": "the hand that presses strings along the neck",
+    "whyItMatters": "It chooses the sound you want.",
+    "lessonId": "gi-l4",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "picking-hand",
+    "term": "picking hand",
+    "aliases": [],
+    "meaning": "the hand that starts a string vibrating near the body",
+    "whyItMatters": "It starts the sound.",
+    "lessonId": "gi-l4",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "pick",
+    "term": "pick",
+    "aliases": [],
+    "meaning": "a small flat piece you hold to brush a string",
+    "whyItMatters": "It gives you another way to start a clear sound.",
+    "lessonId": "gi-l5",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "pluck",
+    "term": "pluck",
+    "aliases": [],
+    "meaning": "pull a string a little and release it so it vibrates",
+    "whyItMatters": "It is how you start a single sound.",
+    "lessonId": "gi-l6",
+    "exampleMidi": [
+      40
+    ]
+  },
+  {
+    "id": "tab",
+    "term": "tab",
+    "aliases": [],
+    "meaning": "a guitar playing picture with six lines and numbers telling you which places to play",
+    "whyItMatters": "It tells you a string and a fret without needing music notation.",
+    "lessonId": "gi-l10",
+    "exampleMidi": [
+      40,
+      41
+    ]
+  },
+  {
+    "id": "amplifier",
+    "term": "amplifier",
+    "aliases": [],
+    "meaning": "a box that makes an electric guitar sound louder through a speaker",
+    "whyItMatters": "It lets you hear an electric guitar clearly.",
+    "lessonId": "gi-l1",
+    "exampleMidi": [
+      40
+    ]
   }
 ]

@@ -27,6 +27,7 @@ import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
 import s from '../lesson/lesson.module.css';
 import { useInstrument } from '../instruments/context.js';
+import { LessonDiagram } from '../guitar/LessonDiagram.js';
 
 export function LessonPage({ id, settings }: { id: string; settings: UserSettings }) {
   const { id: instrument } = useInstrument();
@@ -60,6 +61,7 @@ const STEP_KIND: Record<LessonStep['type'], string> = {
 };
 
 function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings: UserSettings; onRetry: () => void }) {
+  const { id: instrument } = useInstrument();
   const practice = usePractice('lesson', lesson.id);
   const input = useNoteInput();
   const [stepIndex, setStepIndex] = useState(0);
@@ -136,6 +138,7 @@ function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings:
             <h2 className={`ui-heading ${s.stepTitle}`} data-testid="step-title">
               {pretty(step.title)}
             </h2>
+            {instrument === 'guitar' && lesson.guitarDiagram && <LessonDiagram kind={lesson.guitarDiagram} />}
 
             {(step.type === 'explain' || step.type === 'show') && <TeachStep step={step} size={size} settings={settings} />}
             {step.type === 'explore' && <ExploreStep body={step.body} size={size} settings={settings} />}

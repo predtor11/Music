@@ -1,0 +1,67 @@
+{
+  "id": "gi-l9",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "Press behind a fret",
+  "summary": "Use a small, comfortable press for a clear sound.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Press behind a fret",
+      "body": "**fretboard** means the playing surface along the neck where you press strings\n\n**Why it matters:** Its picture is the map we use for playing.\n\n**fret** means a thin metal bar crossing the fretboard\n\n**Why it matters:** It marks a place that changes the vibrating string length.\n\nPress string 6 just behind the first metal bar, on the headstock side. Keep your fingertip near the bar, not on top of it. Pluck gently. If it buzzes, move a little closer and use only enough pressure to make it clear. Keep your thumb relaxed behind the neck and your wrist comfortable. Stop if it hurts.",
+      "exampleMidi": [
+        40,
+        41
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Fret 0 in the picture means open. Fret 1 is the space just before the first metal bar. The lit places show open string 6 and its first fret; listen to the change.",
+      "highlightMidi": [
+        40,
+        41
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "gi-l9-play",
+          "prompt": "Play the lit note. Tap it here, or play one string with the microphone.",
+          "midi": 41,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Alternate open string 6 and the first fret slowly. Clear sound matters more than speed. The screen can guide the place but cannot check your posture or buzzing."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l9-quiz",
+          "prompt": "Where do you press to play the first fret clearly?",
+          "shownMidi": [
+            40,
+            41
+          ],
+          "choices": [
+            "just behind the first metal bar",
+            "on top of the metal bar"
+          ],
+          "answer": "just behind the first metal bar"
+        }
+      ]
+    }
+  ]
+}

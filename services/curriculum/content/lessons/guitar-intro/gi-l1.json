@@ -1,0 +1,151 @@
+{
+  "id": "gi-l1",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Meet the parts",
+  "summary": "Find the main parts on an acoustic or electric guitar.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Start with the picture",
+      "body": "Welcome. You do not need to know any music words yet. We will find one part at a time. You can use the picture without owning a guitar. Go slowly; it is fine to come back.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the body",
+      "body": "**body** means the large main part of the guitar.\n\n**Why it matters:** It supports the instrument against you.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the neck",
+      "body": "**neck** means the long narrow part joining the main part to the top.\n\n**Why it matters:** It is where your hand will move.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the headstock",
+      "body": "**headstock** means the end at the top of the neck.\n\n**Why it matters:** It holds the controls that adjust the sound.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the bridge",
+      "body": "**bridge** means the small anchor on the body.\n\n**Why it matters:** It holds the lower ends of the six thin wires.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the tuning peg",
+      "body": "**tuning peg** means a small turning control on the headstock.\n\n**Why it matters:** Turning it changes how tight a wire is.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Acoustic guitars",
+      "body": "**acoustic** means a guitar whose hollow body makes its sound louder.\n\n**Why it matters:** You can hear it without an amplifier.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Electric guitars",
+      "body": "**electric** means a guitar designed to send its sound to an amplifier.\n\n**Why it matters:** Its pickups help you hear it through a speaker.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the amplifier",
+      "body": "**amplifier** means a box that makes an electric guitar sound louder through a speaker.\n\n**Why it matters:** It lets you hear an electric guitar clearly.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the sound hole",
+      "body": "**sound hole** means the opening in an acoustic guitar body.\n\n**Why it matters:** It lets the moving air out so you can hear it.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the pickup",
+      "body": "**pickup** means a device on an electric guitar that senses the motion of its wires.\n\n**Why it matters:** It sends the sound to an amplifier.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "The picture shows an acoustic guitar, with an electric pickup example beside it. Point at the body, then follow the neck to the headstock. We will use the playing picture below in the next lessons.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1-play",
+          "prompt": "Which guitar part is the large main section?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "body",
+            "headstock"
+          ],
+          "answer": "body"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "With the guitar resting safely, find the body, neck, bridge and tuning pegs. Do not turn the pegs yet. You can also use the picture instead."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz",
+          "prompt": "Which guitar part is the large main section?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "body",
+            "headstock"
+          ],
+          "answer": "body"
+        }
+      ]
+    }
+  ],
+  "guitarDiagram": "parts"
+}
