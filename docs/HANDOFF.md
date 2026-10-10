@@ -89,7 +89,7 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-scales / #74; codex/phase-9b-guitar-chords | Tasks 2c and 2d: scales/keys is open; starter chords adds eleven lessons, checkpoint and five open-shape guides. Two small PRs in this review batch. Merge #74 first, then integrate main into chords and wait for CI. | `services/curriculum/**`, `packages/contracts/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/e2e/guitar-{scales,chords}.spec.ts`, `apps/api/test/api.test.ts`, `docs/**` |
+| Codex | codex/phase-9b-guitar-chords / #75 | Task 2d: starter chords adds eleven lessons, checkpoint and five open-shape guides. Scales and keys (#74) is merged; main was merged in here by Claude (conflict-only resolution). | `services/curriculum/**`, `packages/contracts/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/e2e/guitar-{scales,chords}.spec.ts`, `apps/api/test/api.test.ts`, `docs/**` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
