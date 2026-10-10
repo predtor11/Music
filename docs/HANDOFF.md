@@ -89,7 +89,7 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-open-shapes / #76; codex/phase-9b-guitar-power-barre | Tasks 2e/2f: A/D/Dm is open; six further lessons introduce a fifth, power shapes and barre shapes. Two small PRs for one review batch. Merge #76 first, then integrate main and rerun CI for power/barre. | `packages/theory/**`, `services/curriculum/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/{test,e2e}/**`, `docs/{GUITAR,HANDOFF}.md` |
+| Codex | codex/phase-9b-guitar-power-barre / #77 | Task 2f: six further lessons introduce a fifth, power shapes and barre shapes. #76 (A/D/Dm) is merged; main was merged in here by Claude (conflict-only resolution). | `packages/theory/**`, `services/curriculum/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/{test,e2e}/**`, `docs/{GUITAR,HANDOFF}.md` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
