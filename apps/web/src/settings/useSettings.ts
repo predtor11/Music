@@ -63,7 +63,8 @@ export function useSettings(userId: string | null) {
   const [settings, setSettings] = useState<InstrumentSettings>(loadSettings);
   const [sync, setSync] = useState<SyncState>('local');
   const ready = useRef(false); // the account's settings have arrived for this user
-  const pending = useRef<InstrumentPatch>({});
+  // The account contract also accepts null when clearing an instrument choice.
+  const pending = useRef<Partial<UserSettings>>({});
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const userRef = useRef(userId);
   userRef.current = userId;
@@ -132,7 +133,7 @@ export function useSettings(userId: string | null) {
 
   const update = useCallback(
     (patch: InstrumentPatch) => {
-      setSettings((s) => ({ ...s, ...patch }));
+      setSettings((s) => parseInstrumentSettings({ ...s, ...patch }));
       if (!serverPatch(patch)) return;
       if (!userRef.current || !ready.current) {
         write(DIRTY_KEY, '1');

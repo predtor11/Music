@@ -1,9 +1,8 @@
-import { UserSettingsSchema, type UserSettings } from '@music/contracts';
+import { UserSettingsSchema, type InstrumentId, type UserSettings } from '@music/contracts';
 
-// Structural seam from HANDOFF.md until the instrument foundation lands.
-export type InstrumentId = 'piano' | 'guitar';
+export type { InstrumentId } from '@music/contracts';
 export type InstrumentSettings = UserSettings & { instrument: InstrumentId };
-export type InstrumentPatch = Partial<InstrumentSettings>;
+export type InstrumentPatch = Partial<UserSettings>;
 
 export function instrumentId(value: unknown): InstrumentId { return value === 'guitar' ? 'guitar' : 'piano'; }
 

@@ -29,6 +29,7 @@ describe('instrument selection', () => {
   it('retains guitar with the settings seam and defaults missing instruments to piano', () => {
     expect(parseInstrumentSettings({ instrument: 'guitar', theme: 'light' })).toMatchObject({ instrument: 'guitar', theme: 'light' });
     expect(parseInstrumentSettings({}).instrument).toBe('piano');
+    expect(parseInstrumentSettings({ instrument: null }).instrument).toBe('piano');
     expect(instrumentId('unknown')).toBe('piano');
   });
   it('scopes guitar requests and preserves existing queries and piano defaults', () => {
