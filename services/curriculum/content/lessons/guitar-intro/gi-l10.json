@@ -2,7 +2,7 @@
   "id": "gi-l10",
   "unitId": "guitar-intro",
   "instrument": "guitar",
-  "order": 10,
+  "order": 11,
   "title": "Read your first tab line",
   "summary": "One line chooses the string; one number chooses the fret.",
   "minutes": 3,

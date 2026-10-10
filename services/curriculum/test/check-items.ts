@@ -308,6 +308,13 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
 
 /** Physical guitar concepts have verbal answers rather than pitch names. */
 const GUITAR_FACTS: Record<string, string> = {
+  "Which guitar part is long and narrow?": "neck",
+  "Which guitar part is at the top of the neck?": "headstock",
+  "Which guitar part anchors the lower ends of the wires?": "bridge",
+  "Which guitar part is a small turning control?": "tuning peg",
+  "Which opening helps you hear an acoustic guitar?": "sound hole",
+  "Which device senses the moving wires on an electric guitar?": "pickup",
+
   "Which guitar part is the large main section?": "body",
   "Which letter names the lit thickest string?": "E",
   "What should support the guitar while you sit?": "your thigh and a gentle supporting arm",

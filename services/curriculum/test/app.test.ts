@@ -36,13 +36,15 @@ describe('curriculum service', () => {
   it('serves the complete introduction before the existing guitar unit', async () => {
     const intro = UnitSchema.parse((await app.inject({ url: '/units/guitar-intro' })).json());
     expect(intro).toMatchObject({ order: 1, instrument: 'guitar' });
-    expect(intro.lessonIds).toHaveLength(10);
+    expect(intro.lessonIds).toEqual(['gi-l1', 'gi-l1b', 'gi-l2', 'gi-l3', 'gi-l4', 'gi-l5', 'gi-l6', 'gi-l7', 'gi-l8', 'gi-l9', 'gi-l10']);
     expect(intro.checkpoint.items).toHaveLength(10);
     const existing = UnitSchema.parse((await app.inject({ url: '/units/guitar-1' })).json());
     expect(existing.order).toBe(2);
     expect(existing.lessonIds).toEqual(['g1-l1', 'g1-l2', 'g1-l3', 'g1-l4', 'g1-l5']);
     const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/gi-l1' })).json());
     expect(lesson.guitarDiagram).toBe('parts');
+    const soundLesson = LessonSchema.parse((await app.inject({ url: '/lessons/gi-l1b' })).json());
+    expect(soundLesson).toMatchObject({ order: 2, guitarDiagram: 'parts', title: 'The parts that make the sound' });
   });
 
   it('serves six notes lessons as guitar unit 3', async () => {
