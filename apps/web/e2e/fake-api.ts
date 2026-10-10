@@ -1,5 +1,6 @@
 import type { Lesson, Unit } from '@music/contracts';
 import type { Page, Route } from '@playwright/test';
+import { signedInAs } from './fake-supabase.js';
 
 /** A small lesson that uses every step type the player supports. */
 export const LESSON: Lesson & { steps: Array<Lesson['steps'][number] & { labels?: Record<string, string> }> } = {
@@ -54,14 +55,19 @@ export interface FakeApi {
   ended: string[];
 }
 
+/** The session id in /practice/sessions/:id/next-item, or null for any other path. */
+export function nextItemSessionId(path: string): string | null {
+  return /^\/practice\/sessions\/([^/]+)\/next-item$/.exec(path)?.[1] ?? null;
+}
+
 export const SESSION_ID = '11111111-1111-4111-8111-111111111111';
 const USER_ID = '00000000-0000-4000-8000-000000000001';
 
 /** Answers /api like the gateway would, and records what the app sends. */
-export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsSignIn = false } = {}): Promise<FakeApi> {
+export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsSignIn = false, signedIn = false } = {}): Promise<FakeApi> {
   const api: FakeApi = { attempts: [], sessions: [], ended: [] };
   const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
-  const session = (kind: string, refId?: string) => ({ id: SESSION_ID, userId: USER_ID, kind, refId: refId ?? null, startedAt: new Date().toISOString(), endedAt: null });
+  const session = (kind: string, refId?: string, id = SESSION_ID) => ({ id, userId: USER_ID, kind, refId: refId ?? null, startedAt: new Date().toISOString(), endedAt: null });
 
   await page.route((url) => url.pathname.startsWith('/api/'), async (route) => {
     const url = new URL(route.request().url());
@@ -80,27 +86,31 @@ export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsS
     if (path === '/practice/sessions' && method === 'POST') {
       const body = route.request().postDataJSON() as { kind: string; refId?: string };
       api.sessions.push(body);
-      return json(route, session(body.kind, body.refId), 201);
+      // The app picks session ids itself; like the server, answer with the one it sent.
+      return json(route, session(body.kind, body.refId, (body as { id?: string }).id), 201);
     }
     if (path === '/practice/attempts' && method === 'POST') {
       api.attempts.push(route.request().postDataJSON() as Record<string, unknown>);
       return json(route, {}, 201);
     }
-    if (path === `/practice/sessions/${SESSION_ID}/next-item`) {
+    if (nextItemSessionId(path)) {
       const answered = new Set(api.attempts.map((a) => a.itemId));
       return json(route, UNIT.checkpoint.items.find((i) => !answered.has(i.id)) ?? null);
     }
-    if (path === `/practice/sessions/${SESSION_ID}/end` && method === 'POST') {
-      api.ended.push(SESSION_ID);
+    const endMatch = /^\/practice\/sessions\/([^/]+)\/end$/.exec(path);
+    if (endMatch && method === 'POST') {
+      api.ended.push(endMatch[1]!);
       const first = new Map<unknown, Record<string, unknown>>();
       for (const a of api.attempts) if (!first.has(a.itemId)) first.set(a.itemId, a);
       const kind = api.sessions.at(-1)!.kind as string;
       const total = kind === 'checkpoint' ? UNIT.checkpoint.items.length : kind === 'review' ? first.size : 4;
       const firstTryCorrect = [...first.values()].filter((a) => a.correct && !a.retried).length;
       const accuracy = (firstTryCorrect / total) * 100;
-      return json(route, { session: { ...session(kind, 'x'), endedAt: new Date().toISOString() }, summary: { total, answered: first.size, firstTryCorrect, accuracy, passed: kind === 'review' ? null : accuracy >= 80 } });
+      return json(route, { session: { ...session(kind, 'x', endMatch[1]), endedAt: new Date().toISOString() }, summary: { total, answered: first.size, firstTryCorrect, accuracy, passed: kind === 'review' ? null : accuracy >= 80 } });
     }
     return json(route, { message: `no fake for ${method} ${path}` }, 404);
   });
+  // Practice is only sent to the server for a signed-in learner; others keep it on the device.
+  if (signedIn) await signedInAs(page);
   return api;
 }

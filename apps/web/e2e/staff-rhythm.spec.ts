@@ -1,6 +1,7 @@
 import type { Lesson, TestItem } from '@music/contracts';
 import type { Page, Route } from '@playwright/test';
 import { expect, test } from './fake-midi.js';
+import { signedInAs } from './fake-supabase.js';
 
 const SESSION_ID = '22222222-2222-4222-8222-222222222222';
 
@@ -19,6 +20,7 @@ async function serveLesson(page: Page, id: string, step: 'play-along' | 'quiz', 
     }
     return json(route, { message: 'no fake' }, 404);
   });
+  await signedInAs(page);
   await page.goto(`/#/lesson/${id}`);
   await page.getByTestId('header-connect').click();
   return attempts;

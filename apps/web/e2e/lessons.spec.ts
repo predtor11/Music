@@ -1,6 +1,7 @@
 import { fakeApi, LESSON } from './fake-api.js';
 import { expect, test } from './fake-midi.js';
 
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const key = (page: import('@playwright/test').Page, note: number) => page.locator(`[data-testid="piano"] [data-note="${note}"]`);
 
 test('lists units and lessons, and opens a lesson', async ({ page, midi }) => {
@@ -13,7 +14,7 @@ test('lists units and lessons, and opens a lesson', async ({ page, midi }) => {
 });
 
 test('teaches with text and the virtual keyboard, grades play-along and quiz, and saves attempts', async ({ page, midi }) => {
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.goto(`/#/lesson/${LESSON.id}`);
   await page.getByTestId('header-connect').click();
 
@@ -78,7 +79,7 @@ test('teaches with text and the virtual keyboard, grades play-along and quiz, an
   await expect(page.getByTestId('score')).toHaveText('75%');
   await expect(page.getByTestId('passed')).toHaveText('Almost. Try it again to pass.');
 
-  expect(api.sessions).toEqual([{ kind: 'lesson', refId: LESSON.id }]);
+  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'lesson', refId: LESSON.id }]);
   expect(api.attempts.map((a) => [a.itemId, a.correct, a.retried, a.mistake])).toEqual([
     ['p1', false, false, 'wrong-note'],
     ['p1', true, true, null],
@@ -87,18 +88,19 @@ test('teaches with text and the virtual keyboard, grades play-along and quiz, an
     ['q2', true, false, null],
   ]);
   expect(api.attempts[0]).toMatchObject({ itemKind: 'find-note', skill: 'note:D', expected: [2], played: [64] });
+  expect(api.attempts.every((a) => typeof a.id === 'string' && UUID.test(a.id))).toBe(true);
   expect(api.ended).toHaveLength(1);
 });
 
 test('keeps teaching when the practice server is down', async ({ page, midi }) => {
-  await fakeApi(page, { practiceDown: true });
+  await fakeApi(page, { practiceDown: true, signedIn: true });
   await page.goto(`/#/lesson/${LESSON.id}`);
   await expect(page.getByTestId('offline')).toBeVisible();
   void midi;
 });
 
 test('runs a unit test from the practice service', async ({ page, midi }) => {
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.goto('/#/checkpoint/test-unit');
   await page.getByTestId('header-connect').click();
   await expect(page.getByTestId('prompt')).toHaveText('Play middle C.');
@@ -110,7 +112,7 @@ test('runs a unit test from the practice service', async ({ page, midi }) => {
   await midi.on(64);
   await expect(page.getByTestId('summary')).toBeVisible();
   await expect(page.getByTestId('score')).toHaveText('50%');
-  expect(api.sessions).toEqual([{ kind: 'checkpoint', refId: 'test-unit' }]);
+  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'checkpoint', refId: 'test-unit' }]);
 });
 
 test('shows how to start the server when lessons cannot load', async ({ page }) => {
