@@ -21,7 +21,7 @@ async function course(page: Page, prerequisitesPassed = true) {
       return route.fulfill({ status: response.statusCode, contentType: 'application/json', body: response.body });
     }
     if (path === '/progress/') return route.fulfill({ json: computeProgress(USER, curriculum.units, {
-      ...NO_COMPLETIONS, checkpointsPassed: new Set(prerequisitesPassed ? ['guitar-intro', 'guitar-1'] : []),
+      ...NO_COMPLETIONS, checkpointsPassed: new Set(prerequisitesPassed ? ['guitar-intro', 'guitar-1'] : curriculum.units.filter((u) => (u.instrument ?? 'piano') === 'piano').map((u) => u.id)),
     }, 'guitar') });
     if (path === '/progress/review-queue') return route.fulfill({ json: [] });
     if (api.sessions.at(-1)?.kind === 'checkpoint' && nextItemSessionId(path)) {
@@ -64,7 +64,7 @@ for (const id of unit.lessonIds) {
     await page.goto(`/#/lesson/${id}`);
     await expect(page.getByTestId('lesson-title')).toHaveText(lesson.title);
     for (const step of lesson.steps) {
-      await expect(page.getByTestId('step-title')).toHaveText(step.title);
+      await expect(page.getByTestId('step-title')).toHaveText(pretty(step.title));
       if (step.type === 'play-along' || step.type === 'quiz') {
         for (const item of step.items) await answer(page, item);
         await expect(page.getByTestId('step-complete')).toBeVisible();
@@ -98,4 +98,20 @@ test('piano progress cannot open the new guitar notes unit', async ({ page }) =>
   await expect(page.getByTestId('unit-guitar-2')).toHaveAttribute('data-unlocked', 'false');
   await expect(page.getByTestId('unit-locked-guitar-2')).toContainText('Pass the Unit 2 test');
   await expect(page.getByTestId('checkpoint-guitar-2')).toBeDisabled();
+});
+
+test('an alternate position counts but the same letter in the wrong octave does not', async ({ page }) => {
+  const api = await course(page);
+  await page.goto('/#/lesson/g2-l6');
+  await page.getByTestId('next').click();
+  await page.getByTestId('next').click();
+  await expect(page.getByTestId('prompt')).toHaveText('Play A3. Use any lit position.');
+  await page.getByTestId('fret-5-0').click(); // A2, one octave too low.
+  await expect(page.getByTestId('item-message')).toBeVisible();
+  await expect.poll(() => api.attempts.length).toBe(1);
+  expect(api.attempts[0]).toMatchObject({ played: [45], correct: false });
+  await page.getByTestId('fret-3-2').click(); // A3, away from string 5's twelfth fret.
+  await expect(page.getByTestId('step-complete')).toBeVisible();
+  await expect.poll(() => api.attempts.length).toBe(2);
+  expect(api.attempts[1]).toMatchObject({ played: [57], correct: true, retried: true, skill: 'g:note:A' });
 });
