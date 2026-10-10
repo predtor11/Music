@@ -118,6 +118,7 @@ describe('report pieces', () => {
   it('takes the topic from the skill tag', () => {
     expect(topicOf('interval:M3')).toBe('interval');
     expect(topicOf('rhythm')).toBe('rhythm');
+    expect(topicOf('g:interval:M3')).toBe('interval');
   });
 
   it('splits days at local midnight', () => {

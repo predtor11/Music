@@ -3,6 +3,7 @@ import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { INSTRUMENTS, LessonSchema, UnitSchema, instrumentOf, type Lesson, type TestItem, type Unit } from '@music/contracts';
 import type { z } from 'zod';
+import { GUITAR_CHORD_SHAPES } from '@music/theory';
 import { GlossarySchema, type GlossaryTerm } from './glossary.js';
 
 /** Where the lesson content ships: services/curriculum/content. */
@@ -89,6 +90,9 @@ export function loadCurriculum(dir: string = DEFAULT_CONTENT_DIR): Curriculum {
   }
   for (const lesson of lessons) {
     const unit = unitsById.get(lesson.unitId);
+    if (lesson.guitarChord && !GUITAR_CHORD_SHAPES.some((s) => s.name === lesson.guitarChord)) {
+      problems.push(`lesson ${lesson.id} names unknown guitar chord shape ${lesson.guitarChord}`);
+    }
     if (unit && instrumentOf(lesson) !== instrumentOf(unit)) problems.push(`lesson ${lesson.id} is for ${instrumentOf(lesson)}, but unit ${unit.id} is for ${instrumentOf(unit)}`);
   }
 

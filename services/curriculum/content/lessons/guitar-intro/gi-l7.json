@@ -1,0 +1,74 @@
+{
+  "id": "gi-l7",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 8,
+  "title": "Higher and lower sounds",
+  "summary": "Listen to how a string changes its sound.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Higher and lower sounds",
+      "body": "A higher sound feels thinner; a lower sound feels deeper. For otherwise similar strings, a thicker string sounds lower, a tighter string sounds higher, and a shorter vibrating length sounds higher. Change one thing at a time when comparing.\n\n**Why it matters:** These three ideas explain how the controls and your hands change a guitar sound. Do not tighten a string for this experiment; just listen.",
+      "exampleMidi": [
+        40,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Hear the two lit E sounds: string 6 is thick and low; string 1 is thin and high. The screen makes this comparison without adjusting your guitar.",
+      "highlightMidi": [
+        40,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l7-play",
+          "prompt": "For otherwise similar strings, what happens when a string gets tighter?",
+          "shownMidi": [
+            40,
+            64
+          ],
+          "choices": [
+            "the sound gets higher",
+            "the sound gets lower"
+          ],
+          "answer": "the sound gets higher"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Pluck the thickest and thinnest open strings softly, one at a time. Listen for the difference. Do not turn a peg or pull a string."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l7-quiz",
+          "prompt": "For otherwise similar strings, what happens when a string gets tighter?",
+          "shownMidi": [
+            40,
+            64
+          ],
+          "choices": [
+            "the sound gets higher",
+            "the sound gets lower"
+          ],
+          "answer": "the sound gets higher"
+        }
+      ]
+    }
+  ]
+}

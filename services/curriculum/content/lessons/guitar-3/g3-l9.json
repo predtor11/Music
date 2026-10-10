@@ -1,0 +1,132 @@
+{
+  "id": "g3-l9",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "An A minor pentatonic box",
+  "summary": "Use five notes in a small area.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An A minor pentatonic box",
+      "body": "Use the **pentatonic scale** from the earlier lesson in a **scale box** between frets 5 and 8. Start with A2 on string 6, fret 5; finish with A3 on string 4, fret 7.\n\n**Why it matters:** This small route lets you practise the sounds and string changes together, without learning the whole neck at once.",
+      "exampleMidi": [
+        45,
+        48,
+        50,
+        52,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "Follow string 6 frets 5, 8; string 5 frets 5, 7; string 4 frets 5, 7. The six positions give five different notes and the higher A.",
+      "highlightMidi": [
+        45,
+        48,
+        50,
+        52,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, C, D, E, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            0,
+            2,
+            4,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l9-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Play the route slowly, then invent a short tune using its middle four notes. Return to A to hear home."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, C, D, E, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            0,
+            2,
+            4,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l9-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            45,
+            48,
+            50,
+            52,
+            55,
+            57
+          ],
+          "choices": [
+            "C",
+            "G",
+            "A"
+          ],
+          "answer": "A",
+          "id": "g3-l9-q2"
+        }
+      ]
+    }
+  ],
+  "guitarPattern": {
+    "title": "An A minor pentatonic box",
+    "positions": [
+      {
+        "string": 6,
+        "fret": 5
+      },
+      {
+        "string": 6,
+        "fret": 8
+      },
+      {
+        "string": 5,
+        "fret": 5
+      },
+      {
+        "string": 5,
+        "fret": 7
+      },
+      {
+        "string": 4,
+        "fret": 5
+      },
+      {
+        "string": 4,
+        "fret": 7
+      }
+    ]
+  }
+}

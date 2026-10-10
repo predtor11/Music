@@ -1,0 +1,123 @@
+{
+  "id": "guitar-2",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "Notes and small steps",
+  "summary": "Name sounds, measure one- and two-fret moves, and read sharps and flats.",
+  "outcome": "You can name notes, play half and whole steps, and find the right octave in more than one place.",
+  "lessonIds": [
+    "g2-l1",
+    "g2-l2",
+    "g2-l3",
+    "g2-l4",
+    "g2-l5",
+    "g2-l6"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "find-note",
+        "id": "g2-cp-1",
+        "prompt": "Play B2.",
+        "midi": 47
+      },
+      {
+        "kind": "name-it",
+        "id": "g2-cp-2",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          48
+        ],
+        "choices": [
+          "B",
+          "C",
+          "D"
+        ],
+        "answer": "C"
+      },
+      {
+        "kind": "name-it",
+        "id": "g2-cp-3",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          47,
+          48
+        ],
+        "choices": [
+          "half step",
+          "whole step"
+        ],
+        "answer": "half step"
+      },
+      {
+        "kind": "play-interval",
+        "id": "g2-cp-4",
+        "prompt": "Play A2, then go up a half step.",
+        "startMidi": 45,
+        "semitones": 1
+      },
+      {
+        "kind": "name-it",
+        "id": "g2-cp-5",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          45,
+          47
+        ],
+        "choices": [
+          "half step",
+          "whole step"
+        ],
+        "answer": "whole step"
+      },
+      {
+        "kind": "play-interval",
+        "id": "g2-cp-6",
+        "prompt": "Play A2, then go up a whole step.",
+        "startMidi": 45,
+        "semitones": 2
+      },
+      {
+        "kind": "name-it",
+        "id": "g2-cp-7",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          46
+        ],
+        "choices": [
+          "A",
+          "A#",
+          "B"
+        ],
+        "answer": "A#"
+      },
+      {
+        "kind": "find-note",
+        "id": "g2-cp-8",
+        "prompt": "Play Bb2.",
+        "midi": 46
+      },
+      {
+        "kind": "name-it",
+        "id": "g2-cp-9",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          45,
+          57
+        ],
+        "choices": [
+          "whole step",
+          "octave"
+        ],
+        "answer": "octave"
+      },
+      {
+        "kind": "find-note",
+        "id": "g2-cp-10",
+        "prompt": "Play A3.",
+        "midi": 57
+      }
+    ]
+  }
+}

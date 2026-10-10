@@ -1,0 +1,83 @@
+{
+  "id": "g2-l3",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "Two frets: a whole step",
+  "summary": "Leave one fret between the starting and ending positions.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A bigger step",
+      "body": "A **whole step**, also called a tone, is two half steps. On one string, move two frets to make a whole step. One fret lies between your starting and ending positions.\n\n**Why it matters:** Whole steps and half steps are the small distances used to build longer patterns.",
+      "exampleMidi": [
+        45,
+        47
+      ],
+      "labels": {
+        "45": "A \u2014 open",
+        "47": "B \u2014 fret 2"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A to B is two frets",
+      "body": "Open A to B at fret 2 on string 5 is a whole step. Compare it with B at fret 2 to C at fret 3: that move is only a half step.",
+      "highlightMidi": [
+        45,
+        47
+      ],
+      "labels": {
+        "45": "A \u2014 open",
+        "47": "B \u2014 fret 2"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "g2-l3-p1",
+          "prompt": "Play A2, then go up a whole step. Use the lit positions.",
+          "startMidi": 45,
+          "semitones": 2,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Compare one fret and two",
+      "body": "From the same starting fret, try one fret higher, then two frets higher. Say half step for one and whole step for two. Work slowly; speed is not the goal."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l3-q1",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            45,
+            47
+          ],
+          "choices": [
+            "half step",
+            "whole step"
+          ],
+          "answer": "whole step"
+        },
+        {
+          "kind": "play-interval",
+          "id": "g2-l3-q2",
+          "prompt": "Play A2 at fret 5 on string 6, then go down a whole step.",
+          "startMidi": 45,
+          "semitones": -2
+        }
+      ]
+    }
+  ]
+}

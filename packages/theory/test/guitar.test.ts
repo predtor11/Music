@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   OPEN_CHORD_SHAPES,
+  POWER_CHORD_SHAPES,
+  BARRE_CHORD_SHAPES,
+  GUITAR_CHORD_SHAPES,
   STANDARD_TUNING,
   DROP_D_TUNING,
   chordShapeMidi,
@@ -12,6 +15,34 @@ import {
 } from '../src/index.js';
 
 describe('guitar', () => {
+  it('publishes unique six-string open, power and barre guides', () => {
+    expect(new Set(GUITAR_CHORD_SHAPES.map((s) => s.name)).size).toBe(GUITAR_CHORD_SHAPES.length);
+    expect(OPEN_CHORD_SHAPES).toHaveLength(8);
+    for (const shape of GUITAR_CHORD_SHAPES) {
+      expect(shape.frets).toHaveLength(STANDARD_TUNING.strings.length);
+      expect(shape.fingers).toHaveLength(shape.frets.length);
+    }
+  });
+
+  it('moves the complete power shape from G to A without adding a third note name', () => {
+    const [g, a] = POWER_CHORD_SHAPES.map((s) => chordShapeMidi(STANDARD_TUNING, s));
+    expect(g).toEqual([43, 50, 55]);
+    expect(a).toEqual(g!.map((n) => n + 2));
+    for (const notes of [g!, a!]) {
+      expect(new Set(notes.map(pitchClass)).size).toBe(2);
+      expect(notes[1]! - notes[0]!).toBe(7);
+      expect(notes[2]! - notes[0]!).toBe(12);
+    }
+  });
+
+  it('uses absolute frets for major and minor barre shapes, including a raised base fret', () => {
+    const expected: Record<string, number[]> = {
+      F: [41, 48, 53, 57, 60, 65],
+      Fm: [41, 48, 53, 56, 60, 65],
+      Bm: [47, 54, 59, 62, 66],
+    };
+    for (const shape of BARRE_CHORD_SHAPES) expect(chordShapeMidi(STANDARD_TUNING, shape)).toEqual(expected[shape.name]);
+  });
   it('maps open strings to E2 A2 D3 G3 B3 E4', () => {
     const names = [6, 5, 4, 3, 2, 1].map((s) => midiName(fretToMidi(STANDARD_TUNING, { string: s, fret: 0 })));
     expect(names).toEqual(['E2', 'A2', 'D3', 'G3', 'B3', 'E4']);

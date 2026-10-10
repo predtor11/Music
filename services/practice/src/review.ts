@@ -1,4 +1,4 @@
-import type { Lesson, Progress, SkillScore, TestItem, Unit } from '@music/contracts';
+import type { InstrumentId, Lesson, Progress, SkillScore, TestItem, Unit } from '@music/contracts';
 import { skillFor } from '@music/skills';
 
 /** About this many items per review session. */
@@ -26,18 +26,18 @@ export function reachedContent(progress: Progress): { lessonIds: string[]; unitI
 export function candidates(lessons: readonly Lesson[], units: readonly Unit[]): ReviewCandidate[] {
   const seen = new Set<string>();
   const out: ReviewCandidate[] = [];
-  const add = (item: TestItem, fromQuiz: boolean) => {
+  const add = (item: TestItem, fromQuiz: boolean, instrument: InstrumentId) => {
     if (seen.has(item.id)) return;
     seen.add(item.id);
-    out.push({ item, skill: skillFor(item), fromQuiz });
+    out.push({ item, skill: skillFor(item, instrument), fromQuiz });
   };
   for (const lesson of lessons) {
     for (const step of lesson.steps) {
-      if (step.type === 'quiz') step.items.forEach((i) => add(i, true));
-      if (step.type === 'play-along') step.items.forEach((i) => add(i, false));
+      if (step.type === 'quiz') step.items.forEach((i) => add(i, true, lesson.instrument ?? 'piano'));
+      if (step.type === 'play-along') step.items.forEach((i) => add(i, false, lesson.instrument ?? 'piano'));
     }
   }
-  for (const unit of units) unit.checkpoint.items.forEach((i) => add(i, true));
+  for (const unit of units) unit.checkpoint.items.forEach((i) => add(i, true, unit.instrument ?? 'piano'));
   return out;
 }
 

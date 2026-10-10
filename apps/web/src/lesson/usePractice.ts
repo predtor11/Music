@@ -87,7 +87,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
             sessionId,
             itemId: a.item.id,
             itemKind: a.item.kind,
-            skill: skillFor(a.item),
+            skill: skillFor(a.item, instrument),
             expected: expectedFor(a.item, a.played),
             played: a.played,
             correct: a.correct,

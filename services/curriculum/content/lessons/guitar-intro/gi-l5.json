@@ -1,0 +1,70 @@
+{
+  "id": "gi-l5",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Hold a pick gently",
+  "summary": "A small grip, with a little tip showing.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Hold a pick gently",
+      "body": "**pick** means a small flat piece you hold to brush a string\n\n**Why it matters:** It gives you another way to start a clear sound.\n\nHold it gently between the side of your index finger and your thumb. Leave only a small tip showing. Keep your wrist loose. You can use a fingertip instead; a pick is optional.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Keep the pick near the strings, with a little tip visible. Try moving it through the air once, without hitting anything.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l5-play",
+          "prompt": "How should you hold a guitar pick?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "gently, with a small tip showing",
+            "squeeze hard, with the whole pick showing"
+          ],
+          "answer": "gently, with a small tip showing"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Try a light grip, then relax it. Your arm and wrist should not tense up. No pick? Use a fingertip later."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l5-quiz",
+          "prompt": "How should you hold a guitar pick?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "gently, with a small tip showing",
+            "squeeze hard, with the whole pick showing"
+          ],
+          "answer": "gently, with a small tip showing"
+        }
+      ]
+    }
+  ]
+}

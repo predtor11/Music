@@ -1,0 +1,159 @@
+{
+  "id": "guitar-intro",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Meet your guitar",
+  "summary": "Start with the instrument, your hands and one gentle sound.",
+  "outcome": "You can hold a guitar comfortably, name its strings, play a gentle open sound and read a first tab line.",
+  "lessonIds": [
+    "gi-l1",
+    "gi-l1b",
+    "gi-l2",
+    "gi-l3",
+    "gi-l4",
+    "gi-l5",
+    "gi-l6",
+    "gi-l7",
+    "gi-l8",
+    "gi-l9",
+    "gi-l10"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "id": "gi-cp-1",
+        "prompt": "Which guitar part is the large main section?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "body",
+          "headstock"
+        ],
+        "answer": "body"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-2",
+        "prompt": "Which letter names the lit thickest string?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "E",
+          "A"
+        ],
+        "answer": "E"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-3",
+        "prompt": "What should support the guitar while you sit?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "your thigh and a gentle supporting arm",
+          "a tightly squeezed neck"
+        ],
+        "answer": "your thigh and a gentle supporting arm"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-4",
+        "prompt": "Which hand starts the string vibrating near the body?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "picking hand",
+          "fretting hand"
+        ],
+        "answer": "picking hand"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-5",
+        "prompt": "How should you hold a guitar pick?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "gently, with a small tip showing",
+          "squeeze hard, with the whole pick showing"
+        ],
+        "answer": "gently, with a small tip showing"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-6",
+        "prompt": "What makes a string an open string?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "no finger presses it",
+          "a finger presses it"
+        ],
+        "answer": "no finger presses it"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-7",
+        "prompt": "For otherwise similar strings, what happens when a string gets tighter?",
+        "shownMidi": [
+          40,
+          64
+        ],
+        "choices": [
+          "the sound gets higher",
+          "the sound gets lower"
+        ],
+        "answer": "the sound gets higher"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-8",
+        "prompt": "What is the goal when tuning a guitar string?",
+        "shownMidi": [
+          40
+        ],
+        "choices": [
+          "match its reference sound",
+          "make every string sound identical"
+        ],
+        "answer": "match its reference sound"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-9",
+        "prompt": "Where do you press to play the first fret clearly?",
+        "shownMidi": [
+          40,
+          41
+        ],
+        "choices": [
+          "just behind the first metal bar",
+          "on top of the metal bar"
+        ],
+        "answer": "just behind the first metal bar"
+      },
+      {
+        "kind": "name-it",
+        "id": "gi-cp-10",
+        "prompt": "In guitar tab, what does 0 mean?",
+        "shownMidi": [
+          40,
+          41
+        ],
+        "choices": [
+          "play the open string",
+          "press the first fret"
+        ],
+        "answer": "play the open string"
+      }
+    ]
+  }
+}

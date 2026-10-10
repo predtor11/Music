@@ -1,0 +1,96 @@
+{
+  "id": "g4-l18",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 19,
+  "title": "A minor barre version",
+  "summary": "Lower one sound while keeping the root.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A minor barre version",
+      "body": "Fm means F minor: F, Ab and C. Keep the fret-1 barre and fret 3 on strings 5 and 4. Remove the extra pressed position on string 3 so the barre supplies fret 1 there too. A becomes Ab, one half step lower. Ab is the same sound as G#.\n\n**Why it matters:** The same major-to-minor change you heard in open shapes works with a barre too.",
+      "exampleMidi": [
+        41,
+        48,
+        53,
+        56,
+        60,
+        65
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "Read frets 1, 3, 3, 1, 1, 1 from thick to thin. One finger spans fret 1. The changed sound is on string 3; the root remains F.",
+      "highlightMidi": [
+        41,
+        48,
+        53,
+        56,
+        60,
+        65
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "id": "g4-l18-p1",
+          "kind": "build-chord",
+          "prompt": "Play F, Ab and C together. Use any positions for these notes.",
+          "pitchClasses": [
+            5,
+            0,
+            8
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "Clear the selection between F and Fm. Change only string 3 from fret 2 to fret 1 and listen to A becoming Ab. Practise just those two sounds first if the complete shape feels difficult."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l18-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            41,
+            48,
+            53,
+            56,
+            60,
+            65
+          ],
+          "choices": [
+            "Fm",
+            "F",
+            "Am"
+          ],
+          "answer": "Fm"
+        },
+        {
+          "id": "g4-l18-q2",
+          "kind": "build-chord",
+          "prompt": "Play F, Ab and C together. Use any positions for these notes.",
+          "pitchClasses": [
+            5,
+            0,
+            8
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Fm"
+}

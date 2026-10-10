@@ -1,0 +1,76 @@
+{
+  "id": "g4-l1",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "More than one note",
+  "summary": "Play a group of sounds together.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "More than one note",
+      "body": "**chord** means two or more notes sounding together. Start with C, E and G. On the screen, tap one position for each note; it stays selected until tapped again. Escape clears all selected notes.\n\n**Why it matters:** A chord gives a tune a supporting sound. You can learn the sound first, before a full shape.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "Try string 5 fret 3 (C), string 4 fret 2 (E), and open string 3 (G). Leave the other strings unselected. Tap these three positions so they sound together.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l1-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Tap one note, then add another. Clear them with Escape before starting again. A microphone hears one note at a time, so use tap input for these chord checks."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l1-q1"
+        },
+        {
+          "kind": "find-note",
+          "prompt": "Play C3.",
+          "midi": 48,
+          "id": "g4-l1-q2"
+        }
+      ]
+    }
+  ]
+}

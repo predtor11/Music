@@ -1,0 +1,85 @@
+{
+  "id": "g4-l4",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "A major triad",
+  "summary": "Measure the gaps from the root.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A major triad",
+      "body": "**major triad** means a triad with notes four and seven half steps above its root. Starting at C: four half steps gives E, and seven gives G. These distances are measured from C, not one after another.\n\n**Why it matters:** This recipe lets you build a major chord from a note you already know.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "On string 5, C is fret 3, E fret 7 and G fret 10. Hear the distances there one at a time, then use nearby strings to sound C, E and G together.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l4-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Try E as root. Its major recipe gives E, G# and B. Listen to each note before putting them together; we will learn a compact E shape later."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Is this chord major or minor?",
+          "shownMidi": [
+            48,
+            52,
+            55
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "major",
+          "id": "g4-l4-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l4-q2"
+        }
+      ]
+    }
+  ]
+}

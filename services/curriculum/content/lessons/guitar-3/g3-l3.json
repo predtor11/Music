@@ -1,0 +1,91 @@
+{
+  "id": "g3-l3",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "The home note",
+  "summary": "Return to the start and listen.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The home note",
+      "body": "**tonic** means the home note of a scale, the note it starts from and returns to. In C major, C is the tonic. Listen to the whole scale, then finish on C again.\n\n**Why it matters:** Knowing the home note helps you hear where a tune feels settled.",
+      "exampleMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "The low C3 and high C4 are both called C. The scale returns to its home letter at the higher octave.",
+      "highlightMidi": [
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "find-note",
+          "prompt": "Play C3.",
+          "midi": 48,
+          "id": "g3-l3-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Play C, D, E, then return to C. Compare stopping on D with stopping on C; listen rather than rushing."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            48,
+            50,
+            52,
+            53,
+            55,
+            57,
+            59,
+            60
+          ],
+          "choices": [
+            "C",
+            "G",
+            "A"
+          ],
+          "answer": "C",
+          "id": "g3-l3-q1"
+        },
+        {
+          "kind": "find-note",
+          "prompt": "Play C4.",
+          "midi": 60,
+          "id": "g3-l3-q2"
+        }
+      ]
+    }
+  ]
+}

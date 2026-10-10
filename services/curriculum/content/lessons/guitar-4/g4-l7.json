@@ -1,0 +1,96 @@
+{
+  "id": "g4-l7",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 8,
+  "title": "Change Em into E",
+  "summary": "Change one pressed position.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Change Em into E",
+      "body": "An E chord is E major: E, G# and B. Compare it with Em, which has G instead of G#. Keep the Em positions on strings 5 and 4, and add fret 1 on string 3.\n\n**Why it matters:** A small position change can alter one note and change the chord from minor to major.",
+      "exampleMidi": [
+        40,
+        47,
+        52,
+        56,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "Use open strings 6, 2 and 1; fret 2 on strings 5 and 4; fret 1 on string 3. E\u2019s root stays E; only the G sound becomes G#.",
+      "highlightMidi": [
+        40,
+        47,
+        52,
+        56,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, B, E, G#, B, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            11,
+            8
+          ],
+          "showKeys": true,
+          "id": "g4-l7-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Move string 3 between open and fret 1 while keeping the other positions. Compare the sound of Em and E without rushing."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            40,
+            47,
+            52,
+            56,
+            59,
+            64
+          ],
+          "choices": [
+            "E",
+            "Em",
+            "Am"
+          ],
+          "answer": "E",
+          "id": "g4-l7-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, B, E, G#, B, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            11,
+            8
+          ],
+          "showKeys": true,
+          "id": "g4-l7-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "E"
+}

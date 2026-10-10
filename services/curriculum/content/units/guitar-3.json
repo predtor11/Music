@@ -1,0 +1,184 @@
+{
+  "id": "guitar-3",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "Scales and keys",
+  "summary": "Follow note patterns, hear a home note and learn two compact fret routes.",
+  "outcome": "You can play major, natural minor and five-note scales and follow a scale box without using piano progress.",
+  "lessonIds": [
+    "g3-l1",
+    "g3-l2",
+    "g3-l3",
+    "g3-l4",
+    "g3-l5",
+    "g3-l6",
+    "g3-l7",
+    "g3-l8",
+    "g3-l9"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "play-scale",
+        "prompt": "Play C, D, E, F, G, A, B, C in that order, one note at a time.",
+        "sequence": [
+          0,
+          2,
+          4,
+          5,
+          7,
+          9,
+          11,
+          0
+        ],
+        "direction": "up",
+        "showKeys": true,
+        "id": "g3-cp-1"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "What is the tonic of this scale?",
+        "shownMidi": [
+          48,
+          50,
+          52,
+          53,
+          55,
+          57,
+          59,
+          60
+        ],
+        "choices": [
+          "C",
+          "G",
+          "A"
+        ],
+        "answer": "C",
+        "id": "g3-cp-2"
+      },
+      {
+        "kind": "find-note",
+        "prompt": "Play F3.",
+        "midi": 53,
+        "id": "g3-cp-3"
+      },
+      {
+        "kind": "play-scale",
+        "prompt": "Play G, A, B, C, D, E, F#, G in that order, one note at a time.",
+        "sequence": [
+          7,
+          9,
+          11,
+          0,
+          2,
+          4,
+          6,
+          7
+        ],
+        "direction": "up",
+        "showKeys": true,
+        "id": "g3-cp-4"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "What is the tonic of this scale?",
+        "shownMidi": [
+          43,
+          45,
+          47,
+          48,
+          50,
+          52,
+          54,
+          55
+        ],
+        "choices": [
+          "C",
+          "G",
+          "A"
+        ],
+        "answer": "G",
+        "id": "g3-cp-5"
+      },
+      {
+        "kind": "find-note",
+        "prompt": "Play F#3.",
+        "midi": 54,
+        "id": "g3-cp-6"
+      },
+      {
+        "kind": "play-scale",
+        "prompt": "Play A, B, C, D, E, F, G, A in that order, one note at a time.",
+        "sequence": [
+          9,
+          11,
+          0,
+          2,
+          4,
+          5,
+          7,
+          9
+        ],
+        "direction": "up",
+        "showKeys": true,
+        "id": "g3-cp-7"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "What is the tonic of this scale?",
+        "shownMidi": [
+          45,
+          47,
+          48,
+          50,
+          52,
+          53,
+          55,
+          57
+        ],
+        "choices": [
+          "C",
+          "G",
+          "A"
+        ],
+        "answer": "A",
+        "id": "g3-cp-8"
+      },
+      {
+        "kind": "play-scale",
+        "prompt": "Play A, C, D, E, G, A in that order, one note at a time.",
+        "sequence": [
+          9,
+          0,
+          2,
+          4,
+          7,
+          9
+        ],
+        "direction": "up",
+        "showKeys": true,
+        "id": "g3-cp-9"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "What is the tonic of this scale?",
+        "shownMidi": [
+          45,
+          48,
+          50,
+          52,
+          55,
+          57
+        ],
+        "choices": [
+          "C",
+          "G",
+          "A"
+        ],
+        "answer": "A",
+        "id": "g3-cp-10"
+      }
+    ]
+  }
+}

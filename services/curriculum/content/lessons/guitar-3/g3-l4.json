@@ -1,0 +1,113 @@
+{
+  "id": "g3-l4",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "A key with G at home",
+  "summary": "Use the same recipe from G.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A key with G at home",
+      "body": "**key** means a home note and the group of notes built around it. The key of G major has G at home and uses G, A, B, C, D, E and F#. F# keeps the major scale formula when we start on G.\n\n**Why it matters:** A key tells you which notes belong together and where home is.",
+      "exampleMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "G to A is whole, A to B whole, B to C half, C to D whole, D to E whole, E to F# whole, F# to G half. Use F#, not F.",
+      "highlightMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play G, A, B, C, D, E, F#, G in that order, one note at a time.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l4-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Try F then F# before returning to G. Hear which one gives the small final half step."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            43,
+            45,
+            47,
+            48,
+            50,
+            52,
+            54,
+            55
+          ],
+          "choices": [
+            "C",
+            "G",
+            "A"
+          ],
+          "answer": "G",
+          "id": "g3-l4-q1"
+        },
+        {
+          "kind": "play-scale",
+          "prompt": "Play G, A, B, C, D, E, F#, G in that order, one note at a time.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l4-q2"
+        }
+      ]
+    }
+  ]
+}

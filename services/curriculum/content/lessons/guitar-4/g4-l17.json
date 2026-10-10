@@ -1,0 +1,96 @@
+{
+  "id": "g4-l17",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 18,
+  "title": "One finger across the strings",
+  "summary": "Use a barre to replace open strings.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One finger across the strings",
+      "body": "**barre** means pressing more than one string at the same fret with one finger. For this F major shape, lay your fretting-hand index finger across strings 6 through 1 at fret 1. Add fret 3 on strings 5 and 4, and fret 2 on string 3.\n\n**Why it matters:** The finger across the neck replaces open strings, so a full chord shape can move to another fret.",
+      "exampleMidi": [
+        41,
+        48,
+        53,
+        57,
+        60,
+        65
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "The thick band means one finger spans fret 1. The other dots sit at frets 3, 3 and 2. The sounds are F, C, F, A, C and F: the three names F, A and C make F major. All six strings are played.",
+      "highlightMidi": [
+        41,
+        48,
+        53,
+        57,
+        60,
+        65
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "id": "g4-l17-p1",
+          "kind": "build-chord",
+          "prompt": "Play F, A and C together. Use any positions for these notes.",
+          "pitchClasses": [
+            5,
+            0,
+            9
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "On your guitar, first try only strings 2 and 1 at fret 1 with one finger. Add the rest gradually. Keep your wrist comfortable, use only enough pressure for a clear sound, and stop if it hurts. Tap the positions for the app check; it checks sounds, not which finger you used."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l17-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            41,
+            48,
+            53,
+            57,
+            60,
+            65
+          ],
+          "choices": [
+            "F",
+            "Fm",
+            "C"
+          ],
+          "answer": "F"
+        },
+        {
+          "id": "g4-l17-q2",
+          "kind": "build-chord",
+          "prompt": "Play F, A and C together. Use any positions for these notes.",
+          "pitchClasses": [
+            5,
+            0,
+            9
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ],
+  "guitarChord": "F"
+}

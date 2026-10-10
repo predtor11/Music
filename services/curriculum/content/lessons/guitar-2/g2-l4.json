@@ -1,0 +1,81 @@
+{
+  "id": "g2-l4",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "A sharp raises a note",
+  "summary": "Read the # sign as one fret higher.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One fret higher",
+      "body": "A **sharp** is the # sign after a note letter. It means one half step higher than that letter without a sign. A# is one fret higher than A on the same string.\n\n**Why it matters:** The sign gives a name to the sound between A and B.",
+      "exampleMidi": [
+        45,
+        46
+      ],
+      "labels": {
+        "45": "A \u2014 open",
+        "46": "A# \u2014 fret 1"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A becomes A#",
+      "body": "On string 5, open A becomes A# at fret 1. Follow the move from A to A#. You may see another spelling in the app; we will explain it in the next lesson.",
+      "highlightMidi": [
+        45,
+        46
+      ],
+      "labels": {
+        "45": "A \u2014 open",
+        "46": "A# \u2014 fret 1"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g2-l4-p1",
+          "prompt": "Play A#2. Use any lit position.",
+          "midi": 46,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Raise a familiar letter",
+      "body": "Play open A, then fret 1 on the same string. Say A, then A sharp. You can use the on-screen fretboard instead of a guitar."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l4-q1",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            46
+          ],
+          "choices": [
+            "A",
+            "A#",
+            "B"
+          ],
+          "answer": "A#"
+        },
+        {
+          "kind": "find-note",
+          "id": "g2-l4-q2",
+          "prompt": "Play F#3.",
+          "midi": 54
+        }
+      ]
+    }
+  ]
+}

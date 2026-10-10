@@ -1,0 +1,121 @@
+{
+  "id": "gi-l1",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "The parts you hold",
+  "summary": "Find the body, neck and headstock, one at a time.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Start with the picture",
+      "body": "Welcome. You do not need to know any music words yet. We will find one part at a time. You can use the picture without owning a guitar. Go slowly; it is fine to come back.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the body",
+      "body": "**body** means the large main part of the guitar.\n\n**Why it matters:** It supports the instrument against you.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the neck",
+      "body": "**neck** means the long narrow part joining the main part to the top.\n\n**Why it matters:** It is where your hand will move.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the headstock",
+      "body": "**headstock** means the end at the top of the neck.\n\n**Why it matters:** It holds the controls that adjust the sound.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Follow the shape",
+      "body": "Find the body in the picture. Follow the long neck to the headstock at the top. These are the three parts to remember today.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1-play",
+          "prompt": "Which guitar part is the large main section?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "body",
+            "headstock"
+          ],
+          "answer": "body"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find three parts",
+      "body": "With the guitar resting safely, point to the body, neck and headstock. You can use the picture instead. Say each name slowly."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the three parts",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz",
+          "prompt": "Which guitar part is the large main section?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "body",
+            "headstock"
+          ],
+          "answer": "body"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz-2",
+          "prompt": "Which guitar part is long and narrow?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "neck",
+            "body"
+          ],
+          "answer": "neck"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz-3",
+          "prompt": "Which guitar part is at the top of the neck?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "headstock",
+            "body"
+          ],
+          "answer": "headstock"
+        }
+      ]
+    }
+  ],
+  "guitarDiagram": "parts"
+}

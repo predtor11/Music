@@ -3,6 +3,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONTENT_DIR, loadCurriculum } from '../src/content.js';
 import { checkItem } from './check-items.js';
+import { chordShapeMidi, GUITAR_CHORD_SHAPES, fretToMidi, STANDARD_TUNING } from '@music/theory';
+import { ChordShapeSchema, instrumentOf } from '@music/contracts';
 
 const curriculum = loadCurriculum();
 const STEP_TYPES = ['explain', 'show', 'play-along', 'explore', 'quiz'];
@@ -51,15 +53,17 @@ const EXTRA_USES: Record<string, RegExp> = { sharp: /[A-G]#/, flat: /(?<![A-Za-z
 const USE_PATTERNS: Record<string, RegExp> = {
   key: /\b(?:the key of|in the key|what key is|which (?:major )?key has)\b/i,
   rest: /\b(?:quarter|half|whole|eighth|a) rests?\b/i,
+  // A tuning peg is a physical part, taught before the act of tuning.
+  tuning: /\btuning\b(?! pegs?\b)/i,
 };
 
 const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) => ({ unitId: unit.id, id })));
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']);
-    expect(curriculum.lessonsById.size).toBe(109);
-    expect(curriculum.glossary.length).toBe(134);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
+    expect(curriculum.lessonsById.size).toBe(155);
+    expect(curriculum.glossary.length).toBe(154);
   });
 
   for (const unit of curriculum.units) {
@@ -120,10 +124,12 @@ describe('glossary', () => {
     });
 
     it(`"${term.term}" is not used before ${term.lessonId}`, () => {
+      const lesson = curriculum.lessonsById.get(term.lessonId)!;
       const pattern = USE_PATTERNS[term.id] ?? usePattern([term.term, ...term.aliases]);
       const extra = EXTRA_USES[term.id];
       const earlyUses = lessonOrder
         .slice(0, at)
+        .filter((l) => instrumentOf(curriculum.lessonsById.get(l.id)!) === instrumentOf(lesson))
         .filter((l) => {
           const text = lessonText(l.unitId, l.id);
           return pattern.test(text) || (extra?.test(text) ?? false);
@@ -137,4 +143,39 @@ describe('glossary', () => {
     const ranks = curriculum.glossary.map((t) => lessonOrder.findIndex((l) => l.id === t.lessonId));
     expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
   });
+});
+
+ describe('guitar scale routes', () => {
+  for (const id of ['g3-l8', 'g3-l9']) {
+    it(`${id} maps its tab route to the taught scale, in ascending order`, () => {
+      const lesson = curriculum.lessonsById.get(id)!;
+      const notes = lesson.guitarPattern!.positions.map((p) => fretToMidi(STANDARD_TUNING, p));
+      const show = lesson.steps.find((s) => s.type === 'show')!;
+      expect(show.type === 'show' && show.highlightMidi).toEqual(notes);
+      expect(notes.every((n, i) => i === 0 || n > notes[i - 1]!)).toBe(true);
+      const play = lesson.steps.find((s) => s.type === 'play-along')!;
+      const item = play.type === 'play-along' && play.items[0];
+      expect(item && item.kind === 'play-scale' && item.sequence).toEqual(notes.map((n) => n % 12));
+    });
+  }
+});
+
+describe('guitar chord diagrams', () => {
+  for (const lesson of curriculum.lessonsById.values()) {
+    if (!lesson.guitarChord) continue;
+    it(`${lesson.id} teaches the same notes as its canonical shape`, () => {
+      const shape = GUITAR_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!;
+      expect(ChordShapeSchema.parse(shape)).toEqual(shape);
+      const notes = chordShapeMidi(STANDARD_TUNING, shape);
+      const show = lesson.steps.find((s) => s.type === 'show')!;
+      expect(show.type === 'show' && show.highlightMidi).toEqual(notes);
+      const pcs = [...new Set(notes.map((n) => n % 12))].sort((a, b) => a - b);
+      for (const step of lesson.steps) {
+        if (step.type !== 'play-along' && step.type !== 'quiz') continue;
+        for (const item of step.items) {
+          if (item.kind === 'build-chord') expect([...item.pitchClasses].sort((a, b) => a - b)).toEqual(pcs);
+        }
+      }
+    });
+  }
 });
