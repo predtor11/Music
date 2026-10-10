@@ -104,3 +104,17 @@ describe('instrument contracts', () => {
     expect(UserSettingsSchema.parse({}).instrument).toBeUndefined();
   });
 });
+
+describe('input bounds', () => {
+  const attempt = { sessionId: '00000000-0000-4000-8000-000000000001', itemId: 'i', itemKind: 'name-it', skill: 's', expected: [60], played: [60], correct: true, timeMs: 1000, playedAt: '2026-01-01T00:00:00.000Z' };
+  it('accepts a normal attempt and rejects oversized ones', () => {
+    expect(() => AttemptSchema.parse(attempt)).not.toThrow();
+    expect(() => AttemptSchema.parse({ ...attempt, played: Array(513).fill(60) })).toThrow();
+    expect(() => AttemptSchema.parse({ ...attempt, skill: 'x'.repeat(101) })).toThrow();
+    expect(() => AttemptSchema.parse({ ...attempt, timeMs: 3_000_000_000 })).toThrow();
+  });
+  it('limits free-text settings', () => {
+    expect(() => UserSettingsSchema.parse({ currentKey: 'k'.repeat(17) })).toThrow();
+    expect(() => UserSettingsSchema.parse({ midiInputId: 'm'.repeat(257) })).toThrow();
+  });
+});

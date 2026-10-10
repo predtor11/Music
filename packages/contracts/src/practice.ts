@@ -13,7 +13,7 @@ export const CreateSessionSchema = z.object({
   id: z.string().uuid().optional(),
   kind: SessionKindSchema,
   /** Lesson or unit id; omitted for review and free play. */
-  refId: z.string().optional(),
+  refId: z.string().max(200).optional(),
 });
 export type CreateSession = z.infer<typeof CreateSessionSchema>;
 
@@ -48,18 +48,20 @@ export const AttemptSchema = z.object({
   sessionId: z.string().uuid(),
   /** Instrument the attempt was played on; keeps progress and reports apart per instrument. Missing means piano. */
   instrument: InstrumentIdSchema.optional(),
-  itemId: z.string(),
+  itemId: z.string().max(200),
   itemKind: TestItemKindSchema,
   /** Concept tag for reports, for example "interval:M3" or "chord:minor". */
-  skill: z.string(),
-  expected: z.array(z.number().int()),
-  played: z.array(z.number().int()),
+  skill: z.string().max(100),
+  // A chord has a few notes; the cap only stops oversized bodies.
+  expected: z.array(z.number().int()).max(128),
+  played: z.array(z.number().int()).max(512),
   correct: z.boolean(),
   /** True when right only after a retry. */
   retried: z.boolean().default(false),
   mistake: MistakeKindSchema.nullable().default(null),
   /** Milliseconds from prompt shown to answer complete. */
-  timeMs: z.number().int().min(0),
+  // Capped at a day, well inside the database's 32-bit column.
+  timeMs: z.number().int().min(0).max(86_400_000),
   playedAt: z.string().datetime(),
 });
 export type Attempt = z.infer<typeof AttemptSchema>;
