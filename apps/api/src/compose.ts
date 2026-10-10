@@ -89,6 +89,8 @@ async function get(app: FastifyInstance, url: string, userId?: string): Promise<
  */
 export async function createApi(options: ApiOptions = {}) {
   const dbUrl = options.dbUrl;
+  // On Vercel an in-memory fallback would silently lose every learner's progress.
+  if (!dbUrl && process.env.VERCEL) throw new Error('Set SUPABASE_DB_URL (the Supabase transaction pooler string) in the Vercel project settings.');
   const migrate = options.migrate ?? false;
   const keys: TokenKeys = {
     secret: options.jwtSecret ? new TextEncoder().encode(options.jwtSecret) : undefined,
