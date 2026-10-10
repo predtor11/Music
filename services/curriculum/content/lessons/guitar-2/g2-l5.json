@@ -1,0 +1,81 @@
+{
+  "id": "g2-l5",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "A flat lowers a note",
+  "summary": "Read the b sign as one fret lower.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One fret lower",
+      "body": "A **flat** is the b sign after a note letter. It means one half step lower than that letter without a sign. Bb is one fret lower than B on the same string.\n\n**Why it matters:** The same position can have two names: A# is above A, and Bb is below B. Both name the sound at fret 1 on string 5.",
+      "exampleMidi": [
+        47,
+        46
+      ],
+      "labels": {
+        "47": "B \u2014 fret 2",
+        "46": "Bb \u2014 fret 1"
+      }
+    },
+    {
+      "type": "show",
+      "title": "B becomes Bb",
+      "body": "Start with B at fret 2 of string 5 and move back to fret 1. That is Bb. Compare A at open to A# at fret 1: A# and Bb are the same pitch, with different names.",
+      "highlightMidi": [
+        47,
+        46
+      ],
+      "labels": {
+        "47": "B \u2014 fret 2",
+        "46": "Bb \u2014 fret 1"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g2-l5-p1",
+          "prompt": "Play Bb2. Use any lit position.",
+          "midi": 46,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Two directions, one place",
+      "body": "Go up from open A to fret 1, then down from B at fret 2 to fret 1. Say A sharp for the first move and B flat for the second."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l5-q1",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            46
+          ],
+          "choices": [
+            "B",
+            "Bb",
+            "C"
+          ],
+          "answer": "Bb"
+        },
+        {
+          "kind": "find-note",
+          "id": "g2-l5-q2",
+          "prompt": "Play Eb3.",
+          "midi": 51
+        }
+      ]
+    }
+  ]
+}

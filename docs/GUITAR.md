@@ -13,7 +13,7 @@ shapes in `@music/contracts` (`guitar.ts`).
 `guitar-intro` ("Meet your guitar", 10 lessons and a 10-item checkpoint) is the first guitar unit. It starts with parts, posture and hand jobs, then a pick, open sounds, higher/lower sounds, reference tuning, fretting and a first tab line. `guitar-1` ("Meet the fretboard", 5 lessons and a 10-item checkpoint) is now unit 2; its id and all `g1-l*` lesson ids stay unchanged so saved progress remains valid. Units, lessons and test items use the same step and item kinds as piano: everything is MIDI notes, and the guitar view lights them with `midiToPositions`. Guitar content sets `"instrument": "guitar"` on the unit and its lessons; units are numbered 1, 2, 3 on their own for each instrument.
 
 - Test items name a note with its octave when `midi` is set ("Play G3, the open G string."), or use `pc` for "any octave", or light the note ("Play the lit note.", with `showKeys: true`).
-- New guitar words (string, fret, fretboard, open string, tuning, standard tuning) are in the shared glossary. General terms such as note, pitch, octave and half step are taught in the piano track; guitar lessons say them again in plain words. A guitar-only learner is not blocked, but an instrument-aware glossary is a later improvement.
+- Guitar-specific terms are in the shared glossary. The guitar course explains shared concepts again in its own examples, in bold with a meaning and **Why it matters:**; it reuses their existing glossary definitions instead of adding duplicate entries. No piano completion is a prerequisite.
 
 ## Introductory lesson format
 
@@ -24,3 +24,9 @@ shapes in `@music/contracts` (`guitar.ts`).
 - Guitar glossary ordering is checked within its own instrument. A **tuning peg** is taught as a physical part before **tuning** as an action. The guitar bridge uses glossary id `guitar-bridge` to distinguish it from a song’s bridge in band talk.
 
 - Generated piano and guitar images also appear in the first-run picker and instrument settings. WebP assets ship through Vite with hashed URLs and the existing app precache; no third-party runtime image request is needed.
+
+## Notes and small steps (task 2b)
+
+`guitar-2` is guitar Unit 3, after the intro and `guitar-1`. Six lessons cover note names/pitch, half steps, whole steps, sharps, flats and octaves; a ten-item checkpoint checks naming and playing. Questions accept any position for the exact MIDI sound, so alternate positions work but a different octave does not. All examples use the fretboard, and lit prompts carry `showKeys`.
+
+Guitar attempts and review candidates use `g:` skill tags; piano tags keep their existing values. `skillFor(item, instrument)` defaults to piano for existing callers. Next curriculum PR: scales and keys (`guitar-3`); the remaining units follow the Phase 9b handoff.

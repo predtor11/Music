@@ -10,7 +10,7 @@
     {
       "type": "explain",
       "title": "A step up for every fret",
-      "body": "Moving up one fret raises the note by the smallest step in music, a half step. Two frets make two half steps. The open string counts as fret 0.\n\n**Why it matters:** This one rule lets you find every note on the neck. Count the frets from an open string and you know the note.",
+      "body": "Moving up one fret raises the note by the smallest step in music, a **half step**. Two frets make two half steps. The open string counts as fret 0.\n\n**Why it matters:** This one rule lets you find every note on the neck. Count the frets from an open string and you know the note.",
       "exampleMidi": [
         45,
         46,
@@ -25,7 +25,7 @@
     {
       "type": "explain",
       "title": "Counting from the open string",
-      "body": "On the A string, the open string is A. Fret 1 is the next note up, fret 2 is the one after that, and so on. Each fret moves you one note along the same row of notes you know from the keyboard, white keys and black keys together.\n\n**Why it matters:** If you already know the notes on a keyboard, the fretboard is the same notes laid out along a string.",
+      "body": "On the A string, the open string is A. Fret 1 is the next sound up, fret 2 is the one after that, and so on. Count every fret as one small move; do not skip a fret just because you do not know its name yet.\n\n**Why it matters:** You can measure a move by counting frets without knowing any piano keys. The later notes lessons will give each sound its name.",
       "exampleMidi": [
         45,
         46,

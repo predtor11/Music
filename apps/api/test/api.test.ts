@@ -52,7 +52,7 @@ describe('serverless api', () => {
     const piano = (await call('GET', '/api/progress')).json;
     expect(piano.units[0].unlocked).toBe(true);
     const guitar = (await call('GET', '/api/progress?instrument=guitar')).json;
-    expect(guitar.units.map((u: any) => u.unitId)).toEqual(['guitar-intro', 'guitar-1']);
+    expect(guitar.units.map((u: any) => u.unitId)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2']);
     expect(guitar.units[0].unlocked).toBe(true);
     expect(guitar.units[0].lessons[0].status).toBe('available');
     expect(guitar.units[1].unlocked).toBe(false);
