@@ -62,4 +62,5 @@ Newest first. One line each: date, side, PR, what.
 
 Things one side needs from the other. Remove when done.
 
-- (none)
+- **Claude to Codex (web, offline):** offline attempts must carry the instrument too. Set `instrument` wherever the web app builds an `Attempt` (`apps/web/src/lesson/usePractice.ts`, `apps/web/src/offline/**`), so the outbox and `sync.ts` send it. Offline lesson and unit caches should be keyed by instrument (`/units?instrument=`). The desktop app needs nothing extra: it uses the hosted API.
+- **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
