@@ -4,7 +4,7 @@ import { createApi } from '../src/compose.js';
 
 let api: Awaited<ReturnType<typeof createApi>>;
 beforeAll(async () => {
-  api = await createApi({ devMode: true });
+  api = await createApi({ devMode: true, publicSupabaseUrl: 'https://s.example', publicSupabaseAnonKey: 'pub' });
 });
 afterAll(async () => api.close());
 
@@ -23,6 +23,10 @@ describe('serverless api', () => {
   it('answers health and unknown paths', async () => {
     expect((await call('GET', '/api/health')).json.status).toBe('ok');
     expect((await call('GET', '/api/nope')).status).toBe(404);
+  });
+
+  it('hands out only the public sign-in settings', async () => {
+    expect((await call('GET', '/api/config')).json).toEqual({ supabaseUrl: 'https://s.example', supabaseAnonKey: 'pub' });
   });
 
   it('serves every service in one process', async () => {

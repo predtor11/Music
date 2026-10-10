@@ -50,6 +50,9 @@ export interface ApiOptions {
   jwks?: JWTVerifyGetKey;
   /** Allow requests with no way to check logins (every request is the dev user). Only for tests and local runs. */
   devMode?: boolean;
+  /** Public sign-in settings handed out by GET /api/config (the same values the web app is built with). */
+  publicSupabaseUrl?: string;
+  publicSupabaseAnonKey?: string;
   logger?: boolean;
 }
 
@@ -157,6 +160,10 @@ export async function createApi(options: ApiOptions = {}) {
     if (path === SERVICES.gateway.prefix + '/health') {
       return json(200, { service: 'api', status: 'ok', services: Object.keys(services) });
     }
+    if (path === SERVICES.gateway.prefix + '/config') {
+      // The public sign-in settings (never a secret), so the desktop app needs no setup of its own.
+      return json(200, { supabaseUrl: options.publicSupabaseUrl ?? '', supabaseAnonKey: options.publicSupabaseAnonKey ?? '' });
+    }
     const target = prefixes.find(({ prefix }) => path === prefix || path.startsWith(`${prefix}/`));
     if (!target) return json(404, { error: 'not found' });
 
@@ -218,6 +225,8 @@ export function optionsFromEnv(env: NodeJS.ProcessEnv = process.env): ApiOptions
     supabaseUrl: env.SUPABASE_URL || undefined,
     jwtSecret: env.SUPABASE_JWT_SECRET || undefined,
     devMode: env.API_DEV_MODE === '1',
+    publicSupabaseUrl: env.VITE_SUPABASE_URL || env.SUPABASE_URL || undefined,
+    publicSupabaseAnonKey: env.VITE_SUPABASE_ANON_KEY || undefined,
     logger: false,
   };
 }

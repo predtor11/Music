@@ -3,7 +3,7 @@
  * then a small server for the web app on WEB_PORT. Reports
  * `{ type: 'ready' }` or `{ type: 'error' }` to the window process.
  *
- * With MUSIC_API_URL set (the hosted site's address) nothing runs locally: the
+ * Unless MUSIC_API_URL=local, nothing runs locally (it defaults to the hosted site): the
  * web app is served and /api is forwarded to the hosted API, signing in with
  * the public Supabase settings. See remote.ts.
  *
@@ -14,7 +14,7 @@
  */
 import { join } from 'node:path';
 import { setDefaultEventBus } from '@music/service-kit';
-import { parseApiUrl, publicConfig } from './remote.js';
+import { hostedConfig, publicConfig, resolveApiUrl } from './remote.js';
 import { JournalEventBus } from './journal-bus.js';
 import { SERVICE_PORTS, WEB_PORT, type DesktopService } from './ports.js';
 import { createStaticServer } from './static-server.js';
@@ -62,13 +62,13 @@ async function main(): Promise<void> {
   const webDir = process.env.MUSIC_WEB_DIR;
   if (!webDir) throw new Error('MUSIC_WEB_DIR is not set');
 
-  const apiUrl = parseApiUrl(process.env.MUSIC_API_URL);
+  const apiUrl = resolveApiUrl(process.env.MUSIC_API_URL);
   const journalled = apiUrl ? 0 : await startLocalServices(dataDir);
 
   const server = createStaticServer({
     webDir,
     ...(apiUrl ? { apiUrl } : { gatewayPort: SERVICE_PORTS.gateway }),
-    config: publicConfig(process.env),
+    config: apiUrl ? await hostedConfig(apiUrl, process.env) : publicConfig(process.env),
   });
   await new Promise<void>((resolve, reject) => {
     server.once('error', reject);
