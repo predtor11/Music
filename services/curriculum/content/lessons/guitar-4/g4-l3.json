@@ -1,0 +1,81 @@
+{
+  "id": "g4-l3",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "The root names the chord",
+  "summary": "Find the note the chord is built from.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The root names the chord",
+      "body": "**root** means the note a chord is built from and named after. The root of a C chord is C. Today our simple C, E, G example has C at the bottom too; the root is the chord\u2019s name, not a rule that it must always be the lowest sound.\n\n**Why it matters:** The root helps you name a chord and build it from the correct starting note.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "C is the root. E and G complete this C chord. Play C3 by itself, then put E and G beside it.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "find-note",
+          "prompt": "Play C3.",
+          "midi": 48,
+          "id": "g4-l3-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Find a C on another string. Play the same C chord with that C; listen for the same family of sounds."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "What is the root of this chord?",
+          "shownMidi": [
+            48,
+            52,
+            55
+          ],
+          "choices": [
+            "C",
+            "E",
+            "G"
+          ],
+          "answer": "C",
+          "id": "g4-l3-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l3-q2"
+        }
+      ]
+    }
+  ]
+}

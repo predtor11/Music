@@ -1,0 +1,85 @@
+{
+  "id": "g4-l2",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "Three different note names",
+  "summary": "Count names rather than strings.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Three different note names",
+      "body": "**triad** means a chord made from three different note names arranged with alternate notes of a scale. C, E and G make a triad: in the C major scale, choose C, skip D, choose E, skip F, choose G.\n\n**Why it matters:** A guitar can sound six strings but still have only three different note names, because some notes repeat.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "C, E, G are three different names. Playing another C an octave higher repeats a name; it does not add a fourth kind of note.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l2-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Play C, E and G together. Then try C at string 2 fret 1 instead of string 5 fret 3. The check accepts either octave."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "id": "g4-l2-q1",
+          "kind": "name-it",
+          "prompt": "Is this chord a triad?",
+          "shownMidi": [
+            48,
+            52,
+            55
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "yes"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l2-q2"
+        }
+      ]
+    }
+  ]
+}

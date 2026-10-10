@@ -1,0 +1,93 @@
+{
+  "id": "g4-l9",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 10,
+  "title": "An open C shape",
+  "summary": "Use a familiar major chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An open C shape",
+      "body": "C is the short written name for C major: C, E and G. Use fret 3 on string 5, fret 2 on string 4, open string 3, fret 1 on string 2, and open string 1. Leave string 6 out.\n\n**Why it matters:** This full shape repeats C and E in higher octaves but keeps the same three names as your first chord.",
+      "exampleMidi": [
+        48,
+        52,
+        55,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "Start from string 5. The two C sounds and two E sounds repeat notes; the G is open string 3. Take your time with the reach between frets 1 and 3.",
+      "highlightMidi": [
+        48,
+        52,
+        55,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l9-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Clear your selection before changing between Am and C. Notice that strings 2 and 1 stay in the same positions. Finger choices come in the later hand-training lessons."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            48,
+            52,
+            55,
+            60,
+            64
+          ],
+          "choices": [
+            "C",
+            "Am",
+            "G"
+          ],
+          "answer": "C",
+          "id": "g4-l9-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l9-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "C"
+}

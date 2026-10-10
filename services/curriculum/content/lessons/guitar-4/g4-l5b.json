@@ -1,0 +1,89 @@
+{
+  "id": "g4-l5b",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Read a short chord name",
+  "summary": "Read a root letter and the minor sign.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A name you can write",
+      "body": "**chord symbol** means a short written name for a chord. The capital letter names its root. A letter alone means major: C means C major. Add a small m for minor: Am means A minor, and Cm means C minor.\n\n**Why it matters:** A short name tells you which sounds to put together without writing every note. We will use these names on the coming shape pictures.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read C, then Am",
+      "body": "C asks for C, E and G. Am asks for A, C and E. The letter gives the root; m tells you to use the minor recipe you just learned.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Play the name C",
+      "items": [
+        {
+          "id": "g4-l5b-p1",
+          "kind": "build-chord",
+          "prompt": "Play C, E, G together.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Say the names aloud",
+      "body": "Say C major when you see C, and A minor when you see Am. Try C, E, G together, then A, C, E. Clear selected positions with Escape between chords."
+    },
+    {
+      "type": "quiz",
+      "title": "Read the names",
+      "items": [
+        {
+          "id": "g4-l5b-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            48,
+            52,
+            55
+          ],
+          "choices": [
+            "C",
+            "Cm"
+          ],
+          "answer": "C"
+        },
+        {
+          "id": "g4-l5b-q2",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            45,
+            48,
+            52
+          ],
+          "choices": [
+            "A",
+            "Am"
+          ],
+          "answer": "Am"
+        }
+      ]
+    }
+  ]
+}

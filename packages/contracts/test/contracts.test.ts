@@ -126,3 +126,10 @@ it('preserves old lessons and validates an optional guitar route', () => {
   expect(LessonSchema.parse({ ...old, instrument: 'guitar', guitarPattern: pattern }).guitarPattern).toEqual(pattern);
   expect(LessonSchema.safeParse({ ...old, guitarPattern: { ...pattern, positions: [{ string: 0, fret: -1 }] } }).success).toBe(false);
 });
+
+it('accepts an additive named guitar chord guide without changing old lessons', () => {
+  const old = { id: 'old', unitId: 'unit-1', order: 1, title: '', summary: '', minutes: 1, steps: [{ type: 'explore', title: '', body: '' }] };
+  expect(LessonSchema.parse(old).guitarChord).toBeUndefined();
+  expect(LessonSchema.parse({ ...old, guitarChord: 'Em' }).guitarChord).toBe('Em');
+  expect(LessonSchema.safeParse({ ...old, guitarChord: '' }).success).toBe(false);
+});

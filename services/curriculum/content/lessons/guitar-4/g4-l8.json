@@ -1,0 +1,93 @@
+{
+  "id": "g4-l8",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "An A minor shape",
+  "summary": "Leave the thickest string out.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An A minor shape",
+      "body": "Am is the short written name for A minor: A, C and E. Use open string 5, fret 2 on strings 4 and 3, fret 1 on string 2, and open string 1. The x over string 6 means do not play it in this shape.\n\n**Why it matters:** Choosing which strings to leave out is part of learning a shape; you do not always play all six.",
+      "exampleMidi": [
+        45,
+        52,
+        57,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "Read the diagram from thick string 6 on the left to thin string 1 on the right. Leave string 6 out and start from string 5. The open A supplies the root.",
+      "highlightMidi": [
+        45,
+        52,
+        57,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play A, E, A, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4,
+            0
+          ],
+          "showKeys": true,
+          "id": "g4-l8-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Clear the app selection with Escape, then build Am slowly. Check each pressed string separately on your guitar before sounding the group."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            45,
+            52,
+            57,
+            60,
+            64
+          ],
+          "choices": [
+            "Am",
+            "Em",
+            "C"
+          ],
+          "answer": "Am",
+          "id": "g4-l8-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play A, E, A, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4,
+            0
+          ],
+          "showKeys": true,
+          "id": "g4-l8-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Am"
+}

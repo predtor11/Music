@@ -15,3 +15,8 @@
 .figure img {
   border-radius: var(--radius-sm);
 }
+
+.chord svg {
+  max-width: 24rem;
+  margin: 0 auto;
+}

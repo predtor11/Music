@@ -147,6 +147,8 @@ export const LessonSchema = z.object({
   instrument: InstrumentIdSchema.optional(),
   /** Optional beginner illustration, shown beside every step in a guitar lesson. */
   guitarDiagram: z.enum(['parts', 'tab']).optional(),
+  /** Name of a standard-tuning chord shape published by @music/theory. */
+  guitarChord: z.string().min(1).optional(),
   /** One suggested route, read left to right; other positions still grade by sound. */
   guitarPattern: z.object({
     title: z.string(),

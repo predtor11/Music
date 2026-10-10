@@ -2667,5 +2667,21 @@
       54,
       55
     ]
+  },
+  {
+    "id": "open-chord",
+    "term": "open chord",
+    "aliases": [],
+    "meaning": "A chord shape that includes at least one open string.",
+    "whyItMatters": "Open strings let you sound a full chord with fewer pressed positions.",
+    "lessonId": "g4-l6",
+    "exampleMidi": [
+      40,
+      47,
+      52,
+      55,
+      59,
+      64
+    ]
   }
 ]

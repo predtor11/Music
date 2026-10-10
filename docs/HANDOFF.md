@@ -89,12 +89,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-scales | Task 2c: nine scales/keys lessons, major and pentatonic routes. First of two small PRs in the review batch; starter chords follows. #73 is reviewed and merged. | `services/curriculum/**`, `packages/contracts/**`, `apps/web/src/{guitar/ScaleRoute.tsx,pages/LessonPage.tsx}`, `apps/web/e2e/guitar-scales.spec.ts`, `apps/api/test/api.test.ts`, `docs/**` |
+| Codex | codex/phase-9b-guitar-scales / #74; codex/phase-9b-guitar-chords | Tasks 2c and 2d: scales/keys is open; starter chords adds eleven lessons, checkpoint and five open-shape guides. Two small PRs in this review batch. Merge #74 first, then integrate main into chords and wait for CI. | `services/curriculum/**`, `packages/contracts/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/e2e/guitar-{scales,chords}.spec.ts`, `apps/api/test/api.test.ts`, `docs/**` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
+
+- 2026-10-10 Codex (task 2d): guitar-4 (order 5) teaches chord, triad, root, major, minor and written chord symbols separately before Em, E, Am, C and G shapes. Adds optional `Lesson.guitarChord` referencing canonical theory shapes; unknown shapes fail content loading. Accessible diagrams show open/pressed/unplayed strings in both themes; tap input grades pitch classes, accepting other correct positions/octaves. No migration. Validation: root typecheck, 2,220 unit tests (10 optional skips), build, path-case and all 40 combined scales/chords/piano browser checks passed; diagrams inspected in both themes. Remaining chord shapes, power/barre examples and later units are still task 2 work.
 
 - 2026-10-10 Codex (task 2c): added guitar-3 (order 4), nine lessons and ten-item checkpoint for scales, major formula, tonic, key, natural minor, relatives, pentatonic and compact boxes. Reuses shared glossary definitions; adds pentatonic scale and scale box. Optional `Lesson.guitarPattern` displays an accessible numbered tab route beside the playable fretboard. No migration. Validation: typecheck, 2,143 unit tests (10 optional skips), build, path-case and 28 browser checks passed, including piano regressions and both guided routes/themes. Claude review will be requested with the next starter-chords PR, after both are complete.
 
@@ -127,7 +129,7 @@ Things one side needs from the other. Remove when done.
 
 - Codex review of #60: read/write user limits share a counter; 121 reads consume the first write’s allowance. Reproduced locally and commented on #60. Claude: please split read/write buckets with a regression so loading piano lessons cannot block practice saves.
 
-- Phase 9b: Jayesh, please relay the notes/steps PR for Claude to check pacing, position examples and g: skill isolation. No migration is needed. Historical unprefixed skill records remain unchanged; task 5 still covers legacy review/progress compatibility. Task 2 continues one unit per PR, next guitar-3 (scales/keys); tasks 3–13 follow.
+- Phase 9b review batch: #73 is reviewed and merged. Claude needs to review #74 (scales/keys) and the starter-chords PR together once both are complete: lesson pacing, diagram positions and guitar-only attempts/unlocks. Merge #74 first; then chords must integrate the new main and rerun CI. No migration. Historical unprefixed skill compatibility remains task 5; units guitar-5 through guitar-8, additional chord shapes and tasks 3–13 remain.
 - **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
 - Codex: foundation #53 is integrated. The UI sends `instrument: 'piano' | 'guitar'` on session creation and attempts, and `?instrument=guitar` for curriculum/progress/review/report reads. Piano uses the existing service defaults. Attempts and per-instrument caches are wired and validated against the merged contracts.
 - Guitar lesson seam: existing `show.highlightMidi` and `explain.exampleMidi` steps now use the selected registry visual; guitar maps those MIDI notes to frets and carries captions and feedback marks. Existing note/chord items work through tap input; microphone input supports one note at a time. Use these existing step types for the first lessons, or propose any additional position-specific step contract here before adding it.
