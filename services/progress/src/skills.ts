@@ -1,4 +1,4 @@
-import type { SkillScore, StoredAttempt } from '@music/contracts';
+import type { InstrumentId, SkillScore, StoredAttempt } from '@music/contracts';
 
 /**
  * Per-skill standing plus spaced-repetition state. A skill is a concept tag
@@ -6,6 +6,8 @@ import type { SkillScore, StoredAttempt } from '@music/contracts';
  */
 export interface SkillState {
   userId: string;
+  /** Skill tags are unique across instruments; this says which instrument's progress the skill belongs to. */
+  instrument: InstrumentId;
   skill: string;
   attempts: number;
   /** Attempts right on the first try (correct and not retried). */
@@ -33,9 +35,10 @@ const MAX_EASE = 2.8;
 /** A missed skill comes back soon, in the same sitting if possible. */
 const RELEARN_INTERVAL = 10 * MINUTE;
 
-export function newSkillState(userId: string, skill: string): SkillState {
+export function newSkillState(userId: string, skill: string, instrument: InstrumentId = 'piano'): SkillState {
   return {
     userId,
+    instrument,
     skill,
     attempts: 0,
     firstTryCorrect: 0,
@@ -63,7 +66,7 @@ export function isFirstTry(attempt: Pick<StoredAttempt, 'correct' | 'retried'>):
  * resets it to 10 minutes.
  */
 export function applyAttempt(prev: SkillState | undefined, attempt: StoredAttempt): SkillState {
-  const state: SkillState = prev ? { ...prev, recentTimesMs: [...prev.recentTimesMs] } : newSkillState(attempt.userId, attempt.skill);
+  const state: SkillState = prev ? { ...prev, recentTimesMs: [...prev.recentTimesMs] } : newSkillState(attempt.userId, attempt.skill, attempt.instrument ?? 'piano');
   const t = Date.parse(attempt.playedAt);
   state.attempts += 1;
   if (attempt.correct) state.recentTimesMs = [...state.recentTimesMs, attempt.timeMs].slice(-RECENT_TIMES);

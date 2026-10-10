@@ -32,4 +32,14 @@ describe('unlocks', () => {
     expect(statuses(passed)).toMatchObject({ u2: [true, 'available', 'locked'], u3: [false, 'locked'] });
     expect(passed.units[0]!.checkpointPassed).toBe(true);
   });
+
+  it('keeps one chain of units per instrument', () => {
+    const units: CatalogUnit[] = [...UNITS, { id: 'g1', instrument: 'guitar', order: 1, lessonIds: ['g1-l1'] }, { id: 'g2', instrument: 'guitar', order: 2, lessonIds: ['g2-l1'] }];
+    expect(statuses(computeProgress(USER, units, NO_COMPLETIONS))).toEqual(statuses(computeProgress(USER, UNITS, NO_COMPLETIONS)));
+    // Guitar starts at its own first unit, whatever piano has passed.
+    const pianoDone = { lessonsDone: new Set(['u1-l1']), lessonsStarted: new Set<string>(), checkpointsPassed: new Set(['u1', 'u2']) };
+    expect(statuses(computeProgress(USER, units, pianoDone, 'guitar'))).toEqual({ g1: [true, 'available'], g2: [false, 'locked'] });
+    const guitarCheckpoint = { ...pianoDone, checkpointsPassed: new Set(['g1']) };
+    expect(statuses(computeProgress(USER, units, guitarCheckpoint, 'guitar')).g2).toEqual([true, 'available']);
+  });
 });

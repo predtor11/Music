@@ -11,4 +11,5 @@ export * from './events.js';
 export * from './performance.js';
 export * from './charts.js';
 export * from './analysis.js';
+export * from './instruments.js';
 export * from './guitar.js';

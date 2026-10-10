@@ -1,4 +1,4 @@
-import type { SessionEndedEvent, StoredAttempt } from '@music/contracts';
+import { instrumentOf, type SessionEndedEvent, type StoredAttempt } from '@music/contracts';
 import type { SkillState } from './skills.js';
 import type { Completions } from './unlocks.js';
 import { localDate } from './report.js';
@@ -38,7 +38,7 @@ export class InMemoryProgressRepository implements ProgressRepository {
   async recordAttempt(eventId: string, attempt: StoredAttempt, update: (prev: SkillState | undefined) => SkillState): Promise<boolean> {
     if (this.events.has(eventId) || this.attempts.has(attempt.id)) return false;
     this.events.add(eventId);
-    this.attempts.set(attempt.id, attempt);
+    this.attempts.set(attempt.id, { ...attempt, instrument: instrumentOf(attempt) });
     const key = `${attempt.userId}|${attempt.skill}`;
     this.skills.set(key, update(this.skills.get(key)));
     return true;

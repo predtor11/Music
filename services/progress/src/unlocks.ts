@@ -1,8 +1,10 @@
-import type { Progress } from '@music/contracts';
+import type { InstrumentId, Progress } from '@music/contracts';
 
 /** The parts of the curriculum this service needs: units in order, each with its lessons in order. */
 export interface CatalogUnit {
   id: string;
+  /** Units unlock in order within one instrument. */
+  instrument?: InstrumentId;
   order: number;
   lessonIds: string[];
 }
@@ -19,12 +21,13 @@ export const NO_COMPLETIONS: Completions = { lessonsStarted: new Set(), lessonsD
 
 /**
  * Unlock rules. Pure.
+ * - Each instrument has its own chain of units; `instrument` picks which one is returned (default piano).
  * - The first unit is open from the start; passing a unit's checkpoint opens the next.
  * - In an open unit, the first lesson is available and each finished lesson opens the next.
  * - Finished work stays finished even if the curriculum changes order later.
  */
-export function computeProgress(userId: string, units: readonly CatalogUnit[], done: Completions): Progress {
-  const ordered = [...units].sort((a, b) => a.order - b.order);
+export function computeProgress(userId: string, units: readonly CatalogUnit[], done: Completions, instrument: InstrumentId = 'piano'): Progress {
+  const ordered = units.filter((u) => (u.instrument ?? 'piano') === instrument).sort((a, b) => a.order - b.order);
   return {
     userId,
     units: ordered.map((unit, i) => {

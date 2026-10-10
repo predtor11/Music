@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import postgres from 'postgres';
-import type { MistakeKind, StoredAttempt, TestItemKind } from '@music/contracts';
+import type { InstrumentId, MistakeKind, StoredAttempt, TestItemKind } from '@music/contracts';
 import type { ProgressRepository, SessionEnded } from './repository.js';
 import type { SkillState } from './skills.js';
 import type { Completions } from './unlocks.js';
@@ -33,6 +33,7 @@ export async function migrate(sql: Sql, dir = MIGRATIONS_DIR): Promise<string[]>
 
 interface SkillRow {
   user_id: string;
+  instrument: InstrumentId;
   skill: string;
   attempts: number;
   first_try_correct: number;
@@ -46,6 +47,7 @@ interface SkillRow {
 
 const toSkill = (r: SkillRow): SkillState => ({
   userId: r.user_id,
+  instrument: r.instrument,
   skill: r.skill,
   attempts: r.attempts,
   firstTryCorrect: r.first_try_correct,
@@ -59,6 +61,7 @@ const toSkill = (r: SkillRow): SkillState => ({
 
 interface AttemptRow {
   id: string;
+  instrument: InstrumentId;
   user_id: string;
   session_id: string;
   item_id: string;
@@ -76,6 +79,7 @@ interface AttemptRow {
 const toAttempt = (r: AttemptRow): StoredAttempt => ({
   id: r.id,
   userId: r.user_id,
+  instrument: r.instrument,
   sessionId: r.session_id,
   itemId: r.item_id,
   itemKind: r.item_kind,
@@ -108,9 +112,9 @@ export class PostgresProgressRepository implements ProgressRepository {
       if (!(await this.claim(tx, eventId, 'attempt.recorded'))) return false;
       const inserted = await tx`
         insert into progress.attempts
-          (id, user_id, session_id, item_id, item_kind, skill, expected, played, correct, retried, mistake, time_ms, played_at)
+          (id, user_id, instrument, session_id, item_id, item_kind, skill, expected, played, correct, retried, mistake, time_ms, played_at)
         values
-          (${a.id}, ${a.userId}, ${a.sessionId}, ${a.itemId}, ${a.itemKind}, ${a.skill}, ${tx.array(a.expected)}::int[], ${tx.array(a.played)}::int[],
+          (${a.id}, ${a.userId}, ${a.instrument ?? 'piano'}, ${a.sessionId}, ${a.itemId}, ${a.itemKind}, ${a.skill}, ${tx.array(a.expected)}::int[], ${tx.array(a.played)}::int[],
            ${a.correct}, ${a.retried}, ${a.mistake}, ${a.timeMs}, ${a.playedAt})
         on conflict (id) do nothing
         returning id`;
@@ -119,9 +123,9 @@ export class PostgresProgressRepository implements ProgressRepository {
       const s = update(row ? toSkill(row) : undefined);
       await tx`
         insert into progress.skills
-          (user_id, skill, attempts, first_try_correct, recent_times_ms, ease, interval_ms, streak, due_at, last_scheduled_at, updated_at)
+          (user_id, instrument, skill, attempts, first_try_correct, recent_times_ms, ease, interval_ms, streak, due_at, last_scheduled_at, updated_at)
         values
-          (${s.userId}, ${s.skill}, ${s.attempts}, ${s.firstTryCorrect}, ${tx.array(s.recentTimesMs)}::int[], ${s.ease}, ${s.intervalMs},
+          (${s.userId}, ${s.instrument}, ${s.skill}, ${s.attempts}, ${s.firstTryCorrect}, ${tx.array(s.recentTimesMs)}::int[], ${s.ease}, ${s.intervalMs},
            ${s.streak}, ${s.dueAt}, ${s.lastScheduledAt}, now())
         on conflict (user_id, skill) do update set
           attempts = excluded.attempts, first_try_correct = excluded.first_try_correct, recent_times_ms = excluded.recent_times_ms,

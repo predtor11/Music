@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { InstrumentIdSchema } from './instruments.js';
 
 export const NoteNamingSchema = z.enum(['western', 'sargam', 'both']);
 export type NoteNaming = z.infer<typeof NoteNamingSchema>;
@@ -17,6 +18,8 @@ export const UserSettingsSchema = z.object({
   currentKey: z.string().default('C'),
   /** MIDI input id last used, so the app reconnects to the same keyboard. */
   midiInputId: z.string().nullable().default(null),
+  /** The instrument being learned. Missing or null = not chosen yet: show the picker, behave as piano meanwhile. */
+  instrument: InstrumentIdSchema.nullish(),
   /** Colour theme; system follows the computer's light or dark mode. */
   theme: ThemeSettingSchema.default('dark'),
 });

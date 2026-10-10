@@ -1,6 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import type { MistakeKind, Session, StoredAttempt, TestItem, TestItemKind } from '@music/contracts';
+import type { InstrumentId, MistakeKind, Session, StoredAttempt, TestItem, TestItemKind } from '@music/contracts';
 import postgres from 'postgres';
 import type { PracticeRepository, SessionRecord } from './repository.js';
 
@@ -46,6 +46,7 @@ interface SessionRow {
 
 interface AttemptRow {
   id: string;
+  instrument: InstrumentId;
   session_id: string;
   user_id: string;
   item_id: string;
@@ -105,8 +106,8 @@ export class PostgresPracticeRepository implements PracticeRepository {
   async addAttempt(a: StoredAttempt): Promise<boolean> {
     const rows = await this.sql`
       INSERT INTO practice.attempts
-        (id, session_id, user_id, item_id, item_kind, skill, expected, played, correct, retried, mistake, time_ms, played_at)
-      VALUES (${a.id}, ${a.sessionId}, ${a.userId}, ${a.itemId}, ${a.itemKind}, ${a.skill},
+        (id, session_id, user_id, instrument, item_id, item_kind, skill, expected, played, correct, retried, mistake, time_ms, played_at)
+      VALUES (${a.id}, ${a.sessionId}, ${a.userId}, ${a.instrument ?? 'piano'}, ${a.itemId}, ${a.itemKind}, ${a.skill},
               ${this.sql.array(a.expected)}::integer[], ${this.sql.array(a.played)}::integer[],
               ${a.correct}, ${a.retried}, ${a.mistake}, ${a.timeMs}, ${a.playedAt})
       ON CONFLICT (id) DO NOTHING RETURNING id`;
@@ -120,6 +121,7 @@ export class PostgresPracticeRepository implements PracticeRepository {
       id: r.id,
       sessionId: r.session_id,
       userId: r.user_id,
+      instrument: r.instrument,
       itemId: r.item_id,
       itemKind: r.item_kind,
       skill: r.skill,
