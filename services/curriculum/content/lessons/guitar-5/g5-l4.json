@@ -1,0 +1,88 @@
+{
+  "id": "g5-l4",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "The major-key chord family",
+  "summary": "Learn the seven chord types in order.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The major-key chord family",
+      "body": "Build a triad from each scale degree using only notes of the key, skipping one scale note between each chord note. In every major key the types are major, minor, minor, major, major, minor, diminished.\n\n**Why it matters:** The same pattern lets you work out the chord family in another major key.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "In C major the family is C, Dm, Em, F, G, Am, Bdim. In G major it is G, Am, Bm, C, D, Em, F#dim. The scale decides the note spellings; a chord shape is one way to play them.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, G and B together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l4-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Say the seven types slowly while counting 1 to 7. Build only one chord at a time; there is no speed check."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "In G major, what kind of triad is built on scale degree 2?",
+          "shownMidi": [
+            45
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "minor",
+          "id": "g5-l4-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In C major, what kind of triad is built on scale degree 7?",
+          "shownMidi": [
+            47
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "diminished",
+          "id": "g5-l4-q2"
+        }
+      ]
+    }
+  ]
+}

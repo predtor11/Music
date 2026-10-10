@@ -1,0 +1,84 @@
+{
+  "id": "g5-l10",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 10,
+  "title": "Two, five, one",
+  "summary": "A short route back to the tonic.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Two, five, one",
+      "body": "ii–V–I in C is Dm–G–C. Start on the minor chord from degree 2, move to the major chord from degree 5, then return to the tonic chord.\n\n**Why it matters:** This short route gives you another common way to finish a phrase.",
+      "exampleMidi": [
+        50,
+        53,
+        57
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Dm has D, F, A; G has G, B, D; C has C, E, G. Keep the minor ii and major V/I distinct.",
+      "highlightMidi": [
+        50,
+        53,
+        57
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play ii–V–I in C.",
+          "key": "C",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ],
+          "id": "g5-l10-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Try the same numbers in G: Am, D, G. Listen for the feeling of arriving on G."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play ii–V–I in C.",
+          "key": "C",
+          "numerals": [
+            "ii",
+            "V",
+            "I"
+          ],
+          "id": "g5-l10-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In C major, which chord is the ii?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "D",
+            "Dm",
+            "G"
+          ],
+          "answer": "Dm",
+          "id": "g5-l10-q2"
+        }
+      ]
+    }
+  ]
+}

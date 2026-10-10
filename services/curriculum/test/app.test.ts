@@ -14,14 +14,14 @@ describe('curriculum service', () => {
     const res = await app.inject({ url: '/units' });
     expect(res.statusCode).toBe(200);
     const units = UnitListSchema.parse(res.json());
-    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
+    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4', 'guitar-5']);
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
   it('filters units by instrument; content without an instrument is piano', async () => {
     const piano = UnitListSchema.parse((await app.inject({ url: '/units?instrument=piano' })).json());
     expect(piano).toHaveLength(8);
-    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
+    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4', 'guitar-5']);
     expect((await app.inject({ url: '/units?instrument=kazoo' })).statusCode).toBe(400);
   });
 
@@ -73,8 +73,18 @@ describe('curriculum service', () => {
     expect(lesson.guitarChord).toBe('Am');
   });
 
+  it('serves guitar chord numbers and the complete blues route', async () => {
+    const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-5' })).json());
+    expect(unit).toMatchObject({ instrument: 'guitar', order: 6 });
+    expect(unit.lessonIds).toHaveLength(12);
+    expect(unit.checkpoint.items).toHaveLength(12);
+    const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/g5-l12' })).json());
+    const step = lesson.steps.find((s) => s.type === 'play-along');
+    expect(step?.type === 'play-along' && step.items[0]).toMatchObject({ kind: 'play-progression', key: 'G', numerals: ['I', 'I', 'I', 'I', 'IV', 'IV', 'I', 'I', 'V', 'IV', 'I', 'I'] });
+  });
+
   it('returns every lesson a unit lists', async () => {
-    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']) {
+    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4', 'guitar-5']) {
       const unit = UnitSchema.parse((await app.inject({ url: `/units/${unitId}` })).json());
       for (const id of unit.lessonIds) {
         const res = await app.inject({ url: `/lessons/${id}` });

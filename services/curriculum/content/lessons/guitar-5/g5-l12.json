@@ -1,0 +1,102 @@
+{
+  "id": "g5-l12",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 12,
+  "title": "A twelve-bar route",
+  "summary": "Follow the basic blues chord order.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A twelve-bar route",
+      "body": "**12-bar blues** means a repeating twelve-bar chord plan. Here use I–I–I–I, IV–IV–I–I, V–IV–I–I, with one chord for each four-count bar.\n\n**Why it matters:** The same twelve-bar map lets players stay together through a whole cycle.",
+      "exampleMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "In G the chords are G–G–G–G, C–C–G–G, D–C–G–G. Repeated chords still get their own place in the app. Count four for each bar yourself; timing is not graded.",
+      "highlightMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–I–I–I–IV–IV–I–I–V–IV–I–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "IV",
+            "IV",
+            "I",
+            "I",
+            "V",
+            "IV",
+            "I",
+            "I"
+          ],
+          "id": "g5-l12-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "After the last G, begin at the first G again. More blues colours come later; these familiar major shapes teach the route first."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–I–I–I–IV–IV–I–I–V–IV–I–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "IV",
+            "IV",
+            "I",
+            "I",
+            "V",
+            "IV",
+            "I",
+            "I"
+          ],
+          "id": "g5-l12-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which chord is the IV?",
+          "shownMidi": [
+            43
+          ],
+          "choices": [
+            "C",
+            "D",
+            "Em"
+          ],
+          "answer": "C",
+          "id": "g5-l12-q2"
+        }
+      ]
+    }
+  ]
+}

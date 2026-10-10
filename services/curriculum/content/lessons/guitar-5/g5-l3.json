@@ -1,0 +1,89 @@
+{
+  "id": "g5-l3",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "A smaller triad",
+  "summary": "Hear the diminished triad.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A smaller triad",
+      "body": "**diminished triad** means a root with a note three half steps above it and another six half steps above it. B, D and F make B diminished, written Bdim or B°.\n\n**Why it matters:** The chord built on the seventh note of a major scale has this smaller shape.",
+      "exampleMidi": [
+        47,
+        50,
+        53
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "For a compact example, use B2 at string 5 fret 2, F3 at string 4 fret 3, B3 at string 3 fret 4 and D4 at string 2 fret 3. The repeated B is still the root. The app checks sounds, not a required hand shape.",
+      "highlightMidi": [
+        47,
+        53,
+        59,
+        62
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play B, D and F together. Use any positions for these notes.",
+          "pitchClasses": [
+            11,
+            2,
+            5
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l3-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare B, D, F with B, D, F#. Only the last sound changes; the diminished version is one half step smaller."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "What kind of triad is this?",
+          "shownMidi": [
+            47,
+            50,
+            53
+          ],
+          "choices": [
+            "major",
+            "minor",
+            "diminished"
+          ],
+          "answer": "diminished",
+          "id": "g5-l3-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play B, D and F together. Use any positions for these notes.",
+          "pitchClasses": [
+            11,
+            2,
+            5
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l3-q2"
+        }
+      ]
+    }
+  ]
+}

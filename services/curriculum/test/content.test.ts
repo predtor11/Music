@@ -61,8 +61,8 @@ const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) =
 
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
-    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
-    expect(curriculum.lessonsById.size).toBe(155);
+    expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4', 'guitar-5']);
+    expect(curriculum.lessonsById.size).toBe(167);
     expect(curriculum.glossary.length).toBe(154);
   });
 

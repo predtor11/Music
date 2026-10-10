@@ -1,0 +1,86 @@
+{
+  "id": "g5-l8",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 8,
+  "title": "One, four and five",
+  "summary": "Three major chords make a useful family.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "One, four and five",
+      "body": "In G major, I–IV–V–I is G–C–D–G. The three middle letters in these chord names do not change the rule: root scale degrees 1, 4 and 5 make major triads.\n\n**Why it matters:** This is a common way to leave the tonic and return to it.",
+      "exampleMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Read each chord number before you play it. G is I, C is IV and D is V. All their notes belong to G major.",
+      "highlightMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–IV–V–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ],
+          "id": "g5-l8-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Try the same numbers in C major: C, F, G, C. Use the F barre shape only when comfortable; other correct note positions count too."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–IV–V–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "IV",
+            "V",
+            "I"
+          ],
+          "id": "g5-l8-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which chord is the IV?",
+          "shownMidi": [
+            43
+          ],
+          "choices": [
+            "C",
+            "D",
+            "Em"
+          ],
+          "answer": "C",
+          "id": "g5-l8-q2"
+        }
+      ]
+    }
+  ]
+}

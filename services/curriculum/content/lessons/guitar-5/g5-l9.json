@@ -1,0 +1,86 @@
+{
+  "id": "g5-l9",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "A four-chord loop",
+  "summary": "Add the minor sixth chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A four-chord loop",
+      "body": "I–V–vi–IV in G is G–D–Em–C. The vi is minor, so the written letters are small.\n\n**Why it matters:** This common four-chord loop mixes three major chords with one minor chord.",
+      "exampleMidi": [
+        40,
+        43,
+        47
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Use G, D, Em and C in that order. Each chord has its own root and type; vi is not the major E chord.",
+      "highlightMidi": [
+        40,
+        43,
+        47
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–V–vi–IV in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ],
+          "id": "g5-l9-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Say each chord name before changing. In C the same numbers are C, G, Am, F. The number pattern survives the change of key."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–V–vi–IV in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "vi",
+            "IV"
+          ],
+          "id": "g5-l9-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which chord is the vi?",
+          "shownMidi": [
+            43
+          ],
+          "choices": [
+            "E",
+            "Em",
+            "C"
+          ],
+          "answer": "Em",
+          "id": "g5-l9-q2"
+        }
+      ]
+    }
+  ]
+}
