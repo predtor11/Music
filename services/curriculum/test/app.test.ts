@@ -67,8 +67,8 @@ describe('curriculum service', () => {
   it('serves the starter chords unit and the named open shapes', async () => {
     const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-4' })).json());
     expect(unit).toMatchObject({ instrument: 'guitar', order: 5 });
-    expect(unit.lessonIds).toHaveLength(11);
-    expect(unit.checkpoint.items).toHaveLength(10);
+    expect(unit.lessonIds).toHaveLength(14);
+    expect(unit.checkpoint.items).toHaveLength(16);
     const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/g4-l8' })).json());
     expect(lesson.guitarChord).toBe('Am');
   });
