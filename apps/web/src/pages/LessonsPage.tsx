@@ -134,7 +134,9 @@ export function LessonsPage() {
 
 function UnitSection({ unit, lessons, st, units }: { unit: UnitSummary; lessons: Lesson[]; st: Standing; units: UnitView[] }) {
   const u = st.unit(unit.id);
-  const previous = units.find((v) => v.unit.id === u.previousUnitId)?.unit;
+  // Use the displayed curriculum chain: stale or mixed progress must never
+  // invent Unit 0 or point guitar learners at a piano prerequisite.
+  const previous = units.filter((v) => (v.unit.instrument ?? 'piano') === (unit.instrument ?? 'piano') && v.unit.order < unit.order).at(-1)?.unit;
   const pct = u.total ? (u.done / u.total) * 100 : 0;
   return (
     <motion.section variants={fadeUp} className={s.unit} data-testid={`unit-${unit.id}`} data-unlocked={u.unlocked}>
@@ -151,9 +153,9 @@ function UnitSection({ unit, lessons, st, units }: { unit: UnitSummary; lessons:
                 Unit test passed
               </Badge>
             </motion.span>
-          ) : !u.unlocked ? (
+          ) : !u.unlocked && previous ? (
             <Badge tone="neutral" data-testid={`unit-locked-${unit.id}`}>
-              <LockIcon /> Pass the Unit {previous?.order ?? unit.order - 1} test to open
+              <LockIcon /> Pass the Unit {previous.order} test to open
             </Badge>
           ) : null}
           <Button
