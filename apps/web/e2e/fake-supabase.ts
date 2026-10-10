@@ -119,3 +119,16 @@ export async function attachCloud(target: Page | BrowserContext, cloud: FakeClou
     },
   );
 }
+
+/**
+ * Starts the page already signed in, the way supabase-js leaves a session in
+ * localStorage. Register it after any other /api routes so the identity
+ * service is answered first and the rest falls through.
+ */
+export async function signedInAs(target: Page | BrowserContext, cloud: FakeCloud = fakeCloud(), email = 'learner@example.com'): Promise<FakeCloud> {
+  const id = crypto.randomUUID();
+  cloud.users.set(email, { id, password: 'unused', confirmed: true });
+  await attachCloud(target, cloud);
+  await target.addInitScript(([key, value]) => localStorage.setItem(key as string, value as string), ['music.auth', JSON.stringify(session(id, email))]);
+  return cloud;
+}

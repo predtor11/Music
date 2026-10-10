@@ -1,13 +1,17 @@
 /**
- * A practice session for a lesson or checkpoint. Attempts are posted to the
- * practice service; if it can't be reached the lesson still works, it just
- * isn't saved, and the score is worked out here the same way the service does.
+ * A practice session for a lesson or checkpoint. Sessions and attempts go
+ * through the offline outbox (see ../offline): they are kept on this device,
+ * sent to the practice service in the background, and sent again later if it
+ * can't be reached. The score is worked out here the same way the service does
+ * whenever the server's own isn't available.
  */
 
 import type { MistakeKind, SessionSummary, TestItem } from '@music/contracts';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ApiError, endSession, recordAttempt, startSession } from '../api/client.js';
 import { skillFor } from '@music/skills';
+import { saveStateOf } from '../offline/practice.js';
+import { useSyncSnapshot } from '../offline/useSyncStatus.js';
 import { expectedFor } from './grade.js';
 
 export interface AttemptInput {
@@ -20,8 +24,9 @@ export interface AttemptInput {
 }
 
 /**
- * offline: the practice server can't be reached.
- * signed-out: the server is there but needs you signed in to save (a 401).
+ * saving: all is well (nothing to show).
+ * offline: kept on this device until the practice server can be reached.
+ * signed-out: kept on this device until you sign in (the server needs it, a 401).
  */
 export type SaveState = 'starting' | 'saving' | 'offline' | 'signed-out';
 
@@ -34,7 +39,8 @@ const LESSON_PASS_PERCENT = 80;
 
 export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', refId?: string, passPercent = LESSON_PASS_PERCENT) {
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [save, setSave] = useState<SaveState>('starting');
+  const [startFailure, setStartFailure] = useState<SaveState | null>(null);
+  const snapshot = useSyncSnapshot();
   const firstTry = useRef(new Map<string, boolean>());
   const items = useRef(new Set<string>());
   const pending = useRef<Promise<unknown>>(Promise.resolve());
@@ -50,16 +56,15 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
       items.current.clear();
       ending.current = null;
       setSessionId(null);
-      setSave('starting');
+      setStartFailure(null);
       starting.current = { key, session: startSession({ kind, refId }) };
     }
     starting.current.session
       .then((session) => {
         if (!live) return;
         setSessionId(session.id);
-        setSave('saving');
       })
-      .catch((err: unknown) => live && setSave(saveFailure(err)));
+      .catch((err: unknown) => live && setStartFailure(saveFailure(err)));
     return () => {
       live = false;
     };
@@ -89,7 +94,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
             playedAt: new Date().toISOString(),
           }),
         )
-        .catch((err: unknown) => setSave(saveFailure(err)));
+        .catch((err: unknown) => console.warn('practice: could not keep an attempt', err));
     },
     [sessionId],
   );
@@ -101,8 +106,8 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
       if (sessionId) {
         try {
           return (await endSession(sessionId)).summary;
-        } catch (err) {
-          setSave(saveFailure(err));
+        } catch {
+          // No server score and no lesson to score from: fall back to counting what was registered.
         }
       }
       const total = items.current.size;
@@ -113,5 +118,6 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
     return ending.current;
   }, [sessionId, passPercent]);
 
+  const save: SaveState = sessionId ? saveStateOf(sessionId, snapshot) : (startFailure ?? 'starting');
   return { sessionId, save, register, record, finish };
 }

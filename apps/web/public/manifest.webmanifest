@@ -1,0 +1,13 @@
+{
+  "name": "Music Theory Trainer",
+  "short_name": "Music",
+  "description": "Learn music theory at your own pace with a MIDI keyboard.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#090a0f",
+  "theme_color": "#07070f",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

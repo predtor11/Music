@@ -4,6 +4,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App.js';
 import { AuthProvider } from './auth/AuthProvider.js';
+import { startSync } from './offline/runtime.js';
+import { registerServiceWorker } from './offline/serviceWorker.js';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,3 +18,6 @@ createRoot(document.getElementById('root')!).render(
     </ThemeProvider>
   </StrictMode>,
 );
+
+startSync();
+registerServiceWorker();
