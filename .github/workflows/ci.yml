@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: No file names that differ only in case
         run: node scripts/check-path-case.mjs
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -30,7 +30,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests
         run: npm run e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
