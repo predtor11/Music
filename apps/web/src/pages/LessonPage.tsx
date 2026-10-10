@@ -28,6 +28,7 @@ import { LoadError, Loading } from './states.js';
 import s from '../lesson/lesson.module.css';
 import { useInstrument } from '../instruments/context.js';
 import { LessonDiagram } from '../guitar/LessonDiagram.js';
+import { ScaleRoute } from '../guitar/ScaleRoute.js';
 
 export function LessonPage({ id, settings }: { id: string; settings: UserSettings }) {
   const { id: instrument } = useInstrument();
@@ -139,6 +140,7 @@ function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings:
               {pretty(step.title)}
             </h2>
             {instrument === 'guitar' && lesson.guitarDiagram && <LessonDiagram kind={lesson.guitarDiagram} />}
+            {instrument === 'guitar' && lesson.guitarPattern && <ScaleRoute pattern={lesson.guitarPattern} />}
 
             {(step.type === 'explain' || step.type === 'show') && <TeachStep step={step} size={size} settings={settings} />}
             {step.type === 'explore' && <ExploreStep body={step.body} size={size} settings={settings} />}

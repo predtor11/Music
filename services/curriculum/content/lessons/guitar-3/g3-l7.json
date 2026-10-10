@@ -1,0 +1,90 @@
+{
+  "id": "g3-l7",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 7,
+  "title": "Five notes to explore",
+  "summary": "Try a smaller set with A at home.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Five notes to explore",
+      "body": "**pentatonic scale** means a scale with five different notes in each octave. A minor pentatonic uses A, C, D, E and G, then A again. Compared with A natural minor, leave out B and F.\n\n**Why it matters:** Five notes make a manageable set for inventing a short tune.",
+      "exampleMidi": [
+        45,
+        48,
+        50,
+        52,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "Count A, C, D, E, G: five different note names. The last A repeats the home note one octave higher; it is not a sixth different name.",
+      "highlightMidi": [
+        45,
+        48,
+        50,
+        52,
+        55,
+        57
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, C, D, E, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            0,
+            2,
+            4,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l7-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Make a tiny tune using A, C and D. Add E and G when those first three feel familiar, and finish on A."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play A, C, D, E, G, A in that order, one note at a time.",
+          "sequence": [
+            9,
+            0,
+            2,
+            4,
+            7,
+            9
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l7-q1"
+        },
+        {
+          "kind": "find-note",
+          "prompt": "Play A2.",
+          "midi": 45,
+          "id": "g3-l7-q2"
+        }
+      ]
+    }
+  ]
+}

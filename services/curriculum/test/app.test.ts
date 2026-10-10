@@ -14,14 +14,14 @@ describe('curriculum service', () => {
     const res = await app.inject({ url: '/units' });
     expect(res.statusCode).toBe(200);
     const units = UnitListSchema.parse(res.json());
-    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2']);
+    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3']);
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
   it('filters units by instrument; content without an instrument is piano', async () => {
     const piano = UnitListSchema.parse((await app.inject({ url: '/units?instrument=piano' })).json());
     expect(piano).toHaveLength(8);
-    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2']);
+    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3']);
     expect((await app.inject({ url: '/units?instrument=kazoo' })).statusCode).toBe(400);
   });
 
@@ -55,8 +55,17 @@ describe('curriculum service', () => {
     expect(unit.checkpoint.passPercent).toBe(80);
   });
 
+  it('serves the scales unit and preserves its playable routes', async () => {
+    const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-3' })).json());
+    expect(unit).toMatchObject({ instrument: 'guitar', order: 4 });
+    expect(unit.lessonIds).toHaveLength(9);
+    expect(unit.checkpoint.items).toHaveLength(10);
+    const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/g3-l9' })).json());
+    expect(lesson.guitarPattern?.positions).toHaveLength(6);
+  });
+
   it('returns every lesson a unit lists', async () => {
-    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2']) {
+    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3']) {
       const unit = UnitSchema.parse((await app.inject({ url: `/units/${unitId}` })).json());
       for (const id of unit.lessonIds) {
         const res = await app.inject({ url: `/lessons/${id}` });
