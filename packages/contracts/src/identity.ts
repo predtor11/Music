@@ -15,9 +15,9 @@ export const UserSettingsSchema = z.object({
   /** Lowest MIDI note on the keyboard; 36 (C2) for a 61-key board. */
   lowestNote: z.number().int().min(0).max(127).default(36),
   /** Key used by the Chord Namer and lessons, for example "C", "Eb", "F#m". */
-  currentKey: z.string().default('C'),
+  currentKey: z.string().max(16).default('C'),
   /** MIDI input id last used, so the app reconnects to the same keyboard. */
-  midiInputId: z.string().nullable().default(null),
+  midiInputId: z.string().max(256).nullable().default(null),
   /** The instrument being learned. Missing or null = not chosen yet: show the picker, behave as piano meanwhile. */
   instrument: InstrumentIdSchema.nullish(),
   /** Colour theme; system follows the computer's light or dark mode. */
