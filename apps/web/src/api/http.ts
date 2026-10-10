@@ -29,7 +29,9 @@ const TIMEOUT_MS = Number(import.meta.env.VITE_API_TIMEOUT_MS) || 15_000;
 export async function call(path: string, init?: RequestInit): Promise<unknown> {
   let res: Response;
   try {
-    const token = await tokenSource().catch(() => null);
+    // The course is the same for everyone, so it goes out without the token. That is what lets the
+    // service worker keep a copy for offline use without ever storing something personal.
+    const token = path.startsWith('/curriculum/') ? null : await tokenSource().catch(() => null);
     res = await fetch(`/api${path}`, {
       signal: AbortSignal.timeout(TIMEOUT_MS),
       ...init,
