@@ -1,0 +1,85 @@
+{
+  "id": "g4-l5",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "A minor triad",
+  "summary": "Move the middle sound a half step lower.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A minor triad",
+      "body": "**minor triad** means a triad with notes three and seven half steps above its root. A minor uses A, C and E: C is three half steps above A, and E is seven. Major would use four half steps for that middle sound.\n\n**Why it matters:** One changed note makes a different chord. Keep the root and compare the middle sound carefully.",
+      "exampleMidi": [
+        45,
+        48,
+        52
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "Try A3 at string 3 fret 2, C4 at string 2 fret 1 and E4 at open string 1.",
+      "highlightMidi": [
+        45,
+        48,
+        52
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play A, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "showKeys": true,
+          "id": "g4-l5-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Compare A, C, E with A, C#, E one note at a time. Return to C for A minor. Chord checks accept any octave for the three names."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Is this chord major or minor?",
+          "shownMidi": [
+            45,
+            48,
+            52
+          ],
+          "choices": [
+            "major",
+            "minor"
+          ],
+          "answer": "minor",
+          "id": "g4-l5-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play A, C, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            0,
+            4
+          ],
+          "showKeys": true,
+          "id": "g4-l5-q2"
+        }
+      ]
+    }
+  ]
+}

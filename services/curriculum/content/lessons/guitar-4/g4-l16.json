@@ -1,0 +1,83 @@
+{
+  "id": "g4-l16",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 17,
+  "title": "Move the power shape",
+  "summary": "Move every played position by two frets.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Move the power shape",
+      "body": "Move the G5 positions two frets higher to make A5, an A power chord. Use string 6 fret 5, string 5 fret 7 and string 4 fret 7; the notes become A, E and a higher A. Move all three positions together.\n\n**Why it matters:** A shape with no open strings can move along the neck while keeping the same distances.",
+      "exampleMidi": [
+        45,
+        52,
+        57
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "Read the actual fret numbers 5, 7 and 7. A2 at string 6 fret 5 supplies the new root. The gap from A to E is still a perfect 5th. Leave the other three strings out.",
+      "highlightMidi": [
+        45,
+        52,
+        57
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "id": "g4-l16-p1",
+          "kind": "build-chord",
+          "prompt": "Play A and E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "Clear the selection with Escape before changing from G5 to A5. Move slowly and keep the spaces between the positions. A comfortable hand matters more than speed."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l16-q1",
+          "kind": "name-it",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            45,
+            52
+          ],
+          "choices": [
+            "perfect 5th",
+            "octave"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "id": "g4-l16-q2",
+          "kind": "build-chord",
+          "prompt": "Play A and E together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ],
+  "guitarChord": "A5"
+}

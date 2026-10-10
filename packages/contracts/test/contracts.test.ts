@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { AttemptSchema, ChordQuerySchema, LessonStepSchema, TestItemSchema, UserCreatedEventSchema, UserSettingsSchema, type MusicEvent } from '../src/index.js';
+import { AttemptSchema, ChordQuerySchema, LessonSchema, LessonStepSchema, TestItemSchema, UserCreatedEventSchema, UserSettingsSchema, type MusicEvent } from '../src/index.js';
 
 describe('contracts', () => {
   it('fills settings defaults', () => {
@@ -117,4 +117,19 @@ describe('input bounds', () => {
     expect(() => UserSettingsSchema.parse({ currentKey: 'k'.repeat(17) })).toThrow();
     expect(() => UserSettingsSchema.parse({ midiInputId: 'm'.repeat(257) })).toThrow();
   });
+});
+
+it('preserves old lessons and validates an optional guitar route', () => {
+  const old = { id: 'old', unitId: 'unit-1', order: 1, title: 'Notes', summary: '', minutes: 1, steps: [{ type: 'explore', title: '', body: '' }] };
+  expect(LessonSchema.parse(old).guitarPattern).toBeUndefined();
+  const pattern = { title: 'Route', positions: [{ string: 6, fret: 3 }, { string: 6, fret: 5 }] };
+  expect(LessonSchema.parse({ ...old, instrument: 'guitar', guitarPattern: pattern }).guitarPattern).toEqual(pattern);
+  expect(LessonSchema.safeParse({ ...old, guitarPattern: { ...pattern, positions: [{ string: 0, fret: -1 }] } }).success).toBe(false);
+});
+
+it('accepts an additive named guitar chord guide without changing old lessons', () => {
+  const old = { id: 'old', unitId: 'unit-1', order: 1, title: '', summary: '', minutes: 1, steps: [{ type: 'explore', title: '', body: '' }] };
+  expect(LessonSchema.parse(old).guitarChord).toBeUndefined();
+  expect(LessonSchema.parse({ ...old, guitarChord: 'Em' }).guitarChord).toBe('Em');
+  expect(LessonSchema.safeParse({ ...old, guitarChord: '' }).success).toBe(false);
 });

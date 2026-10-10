@@ -1,0 +1,96 @@
+{
+  "id": "g4-l10",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 11,
+  "title": "An open G shape",
+  "summary": "Spread the notes across six strings.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An open G shape",
+      "body": "G is the short written name for G major: G, B and D. Use fret 3 on string 6, fret 2 on string 5, open strings 4, 3 and 2, and fret 3 on string 1.\n\n**Why it matters:** A six-string sound can still be a triad. Read each position carefully instead of assuming every string is open.",
+      "exampleMidi": [
+        43,
+        47,
+        50,
+        55,
+        59,
+        67
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "The low G and high G frame the sound. Open D, G and B in the middle supply the remaining names. This is one common G shape; the same three names elsewhere also count.",
+      "highlightMidi": [
+        43,
+        47,
+        50,
+        55,
+        59,
+        67
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play G, B, D, G, B, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "showKeys": true,
+          "id": "g4-l10-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Build only G, B and D first. Then add the repeated higher notes from the diagram. Keep your hand relaxed and stop if the stretch hurts."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            43,
+            47,
+            50,
+            55,
+            59,
+            67
+          ],
+          "choices": [
+            "G",
+            "C",
+            "Am"
+          ],
+          "answer": "G",
+          "id": "g4-l10-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play G, B, D, G, B, G together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "showKeys": true,
+          "id": "g4-l10-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "G"
+}

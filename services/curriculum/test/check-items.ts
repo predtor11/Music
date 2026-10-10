@@ -306,8 +306,31 @@ function isRightPlainAnswer(choice: string, shown: number[], prompt: string): bo
   return undefined;
 }
 
+/** Physical guitar concepts have verbal answers rather than pitch names. */
+const GUITAR_FACTS: Record<string, string> = {
+  "Which guitar part is long and narrow?": "neck",
+  "Which guitar part is at the top of the neck?": "headstock",
+  "Which guitar part anchors the lower ends of the wires?": "bridge",
+  "Which guitar part is a small turning control?": "tuning peg",
+  "Which opening helps you hear an acoustic guitar?": "sound hole",
+  "Which device senses the moving wires on an electric guitar?": "pickup",
+
+  "Which guitar part is the large main section?": "body",
+  "Which letter names the lit thickest string?": "E",
+  "What should support the guitar while you sit?": "your thigh and a gentle supporting arm",
+  "Which hand starts the string vibrating near the body?": "picking hand",
+  "How should you hold a guitar pick?": "gently, with a small tip showing",
+  "What makes a string an open string?": "no finger presses it",
+  "For otherwise similar strings, what happens when a string gets tighter?": "the sound gets higher",
+  "What is the goal when tuning a guitar string?": "match its reference sound",
+  "Where do you press to play the first fret clearly?": "just behind the first metal bar",
+  "In guitar tab, what does 0 mean?": "play the open string"
+};
+
 /** Every name that correctly answers "what is this?" for the keys shown. */
 function isRightName(choice: string, shown: number[], prompt: string): boolean {
+  const guitarFact = GUITAR_FACTS[prompt];
+  if (guitarFact !== undefined) return choice === guitarFact;
   const readingAnswer = isRightReadingAnswer(choice, prompt);
   if (readingAnswer !== undefined) return readingAnswer;
   const chordAnswer = isRightChordAnswer(choice, shown, prompt);

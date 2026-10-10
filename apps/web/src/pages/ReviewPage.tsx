@@ -113,7 +113,7 @@ function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () 
         <motion.div className={r.chips} variants={stagger(0.04)} initial="hidden" animate="show" data-testid="review-skills">
           {queue.slice(0, 8).map((q) => (
             <motion.span key={q.skill} variants={pop}>
-              <Badge tone={q.skill === skillFor(item) ? 'accent' : 'neutral'}>
+              <Badge tone={q.skill === skillFor(item, instrument) ? 'accent' : 'neutral'}>
                 {skillLabel(q.skill)} · {Math.round(q.firstTryAccuracy * 100)}%
               </Badge>
             </motion.span>
@@ -127,7 +127,7 @@ function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () 
           </span>
           <Swap value={item.id}>
             <Badge tone="accent" data-testid="review-skill">
-              {skillLabel(skillFor(item))}
+              {skillLabel(skillFor(item, instrument))}
             </Badge>
           </Swap>
         </div>

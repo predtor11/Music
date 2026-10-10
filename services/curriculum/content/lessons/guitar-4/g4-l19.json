@@ -1,0 +1,93 @@
+{
+  "id": "g4-l19",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 20,
+  "title": "A five-string minor barre",
+  "summary": "Move the A minor family up two frets.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A five-string minor barre",
+      "body": "Bm means B minor: B, D and F#. Move the Am shape two frets higher. Its formerly open strings now need fret 2, supplied by one finger across strings 5 through 1. Use fret 4 on strings 4 and 3, fret 3 on string 2, and leave string 6 out.\n\n**Why it matters:** A shape whose root starts on string 5 gives you another way to find a chord without reaching far along string 6.",
+      "exampleMidi": [
+        47,
+        54,
+        59,
+        62,
+        66
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "The diagram begins at fret 2: its row labels are actual fret numbers, not counts from zero. Read x, 2, 4, 4, 3, 2 from thick to thin. The band stops at string 5, so string 6 stays out.",
+      "highlightMidi": [
+        47,
+        54,
+        59,
+        62,
+        66
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "id": "g4-l19-p1",
+          "kind": "build-chord",
+          "prompt": "Play B, D and F# together. Use any positions for these notes.",
+          "pitchClasses": [
+            11,
+            6,
+            2
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "Compare the Am and Bm positions slowly, clearing taps between them. Every played position moves up two frets, including the two that used to be open. The app accepts other correct B, D and F# positions too."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l19-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            47,
+            54,
+            59,
+            62,
+            66
+          ],
+          "choices": [
+            "Bm",
+            "Am",
+            "Dm"
+          ],
+          "answer": "Bm"
+        },
+        {
+          "id": "g4-l19-q2",
+          "kind": "build-chord",
+          "prompt": "Play B, D and F# together. Use any positions for these notes.",
+          "pitchClasses": [
+            11,
+            6,
+            2
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Bm"
+}

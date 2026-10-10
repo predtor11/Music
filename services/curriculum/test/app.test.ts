@@ -14,14 +14,14 @@ describe('curriculum service', () => {
     const res = await app.inject({ url: '/units' });
     expect(res.statusCode).toBe(200);
     const units = UnitListSchema.parse(res.json());
-    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']);
+    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
   it('filters units by instrument; content without an instrument is piano', async () => {
     const piano = UnitListSchema.parse((await app.inject({ url: '/units?instrument=piano' })).json());
     expect(piano).toHaveLength(8);
-    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-1']);
+    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
     expect((await app.inject({ url: '/units?instrument=kazoo' })).statusCode).toBe(400);
   });
 
@@ -33,8 +33,48 @@ describe('curriculum service', () => {
     expect(unit.checkpoint.items.length).toBeGreaterThan(0);
   });
 
+  it('serves the complete introduction before the existing guitar unit', async () => {
+    const intro = UnitSchema.parse((await app.inject({ url: '/units/guitar-intro' })).json());
+    expect(intro).toMatchObject({ order: 1, instrument: 'guitar' });
+    expect(intro.lessonIds).toEqual(['gi-l1', 'gi-l1b', 'gi-l2', 'gi-l3', 'gi-l4', 'gi-l5', 'gi-l6', 'gi-l7', 'gi-l8', 'gi-l9', 'gi-l10']);
+    expect(intro.checkpoint.items).toHaveLength(10);
+    const existing = UnitSchema.parse((await app.inject({ url: '/units/guitar-1' })).json());
+    expect(existing.order).toBe(2);
+    expect(existing.lessonIds).toEqual(['g1-l1', 'g1-l2', 'g1-l3', 'g1-l4', 'g1-l5']);
+    const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/gi-l1' })).json());
+    expect(lesson.guitarDiagram).toBe('parts');
+    const soundLesson = LessonSchema.parse((await app.inject({ url: '/lessons/gi-l1b' })).json());
+    expect(soundLesson).toMatchObject({ order: 2, guitarDiagram: 'parts', title: 'The parts that make the sound' });
+  });
+
+  it('serves six notes lessons as guitar unit 3', async () => {
+    const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-2' })).json());
+    expect(unit).toMatchObject({ instrument: 'guitar', order: 3 });
+    expect(unit.lessonIds).toHaveLength(6);
+    expect(unit.checkpoint.items).toHaveLength(10);
+    expect(unit.checkpoint.passPercent).toBe(80);
+  });
+
+  it('serves the scales unit and preserves its playable routes', async () => {
+    const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-3' })).json());
+    expect(unit).toMatchObject({ instrument: 'guitar', order: 4 });
+    expect(unit.lessonIds).toHaveLength(9);
+    expect(unit.checkpoint.items).toHaveLength(10);
+    const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/g3-l9' })).json());
+    expect(lesson.guitarPattern?.positions).toHaveLength(6);
+  });
+
+  it('serves the starter chords unit and the named open shapes', async () => {
+    const unit = UnitSchema.parse((await app.inject({ url: '/units/guitar-4' })).json());
+    expect(unit).toMatchObject({ instrument: 'guitar', order: 5 });
+    expect(unit.lessonIds).toHaveLength(20);
+    expect(unit.checkpoint.items).toHaveLength(28);
+    const lesson = LessonSchema.parse((await app.inject({ url: '/lessons/g4-l8' })).json());
+    expect(lesson.guitarChord).toBe('Am');
+  });
+
   it('returns every lesson a unit lists', async () => {
-    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']) {
+    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']) {
       const unit = UnitSchema.parse((await app.inject({ url: `/units/${unitId}` })).json());
       for (const id of unit.lessonIds) {
         const res = await app.inject({ url: `/lessons/${id}` });
@@ -80,6 +120,11 @@ describe('content loading', () => {
 
   it('loads good content', () => {
     expect(loadCurriculum(contentDir(unit, [lesson])).units).toHaveLength(1);
+  });
+
+  it('refuses an unknown guitar chord guide instead of silently hiding it', () => {
+    expect(() => loadCurriculum(contentDir(unit, [{ ...lesson, guitarChord: 'typo' }]))).toThrow(/unknown guitar chord shape typo/);
+    expect(loadCurriculum(contentDir(unit, [{ ...lesson, guitarChord: 'Em' }])).lessonsById.get('l1')?.guitarChord).toBe('Em');
   });
 
   it('refuses a file that breaks the schema', () => {

@@ -1,0 +1,166 @@
+{
+  "id": "gi-l1b",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "The parts that make the sound",
+  "summary": "Find the sound-making parts on two kinds of guitar.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Build on the three parts",
+      "body": "You know the body, neck and headstock. Now find the smaller parts that help a guitar make its sound. We will meet each one separately.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the bridge",
+      "body": "**bridge** means the small anchor on the body.\n\n**Why it matters:** It holds the lower ends of the six thin wires.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the tuning peg",
+      "body": "**tuning peg** means a small turning control on the headstock.\n\n**Why it matters:** Turning it changes how tight a wire is.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Acoustic guitars",
+      "body": "**acoustic** means a guitar whose hollow body makes its sound louder.\n\n**Why it matters:** You can hear it without an amplifier.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Electric guitars",
+      "body": "**electric** means a guitar designed to send its sound to an amplifier.\n\n**Why it matters:** Its pickups help you hear it through a speaker.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the amplifier",
+      "body": "**amplifier** means a box that makes an electric guitar sound louder through a speaker.\n\n**Why it matters:** It lets you hear an electric guitar clearly.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the sound hole",
+      "body": "**sound hole** means the opening in an acoustic guitar body.\n\n**Why it matters:** It lets the moving air out so you can hear it.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "explain",
+      "title": "Meet the pickup",
+      "body": "**pickup** means a device on an electric guitar that senses the motion of its wires.\n\n**Why it matters:** It sends the sound to an amplifier.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Compare the sound-making parts",
+      "body": "The picture shows an acoustic guitar and an electric pickup example. Find the bridge and tuning pegs, then compare the sound hole with the pickup.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Find an anchor",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1b-play",
+          "prompt": "Which guitar part anchors the lower ends of the wires?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "bridge",
+            "headstock"
+          ],
+          "answer": "bridge"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Look without adjusting",
+      "body": "Find the bridge and tuning pegs in the picture or on your guitar. Do not turn the pegs yet. If you have an acoustic guitar, find its sound hole; on an electric guitar, find its pickups."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the sound-making parts",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l1b-quiz-1",
+          "prompt": "Which guitar part anchors the lower ends of the wires?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "bridge",
+            "headstock"
+          ],
+          "answer": "bridge"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1b-quiz-2",
+          "prompt": "Which guitar part is a small turning control?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "tuning peg",
+            "bridge"
+          ],
+          "answer": "tuning peg"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1b-quiz-3",
+          "prompt": "Which opening helps you hear an acoustic guitar?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "sound hole",
+            "pickup"
+          ],
+          "answer": "sound hole"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1b-quiz-4",
+          "prompt": "Which device senses the moving wires on an electric guitar?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "pickup",
+            "sound hole"
+          ],
+          "answer": "pickup"
+        }
+      ]
+    }
+  ],
+  "guitarDiagram": "parts"
+}

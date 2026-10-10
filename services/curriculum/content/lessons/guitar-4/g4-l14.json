@@ -1,0 +1,74 @@
+{
+  "id": "g4-l14",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 15,
+  "title": "The root-to-fifth distance",
+  "summary": "Give a familiar distance a name.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The root-to-fifth distance",
+      "body": "**interval** means the distance between two notes. A **perfect 5th** is an interval of seven half steps. G to D spans five letter names: G, A, B, C, D. **perfect** is the name for this plain form of the interval.\n\n**Why it matters:** This open, stable distance gives you a useful second sound to put above a root.",
+      "exampleMidi": [
+        43,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "Start with G2 at string 6, fret 3. D3 is seven half steps higher: string 6, fret 10, or string 5, fret 5. Both places give the same D3. Play G, then D, one at a time.",
+      "highlightMidi": [
+        43,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-interval",
+          "prompt": "Play G2, then go up a perfect 5th.",
+          "startMidi": 43,
+          "semitones": 7,
+          "id": "g4-l14-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "Compare the distance on one string with the shorter route across two strings. Do not stretch your fingers to reach both frets on one string at once."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l14-q1",
+          "kind": "name-it",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            43,
+            50
+          ],
+          "choices": [
+            "perfect 5th",
+            "octave"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "kind": "play-interval",
+          "prompt": "Play A2, then go up a perfect 5th.",
+          "startMidi": 45,
+          "semitones": 7,
+          "id": "g4-l14-q2"
+        }
+      ]
+    }
+  ]
+}

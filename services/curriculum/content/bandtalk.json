@@ -521,8 +521,6 @@
       "C5"
     ],
     "category": "chords",
-    "meaning": "Just the root and the 5th, with no 3rd. Written with a 5, as in C5.",
-    "whyItMatters": "Guitarists use it all over rock music. Because it has no 3rd it is neither major nor minor, so if the guitar plays C5 you can play C or Cm under it.",
     "sayIt": "It's all power chords in the verse, so keep the keys simple.",
     "related": [
       "root",
@@ -569,7 +567,8 @@
           "beats": 2
         }
       ]
-    }
+    },
+    "glossaryId": "power-chord"
   },
   {
     "id": "sus-it",

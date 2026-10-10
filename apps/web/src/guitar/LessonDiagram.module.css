@@ -1,0 +1,22 @@
+.figure {
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.figure svg,
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure img {
+  border-radius: var(--radius-sm);
+}
+
+.chord svg {
+  max-width: 24rem;
+  margin: 0 auto;
+}
