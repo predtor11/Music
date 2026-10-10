@@ -1,0 +1,172 @@
+{
+  "id": "guitar-4",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "Starter guitar chords",
+  "summary": "Build a chord, hear major and minor, then read five open shapes.",
+  "outcome": "You can name and play Em, E, Am, C and G and read open, pressed and unplayed strings.",
+  "lessonIds": [
+    "g4-l1",
+    "g4-l2",
+    "g4-l3",
+    "g4-l4",
+    "g4-l5",
+    "g4-l5b",
+    "g4-l6",
+    "g4-l7",
+    "g4-l8",
+    "g4-l9",
+    "g4-l10"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          48,
+          52,
+          55
+        ],
+        "choices": [
+          "C",
+          "Am",
+          "G"
+        ],
+        "answer": "C",
+        "id": "g4-cp-1"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play C, E, G together. Use any positions for these notes.",
+        "pitchClasses": [
+          0,
+          4,
+          7
+        ],
+        "showKeys": true,
+        "id": "g4-cp-2"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          40,
+          47,
+          52,
+          55,
+          59,
+          64
+        ],
+        "choices": [
+          "E",
+          "Em",
+          "Am"
+        ],
+        "answer": "Em",
+        "id": "g4-cp-3"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play E, B, E, G, B, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          4,
+          11,
+          7
+        ],
+        "showKeys": true,
+        "id": "g4-cp-4"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          40,
+          47,
+          52,
+          56,
+          59,
+          64
+        ],
+        "choices": [
+          "E",
+          "Em",
+          "Am"
+        ],
+        "answer": "E",
+        "id": "g4-cp-5"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play E, B, E, G#, B, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          4,
+          11,
+          8
+        ],
+        "showKeys": true,
+        "id": "g4-cp-6"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          45,
+          52,
+          57,
+          60,
+          64
+        ],
+        "choices": [
+          "Am",
+          "Em",
+          "C"
+        ],
+        "answer": "Am",
+        "id": "g4-cp-7"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play A, E, A, C, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          9,
+          4,
+          0
+        ],
+        "showKeys": true,
+        "id": "g4-cp-8"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          43,
+          47,
+          50,
+          55,
+          59,
+          67
+        ],
+        "choices": [
+          "C",
+          "Am",
+          "G"
+        ],
+        "answer": "G",
+        "id": "g4-cp-9"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play G, B, D, G, B, G together. Use any positions for these notes.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "showKeys": true,
+        "id": "g4-cp-10"
+      }
+    ]
+  }
+}

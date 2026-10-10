@@ -5,7 +5,7 @@
  */
 
 import type { Lesson, LessonStep, SessionSummary, UserSettings } from '@music/contracts';
-import { C_MAJOR, pretty } from '@music/theory';
+import { C_MAJOR, OPEN_CHORD_SHAPES, pretty } from '@music/theory';
 import { Button, Card, Swap, fadeUp } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -29,6 +29,7 @@ import s from '../lesson/lesson.module.css';
 import { useInstrument } from '../instruments/context.js';
 import { LessonDiagram } from '../guitar/LessonDiagram.js';
 import { ScaleRoute } from '../guitar/ScaleRoute.js';
+import { ChordDiagram } from '../guitar/ChordDiagram.js';
 
 export function LessonPage({ id, settings }: { id: string; settings: UserSettings }) {
   const { id: instrument } = useInstrument();
@@ -62,6 +63,7 @@ const STEP_KIND: Record<LessonStep['type'], string> = {
 };
 
 function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings: UserSettings; onRetry: () => void }) {
+  const chordShape = OPEN_CHORD_SHAPES.find((shape) => shape.name === lesson.guitarChord);
   const { id: instrument } = useInstrument();
   const practice = usePractice('lesson', lesson.id);
   const input = useNoteInput();
@@ -141,6 +143,7 @@ function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings:
             </h2>
             {instrument === 'guitar' && lesson.guitarDiagram && <LessonDiagram kind={lesson.guitarDiagram} />}
             {instrument === 'guitar' && lesson.guitarPattern && <ScaleRoute pattern={lesson.guitarPattern} />}
+            {instrument === 'guitar' && chordShape && <ChordDiagram shape={chordShape} />}
 
             {(step.type === 'explain' || step.type === 'show') && <TeachStep step={step} size={size} settings={settings} />}
             {step.type === 'explore' && <ExploreStep body={step.body} size={size} settings={settings} />}
