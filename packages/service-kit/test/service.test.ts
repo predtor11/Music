@@ -35,3 +35,12 @@ describe('InMemoryEventBus', () => {
     expect(seen).toEqual(['Jayesh']);
   });
 });
+
+describe('listenHost', () => {
+  it('listens on this computer only unless told otherwise', async () => {
+    const { listenHost } = await import('../src/service.js');
+    expect(listenHost({})).toBe('127.0.0.1');
+    expect(listenHost({ HOST: '0.0.0.0' })).toBe('0.0.0.0');
+    expect(listenHost({ RAILWAY_ENVIRONMENT: 'production' })).toBe('0.0.0.0');
+  });
+});
