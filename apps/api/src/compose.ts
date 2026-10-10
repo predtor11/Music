@@ -103,6 +103,13 @@ export async function createApi(options: ApiOptions = {}) {
   if (!canCheckLogins && !options.devMode) {
     throw new Error('Set SUPABASE_URL (or SUPABASE_JWT_SECRET) so logins can be checked.');
   }
+  // A leftover API_DEV_MODE=1 must never turn a deployed site into one shared account.
+  if (!canCheckLogins && process.env.VERCEL) throw new Error('API_DEV_MODE cannot be used on Vercel: set SUPABASE_URL so logins are checked.');
+  const publicAnonKey = options.publicSupabaseAnonKey && !isPrivilegedKey(options.publicSupabaseAnonKey) ? options.publicSupabaseAnonKey : '';
+  if (options.publicSupabaseAnonKey && !publicAnonKey) {
+    console.error('[api] VITE_SUPABASE_ANON_KEY holds a service-role or secret key. Not serving it; replace it with the anon/publishable key and rotate the exposed key.');
+  }
+  const limiter = new RateLimiter();
 
   const bus: EventBus = new InMemoryEventBus();
   const pool = { max: 1, migrate };
@@ -162,10 +169,15 @@ export async function createApi(options: ApiOptions = {}) {
     }
     if (path === SERVICES.gateway.prefix + '/config') {
       // The public sign-in settings (never a secret), so the desktop app needs no setup of its own.
-      return json(200, { supabaseUrl: options.publicSupabaseUrl ?? '', supabaseAnonKey: options.publicSupabaseAnonKey ?? '' });
+      return json(200, { supabaseUrl: options.publicSupabaseUrl ?? '', supabaseAnonKey: publicAnonKey });
     }
     const target = prefixes.find(({ prefix }) => path === prefix || path.startsWith(`${prefix}/`));
     if (!target) return json(404, { error: 'not found' });
+
+    const mutating = req.method !== 'GET' && req.method !== 'HEAD';
+    const caller = clientAddress(req.headers);
+    // Cheap guard first: a flood from one address is turned away before any token or database work.
+    if (!limiter.take(`ip:${caller}`, 600)) return tooMany();
 
     let userId: string | undefined;
     if (!canCheckLogins) {
@@ -178,6 +190,8 @@ export async function createApi(options: ApiOptions = {}) {
         return json(401, { error: (error as Error).message });
       }
     }
+
+    if (userId && !limiter.take(`user:${userId}`, mutating ? 120 : 600)) return tooMany();
 
     // Only the login check decides who the user is; a header from the browser is dropped.
     const headers: Record<string, string> = {};
@@ -213,6 +227,45 @@ export async function createApi(options: ApiOptions = {}) {
   }
 
   return { handle, close, services };
+}
+
+const tooMany = (): ApiResponse => ({ ...json(429, { error: 'too_many_requests' }), headers: { 'content-type': 'application/json; charset=utf-8', 'retry-after': '30' } });
+
+/** The address Vercel saw (it sets x-forwarded-for itself and drops any the client sent). */
+function clientAddress(headers: ApiRequest['headers']): string {
+  return (headerValue(headers['x-forwarded-for']) ?? 'local').split(',')[0]!.trim() || 'local';
+}
+
+/** True for a Supabase service-role / secret key, which must never reach a browser. */
+export function isPrivilegedKey(key: string): boolean {
+  if (key.startsWith('sb_secret_')) return true;
+  try {
+    const payload = JSON.parse(Buffer.from(key.split('.')[1] ?? '', 'base64url').toString('utf8')) as { role?: string };
+    return payload.role === 'service_role';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Requests per minute per key, counted in this function instance. Instances do
+ * not share counts, so this slows a runaway loop or a script but is not a
+ * substitute for a Vercel firewall rule (docs/SECURITY.md).
+ */
+export class RateLimiter {
+  private readonly windows = new Map<string, { start: number; count: number }>();
+  constructor(private readonly now: () => number = Date.now) {}
+  take(key: string, limitPerMinute: number): boolean {
+    const t = this.now();
+    if (this.windows.size > 5000) for (const [k, w] of this.windows) if (t - w.start >= 60_000) this.windows.delete(k);
+    const w = this.windows.get(key);
+    if (!w || t - w.start >= 60_000) {
+      this.windows.set(key, { start: t, count: 1 });
+      return true;
+    }
+    w.count += 1;
+    return w.count <= limitPerMinute;
+  }
 }
 
 function headerValue(v: string | string[] | undefined): string | undefined {

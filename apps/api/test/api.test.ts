@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createApi } from '../src/compose.js';
+import { RateLimiter, createApi, isPrivilegedKey } from '../src/compose.js';
 
 let api: Awaited<ReturnType<typeof createApi>>;
 beforeAll(async () => {
@@ -99,5 +99,43 @@ describe('serverless api', () => {
 
   it('refuses to start without a way to check logins', async () => {
     await expect(createApi({})).rejects.toThrow(/SUPABASE_URL/);
+  });
+});
+
+describe('hardening', () => {
+  const b64 = (o: object) => Buffer.from(JSON.stringify(o)).toString('base64url');
+  it('recognises service-role keys so they are never handed to a browser', () => {
+    expect(isPrivilegedKey(`${b64({ alg: 'HS256' })}.${b64({ role: 'service_role' })}.sig`)).toBe(true);
+    expect(isPrivilegedKey('sb_secret_abc')).toBe(true);
+    expect(isPrivilegedKey(`${b64({ alg: 'HS256' })}.${b64({ role: 'anon' })}.sig`)).toBe(false);
+    expect(isPrivilegedKey('sb_publishable_abc')).toBe(false);
+  });
+
+  it('does not serve a service-role key from /api/config', async () => {
+    const key = `${b64({ alg: 'HS256' })}.${b64({ role: 'service_role' })}.sig`;
+    const bad = await createApi({ devMode: true, publicSupabaseUrl: 'https://s.example', publicSupabaseAnonKey: key });
+    const res = await bad.handle({ method: 'GET', url: '/api/config', headers: {} });
+    expect(JSON.parse(res.body.toString())).toEqual({ supabaseUrl: 'https://s.example', supabaseAnonKey: '' });
+    await bad.close();
+  });
+
+  it('counts requests per minute and starts over after the minute', () => {
+    let t = 0;
+    const limiter = new RateLimiter(() => t);
+    expect([1, 2, 3].map(() => limiter.take('a', 2))).toEqual([true, true, false]);
+    expect(limiter.take('b', 2)).toBe(true);
+    t = 60_001;
+    expect(limiter.take('a', 2)).toBe(true);
+  });
+
+  it('answers 429 to a caller that floods it', async () => {
+    const flood = await createApi({ devMode: true });
+    let last = 200;
+    for (let i = 0; i < 700 && last === 200; i++) last = (await flood.handle({ method: 'GET', url: '/api/health', headers: { 'x-forwarded-for': '9.9.9.9' } })).status;
+    // /api/health is exempt from counting; a service route is not.
+    last = 200;
+    for (let i = 0; i < 700 && last !== 429; i++) last = (await flood.handle({ method: 'GET', url: '/api/theory/health', headers: { 'x-forwarded-for': '9.9.9.9' } })).status;
+    expect(last).toBe(429);
+    await flood.close();
   });
 });
