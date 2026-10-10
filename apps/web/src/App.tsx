@@ -4,9 +4,9 @@
  */
 
 import type { UserSettings } from '@music/contracts';
-import { Badge, Button, StatusDot, fadeUp, spring, useTheme } from '@music/ui';
+import { Badge, Button, Card, StatusDot, fadeUp, spring, useTheme } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useKeySound } from './audio/useKeySound.js';
 import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
@@ -36,6 +36,10 @@ import { SettingsPage } from './pages/SettingsPage.js';
 import { SignInPage } from './pages/SignInPage.js';
 import { href, useRoute, type Route } from './router.js';
 import { useSettings } from './settings/useSettings.js';
+import { InstrumentProvider, useInstrument } from './instruments/context.js';
+import { instrumentEntry } from './instruments/registry.js';
+import { InstrumentPicker, InstrumentSwitcher } from './instruments/Picker.js';
+import { needsInstrumentChoice, rememberInstrumentChoice, type InstrumentId } from './instruments/model.js';
 import s from './App.module.css';
 
 type Theme = UserSettings['theme'];
@@ -131,6 +135,17 @@ function KeySound() {
   return null;
 }
 
+function InstrumentStatus() {
+  const { id } = useInstrument();
+  const { microphone } = useNoteInput();
+  if (id === 'piano') return <MidiStatus />;
+  const active = microphone.state === 'listening' || microphone.state === 'requesting';
+  return <Button size="sm" variant="secondary" data-testid="header-microphone"
+    onClick={() => active ? microphone.stop() : void microphone.start()}>
+    {microphone.state === 'requesting' ? 'Cancel microphone' : active ? 'Stop microphone' : 'Start microphone'}
+  </Button>;
+}
+
 /** Header account button: Sign in, or your initial when signed in. */
 function AccountButton({ active }: { active: boolean }) {
   const auth = useAuth();
@@ -162,6 +177,8 @@ function AccountButton({ active }: { active: boolean }) {
 }
 
 export function App() {
+  const [firstRun, setFirstRun] = useState(needsInstrumentChoice);
+  useEffect(() => { if (!firstRun) rememberInstrumentChoice(); }, [firstRun]);
   const auth = useAuth();
   const [settings, update, sync] = useSettings(auth.user?.id ?? null);
   const theme = useTheme();
@@ -169,6 +186,15 @@ export function App() {
   // Settings own the theme (so it follows your account); ThemeProvider applies it.
   useEffect(() => applyTheme(settings.theme), [applyTheme, settings.theme]);
   const route = useRoute();
+  const entry = instrumentEntry(settings.instrument);
+  const available = entry.pages.includes(route.page);
+  const chooseInstrument = (instrument: InstrumentId) => {
+    rememberInstrumentChoice();
+    update({ instrument });
+    setFirstRun(false);
+    if (firstRun || !instrumentEntry(instrument).pages.includes(route.page)) location.hash = href.chords;
+    else if (instrument !== settings.instrument && (route.page === 'lesson' || route.page === 'checkpoint')) location.hash = href.lessons;
+  };
   const current = section(route);
   const pageKey =
     route.page === 'lesson'
@@ -188,7 +214,8 @@ export function App() {
               : route.page;
 
   return (
-    <NoteInputProvider settings={settings} update={update}>
+    <InstrumentProvider id={settings.instrument} choose={chooseInstrument}>
+    <NoteInputProvider key={`${settings.instrument}:${firstRun}`} enabled={!firstRun} settings={settings} update={update}>
       <KeySound />
       <div className={`ui-container ${s.shell}`}>
         <motion.header className={s.header} variants={fadeUp} initial="hidden" animate="show">
@@ -200,11 +227,11 @@ export function App() {
             </span>
             <span className={s.brandText}>
               <span className={s.brandName}>Music Theory Trainer</span>
-              <span className={`ui-muted ${s.tagline}`}>Learn at your pace, on your keyboard.</span>
+              <span className={`ui-muted ${s.tagline}`}>Learn at your pace, on your {settings.instrument === 'piano' ? 'keyboard' : 'guitar'}.</span>
             </span>
           </a>
           <nav className={s.nav} aria-label="Main">
-            {NAV.map((n) => (
+            {!firstRun && NAV.filter((n) => entry.pages.includes(n.id)).map((n) => (
               <a key={n.id} href={n.href} className={s.navLink} aria-current={current === n.id ? 'page' : undefined} data-testid={`nav-${n.id}`}>
                 {current === n.id && <motion.span layoutId="nav-pill" className={s.navPill} transition={spring.snappy} />}
                 <span className={s.navLabel}>{n.label}</span>
@@ -212,8 +239,9 @@ export function App() {
             ))}
           </nav>
           <div className={s.tools}>
+            {!firstRun && <InstrumentSwitcher location="header" />}
             <SyncChip />
-            <MidiStatus />
+            {!firstRun && <InstrumentStatus />}
             <Button variant="ghost" size="sm" onClick={() => update({ theme: THEME_NEXT[settings.theme] })} data-testid="theme">
               Theme: {THEME_LABEL[settings.theme]}
             </Button>
@@ -232,6 +260,12 @@ export function App() {
 
         <AnimatePresence mode="wait">
           <motion.main key={pageKey} variants={fadeUp} initial="hidden" animate="show" exit="exit">
+            {firstRun ? <InstrumentPicker onChoose={chooseInstrument} /> : !available ? <Card className="ui-stack">
+              <h1 className="ui-title">This view is for piano</h1>
+              <p className="ui-muted">Choose Piano to use this view, or continue with your guitar lessons.</p>
+              <div className="ui-row"><Button onClick={() => chooseInstrument('piano')}>Choose Piano</Button>
+                <Button onClick={() => (location.hash = href.lessons)}>Guitar lessons</Button></div>
+            </Card> : <>
             {route.page === 'chords' && <ChordNamerPage settings={settings} update={update} />}
             {route.page === 'lessons' && <LessonsPage />}
             {route.page === 'lesson' && <LessonPage id={route.id} settings={settings} />}
@@ -256,9 +290,11 @@ export function App() {
             {route.page === 'chartImport' && <ChartImportPage data={route.data} settings={settings} />}
             {route.page === 'settings' && <SettingsPage settings={settings} update={update} sync={sync} />}
             {route.page === 'signin' && <SignInPage />}
+            </>}
           </motion.main>
         </AnimatePresence>
       </div>
     </NoteInputProvider>
+    </InstrumentProvider>
   );
 }

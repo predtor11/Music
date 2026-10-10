@@ -15,21 +15,32 @@ async function fillAndSubmit(page: Page, mode: 'Sign in' | 'Create account', ema
 
 const radio = (page: Page, group: string, name: string) => page.getByTestId(group).getByRole('radio', { name });
 
-test('creates an account, signs in and sends the token on every /api call', async ({ page }) => {
+test('creates an account, authenticates personal calls and keeps curriculum public', async ({ page }) => {
   const cloud = fakeCloud();
+  await fakeApi(page);
   await attachCloud(page, cloud);
   await page.goto('/');
   await expect(page.getByTestId('account')).toHaveText('Sign in');
 
   await fillAndSubmit(page, 'Create account');
   await expect(page.getByTestId('account')).toHaveAttribute('data-signed-in', 'true');
+  // Sign-in opens lessons. Wait for real curriculum reads so this assertion
+  // cannot pass merely because Account was clicked before they started.
+  await expect(page.getByTestId(`lesson-${LESSON.id}`)).toBeVisible();
   await page.getByTestId('account').click();
   await expect(page.getByTestId('account-email')).toHaveText(EMAIL);
   await expect(page.getByTestId('sync-state')).toHaveAttribute('data-state', 'saved');
 
-  // Every call after sign-in carried the token (the fake identity service reads the user id from it).
-  expect(cloud.apiAuth.length).toBeGreaterThan(0);
-  for (const header of cloud.apiAuth) expect(header).toMatch(/^Bearer .+/);
+  // Personal requests carry the token; curriculum is deliberately public so
+  // the offline cache never stores authenticated responses.
+  expect(cloud.apiRequests).toEqual(expect.arrayContaining([
+    { path: '/curriculum/units', authorization: null },
+    { path: '/identity/me', authorization: expect.stringMatching(/^Bearer .+/) },
+  ]));
+  for (const request of cloud.apiRequests) {
+    if (request.path.startsWith('/curriculum/')) expect(request.authorization).toBeNull();
+    else expect(request.authorization).toMatch(/^Bearer .+/);
+  }
 });
 
 test('settings follow you to another browser and survive a reload', async ({ browser }) => {

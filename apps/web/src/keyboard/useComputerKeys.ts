@@ -9,7 +9,7 @@ function typingInField(target: EventTarget | null): boolean {
 }
 
 /** Computer keys as a piano: A W S E D F T G Y H U J K, with Z and X to change octave. */
-export function useComputerKeys(onNoteOn?: (note: MidiNote) => void, onNoteOff?: (note: MidiNote) => void) {
+export function useComputerKeys(onNoteOn?: (note: MidiNote) => void, onNoteOff?: (note: MidiNote) => void, enabled = true) {
   const noteOnRef = useRef(onNoteOn);
   noteOnRef.current = onNoteOn;
   const noteOffRef = useRef(onNoteOff);
@@ -19,6 +19,7 @@ export function useComputerKeys(onNoteOn?: (note: MidiNote) => void, onNoteOff?:
   const downRef = useRef(down);
 
   useEffect(() => {
+    if (!enabled) return;
     const set = (next: ReadonlyMap<string, MidiNote>) => {
       downRef.current = next;
       setDown(next);
@@ -54,7 +55,7 @@ export function useComputerKeys(onNoteOn?: (note: MidiNote) => void, onNoteOff?:
       window.removeEventListener('keyup', onUp);
       window.removeEventListener('blur', release);
     };
-  }, [base]);
+  }, [base, enabled]);
 
   return { base, held: [...down.values()] };
 }

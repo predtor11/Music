@@ -26,8 +26,10 @@ import { usePractice } from '../lesson/usePractice.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
 import s from '../lesson/lesson.module.css';
+import { useInstrument } from '../instruments/context.js';
 
 export function LessonPage({ id, settings }: { id: string; settings: UserSettings }) {
+  const { id: instrument } = useInstrument();
   const [loaded, setLoaded] = useState<Lesson | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
@@ -36,13 +38,13 @@ export function LessonPage({ id, settings }: { id: string; settings: UserSetting
     let live = true;
     setLoaded(null);
     setError(null);
-    getLesson(id)
+    getLesson(id, instrument)
       .then((l) => live && setLoaded(l))
       .catch((e: Error) => live && setError(e.message));
     return () => {
       live = false;
     };
-  }, [id]);
+  }, [id, instrument]);
 
   if (error) return <LoadError what="this lesson" message={error} />;
   if (!loaded) return <Loading />;
@@ -193,6 +195,7 @@ function TeachStep({
   size: KeyboardSize;
   settings: UserSettings;
 }) {
+  const { id: instrument } = useInstrument();
   const keys = step.type === 'show' ? step.highlightMidi : (step.exampleMidi ?? []);
   const marks = useMemo(() => new Map<number, KeyMark>(keys.map((k) => [k, 'target'])), [keys]);
   const captions = useMemo(() => captionsFrom(step.labels), [step.labels]);
@@ -205,7 +208,7 @@ function TeachStep({
           <Button variant="secondary" size="sm" onClick={() => void (step.type === 'show' ? playChord(keys) : playSequence(keys))} data-testid="hear">
             ▶ Hear it
           </Button>
-          <span className={`ui-muted ${s.small}`}>Try playing the lit keys on your keyboard.</span>
+          <span className={`ui-muted ${s.small}`}>{instrument === 'piano' ? 'Try playing the lit keys on your keyboard.' : 'Try playing the lit notes on your guitar.'}</span>
         </div>
       )}
       <LiveKeyboard size={size} marks={marks} captions={captions} labelFor={labelFor} names={captions ? 'none' : 'held'} focusNote={keys[0] ?? 60} />

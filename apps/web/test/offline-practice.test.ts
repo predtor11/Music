@@ -106,6 +106,20 @@ afterEach(() => {
 });
 
 describe('practice while offline', () => {
+  it('keeps the original instrument on queued attempts after switching instruments', async () => {
+    server.online = false;
+    const guitar = await startSession({ kind: 'free', instrument: 'guitar' });
+    await recordAttempt(attempt(guitar.id, 'g1'));
+    const piano = await startSession({ kind: 'free', instrument: 'piano' });
+    await recordAttempt(attempt(piano.id, 'p1'));
+    await runner.flush(); // Finish the failed offline pass before announcing reconnection.
+    server.online = true;
+    await runner.retryNow();
+    const sessions = server.requests.filter((r) => r.path === '/practice/sessions');
+    const attempts = server.requests.filter((r) => r.path === '/practice/attempts');
+    expect(sessions.map((r) => r.body?.instrument)).toEqual(['guitar', 'piano']);
+    expect(attempts.map((r) => r.body?.instrument)).toEqual(['guitar', 'piano']);
+  });
   it('runs a whole unit test with no network, then sends it in order when the network returns', async () => {
     server.online = false;
     const session = await startSession({ kind: 'checkpoint', refId: UNIT.id });

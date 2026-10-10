@@ -16,15 +16,19 @@ import { usePractice } from '../lesson/usePractice.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
 import s from '../lesson/lesson.module.css';
+import { useInstrument } from '../instruments/context.js';
 
 export function CheckpointPage({ unitId, settings }: { unitId: string; settings: UserSettings }) {
+  const { id: instrument } = useInstrument();
   const [unit, setUnit] = useState<Unit | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [run, setRun] = useState(0);
 
   useEffect(() => {
-    getUnit(unitId).then(setUnit, (e: Error) => setError(e.message));
-  }, [unitId]);
+    let live = true;
+    getUnit(unitId, instrument).then((next) => { if (live) setUnit(next); }, (e: Error) => { if (live) setError(e.message); });
+    return () => { live = false; };
+  }, [unitId, instrument]);
 
   if (error) return <LoadError what="this unit test" message={error} />;
   if (!unit) return <Loading />;

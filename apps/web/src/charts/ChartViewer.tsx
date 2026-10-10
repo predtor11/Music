@@ -241,7 +241,7 @@ export function ChartViewer({
           </div>
           <ChartGrid chart={shown} keyOf={key} view={view} withSargam={settings.noteNaming === 'both'} selected={selected} onSelect={select} />
           <p className={`ui-muted ${s.legend} ${s.noPrint}`} style={{ marginTop: 'var(--space-4)' }}>
-            Click a chord to hear it and see it on the keyboard. A <span style={{ color: 'var(--warn)' }}>*</span> marks a chord with notes from
+            Click a chord to hear it and see its notes. A <span style={{ color: 'var(--warn)' }}>*</span> marks a chord with notes from
             outside the key.
           </p>
         </Card>

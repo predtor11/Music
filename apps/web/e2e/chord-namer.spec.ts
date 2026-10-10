@@ -97,7 +97,10 @@ test.describe('without Web MIDI', () => {
   test('explains which browsers work', async ({ browser }) => {
     const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (Macintosh) AppleWebKit/605.1.15 Version/18.0 Safari/605.1.15' });
     const page = await ctx.newPage();
-    await page.addInitScript(() => Object.defineProperty(navigator, 'requestMIDIAccess', { value: undefined, configurable: true }));
+    await page.addInitScript(() => {
+      localStorage.setItem('music.instrument.chosen.v1', '1');
+      Object.defineProperty(navigator, 'requestMIDIAccess', { value: undefined, configurable: true });
+    });
     await page.goto('/');
     await expect(page.getByTestId('midi-status')).toHaveText('MIDI not available');
     await expect(page.getByTestId('midi-help')).toContainText('Safari');

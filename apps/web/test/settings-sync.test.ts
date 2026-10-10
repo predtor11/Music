@@ -5,6 +5,13 @@ import { fromServer, onSignIn, serverPatch } from '../src/settings/sync.js';
 const defaults = UserSettingsSchema.parse({});
 
 describe('settings sync', () => {
+  it('syncs the foundation instrument field, including an unchosen account', () => {
+    expect(serverPatch({ instrument: null })).toEqual({ instrument: null });
+    const guitar = { ...defaults, instrument: 'guitar' as const };
+    expect(onSignIn(defaults, guitar, false).settings.instrument).toBe('guitar');
+    expect(onSignIn(guitar, defaults, true).push).toMatchObject({ instrument: 'guitar' });
+  });
+
   it('never sends the MIDI input id, which belongs to this computer', () => {
     expect(serverPatch({ midiInputId: 'casio' })).toBeNull();
     expect(serverPatch({ noteNaming: 'sargam', midiInputId: 'casio' })).toEqual({ noteNaming: 'sargam' });

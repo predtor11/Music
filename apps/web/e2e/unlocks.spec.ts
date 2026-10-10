@@ -137,7 +137,7 @@ test('review serves the weak-skill items and records each attempt', async ({ pag
 
   await expect(page.getByTestId('summary')).toBeVisible();
   await expect(page.getByTestId('passed')).toHaveCount(0);
-  expect(api.sessions).toEqual([{ id: expect.any(String), kind: 'review' }]);
+  expect(api.sessions).toEqual([{ id: expect.any(String), kind: 'review', instrument: 'piano' }]);
   expect(api.attempts.map((a) => [a.itemId, a.skill, a.correct])).toEqual([
     ['r1', 'interval:m2', true],
     ['r2', 'note:D', true],

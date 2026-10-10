@@ -8,8 +8,9 @@ import { playKey, preloadPiano } from './sound.js';
  * Also starts loading the piano on the first click or key press.
  */
 export function useKeySound(): void {
-  const { onNoteOn } = useNoteInput();
-  useEffect(() => onNoteOn((note, source) => void (source !== 'midi' && playKey(note))), [onNoteOn]);
+  const { onNoteOn, microphone } = useNoteInput();
+  const quiet = microphone.state === 'listening' || microphone.state === 'requesting';
+  useEffect(() => onNoteOn((note, source) => void (!quiet && source !== 'midi' && source !== 'microphone' && playKey(note))), [onNoteOn, quiet]);
   useEffect(() => {
     const warm = () => preloadPiano();
     window.addEventListener('pointerdown', warm, { once: true });

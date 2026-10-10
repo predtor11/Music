@@ -13,8 +13,9 @@ import { LiveDisplay } from '../chord/LiveDisplay.js';
 import { useNoteInput } from '../input/NoteInput.js';
 import { KEYBOARD_RANGES, KEYBOARD_SIZES, type KeyboardSize } from '../keyboard/layout.js';
 import { LiveKeyboard } from '../keyboard/LiveKeyboard.js';
+import { useInstrument } from '../instruments/context.js';
+import { instrumentEntry } from '../instruments/registry.js';
 import { noteLabeller } from '../keyboard/labels.js';
-import { MidiPanel } from '../midi/MidiPanel.js';
 import s from './ChordNamerPage.module.css';
 
 const KEY_GROUPS = (['major', 'minor'] as const).map((mode) => ({
@@ -29,6 +30,8 @@ const NAMING_OPTIONS: Array<{ value: NoteNaming; label: string }> = [
 const SIZE_OPTIONS = KEYBOARD_SIZES.map((n) => ({ value: String(n), label: `${n} keys` }));
 
 export function ChordNamerPage({ settings, update }: { settings: UserSettings; update: (patch: Partial<UserSettings>) => void }) {
+  const { id: instrument } = useInstrument();
+  const Input = instrumentEntry(instrument).Input;
   const input = useNoteInput();
   const key = useMemo(() => parseKey(settings.currentKey) ?? C_MAJOR, [settings.currentKey]);
   const description = useMemo(() => describe(input.held, key), [input.held, key]);
@@ -39,7 +42,7 @@ export function ChordNamerPage({ settings, update }: { settings: UserSettings; u
     <motion.div className={s.page} variants={stagger(0.06)} initial="hidden" animate="show">
       <motion.div className={s.top} variants={fadeUp}>
         <Card className={s.connect}>
-          <MidiPanel midi={input.midi} />
+          <Input />
         </Card>
         <Card className={s.controls}>
           <Select label="Key" data-testid="key-select" value={keyName(key)} groups={KEY_GROUPS} onChange={(e) => update({ currentKey: e.target.value })} />
@@ -49,7 +52,7 @@ export function ChordNamerPage({ settings, update }: { settings: UserSettings; u
               <SegmentedControl label="Note names" value={settings.noteNaming} options={NAMING_OPTIONS} onChange={(v) => update({ noteNaming: v })} />
             </div>
           </div>
-          <Select
+          {instrument === 'piano' && <Select
             label="Keyboard"
             data-testid="size-select"
             value={String(size)}
@@ -58,7 +61,7 @@ export function ChordNamerPage({ settings, update }: { settings: UserSettings; u
               const n = Number(e.target.value) as KeyboardSize;
               update({ keyboardSize: n, lowestNote: KEYBOARD_RANGES[n].low });
             }}
-          />
+          />}
         </Card>
       </motion.div>
 
@@ -72,8 +75,10 @@ export function ChordNamerPage({ settings, update }: { settings: UserSettings; u
         <Card padding="sm">
           <div className={s.boardHead}>
             <p className={`ui-muted ${s.hint}`}>
-              Click keys to add or remove them. Computer keys <Kbd>A</Kbd> to <Kbd>K</Kbd> play from <strong>C{Math.floor(input.computerBase / 12) - 1}</strong>;{' '}
-              <Kbd>Z</Kbd> <Kbd>X</Kbd> change octave.
+              {instrument === 'guitar' ? 'Tap a fret to play it. Tap it again to release that string. Choose another fret on the same string to move the note.' : <>
+                Click keys to add or remove them. Computer keys <Kbd>A</Kbd> to <Kbd>K</Kbd> play from <strong>C{Math.floor(input.computerBase / 12) - 1}</strong>;{' '}
+                <Kbd>Z</Kbd> <Kbd>X</Kbd> change octave.
+              </>}
             </p>
             <div className={s.boardActions}>
               <Button variant="secondary" size="sm" onClick={() => void playChord(input.held)} disabled={input.held.length === 0} data-testid="hear">

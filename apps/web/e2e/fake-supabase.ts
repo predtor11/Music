@@ -11,8 +11,8 @@ export interface FakeCloud {
   users: Map<string, { id: string; password: string; confirmed: boolean }>;
   /** Saved settings by user id, as the identity service stores them. */
   settings: Map<string, Partial<UserSettings>>;
-  /** Authorization header of every /api call, in order. */
-  apiAuth: Array<string | null>;
+  /** Request paths and authorization headers, including public curriculum reads. */
+  apiRequests: Array<{ path: string; authorization: string | null }>;
   /** Bodies of PATCH /api/identity/me/settings. */
   patches: Array<Partial<UserSettings>>;
   /** Make sign-up ask for email confirmation, like a default Supabase project. */
@@ -20,7 +20,7 @@ export interface FakeCloud {
 }
 
 export function fakeCloud(): FakeCloud {
-  return { users: new Map(), settings: new Map(), apiAuth: [], patches: [], confirmEmails: false };
+  return { users: new Map(), settings: new Map(), apiRequests: [], patches: [], confirmEmails: false };
 }
 
 const DEFAULTS: UserSettings = { noteNaming: 'western', keyboardSize: 61, lowestNote: 36, currentKey: 'C', midiInputId: null, theme: 'dark' };
@@ -66,6 +66,8 @@ const json = (route: Route, body: unknown, status = 200) => route.fulfill({ stat
 
 /** Answers Supabase Auth and /api/identity for this page or context. */
 export async function attachCloud(target: Page | BrowserContext, cloud: FakeCloud): Promise<void> {
+  // Auth fixtures exercise returning learners, not first-run instrument selection.
+  await target.addInitScript(() => localStorage.setItem('music.instrument.chosen.v1', '1'));
   await target.route(
     (url) => url.pathname.startsWith('/fake-supabase/auth/v1/'),
     async (route) => {
@@ -103,7 +105,7 @@ export async function attachCloud(target: Page | BrowserContext, cloud: FakeClou
       const req = route.request();
       const path = new URL(req.url()).pathname.replace(/^\/api/, '');
       const auth = req.headers().authorization ?? null;
-      cloud.apiAuth.push(auth);
+      cloud.apiRequests.push({ path, authorization: auth });
       if (!path.startsWith('/identity/')) return route.fallback();
       const id = tokenUser(auth ?? undefined);
       if (!id) return json(route, { message: 'sign in required' }, 401);

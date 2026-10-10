@@ -13,6 +13,8 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:5179',
     trace: 'retain-on-failure',
+    // Existing specs model returning piano learners; picker specs override this.
+    storageState: { cookies: [], origins: [{ origin: 'http://localhost:5179', localStorage: [{ name: 'music.instrument.chosen.v1', value: '1' }] }] },
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], ...(executablePath ? { launchOptions: { executablePath } } : {}) } }],
   webServer: {
