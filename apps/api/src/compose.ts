@@ -121,7 +121,7 @@ export async function createApi(options: ApiOptions = {}) {
     async units() {
       if (!unitList) {
         const units = UnitListSchema.parse(await get(curriculum, '/units'));
-        unitList = units.map(({ id, order, lessonIds }) => ({ id, order, lessonIds }));
+        unitList = units.map(({ id, instrument, order, lessonIds }) => ({ id, instrument, order, lessonIds }));
       }
       return unitList;
     },

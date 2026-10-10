@@ -39,6 +39,15 @@ describe('serverless api', () => {
     expect((await call('GET', '/api/theory/health')).status).toBe(200);
   });
 
+  it('opens the first unit of each instrument from the start', async () => {
+    const piano = (await call('GET', '/api/progress')).json;
+    expect(piano.units[0].unlocked).toBe(true);
+    const guitar = (await call('GET', '/api/progress?instrument=guitar')).json;
+    expect(guitar.units.map((u: any) => u.unitId)).toEqual(['guitar-1']);
+    expect(guitar.units[0].unlocked).toBe(true);
+    expect(guitar.units[0].lessons[0].status).toBe('available');
+  });
+
   it('records a lesson, scores it into progress, and is safe to repeat', async () => {
     const lessonId = (await call('GET', '/api/curriculum/units')).json[0].lessonIds[0] as string;
     const lesson = (await call('GET', `/api/curriculum/lessons/${lessonId}`)).json;

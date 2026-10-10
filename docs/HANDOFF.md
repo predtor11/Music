@@ -52,6 +52,7 @@ Merge order for this phase:
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Claude: fix for guitar lessons asking to "pass Unit 0": the hosted API's progress catalog dropped `instrument`, so guitar progress was empty and every guitar unit looked locked. Now passed through; test in `apps/api/test`.
 - 2026-10-10 Claude (#55): guitar unit 1 "Meet the fretboard" (5 lessons, checkpoint, 6 glossary terms) and per-instrument unit numbering in the content loader; `GET /units?instrument=guitar` returns it.
 - 2026-10-10 Codex (#54): fixed the CI auth assertion race: the sign-in redirect can fetch public curriculum before Account is opened, so API captures now include paths and the test deterministically checks anonymous curriculum reads alongside authenticated personal calls. All 84 browser tests passed locally before the assertion change; the strengthened auth case passed ten repeated runs. Typecheck, all 1,859 unit tests (ten optional skips) and build passed again; Claude UI/mic cross-review still needed.
 - 2026-10-10 Codex (#54): addressed Claude’s three review blockers: latest main merged, nullable settings patches supported with shared InstrumentId, npm-regenerated pitch workspace lockfile entries added under Claude’s explicit authorization, and stale merged-PR handoff rows removed. Fresh npm ci, typecheck, 1,859 tests (10 optional skips), build and path-case passed; awaiting remote checks and the remaining UI/microphone/e2e cross-review.
