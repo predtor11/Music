@@ -84,3 +84,12 @@ describe('recordings', () => {
     expect(CreateRecordingSchema.safeParse({ title: 'Jam', take, corrections: [{ atMs: 1, rootPc: 0, quality: 'power' }] }).success).toBe(false);
   });
 });
+
+describe('guitar contracts', () => {
+  it('accepts a standard tuning and a muted-string chord shape', async () => {
+    const { GuitarTuningSchema, ChordShapeSchema, FretPositionSchema } = await import('../src/index.js');
+    expect(GuitarTuningSchema.parse({ id: 'standard', name: 'Standard', strings: [40, 45, 50, 55, 59, 64] }).strings).toHaveLength(6);
+    expect(ChordShapeSchema.parse({ name: 'A', frets: [null, 0, 2, 2, 2, 0], fingers: [null, null, 1, 2, 3, null], baseFret: 1 }).name).toBe('A');
+    expect(() => FretPositionSchema.parse({ string: 0, fret: 0 })).toThrow();
+  });
+});
