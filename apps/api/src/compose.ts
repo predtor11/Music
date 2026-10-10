@@ -103,7 +103,7 @@ export async function createApi(options: ApiOptions = {}) {
   const pool = { max: 1, migrate };
 
   const curriculum = buildCurriculum({ logger: options.logger, contentDir: options.contentDir });
-  const theory = buildTheory();
+  const theory = buildTheory({ logger: options.logger });
 
   const profileStore = dbUrl ? await PostgresProfileStore.connect(dbUrl, pool) : new InMemoryProfileStore();
   const identity = buildIdentity({ logger: options.logger, store: profileStore, bus });
