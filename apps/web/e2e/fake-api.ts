@@ -53,6 +53,8 @@ export interface FakeApi {
   attempts: Array<Record<string, unknown>>;
   sessions: Array<Record<string, unknown>>;
   ended: string[];
+  /** While true every /api call fails like a dropped connection. Playwright's setOffline doesn't stop routed requests, so tests flip this too. */
+  offline: boolean;
 }
 
 /** The session id in /practice/sessions/:id/next-item, or null for any other path. */
@@ -65,7 +67,7 @@ const USER_ID = '00000000-0000-4000-8000-000000000001';
 
 /** Answers /api like the gateway would, and records what the app sends. */
 export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsSignIn = false, signedIn = false } = {}): Promise<FakeApi> {
-  const api: FakeApi = { attempts: [], sessions: [], ended: [] };
+  const api: FakeApi = { attempts: [], sessions: [], ended: [], offline: false };
   const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
   const session = (kind: string, refId?: string, id = SESSION_ID) => ({ id, userId: USER_ID, kind, refId: refId ?? null, startedAt: new Date().toISOString(), endedAt: null });
 
@@ -73,6 +75,7 @@ export async function fakeApi(page: Page, { practiceDown = false, practiceNeedsS
     const url = new URL(route.request().url());
     const path = url.pathname.replace(/^\/api/, '');
     const method = route.request().method();
+    if (api.offline) return route.abort('internetdisconnected');
 
     if (path === '/curriculum/units') return json(route, [{ ...UNIT, checkpoint: undefined }]);
     if (path === `/curriculum/units/${UNIT.id}`) return json(route, UNIT);

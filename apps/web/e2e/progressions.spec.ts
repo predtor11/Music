@@ -32,7 +32,7 @@ const LESSON: Lesson = {
 };
 
 test('plays 1-5-6-4 in G on the virtual keyboard and with MIDI, explains a wrong chord, and saves attempts', async ({ page, midi }) => {
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.route('**/api/curriculum/lessons/prog-l1', (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify(LESSON) }));
   await page.goto(`/#/lesson/${LESSON.id}`);
   await page.getByTestId('header-connect').click();
