@@ -1,0 +1,125 @@
+{
+  "id": "guitar-1",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Meet the fretboard",
+  "summary": "Start from nothing: strings, frets, the six open strings, counting frets and finding the same note in different places.",
+  "outcome": "You can name every open string and find any note on the fretboard up to the twelfth fret.",
+  "lessonIds": [
+    "g1-l1",
+    "g1-l2",
+    "g1-l3",
+    "g1-l4",
+    "g1-l5"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "find-note",
+        "id": "g1-cp-1",
+        "prompt": "Play G3, the open G string.",
+        "midi": 55
+      },
+      {
+        "kind": "find-note",
+        "id": "g1-cp-2",
+        "prompt": "Play B3, the open B string.",
+        "midi": 59
+      },
+      {
+        "kind": "name-it",
+        "id": "g1-cp-3",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          45
+        ],
+        "choices": [
+          "A",
+          "D",
+          "E",
+          "G"
+        ],
+        "answer": "A"
+      },
+      {
+        "kind": "name-it",
+        "id": "g1-cp-4",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          47
+        ],
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "answer": "B"
+      },
+      {
+        "kind": "find-note",
+        "id": "g1-cp-5",
+        "prompt": "Play D3.",
+        "midi": 50
+      },
+      {
+        "kind": "find-note",
+        "id": "g1-cp-6",
+        "prompt": "Play E4.",
+        "midi": 64
+      },
+      {
+        "kind": "name-it",
+        "id": "g1-cp-7",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          52
+        ],
+        "choices": [
+          "E",
+          "A",
+          "D",
+          "G"
+        ],
+        "answer": "E"
+      },
+      {
+        "kind": "find-note",
+        "id": "g1-cp-8",
+        "prompt": "Play any A.",
+        "pc": 9
+      },
+      {
+        "kind": "name-it",
+        "id": "g1-cp-9",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          57
+        ],
+        "choices": [
+          "A",
+          "B",
+          "E",
+          "G"
+        ],
+        "answer": "A"
+      },
+      {
+        "kind": "name-it",
+        "id": "g1-cp-10",
+        "prompt": "Which note is lit?",
+        "shownMidi": [
+          60
+        ],
+        "choices": [
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "answer": "C"
+      }
+    ]
+  }
+}

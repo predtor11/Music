@@ -1,0 +1,140 @@
+{
+  "id": "g1-l2",
+  "unitId": "guitar-1",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "Naming the open strings",
+  "summary": "The six open strings are E, A, D, G, B and E, from thickest to thinnest.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "What tuning means",
+      "body": "**Tuning** is the set of notes your open strings are set to. Turning a tuning peg tightens or loosens a string, which raises or lowers its note.\n\n**Why it matters:** Chords and scales only sound right when the strings are in tune. If your band says \"tune up\", they mean get every open string to its right note.",
+      "exampleMidi": [
+        40,
+        45,
+        50,
+        55,
+        59,
+        64
+      ],
+      "labels": {
+        "40": "E",
+        "45": "A",
+        "50": "D",
+        "55": "G",
+        "59": "B",
+        "64": "E"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Standard tuning",
+      "body": "Most guitars use **standard tuning**. From the thickest string to the thinnest, the open strings are E, A, D, G, B and E. A handy way to remember them: Eddie Ate Dynamite, Good Bye Eddie.\n\n**Why it matters:** Nearly all songs and lessons assume standard tuning, so these six names are what you will use every day.",
+      "exampleMidi": [
+        40,
+        45,
+        50,
+        55,
+        59,
+        64
+      ],
+      "labels": {
+        "40": "E",
+        "45": "A",
+        "50": "D",
+        "55": "G",
+        "59": "B",
+        "64": "E"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Both E strings",
+      "body": "The thickest and the thinnest strings are both E. They sound the same letter, two octaves apart.",
+      "highlightMidi": [
+        40,
+        64
+      ],
+      "labels": {
+        "40": "E (low)",
+        "64": "E (high)"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l2-p1",
+          "prompt": "Play the lit note. It is the open A string.",
+          "showKeys": true,
+          "midi": 45
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l2-p2",
+          "prompt": "Play the lit note. It is the open G string.",
+          "showKeys": true,
+          "midi": 55
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l2-p3",
+          "prompt": "Play the lit note. It is the open B string.",
+          "showKeys": true,
+          "midi": 59
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Say it as you play",
+      "body": "Pluck each open string and say its name out loud: E, A, D, G, B, E."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g1-l2-q1",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            50
+          ],
+          "choices": [
+            "D",
+            "G",
+            "B",
+            "E"
+          ],
+          "answer": "D"
+        },
+        {
+          "kind": "name-it",
+          "id": "g1-l2-q2",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            59
+          ],
+          "choices": [
+            "A",
+            "B",
+            "D",
+            "G"
+          ],
+          "answer": "B"
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l2-q3",
+          "prompt": "Play A2, the open A string.",
+          "midi": 45
+        }
+      ]
+    }
+  ]
+}

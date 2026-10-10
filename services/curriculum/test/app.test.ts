@@ -14,14 +14,14 @@ describe('curriculum service', () => {
     const res = await app.inject({ url: '/units' });
     expect(res.statusCode).toBe(200);
     const units = UnitListSchema.parse(res.json());
-    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8']);
+    expect(units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']);
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
   it('filters units by instrument; content without an instrument is piano', async () => {
     const piano = UnitListSchema.parse((await app.inject({ url: '/units?instrument=piano' })).json());
     expect(piano).toHaveLength(8);
-    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json())).toEqual([]);
+    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json()).map((u) => u.id)).toEqual(['guitar-1']);
     expect((await app.inject({ url: '/units?instrument=kazoo' })).statusCode).toBe(400);
   });
 
@@ -34,7 +34,7 @@ describe('curriculum service', () => {
   });
 
   it('returns every lesson a unit lists', async () => {
-    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8']) {
+    for (const unitId of ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-1']) {
       const unit = UnitSchema.parse((await app.inject({ url: `/units/${unitId}` })).json());
       for (const id of unit.lessonIds) {
         const res = await app.inject({ url: `/lessons/${id}` });
@@ -100,5 +100,16 @@ describe('content loading', () => {
   it('refuses repeated test item ids', () => {
     const item = unit.checkpoint.items[0];
     expect(() => loadCurriculum(contentDir({ ...unit, checkpoint: { items: [item, item] } }, [lesson]))).toThrow(/i1 appears twice/);
+  });
+
+  it('numbers units on their own for each instrument, and keeps a lesson with its unit instrument', () => {
+    const dir = contentDir(unit, [lesson]);
+    const guitarUnit = { ...unit, id: 'g', instrument: 'guitar', lessonIds: ['gl1'], checkpoint: { items: [{ ...unit.checkpoint.items[0], id: 'i2' }] } };
+    writeFileSync(join(dir, 'units', 'g.json'), JSON.stringify(guitarUnit));
+    const guitarLesson = { ...lesson, id: 'gl1', unitId: 'g', instrument: 'guitar' };
+    writeFileSync(join(dir, 'lessons', 'g.json'), JSON.stringify(guitarLesson));
+    expect(loadCurriculum(dir).units.map((u) => u.id)).toEqual(['u', 'g']);
+    writeFileSync(join(dir, 'lessons', 'g.json'), JSON.stringify({ ...guitarLesson, instrument: 'piano' }));
+    expect(() => loadCurriculum(dir)).toThrow(/lesson gl1 is for piano, but unit g is for guitar/);
   });
 });

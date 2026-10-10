@@ -46,12 +46,13 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Claude | claude/phase9-instrument-foundation | Instrument foundation: `InstrumentId`, settings, curriculum filter, per-instrument attempts and progress (see docs/INSTRUMENTS.md) | `packages/contracts/**`, `services/{curriculum,practice,progress}/**`, `docs/INSTRUMENTS.md` |
+| Claude | claude/phase9-guitar-unit-1 | Guitar unit 1 "Meet the fretboard" (5 lessons, checkpoint, glossary) and per-instrument unit numbering in the content loader | `services/curriculum/**`, `docs/GUITAR.md` |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Claude: instrument foundation merged (#53); migration `003_instrument.sql` applied to Supabase.
 - 2026-10-10 Claude: guitar contracts and theory functions merged (#51), see docs/GUITAR.md.
 - 2026-10-10 Claude: instrument foundation (settings, curriculum filter, per-instrument attempts and progress); see docs/INSTRUMENTS.md. Codex: `UserSettings.instrument`, `Attempt.instrument` (send it with every attempt) and `?instrument=` on curriculum and progress calls are now available.
 - 2026-10-10 Claude: guitar contracts and theory functions (tunings, fret maths, open chord shapes, grading) added; see docs/GUITAR.md.

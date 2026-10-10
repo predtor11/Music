@@ -2359,5 +2359,123 @@
     "labels": {
       "60": "middle C: one ledger line"
     }
+  },
+  {
+    "id": "string",
+    "term": "string",
+    "aliases": [],
+    "meaning": "One of the six wires on a guitar. Each string makes one note when you pluck it.",
+    "whyItMatters": "Every instruction on guitar starts with a string: \"play it on the A string\".",
+    "lessonId": "g1-l1",
+    "exampleMidi": [
+      40,
+      64
+    ],
+    "labels": {
+      "40": "thickest",
+      "64": "thinnest"
+    }
+  },
+  {
+    "id": "fretboard",
+    "term": "fretboard",
+    "aliases": [],
+    "meaning": "The long neck of the guitar, where you press the strings to change notes.",
+    "whyItMatters": "The fretboard is the map of every note you can play.",
+    "lessonId": "g1-l1",
+    "exampleMidi": [
+      40,
+      41,
+      42
+    ],
+    "labels": {
+      "40": "no finger",
+      "41": "fret 1",
+      "42": "fret 2"
+    }
+  },
+  {
+    "id": "fret",
+    "term": "fret",
+    "aliases": [],
+    "meaning": "A thin metal bar across the fretboard. Pressing a string just behind a fret makes the note higher.",
+    "whyItMatters": "\"Third fret\" tells you exactly where to put your finger.",
+    "lessonId": "g1-l1",
+    "exampleMidi": [
+      40,
+      41,
+      42
+    ],
+    "labels": {
+      "40": "no finger",
+      "41": "fret 1",
+      "42": "fret 2"
+    }
+  },
+  {
+    "id": "open-string",
+    "term": "open string",
+    "aliases": [],
+    "meaning": "A string played with no finger pressing it.",
+    "whyItMatters": "Open strings are your starting points; every other note on the string is counted from them.",
+    "lessonId": "g1-l1",
+    "exampleMidi": [
+      40,
+      45,
+      50
+    ],
+    "labels": {
+      "40": "open",
+      "45": "open",
+      "50": "open"
+    }
+  },
+  {
+    "id": "tuning",
+    "term": "tuning",
+    "aliases": [],
+    "meaning": "The set of notes your open strings are set to.",
+    "whyItMatters": "Chords and scales only sound right when the strings are in tune.",
+    "lessonId": "g1-l2",
+    "exampleMidi": [
+      40,
+      45,
+      50,
+      55,
+      59,
+      64
+    ],
+    "labels": {
+      "40": "E",
+      "45": "A",
+      "50": "D",
+      "55": "G",
+      "59": "B",
+      "64": "E"
+    }
+  },
+  {
+    "id": "standard-tuning",
+    "term": "standard tuning",
+    "aliases": [],
+    "meaning": "The usual guitar tuning: E, A, D, G, B, E from the thickest string to the thinnest.",
+    "whyItMatters": "Nearly all songs and lessons assume standard tuning.",
+    "lessonId": "g1-l2",
+    "exampleMidi": [
+      40,
+      45,
+      50,
+      55,
+      59,
+      64
+    ],
+    "labels": {
+      "40": "E",
+      "45": "A",
+      "50": "D",
+      "55": "G",
+      "59": "B",
+      "64": "E"
+    }
   }
 ]

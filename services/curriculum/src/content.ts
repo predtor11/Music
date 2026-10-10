@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LessonSchema, UnitSchema, type Lesson, type TestItem, type Unit } from '@music/contracts';
+import { INSTRUMENTS, LessonSchema, UnitSchema, instrumentOf, type Lesson, type TestItem, type Unit } from '@music/contracts';
 import type { z } from 'zod';
 import { GlossarySchema, type GlossaryTerm } from './glossary.js';
 
@@ -72,15 +72,25 @@ export function unitItems(unit: Unit, lessonsById: Map<string, Lesson>): TestIte
  */
 export function loadCurriculum(dir: string = DEFAULT_CONTENT_DIR): Curriculum {
   const problems: string[] = [];
-  const units = readAll(join(dir, 'units'), dir, UnitSchema, problems).sort((a, b) => a.order - b.order);
+  // Piano first, then the other instruments; each instrument's units are numbered 1, 2, 3 on their own.
+  const units = readAll(join(dir, 'units'), dir, UnitSchema, problems).sort(
+    (a, b) => INSTRUMENTS.indexOf(instrumentOf(a)) - INSTRUMENTS.indexOf(instrumentOf(b)) || a.order - b.order,
+  );
   const lessons = readAll(join(dir, 'lessons'), dir, LessonSchema, problems);
 
   const unitsById = new Map<string, Unit>();
-  units.forEach((unit, i) => {
+  const unitsPerInstrument = new Map<string, number>();
+  for (const unit of units) {
     if (unitsById.has(unit.id)) problems.push(`unit ${unit.id} appears twice`);
     unitsById.set(unit.id, unit);
-    if (unit.order !== i + 1) problems.push(`unit ${unit.id} has order ${unit.order}, expected ${i + 1}`);
-  });
+    const count = (unitsPerInstrument.get(instrumentOf(unit)) ?? 0) + 1;
+    unitsPerInstrument.set(instrumentOf(unit), count);
+    if (unit.order !== count) problems.push(`unit ${unit.id} has order ${unit.order}, expected ${count}`);
+  }
+  for (const lesson of lessons) {
+    const unit = unitsById.get(lesson.unitId);
+    if (unit && instrumentOf(lesson) !== instrumentOf(unit)) problems.push(`lesson ${lesson.id} is for ${instrumentOf(lesson)}, but unit ${unit.id} is for ${instrumentOf(unit)}`);
+  }
 
   const lessonsById = new Map<string, Lesson>();
   for (const lesson of lessons) {
