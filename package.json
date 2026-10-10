@@ -13,7 +13,10 @@
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "e2e": "npm run e2e -w @music/web"
+    "e2e": "npm run e2e -w @music/web",
+    "build:vercel": "npm run bundle -w @music/api",
+    "api": "npm run start -w @music/api",
+    "migrate": "npm run migrate -w @music/api"
   },
   "engines": {
     "node": ">=20.19"

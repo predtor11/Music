@@ -1,6 +1,6 @@
 import type { Lesson, Progress, SkillScore, TestItem } from '@music/contracts';
 import type { Page, Route } from '@playwright/test';
-import { fakeApi, LESSON, SESSION_ID, UNIT } from './fake-api.js';
+import { fakeApi, LESSON, nextItemSessionId, UNIT } from './fake-api.js';
 import { expect, test } from './fake-midi.js';
 
 const USER_ID = '00000000-0000-4000-8000-000000000001';
@@ -28,7 +28,7 @@ const json = (route: Route, body: unknown, status = 200) => route.fulfill({ stat
 
 /** Two units and three lessons, with progress and the review queue answered as given. */
 async function course(page: Page, state: { progress: () => Progress; queue?: SkillScore[]; reviewItems?: TestItem[] }) {
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   // Registered after fakeApi, so these win for the paths they handle.
   await page.route((url) => url.pathname.startsWith('/api/'), async (route) => {
     const path = new URL(route.request().url()).pathname.replace(/^\/api/, '');
@@ -37,7 +37,7 @@ async function course(page: Page, state: { progress: () => Progress; queue?: Ski
     if (path === `/curriculum/lessons/${LESSON3.id}`) return json(route, LESSON3);
     if (path === '/progress/') return json(route, state.progress());
     if (path === '/progress/review-queue') return json(route, state.queue ?? []);
-    if (path === `/practice/sessions/${SESSION_ID}/next-item` && api.sessions.at(-1)?.kind === 'review') {
+    if (nextItemSessionId(path) && api.sessions.at(-1)?.kind === 'review') {
       const answered = new Set(api.attempts.map((a) => a.itemId));
       return json(route, (state.reviewItems ?? []).find((i) => !answered.has(i.id)) ?? null);
     }
@@ -137,7 +137,7 @@ test('review serves the weak-skill items and records each attempt', async ({ pag
 
   await expect(page.getByTestId('summary')).toBeVisible();
   await expect(page.getByTestId('passed')).toHaveCount(0);
-  expect(api.sessions).toEqual([{ kind: 'review' }]);
+  expect(api.sessions).toEqual([{ id: expect.any(String), kind: 'review' }]);
   expect(api.attempts.map((a) => [a.itemId, a.skill, a.correct])).toEqual([
     ['r1', 'interval:m2', true],
     ['r2', 'note:D', true],

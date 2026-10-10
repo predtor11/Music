@@ -3,6 +3,10 @@
  * then a small server for the web app on WEB_PORT. Reports
  * `{ type: 'ready' }` or `{ type: 'error' }` to the window process.
  *
+ * With MUSIC_API_URL set (the hosted site's address) nothing runs locally: the
+ * web app is served and /api is forwarded to the hosted API, signing in with
+ * the public Supabase settings. See remote.ts.
+ *
  * Settings come from the .env in the app's data folder (the working directory).
  * Without SUPABASE_DB_URL the services keep data in memory and the event
  * journal brings progress back after a restart; without the Supabase sign-in
@@ -10,6 +14,7 @@
  */
 import { join } from 'node:path';
 import { setDefaultEventBus } from '@music/service-kit';
+import { parseApiUrl, publicConfig } from './remote.js';
 import { JournalEventBus } from './journal-bus.js';
 import { SERVICE_PORTS, WEB_PORT, type DesktopService } from './ports.js';
 import { createStaticServer } from './static-server.js';
@@ -32,11 +37,8 @@ const SERVICES: Array<[DesktopService, () => Promise<unknown>]> = [
   ['gateway', () => import('../../../services/gateway/src/main.js')],
 ];
 
-async function main(): Promise<void> {
-  const dataDir = process.env.MUSIC_DATA_DIR ?? process.cwd();
-  const webDir = process.env.MUSIC_WEB_DIR;
-  if (!webDir) throw new Error('MUSIC_WEB_DIR is not set');
-
+/** Local mode: every service in this process, progress kept in memory plus the event journal. */
+async function startLocalServices(dataDir: string): Promise<number> {
   process.env.HOST = '127.0.0.1';
   for (const [name, port] of Object.entries(SERVICE_PORTS)) process.env[`${name.toUpperCase()}_URL`] = `http://127.0.0.1:${port}`;
   // One process, one shared bus: Redis is never needed here.
@@ -52,15 +54,21 @@ async function main(): Promise<void> {
   }
   delete process.env.PORT;
 
-  const journalled = await bus.replay();
+  return bus.replay();
+}
+
+async function main(): Promise<void> {
+  const dataDir = process.env.MUSIC_DATA_DIR ?? process.cwd();
+  const webDir = process.env.MUSIC_WEB_DIR;
+  if (!webDir) throw new Error('MUSIC_WEB_DIR is not set');
+
+  const apiUrl = parseApiUrl(process.env.MUSIC_API_URL);
+  const journalled = apiUrl ? 0 : await startLocalServices(dataDir);
 
   const server = createStaticServer({
     webDir,
-    gatewayPort: SERVICE_PORTS.gateway,
-    config: {
-      supabaseUrl: process.env.VITE_SUPABASE_URL ?? '',
-      supabaseAnonKey: process.env.VITE_SUPABASE_ANON_KEY ?? '',
-    },
+    ...(apiUrl ? { apiUrl } : { gatewayPort: SERVICE_PORTS.gateway }),
+    config: publicConfig(process.env),
   });
   await new Promise<void>((resolve, reject) => {
     server.once('error', reject);

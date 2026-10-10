@@ -31,7 +31,7 @@ test('lists the ear levels and opens one', async ({ page, midi }) => {
 
 test('chords in a key: home, then the mystery chord; a miss is named by number, then the answer is shown', async ({ page, midi }) => {
   const sound = await setup(page);
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.goto('/#/ear/one-four-five');
   await page.getByTestId('header-connect').click();
 
@@ -116,7 +116,7 @@ test('a full round of major or minor ends with a score that shows on the level l
 
 test('what key: a note from the key gets a hint, home names the key and shows its scale', async ({ page, midi }) => {
   const sound = await setup(page);
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.goto('/#/ear/key-chords');
   await page.getByTestId('header-connect').click();
   await expect.poll(async () => (await sound.played()).length).toBeGreaterThanOrEqual(4);

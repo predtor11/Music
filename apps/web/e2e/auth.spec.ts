@@ -154,5 +154,6 @@ test('finishing a lesson still shows the score when saving gets stuck', async ({
   await page.getByTestId('finish').click();
   await expect(page.getByTestId('summary')).toBeVisible({ timeout: 10_000 });
   await expect(page.getByTestId('summary-offline')).toBeVisible();
-  expect(api.ended).toHaveLength(1);
+  // The end waits in the outbox behind the answer that never got through, so the order is kept.
+  expect(api.ended).toHaveLength(0);
 });

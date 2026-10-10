@@ -7,6 +7,7 @@
 import type { Session } from '@supabase/supabase-js';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { setTokenSource } from '../api/client.js';
+import { setIdentity } from '../offline/runtime.js';
 import { friendlyAuthError } from './messages.js';
 import { supabase } from './supabase.js';
 
@@ -86,6 +87,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut({ scope: 'local' });
     setSession(null);
   }, []);
+
+  // Tell the offline outbox who is here: practice saved while signed out is sent once someone signs in.
+  const userId = session?.user.id ?? null;
+  useEffect(() => {
+    if (supabase && !ready) return;
+    setIdentity(!supabase ? { userId: 'local', canSync: true } : userId ? { userId, canSync: true } : { userId: null, canSync: false });
+  }, [ready, userId]);
 
   const value = useMemo<AuthValue>(
     () => ({

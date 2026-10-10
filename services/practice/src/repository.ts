@@ -16,7 +16,8 @@ export interface PracticeRepository {
   getSession(id: string): Promise<SessionRecord | null>;
   /** Marks the session ended. Returns false when it had already ended, so callers publish once. */
   endSession(id: string, endedAt: string, passed: boolean | null): Promise<boolean>;
-  addAttempt(attempt: StoredAttempt): Promise<void>;
+  /** Stores the attempt. Returns false when an attempt with this id already exists (nothing is changed). */
+  addAttempt(attempt: StoredAttempt): Promise<boolean>;
   /** Attempts for a session, oldest first. */
   listAttempts(sessionId: string): Promise<StoredAttempt[]>;
   close(): Promise<void>;
@@ -43,8 +44,10 @@ export class InMemoryPracticeRepository implements PracticeRepository {
     return true;
   }
 
-  async addAttempt(attempt: StoredAttempt): Promise<void> {
+  async addAttempt(attempt: StoredAttempt): Promise<boolean> {
+    if (this.attempts.some((a) => a.id === attempt.id)) return false;
     this.attempts.push(structuredClone(attempt));
+    return true;
   }
 
   async listAttempts(sessionId: string): Promise<StoredAttempt[]> {

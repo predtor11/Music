@@ -45,9 +45,9 @@ const toRecording = (row: FullRow): Recording => ({
 export class PostgresRecordingStore implements RecordingStore {
   private constructor(private readonly sql: postgres.Sql) {}
 
-  static async connect(url: string): Promise<PostgresRecordingStore> {
-    const sql = postgres(url, { onnotice: () => {} });
-    await migrate(sql);
+  static async connect(url: string, options: { migrate?: boolean; max?: number } = {}): Promise<PostgresRecordingStore> {
+    const sql = postgres(url, { prepare: false, onnotice: () => {}, ...(options.max ? { max: options.max } : {}) });
+    if (options.migrate !== false) await migrate(sql);
     return new PostgresRecordingStore(sql);
   }
 

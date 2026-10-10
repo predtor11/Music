@@ -20,9 +20,22 @@ const dataDir = app.getPath('userData');
 const settingsFile = join(dataDir, '.env');
 const logDir = join(dataDir, 'logs');
 
+let firstRun = false;
+
+const ONLINE_HELP =
+  'To sign in and share progress with the web version, open the settings file, set MUSIC_API_URL to the hosted site\'s address (for example https://your-site.vercel.app), add the two public sign-in values (VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY), then use File > Restart.\n\nNo secret keys are needed. Left empty, the app keeps working on its own on this computer.';
+
+function showOnlineHelp(): void {
+  void dialog
+    .showMessageBox({ type: 'info', title: 'Use your online account', message: 'Use your online account', detail: ONLINE_HELP, buttons: ['Open Settings File', 'Close'], defaultId: 0, cancelId: 1 })
+    .then((r) => {
+      if (r.response === 0) void shell.openPath(settingsFile);
+    });
+}
+
 function startServices(): Promise<string> {
   mkdirSync(logDir, { recursive: true });
-  ensureSettingsFile(settingsFile);
+  firstRun = ensureSettingsFile(settingsFile);
   const log = createWriteStream(join(logDir, 'services.log'), { flags: 'w' });
 
   const child = utilityProcess.fork(join(__dirname, 'server', 'server.mjs'), [], {
@@ -71,6 +84,7 @@ function buildMenu(): void {
       {
         label: 'File',
         submenu: [
+          { label: 'Use Online Account...', click: showOnlineHelp },
           { label: 'Open Settings File', click: () => void shell.openPath(settingsFile) },
           { label: 'Open Data Folder', click: () => void shell.openPath(dataDir) },
           { label: 'Restart', click: () => { app.relaunch(); app.quit(); } },
@@ -150,6 +164,7 @@ if (!app.requestSingleInstanceLock()) {
     buildMenu();
     try {
       openWindow(await startServices());
+      if (firstRun) window?.once('ready-to-show', showOnlineHelp);
     } catch (error) {
       dialog.showErrorBox(
         'Music Theory Trainer could not start',

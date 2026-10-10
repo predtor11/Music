@@ -42,7 +42,7 @@ const key = (page: Page, note: number) => page.locator(`[data-testid="piano"] [d
 
 test('by-ear questions play the answer first and keep it hidden', async ({ page, midi }) => {
   const sound = await stubSound(page);
-  const api = await fakeApi(page);
+  const api = await fakeApi(page, { signedIn: true });
   await page.route('**/api/curriculum/lessons/ear-l1', (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify(EAR) }));
   await page.goto('/#/lesson/ear-l1');
   await page.getByTestId('header-connect').click();

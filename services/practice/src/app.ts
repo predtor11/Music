@@ -114,8 +114,17 @@ export function buildApp(deps: PracticeDeps) {
       items = await reviewItems(userId);
     }
 
+    if (body.id) {
+      // Same id again (a retry or an offline sync): hand back the first session.
+      const existing = await repo.getSession(body.id);
+      if (existing) {
+        if (existing.userId !== userId) throw httpError(409, 'session id already in use');
+        return toSession(existing);
+      }
+    }
+
     const record: SessionRecord = {
-      id: randomUUID(),
+      id: body.id ?? randomUUID(),
       userId,
       kind: body.kind,
       refId: body.refId ?? null,
@@ -150,13 +159,18 @@ export function buildApp(deps: PracticeDeps) {
     const userId = requireUserId(req);
     const attempt = AttemptSchema.parse(req.body);
     const session = await ownSession(attempt.sessionId, userId);
-    if (session.endedAt) throw httpError(409, 'session has ended');
+    const stored: StoredAttempt = { ...attempt, id: attempt.id ?? randomUUID(), userId };
+    if (session.endedAt) {
+      // A retry of an attempt that was saved before the session ended is not an error.
+      if (attempt.id && (await repo.listAttempts(session.id)).some((a) => a.id === attempt.id)) return reply.status(200).send(stored);
+      throw httpError(409, 'session has ended');
+    }
     if (session.items.length > 0 && !session.items.some((item) => item.id === attempt.itemId)) {
       throw httpError(400, `item ${attempt.itemId} is not part of this session`);
     }
 
-    const stored: StoredAttempt = { ...attempt, id: randomUUID(), userId };
-    await repo.addAttempt(stored);
+    // Saved once per id: a repeat (retry, offline sync) answers 200 and publishes nothing.
+    if (!(await repo.addAttempt(stored))) return reply.status(200).send(stored);
     const event: AttemptRecordedEvent = {
       id: randomUUID(),
       type: 'attempt.recorded',

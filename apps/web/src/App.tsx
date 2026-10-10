@@ -11,6 +11,7 @@ import { useKeySound } from './audio/useKeySound.js';
 import { useAuth } from './auth/AuthProvider.js';
 import authStyles from './auth/auth.module.css';
 import { NoteInputProvider, useNoteInput } from './input/NoteInput.js';
+import { SyncChip } from './offline/SyncChip.js';
 import { BandTalkPage } from './pages/BandTalkPage.js';
 import { ChartEditPage } from './pages/ChartEditPage.js';
 import { ChartImportPage, ChartPage } from './pages/ChartPage.js';
@@ -211,6 +212,7 @@ export function App() {
             ))}
           </nav>
           <div className={s.tools}>
+            <SyncChip />
             <MidiStatus />
             <Button variant="ghost" size="sm" onClick={() => update({ theme: THEME_NEXT[settings.theme] })} data-testid="theme">
               Theme: {THEME_LABEL[settings.theme]}
