@@ -94,6 +94,7 @@ Merge order for this phase:
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Claude (security review, PRs #59 headers, #60 API hardening, #61 input bounds, plus CI permissions and local bind): see `docs/SECURITY.md`. For Codex: services now listen on 127.0.0.1 unless `HOST` is set; attempt arrays and strings are capped (`expected` 128, `played` 512, `skill` 100, `timeMs` one day); a new external host (script, sounds, API) must be added to `CSP` in `apps/api/build.mjs` or the browser will block it.
 - 2026-10-10 Codex (Phase 9b task 1): verified #56 is merged. Lock badges now use the preceding displayed unit of the same instrument and omit the badge for the first unit, even with stale progress; no arithmetic fallback to a nonexistent unit. Added guitar e2e coverage using the real per-instrument progress computation, a mixed catalog, non-consecutive unit orders and stale piano progress. Validation: root typecheck, unit tests, build and path-case passed; all 17 targeted instrument/unlock browser checks passed, including the existing piano regressions.
 - 2026-10-10 Claude: fix for guitar lessons asking to "pass Unit 0": the hosted API's progress catalog dropped `instrument`, so guitar progress was empty and every guitar unit looked locked. Now passed through; test in `apps/api/test`.
 - 2026-10-10 Claude (#55): guitar unit 1 "Meet the fretboard" (5 lessons, checkpoint, 6 glossary terms) and per-instrument unit numbering in the content loader; `GET /units?instrument=guitar` returns it.

@@ -28,8 +28,17 @@ export function servicePort(name: ServiceName): number {
   return Number(process.env.PORT ?? SERVICES[name].port);
 }
 
+/**
+ * Services trust the x-user-id header the gateway sets, so locally they listen on
+ * this computer only. A host such as Railway needs 0.0.0.0 to be reachable at all;
+ * set HOST there (or run on a platform that sets RAILWAY_ENVIRONMENT).
+ */
+export function listenHost(env: NodeJS.ProcessEnv = process.env): string {
+  return env.HOST ?? (env.RAILWAY_ENVIRONMENT ? '0.0.0.0' : '127.0.0.1');
+}
+
 export async function startService(app: FastifyInstance, name: ServiceName): Promise<void> {
-  await app.listen({ port: servicePort(name), host: process.env.HOST ?? '0.0.0.0' });
+  await app.listen({ port: servicePort(name), host: listenHost() });
 }
 
 /** The signed-in user's id, set by the gateway after it checks the login. */
