@@ -34,6 +34,7 @@ describe('progress format', () => {
     expect(skillLabel('interval:M3')).toBe('Intervals: major 3rd');
     expect(skillLabel('interval:P11')).toBe('Intervals: perfect 11th');
     expect(skillLabel('note:F#')).toBe('Note names: F♯');
+    expect(skillLabel('g:note:F#')).toBe('Note names: F♯');
     expect(skillLabel('chord:C-Eb-G')).toBe('Chords: C E♭ G');
   });
 

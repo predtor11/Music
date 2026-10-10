@@ -4,11 +4,16 @@
  * review items by tag, so all three must tag an item the same way. Pure.
  */
 
-import type { TestItem } from '@music/contracts';
+import type { InstrumentId, TestItem } from '@music/contracts';
 import { intervalInfo, pcName, pitchClass, pretty } from '@music/theory';
 
 /** The concept an item tests, for example "interval:M3" or "chord:C-E-G". */
-export function skillFor(item: TestItem): string {
+export function skillFor(item: TestItem, instrument: InstrumentId = 'piano'): string {
+  const skill = baseSkillFor(item);
+  return instrument === 'guitar' ? `g:${skill}` : skill;
+}
+
+function baseSkillFor(item: TestItem): string {
   switch (item.kind) {
     case 'find-note':
       return `note:${pcName(item.midi !== undefined ? pitchClass(item.midi) : item.pc!)}`;
@@ -31,6 +36,7 @@ export function skillFor(item: TestItem): string {
 
 /** The topic of a skill: the part before ":" ("interval" for "interval:M3"). */
 export function topicOf(skill: string): string {
+  if (skill.startsWith('g:')) return topicOf(skill.slice(2));
   const i = skill.indexOf(':');
   return i < 0 ? skill : skill.slice(0, i);
 }
@@ -50,6 +56,7 @@ for (let n = 0; n <= 21; n++) INTERVAL_NAMES[intervalInfo(n).short] = intervalIn
 
 /** A short label a learner can read: "note:D" → "Finding D", "interval:M3" → "Interval: major 3rd". */
 export function skillLabel(skill: string): string {
+  if (skill.startsWith('g:')) return `Guitar: ${skillLabel(skill.slice(2))}`;
   const topic = topicOf(skill);
   const rest = skill.slice(topic.length + 1);
   if (!rest) return topic;

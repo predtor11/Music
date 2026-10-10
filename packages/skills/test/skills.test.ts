@@ -13,6 +13,10 @@ const items: Array<[TestItem, string]> = [
 ];
 
 describe('skillFor', () => {
+  it.each(items)('keeps guitar %o separate from piano %s', (item, skill) => {
+    expect(skillFor(item, 'guitar')).toBe(`g:${skill}`);
+    expect(skillFor(item, 'piano')).toBe(skill);
+  });
   it.each(items)('tags %o as %s', (item, skill) => {
     expect(skillFor(item)).toBe(skill);
   });
@@ -32,5 +36,7 @@ describe('skillLabel', () => {
   it('splits topics', () => {
     expect(topicOf('interval:M3')).toBe('interval');
     expect(topicOf('plain')).toBe('plain');
+    expect(topicOf('g:interval:M2')).toBe('interval');
+    expect(skillLabel('g:note:A')).toBe('Guitar: Finding A');
   });
 });

@@ -1,0 +1,92 @@
+{
+  "id": "g2-l1",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Note names on a string",
+  "summary": "Give each sound a name.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A name for a sound",
+      "body": "**note** means one musical sound. Its **pitch** tells you how high or low it sounds. We name notes with seven letters: A, B, C, D, E, F and G; after G the letters repeat.\n\n**Why it matters:** A name lets you ask for a sound and find it again. You do not need to know a piano keyboard.",
+      "exampleMidi": [
+        45,
+        47,
+        48
+      ],
+      "labels": {
+        "45": "A \u2014 open string 5",
+        "47": "B \u2014 string 5, fret 2",
+        "48": "C \u2014 string 5, fret 3"
+      }
+    },
+    {
+      "type": "show",
+      "title": "A, B, then C",
+      "body": "On string 5, open is A, fret 2 is B and fret 3 is C. Notice that the letter names do not always sit two frets apart. We will measure those gaps next.",
+      "highlightMidi": [
+        45,
+        47,
+        48
+      ],
+      "labels": {
+        "45": "A \u2014 open string 5",
+        "47": "B \u2014 string 5, fret 2",
+        "48": "C \u2014 string 5, fret 3"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g2-l1-p1",
+          "prompt": "Play A2. Use any lit position.",
+          "midi": 45,
+          "showKeys": true
+        },
+        {
+          "kind": "find-note",
+          "id": "g2-l1-p2",
+          "prompt": "Play B2. Use any lit position.",
+          "midi": 47,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find two places for A",
+      "body": "Play the open A string, then fret 5 of string 6. They are the same note, A2; either place counts. Keep your guitar supported."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l1-q1",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "B",
+            "C",
+            "D"
+          ],
+          "answer": "C"
+        },
+        {
+          "kind": "find-note",
+          "id": "g2-l1-q2",
+          "prompt": "Play A2.",
+          "midi": 45
+        }
+      ]
+    }
+  ]
+}
