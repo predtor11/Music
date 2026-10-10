@@ -1,0 +1,138 @@
+{
+  "id": "g1-l1",
+  "unitId": "guitar-1",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Strings and frets",
+  "summary": "A guitar makes notes with strings; pressing a string on a fret changes the note.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A guitar has six strings",
+      "body": "A guitar has six **strings**. Each string makes one note when you pluck it. The thickest string gives the lowest note and the thinnest string gives the highest note.\n\n**Why it matters:** Every guitar instruction your band gives you starts with a string: \"play it on the A string\". Knowing the strings is the first step to finding any note.",
+      "exampleMidi": [
+        40,
+        64
+      ],
+      "labels": {
+        "40": "thickest",
+        "64": "thinnest"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "The fretboard and its frets",
+      "body": "The long neck of the guitar is called the **fretboard**. Thin metal bars cross it, and each bar is a **fret**. When you press a string just behind a fret, the string gets shorter and the note gets higher.\n\n**Why it matters:** Frets are how a guitarist chooses notes. \"Third fret\" tells you exactly where to put your finger.",
+      "exampleMidi": [
+        40,
+        41,
+        42
+      ],
+      "labels": {
+        "40": "no finger",
+        "41": "fret 1",
+        "42": "fret 2"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "The open string",
+      "body": "When you pluck a string with no finger pressing it, you play an **open string**. It is the lowest note that string can make.\n\n**Why it matters:** Open strings are your starting points and the easiest notes to find. Every other note on that string is counted from it.",
+      "exampleMidi": [
+        40,
+        45,
+        50
+      ],
+      "labels": {
+        "40": "open",
+        "45": "open",
+        "50": "open"
+      }
+    },
+    {
+      "type": "show",
+      "title": "The six open strings",
+      "body": "These are the notes of the six open strings, from the thickest to the thinnest. Pluck them one by one and listen to the pitch rise.",
+      "highlightMidi": [
+        40,
+        45,
+        50,
+        55,
+        59,
+        64
+      ],
+      "labels": {
+        "40": "thickest",
+        "64": "thinnest"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l1-p1",
+          "prompt": "Play the lit note. It is the thickest string, played open.",
+          "showKeys": true,
+          "midi": 40
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l1-p2",
+          "prompt": "Play the lit note. It is the thinnest string, played open.",
+          "showKeys": true,
+          "midi": 64
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l1-p3",
+          "prompt": "Play the lit note. It is the second thickest string, played open.",
+          "showKeys": true,
+          "midi": 45
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Pluck every string",
+      "body": "Pluck each string from the thickest to the thinnest and listen. The pitch rises string by string."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l1-q1",
+          "prompt": "Play the lit note.",
+          "showKeys": true,
+          "midi": 50
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l1-q2",
+          "prompt": "Play the lit note.",
+          "showKeys": true,
+          "midi": 59
+        },
+        {
+          "kind": "name-it",
+          "id": "g1-l1-q3",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "E",
+            "A",
+            "D",
+            "G"
+          ],
+          "answer": "E"
+        }
+      ]
+    }
+  ]
+}

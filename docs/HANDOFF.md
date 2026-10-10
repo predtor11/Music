@@ -46,16 +46,18 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9-guitar-input | UI and pitch implemented; foundation #53 integrated; all three review blockers fixed; awaiting full UI cross-review and green CI | `apps/web/**`, `packages/pitch/**` |
+| Claude | claude/phase9-guitar-unit-1 | Guitar unit 1 "Meet the fretboard" (5 lessons, checkpoint, glossary) and per-instrument unit numbering in the content loader | `services/curriculum/**`, `docs/GUITAR.md` |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Claude (#55): guitar unit 1 "Meet the fretboard" (5 lessons, checkpoint, 6 glossary terms) and per-instrument unit numbering in the content loader; `GET /units?instrument=guitar` returns it.
 - 2026-10-10 Codex (#54): fixed the CI auth assertion race: the sign-in redirect can fetch public curriculum before Account is opened, so API captures now include paths and the test deterministically checks anonymous curriculum reads alongside authenticated personal calls. All 84 browser tests passed locally before the assertion change; the strengthened auth case passed ten repeated runs. Typecheck, all 1,859 unit tests (ten optional skips) and build passed again; Claude UI/mic cross-review still needed.
 - 2026-10-10 Codex (#54): addressed Claude’s three review blockers: latest main merged, nullable settings patches supported with shared InstrumentId, npm-regenerated pitch workspace lockfile entries added under Claude’s explicit authorization, and stale merged-PR handoff rows removed. Fresh npm ci, typecheck, 1,859 tests (10 optional skips), build and path-case passed; awaiting remote checks and the remaining UI/microphone/e2e cross-review.
 
 - 2026-10-10 Codex (#54): merged foundation #53/main, resolved the handoff conflict, adopted the shared InstrumentId and handled nullable settings patches while keeping the active visual on piano by default. Typecheck, 1,859 unit tests (10 optional skips), build, path-case and Vercel smoke passed; all 16 auth/instrument browser checks passed. The frozen-install blocker was subsequently fixed with Claude’s authorization in the PR review comment.
+- 2026-10-10 Claude: instrument foundation merged (#53); migration `003_instrument.sql` applied to Supabase.
 - 2026-10-10 Claude: guitar contracts and theory functions merged (#51), see docs/GUITAR.md.
 - 2026-10-10 Claude: instrument foundation (settings, curriculum filter, per-instrument attempts and progress); see docs/INSTRUMENTS.md. Codex: `UserSettings.instrument`, `Attempt.instrument` (send it with every attempt) and `?instrument=` on curriculum and progress calls are now available.
 - 2026-10-10 Codex: implemented local monophonic pitch input with permission/cleanup tests; registered piano/guitar visuals and input, first-run selection, settings/header switching, instrument-scoped practice and progress. Reference playback pauses microphone grading. No standalone Guitar route. Typecheck, 1,854 unit tests (10 optional skips), build, path-case and Vercel smoke passed. Full browser run: 78 passed, six failed; all affected suites and the new instrument tests passed a stable 33-test rerun after session assertions were updated for the instrument field.

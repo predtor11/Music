@@ -1,0 +1,115 @@
+{
+  "id": "g1-l4",
+  "unitId": "guitar-1",
+  "instrument": "guitar",
+  "order": 4,
+  "title": "The same note in many places",
+  "summary": "One note can be played at more than one place on the fretboard.",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Two places for one note",
+      "body": "The same note can often be played in more than one place. The open A string and fret 5 of the thickest E string are both A, and they sound the same.\n\n**Why it matters:** When a song asks for a note, you can pick the place that is easiest to reach. Good guitarists choose the spot that keeps their hand close to the next note.",
+      "exampleMidi": [
+        45
+      ],
+      "labels": {
+        "45": "A, two places"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Three places for one note",
+      "body": "Some notes live in three places. D is at the open D string, at fret 5 of the A string and at fret 10 of the thickest E string. Each of these is a different string, but the pitch is the same.\n\n**Why it matters:** Knowing the places helps you jump between strings without losing your way.",
+      "exampleMidi": [
+        50
+      ],
+      "labels": {
+        "50": "D, three places"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Where can you find G?",
+      "body": "G is at the open G string. It is also at fret 5 of the D string and fret 10 of the A string.",
+      "highlightMidi": [
+        55
+      ],
+      "labels": {
+        "55": "G, three places"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l4-p1",
+          "prompt": "Play A2. Any place on the fretboard counts.",
+          "midi": 45
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l4-p2",
+          "prompt": "Play D3. Any place on the fretboard counts.",
+          "midi": 50
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l4-p3",
+          "prompt": "Play G3. Any place on the fretboard counts.",
+          "midi": 55
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Find it twice",
+      "body": "Pick the open D string, then find the same note on the A string. Pluck both and listen: they sound the same."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l4-q1",
+          "prompt": "Play A2. Use a different place from the open string if you can.",
+          "midi": 45
+        },
+        {
+          "kind": "name-it",
+          "id": "g1-l4-q2",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            55
+          ],
+          "choices": [
+            "G",
+            "A",
+            "D",
+            "E"
+          ],
+          "answer": "G"
+        },
+        {
+          "kind": "name-it",
+          "id": "g1-l4-q3",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            50
+          ],
+          "choices": [
+            "D",
+            "G",
+            "A",
+            "E"
+          ],
+          "answer": "D"
+        }
+      ]
+    }
+  ]
+}

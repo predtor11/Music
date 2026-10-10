@@ -1,0 +1,125 @@
+{
+  "id": "g1-l5",
+  "unitId": "guitar-1",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "The twelfth fret",
+  "summary": "Fret 12 is the same note as the open string, one octave higher.",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Halfway round the circle",
+      "body": "Twelve half steps make an octave. So fret 12 on any string plays the same note name as the open string, only higher. Open E becomes E again at fret 12.\n\n**Why it matters:** Fret 12 is a landmark. Many guitars have two dots there to help you find it quickly.",
+      "exampleMidi": [
+        40,
+        52
+      ],
+      "labels": {
+        "40": "open E",
+        "52": "fret 12 (E again)"
+      }
+    },
+    {
+      "type": "explain",
+      "title": "Every string repeats at fret 12",
+      "body": "The pattern of notes along the neck starts over at fret 12. Whatever you learn between the open string and fret 11 works again after fret 12, one octave higher.\n\n**Why it matters:** You only need to learn half the neck, then use fret 12 to reach the other half.",
+      "exampleMidi": [
+        45,
+        57
+      ],
+      "labels": {
+        "45": "open A",
+        "57": "fret 12 (A again)"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Open and fret 12 on the thin E string",
+      "body": "The thinnest string is E, and fret 12 of that string is E again, one octave higher.",
+      "highlightMidi": [
+        64,
+        76
+      ],
+      "labels": {
+        "64": "open E",
+        "76": "fret 12"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Play along",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g1-l5-p1",
+          "prompt": "Play the lit note. It is fret 12 on the thickest string.",
+          "showKeys": true,
+          "midi": 52
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l5-p2",
+          "prompt": "Play the lit note. It is fret 12 on the A string.",
+          "showKeys": true,
+          "midi": 57
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l5-p3",
+          "prompt": "Play the lit note. It is fret 12 on the D string.",
+          "showKeys": true,
+          "midi": 62
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Open and twelve",
+      "body": "Pluck an open string, then the same string at fret 12. Hear how the two notes sound like the same note, one higher."
+    },
+    {
+      "type": "quiz",
+      "title": "Quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g1-l5-q1",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            52
+          ],
+          "choices": [
+            "E",
+            "A",
+            "D",
+            "G"
+          ],
+          "answer": "E"
+        },
+        {
+          "kind": "name-it",
+          "id": "g1-l5-q2",
+          "prompt": "Which note is lit?",
+          "shownMidi": [
+            57
+          ],
+          "choices": [
+            "A",
+            "B",
+            "D",
+            "G"
+          ],
+          "answer": "A"
+        },
+        {
+          "kind": "find-note",
+          "id": "g1-l5-q3",
+          "prompt": "Play the lit note.",
+          "showKeys": true,
+          "midi": 67
+        }
+      ]
+    }
+  ]
+}
