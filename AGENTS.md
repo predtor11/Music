@@ -16,6 +16,18 @@ side is doing.
 - `package-lock.json` conflicts are expected. Regenerate with `npm install`, don't hand-merge.
 - Shared packages (`packages/contracts`, `packages/service-kit`, `packages/ui`) change by PR with a note in HANDOFF.md, never silently.
 
+## Per-phase workflow
+
+Each phase of the plan is split between Claude and Codex like this:
+
+1. **Agree lanes first.** Before a phase starts, the tasks are divided and the lanes (tasks and folders) are written in `docs/HANDOFF.md`. No work starts until they are there.
+2. **No shared files.** A file belongs to one lane. Shared files (`packages/contracts`, `packages/service-kit`, `packages/ui`, `package-lock.json`, CI config) have a single owner named in HANDOFF.md; the other side requests changes there instead of editing them.
+3. **Work in parallel.** Each side works on its own branch(es) from the latest `main` and pushes often.
+4. **Rebase before the PR.** Before opening a PR, merge or rebase the latest `main` in, rerun the checks below and make sure it has no conflicts.
+5. **Cross-review at phase end.** When both sides have PRs open, each reviews the other's PRs.
+6. **Merge in a stated order.** The merge order is written in HANDOFF.md (shared-file owner first, then the rest). After each merge, the next PR takes the new `main` in and its CI runs again. Only green CI merges.
+7. **Close the phase.** Update HANDOFF.md (recent changes, clear in-progress) before the next phase's lanes are agreed.
+
 ## Before every push
 
 ```bash

@@ -12,6 +12,16 @@ Fill in once, then keep to it. If a change needs a file in the other lane, write
 | Claude | _TODO (Jayesh to fill in), e.g. lessons and backend (`services/*`, `apps/api`, `packages/theory`)_ |
 | Codex | _TODO (Jayesh to fill in), a named area that does not overlap_ |
 
+## Per-phase workflow
+
+Full rules are in [AGENTS.md](../AGENTS.md#per-phase-workflow). In short: lanes are written below before the phase starts, no file is in two lanes, shared files have one owner, each side rebases on the latest `main` before its PR, both review each other's PRs at phase end, then merge in the order below with green CI only.
+
+Current phase: _TODO_
+
+Shared-file owners (`packages/contracts`, `packages/service-kit`, `packages/ui`, `package-lock.json`, CI config): _TODO_
+
+Merge order for this phase: _TODO_
+
 ## In progress
 
 | Side | Branch / PR | What | Files it touches |
