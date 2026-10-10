@@ -1,0 +1,90 @@
+{
+  "id": "g5-l1",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Chords from one scale",
+  "summary": "Keep every chord note inside the key.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Chords from one scale",
+      "body": "**diatonic chord** means a chord made only from notes of the key. C major has C, D, E, F, G, A and B. C, E and G belong to that list, so C major is diatonic to C major.\n\n**Why it matters:** A key gives you a small family of chords to start with.",
+      "exampleMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Use string 5 fret 3 for C3, string 4 fret 2 for E3 and string 3 open for G3. All three notes come from the C major scale.",
+      "highlightMidi": [
+        48,
+        52,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E and G together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l1-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare Dm with D. F belongs to C major; F# does not. A familiar shape can belong to one key and sit outside another."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Is this chord diatonic to C major?",
+          "shownMidi": [
+            50,
+            53,
+            57
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "yes",
+          "id": "g5-l1-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "Is this chord diatonic to C major?",
+          "shownMidi": [
+            50,
+            54,
+            57
+          ],
+          "choices": [
+            "yes",
+            "no"
+          ],
+          "answer": "no",
+          "id": "g5-l1-q2"
+        }
+      ]
+    }
+  ]
+}

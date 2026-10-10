@@ -1,0 +1,92 @@
+{
+  "id": "g5-l2",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "Number the scale notes",
+  "summary": "Count from the tonic, starting at one.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Number the scale notes",
+      "body": "**scale degree** means the number of a note in a scale. In G major, G is 1, A is 2, B is 3, C is 4, D is 5, E is 6 and F# is 7. The next G returns to 1.\n\n**Why it matters:** Numbers describe a note’s job even when the key changes.",
+      "exampleMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Start at G2 on string 6 fret 3 and follow the lit notes upward. The number belongs to the sound in the key, not the fret or string number.",
+      "highlightMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "find-note",
+          "prompt": "Play D3, scale degree 5 in G major.",
+          "midi": 50,
+          "id": "g5-l2-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Find G in two places. Both are degree 1 in G major even though their fret positions differ."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which scale degree is this note?",
+          "shownMidi": [
+            48
+          ],
+          "choices": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4",
+          "id": "g5-l2-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In C major, which scale degree is this note?",
+          "shownMidi": [
+            57
+          ],
+          "choices": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "6",
+          "id": "g5-l2-q2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "g5-l6",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Ordinary chord numbers",
+  "summary": "Read the Nashville number system.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Ordinary chord numbers",
+      "body": "**Nashville number system** means writing chord roots as ordinary scale numbers, such as 1, 4 and 5. In the plain major-key pattern, 2, 3 and 6 are minor, and 7 is diminished. A written m can make a minor chord explicit, as in 6m.\n\n**Why it matters:** A band can use the same numbers when it changes the key.",
+      "exampleMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "In G major, 1 is G, 4 is C, 5 is D and 6 is Em. These are the same chords as I, IV, V and vi.",
+      "highlightMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play G, B and D together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l6-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Write G, D, Em, C as numbers in G: 1, 5, 6, 4. Keep the key name beside the numbers."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which number is this chord?",
+          "shownMidi": [
+            40,
+            43,
+            47
+          ],
+          "choices": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": "6",
+          "id": "g5-l6-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In C major, which number is this chord?",
+          "shownMidi": [
+            50,
+            53,
+            57
+          ],
+          "choices": [
+            "2",
+            "4",
+            "6"
+          ],
+          "answer": "2",
+          "id": "g5-l6-q2"
+        }
+      ]
+    }
+  ]
+}

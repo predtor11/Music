@@ -1,0 +1,84 @@
+{
+  "id": "g5-l7",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 7,
+  "title": "Change one chord at a time",
+  "summary": "A progression puts chords in order.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Change one chord at a time",
+      "body": "**chord progression** means a series of chords played one after another. I–V–I in G means G, then D, then G again.\n\n**Why it matters:** Chord order gives a song movement and a way to return home.",
+      "exampleMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Use the G and D open shapes you already learned. The current chord is highlighted during practice. The app clears tap selections after each correct chord.",
+      "highlightMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–V–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "I"
+          ],
+          "id": "g5-l7-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Move slowly from G to D. You can use other correct positions and octaves. Use taps for these simultaneous chord checks; the microphone hears one note at a time."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "play-progression",
+          "prompt": "Play I–V–I in G.",
+          "key": "G",
+          "numerals": [
+            "I",
+            "V",
+            "I"
+          ],
+          "id": "g5-l7-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which chord is the V?",
+          "shownMidi": [
+            43
+          ],
+          "choices": [
+            "C",
+            "D",
+            "Em"
+          ],
+          "answer": "D",
+          "id": "g5-l7-q2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "g5-l11",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 11,
+  "title": "Group the counts",
+  "summary": "A bar holds a repeating group.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Group the counts",
+      "body": "**bar** means a group of counts in music, also called a measure. For the next example each bar has four counts: 1, 2, 3, 4; then begin the next group at 1. One chord can stay for more than one bar.\n\n**Why it matters:** Groups tell you how long to keep a chord before the next change.",
+      "exampleMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Count four while holding G. Clear with Escape, select G again and count four once more. These are two groups with the same chord.",
+      "highlightMidi": [
+        43,
+        47,
+        50
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play G, B and D together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l11-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Count at a comfortable pace. This lesson checks notes only; it does not grade your timing."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play G, B and D together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            11,
+            2
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l11-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            43,
+            47,
+            50
+          ],
+          "choices": [
+            "G",
+            "D",
+            "Em"
+          ],
+          "answer": "G",
+          "id": "g5-l11-q2"
+        }
+      ]
+    }
+  ]
+}

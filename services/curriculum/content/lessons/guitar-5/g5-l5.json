@@ -1,0 +1,92 @@
+{
+  "id": "g5-l5",
+  "unitId": "guitar-5",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "Roman chord numbers",
+  "summary": "Letters show both number and chord type.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Roman chord numbers",
+      "body": "**Roman numeral** means a number written with letters. For chords, I is 1, II is 2, III is 3, IV is 4, V is 5, VI is 6 and VII is 7. Uppercase marks major; lowercase marks minor; ° marks diminished. A major key has I, ii, iii, IV, V, vi, vii°.\n\n**Why it matters:** The written number tells you the root’s scale degree and the chord type together.",
+      "exampleMidi": [
+        40,
+        43,
+        47
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "In G major, Em is vi: E is the sixth scale note and the triad is minor. C is IV, D is V and G is I.",
+      "highlightMidi": [
+        40,
+        43,
+        47
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, G and B together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            7,
+            11
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g5-l5-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare vi and VI on paper. The small letters are part of the instruction, not decoration."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "In G major, which Roman numeral is this chord?",
+          "shownMidi": [
+            40,
+            43,
+            47
+          ],
+          "choices": [
+            "IV",
+            "vi",
+            "VI"
+          ],
+          "answer": "vi",
+          "id": "g5-l5-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "In C major, which Roman numeral is this chord?",
+          "shownMidi": [
+            50,
+            53,
+            57
+          ],
+          "choices": [
+            "ii",
+            "II",
+            "IV"
+          ],
+          "answer": "ii",
+          "id": "g5-l5-q2"
+        }
+      ]
+    }
+  ]
+}

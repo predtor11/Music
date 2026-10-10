@@ -1,0 +1,196 @@
+{
+  "id": "guitar-5",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Chords in a key",
+  "summary": "Build a chord family, read its numbers and change one chord at a time.",
+  "outcome": "You can follow I–IV–V–I, I–V–vi–IV, ii–V–I and a twelve-bar blues with guitar notes.",
+  "lessonIds": [
+    "g5-l1",
+    "g5-l2",
+    "g5-l3",
+    "g5-l4",
+    "g5-l5",
+    "g5-l6",
+    "g5-l7",
+    "g5-l8",
+    "g5-l9",
+    "g5-l10",
+    "g5-l11",
+    "g5-l12"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "prompt": "Is this chord diatonic to C major?",
+        "shownMidi": [
+          50,
+          53,
+          57
+        ],
+        "choices": [
+          "yes",
+          "no"
+        ],
+        "answer": "yes",
+        "id": "g5-cp-1"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "In G major, which scale degree is this note?",
+        "shownMidi": [
+          48
+        ],
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "id": "g5-cp-2"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "What kind of triad is this?",
+        "shownMidi": [
+          47,
+          50,
+          53
+        ],
+        "choices": [
+          "major",
+          "minor",
+          "diminished"
+        ],
+        "answer": "diminished",
+        "id": "g5-cp-3"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "In G major, what kind of triad is built on scale degree 2?",
+        "shownMidi": [
+          45
+        ],
+        "choices": [
+          "major",
+          "minor",
+          "diminished"
+        ],
+        "answer": "minor",
+        "id": "g5-cp-4"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "In G major, which Roman numeral is this chord?",
+        "shownMidi": [
+          40,
+          43,
+          47
+        ],
+        "choices": [
+          "IV",
+          "vi",
+          "VI"
+        ],
+        "answer": "vi",
+        "id": "g5-cp-5"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "In G major, which number is this chord?",
+        "shownMidi": [
+          40,
+          43,
+          47
+        ],
+        "choices": [
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": "6",
+        "id": "g5-cp-6"
+      },
+      {
+        "kind": "play-progression",
+        "prompt": "Play I–V–I in G.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "V",
+          "I"
+        ],
+        "id": "g5-cp-7"
+      },
+      {
+        "kind": "play-progression",
+        "prompt": "Play I–IV–V–I in G.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "IV",
+          "V",
+          "I"
+        ],
+        "id": "g5-cp-8"
+      },
+      {
+        "kind": "play-progression",
+        "prompt": "Play I–V–vi–IV in G.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "V",
+          "vi",
+          "IV"
+        ],
+        "id": "g5-cp-9"
+      },
+      {
+        "kind": "play-progression",
+        "prompt": "Play ii–V–I in C.",
+        "key": "C",
+        "numerals": [
+          "ii",
+          "V",
+          "I"
+        ],
+        "id": "g5-cp-10"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play G, B and D together. Use any positions for these notes.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "bassPc": null,
+        "showKeys": true,
+        "id": "g5-cp-11"
+      },
+      {
+        "kind": "play-progression",
+        "prompt": "Play I–I–I–I–IV–IV–I–I–V–IV–I–I in G.",
+        "key": "G",
+        "numerals": [
+          "I",
+          "I",
+          "I",
+          "I",
+          "IV",
+          "IV",
+          "I",
+          "I",
+          "V",
+          "IV",
+          "I",
+          "I"
+        ],
+        "id": "g5-cp-12"
+      }
+    ]
+  }
+}

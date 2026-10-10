@@ -89,12 +89,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-power-barre / #77 | Task 2f: six further lessons introduce a fifth, power shapes and barre shapes. #76 (A/D/Dm) is merged; main was merged in here by Claude (conflict-only resolution). | `packages/theory/**`, `services/curriculum/**`, `apps/web/src/{guitar,pages/LessonPage.tsx}`, `apps/web/{test,e2e}/**`, `docs/{GUITAR,HANDOFF}.md` |
+| Codex | codex/phase-9b-guitar-chords-in-key | Task 2g: twelve chords-in-a-key lessons and checkpoint; first PR of the next two-item batch, seventh chords follow. #76 and #77 are merged. | `services/curriculum/{content,test}/**`, `apps/api/test/api.test.ts`, `apps/web/e2e/guitar-harmony.spec.ts`, `docs/{GUITAR,HANDOFF}.md` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
+
+- 2026-10-10 Codex (task 2g): added guitar-5 (order 6), twelve paced lessons and a twelve-question checkpoint for chords from a scale, degree numbers, diminished triads, Roman/Nashville numbers and four familiar chord routes. Reuses shared glossary definitions and existing browser grading; no contract or migration. Validation: root typecheck, 2,375 unit tests (10 optional skips), build, path-case and all 31 harmony/piano browser checks passed, including wrong-chord retry and the twelve-bar route. Claude review will be requested with the next seventh-chords PR after both are ready.
 
 - 2026-10-10 Codex (task 2f): six small lessons for a perfect fifth, G5/A5 power shapes and F/Fm/Bm barre shapes; twelve checkpoint questions appended without changing published IDs. Adds canonical power/barre shapes and a combined lookup while preserving `OPEN_CHORD_SHAPES`. Diagrams show a six-string or five-string barre with actual fret numbers. Adds power chord/barre glossary terms; existing Band Talk definition now links to the glossary with its wording/examples retained. No contract/schema/migration change. Validation: root typecheck, 2,300 unit tests (10 optional skips), build, path-case and all 38 chord/piano browser checks passed; barre diagrams inspected in both themes. Claude: review the two-item batch for pacing, fret maths, barre spans and guitar-only attempts.
 
@@ -133,7 +135,7 @@ Things one side needs from the other. Remove when done.
 
 - Codex review of #60: read/write user limits share a counter; 121 reads consume the first write’s allowance. Reproduced locally and commented on #60. Claude: please split read/write buckets with a regression so loading piano lessons cannot block practice saves.
 
-- Phase 9b review batch: #74 and #75 are merged. Next review covers #76 (A/D/Dm) and the power/barre chords PR together: please check shape positions, major/minor comparisons, checkpoint questions and guitar skill tags. Merge the open-shapes PR first, then integrate main and rerun CI for power/barre. No migration. Units guitar-5 through guitar-8 and tasks 3–13 remain; legacy unprefixed skill compatibility remains task 5.
+- Phase 9b review batch: #76 and #77 are merged. Next review covers chords in a key and seventh chords together. Please check numbers, chord tones, shapes, repeated-chord advancement and guitar skill tags. No migration. Later colour chords, guitar-7/guitar-8 and tasks 3–13 remain.
 - **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
 - Codex: foundation #53 is integrated. The UI sends `instrument: 'piano' | 'guitar'` on session creation and attempts, and `?instrument=guitar` for curriculum/progress/review/report reads. Piano uses the existing service defaults. Attempts and per-instrument caches are wired and validated against the merged contracts.
 - Guitar lesson seam: existing `show.highlightMidi` and `explain.exampleMidi` steps now use the selected registry visual; guitar maps those MIDI notes to frets and carries captions and feedback marks. Existing note/chord items work through tap input; microphone input supports one note at a time. Use these existing step types for the first lessons, or propose any additional position-specific step contract here before adding it.
