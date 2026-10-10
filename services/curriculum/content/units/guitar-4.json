@@ -3,8 +3,8 @@
   "instrument": "guitar",
   "order": 5,
   "title": "Starter guitar chords",
-  "summary": "Build a chord, hear major and minor, then read five open shapes.",
-  "outcome": "You can name and play Em, E, Am, C and G and read open, pressed and unplayed strings.",
+  "summary": "Build a chord, hear major and minor, then read eight open shapes.",
+  "outcome": "You can name and play Em, E, Am, C, G, A, D and Dm and read open, pressed and unplayed strings.",
   "lessonIds": [
     "g4-l1",
     "g4-l2",
@@ -16,7 +16,10 @@
     "g4-l7",
     "g4-l8",
     "g4-l9",
-    "g4-l10"
+    "g4-l10",
+    "g4-l11",
+    "g4-l12",
+    "g4-l13"
   ],
   "checkpoint": {
     "passPercent": 80,
@@ -166,6 +169,91 @@
         ],
         "showKeys": true,
         "id": "g4-cp-10"
+      },
+      {
+        "id": "g4-cp-11",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          45,
+          52,
+          57,
+          61,
+          64
+        ],
+        "choices": [
+          "A",
+          "Am",
+          "D"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "g4-cp-12",
+        "kind": "build-chord",
+        "prompt": "Play A, E, C# together. Use any positions for these notes.",
+        "pitchClasses": [
+          9,
+          4,
+          1
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-13",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          50,
+          57,
+          62,
+          66
+        ],
+        "choices": [
+          "D",
+          "Dm",
+          "A"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "g4-cp-14",
+        "kind": "build-chord",
+        "prompt": "Play D, A, F# together. Use any positions for these notes.",
+        "pitchClasses": [
+          2,
+          9,
+          6
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-15",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          50,
+          57,
+          62,
+          65
+        ],
+        "choices": [
+          "Dm",
+          "D",
+          "Am"
+        ],
+        "answer": "Dm"
+      },
+      {
+        "id": "g4-cp-16",
+        "kind": "build-chord",
+        "prompt": "Play D, A, F together. Use any positions for these notes.",
+        "pitchClasses": [
+          2,
+          9,
+          5
+        ],
+        "showKeys": true
       }
     ]
   }

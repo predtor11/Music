@@ -63,7 +63,7 @@ async function answer(page: Page, item: TestItem, shapeName?: string) {
       }
     } else {
       // Use three nearby strings, with a different octave from the shown triad.
-      const positions: Record<number, [number, number]> = { 0: [2, 1], 4: [1, 0], 7: [3, 0], 9: [3, 2], 8: [3, 1], 11: [2, 0], 2: [4, 0] };
+      const positions: Record<number, [number, number]> = { 0: [2, 1], 1: [2, 2], 5: [1, 1], 6: [1, 2], 4: [1, 0], 7: [3, 0], 9: [3, 2], 8: [3, 1], 11: [2, 0], 2: [4, 0] };
       for (const pc of item.pitchClasses) {
         const [string, fret] = positions[pc]!;
         await page.getByTestId(`fret-${string}-${fret}`).click();
@@ -77,7 +77,7 @@ for (const id of unit.lessonIds) {
     test.setTimeout(60_000);
     const api = await course(page);
     const lesson = curriculum.lessonsById.get(id)!;
-    if (id === 'g4-l8') await page.getByTestId('theme').click();
+    if (id === 'g4-l8' || id === 'g4-l12') await page.getByTestId('theme').click();
     await page.goto(`/#/lesson/${id}`);
     await expect(page.getByTestId('lesson-title')).toHaveText(lesson.title);
     if (lesson.guitarChord) {
@@ -119,7 +119,7 @@ test('the chords checkpoint requires the preceding guitar unit and grades its re
   await page.getByTestId('checkpoint-guitar-4').click();
   for (const item of unit.checkpoint.items) await answer(page, item);
   await expect(page.getByTestId('summary')).toBeVisible();
-  expect(api.attempts).toHaveLength(10);
+  expect(api.attempts).toHaveLength(unit.checkpoint.items.length);
   expect(api.attempts.every((a) => a.correct && a.instrument === 'guitar' && String(a.skill).startsWith('g:'))).toBe(true);
 });
 
