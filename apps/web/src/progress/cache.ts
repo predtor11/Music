@@ -4,6 +4,7 @@
  */
 
 import { ProgressReportSchema, type ProgressReport } from '@music/contracts';
+import type { InstrumentId } from '../instruments/model.js';
 
 export interface SavedReport {
   report: ProgressReport;
@@ -13,19 +14,19 @@ export interface SavedReport {
   savedAt: string;
 }
 
-const key = (userId: string) => `music.report.v1:${userId}`;
+const key = (userId: string, instrument: InstrumentId) => `music.report.v1:${userId}${instrument === 'piano' ? '' : ':guitar'}`;
 
-export function saveReport(userId: string, saved: SavedReport, storage: Pick<Storage, 'setItem'> = localStorage): void {
+export function saveReport(userId: string, saved: SavedReport, storage: Pick<Storage, 'setItem'> = localStorage, instrument: InstrumentId = 'piano'): void {
   try {
-    storage.setItem(key(userId), JSON.stringify(saved));
+    storage.setItem(key(userId, instrument), JSON.stringify(saved));
   } catch {
     // Storage full or blocked: the report just won't be available offline.
   }
 }
 
-export function loadReport(userId: string, storage: Pick<Storage, 'getItem'> = localStorage): SavedReport | null {
+export function loadReport(userId: string, storage: Pick<Storage, 'getItem'> = localStorage, instrument: InstrumentId = 'piano'): SavedReport | null {
   try {
-    const raw = storage.getItem(key(userId));
+    const raw = storage.getItem(key(userId, instrument));
     if (!raw) return null;
     const data = JSON.parse(raw) as Partial<SavedReport>;
     const report = ProgressReportSchema.safeParse(data.report);

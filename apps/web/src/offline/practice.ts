@@ -27,6 +27,7 @@ import { ApiError, call } from '../api/http.js';
 import { browserOnline, getIdentity, getRunner, whenIdentityKnown } from './runtime.js';
 import { lessonPlan, nextItem as pickNextItem, summarize } from './scoring.js';
 import type { SyncSnapshot } from './sync.js';
+import { instrumentId, instrumentPath, type InstrumentId } from '../instruments/model.js';
 
 interface Plan {
   items: TestItem[];
@@ -34,6 +35,7 @@ interface Plan {
 }
 
 interface LocalSession {
+  instrument: InstrumentId;
   id: string;
   kind: CreateSession['kind'];
   refId: string | null;
@@ -50,16 +52,16 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function toSession(s: LocalSession, endedAt: string | null): Session {
   const userId = getIdentity().userId;
-  return { id: s.id, userId: userId && UUID.test(userId) ? userId : NIL_UUID, kind: s.kind, refId: s.refId, startedAt: s.startedAt, endedAt };
+  return { id: s.id, userId: userId && UUID.test(userId) ? userId : NIL_UUID, kind: s.kind, refId: s.refId, startedAt: s.startedAt, endedAt, ...{ instrument: s.instrument } };
 }
 
 /** The items and pass mark of a session, from the lesson or unit (cached in memory or by the service worker). */
 async function planFor(s: LocalSession): Promise<Plan> {
   if (s.plan) return s.plan;
   let plan: Plan = { items: [], passPercent: null };
-  if (s.kind === 'lesson' && s.refId) plan = lessonPlan(await lessonForPractice(s.refId));
+  if (s.kind === 'lesson' && s.refId) plan = lessonPlan(await lessonForPractice(s.refId, s.instrument));
   else if (s.kind === 'checkpoint' && s.refId) {
-    const unit = await unitForPractice(s.refId);
+    const unit = await unitForPractice(s.refId, s.instrument);
     plan = { items: unit.checkpoint.items, passPercent: unit.checkpoint.passPercent };
   }
   s.plan = plan;
@@ -72,10 +74,10 @@ function flushSoon(): void {
     .catch(() => undefined);
 }
 
-export async function startSession(body: CreateSession): Promise<Session> {
-  const request = { ...body, id: body.id ?? crypto.randomUUID() };
+export async function startSession(body: CreateSession & { instrument?: InstrumentId }): Promise<Session> {
+  const request = { ...body, instrument: instrumentId(body.instrument), id: body.id ?? crypto.randomUUID() };
   await whenIdentityKnown();
-  const local: LocalSession = { id: request.id, kind: request.kind, refId: request.refId ?? null, startedAt: new Date().toISOString(), attempts: [] };
+  const local: LocalSession = { id: request.id, instrument: request.instrument, kind: request.kind, refId: request.refId ?? null, startedAt: new Date().toISOString(), attempts: [] };
 
   if (request.kind === 'review') {
     // The server chooses what to ask, so there is nothing to start without it.
@@ -89,9 +91,9 @@ export async function startSession(body: CreateSession): Promise<Session> {
   return toSession(local, null);
 }
 
-export async function recordAttempt(attempt: Attempt): Promise<void> {
+export async function recordAttempt(attempt: Attempt & { instrument?: InstrumentId }): Promise<void> {
   const parsed = AttemptSchema.parse(attempt);
-  const withId = { ...parsed, id: parsed.id ?? crypto.randomUUID() };
+  const withId = { ...parsed, instrument: instrumentId(attempt.instrument ?? sessions.get(parsed.sessionId)?.instrument), id: parsed.id ?? crypto.randomUUID() };
   sessions.get(withId.sessionId)?.attempts.push(withId);
   await getRunner().enqueue('attempt', withId.sessionId, withId);
   flushSoon();
@@ -124,7 +126,7 @@ export async function endSession(id: string): Promise<EndSessionResponse> {
 /** The next unanswered item of a session, or null when it is done. */
 export async function nextItem(sessionId: string): Promise<TestItem | null> {
   const local = sessions.get(sessionId);
-  const fromServer = () => call(`/practice/sessions/${sessionId}/next-item`).then((body) => NextItemSchema.parse(body));
+  const fromServer = () => call(instrumentPath(`/practice/sessions/${sessionId}/next-item`, local?.instrument ?? 'piano')).then((body) => NextItemSchema.parse(body));
   if (!local) return fromServer();
   // The server only knows what has reached it; while anything is waiting, this device knows more.
   if (getRunner().pendingFor(sessionId) === 0) {

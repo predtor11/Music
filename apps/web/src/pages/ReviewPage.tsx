@@ -20,6 +20,7 @@ import { href } from '../router.js';
 import { Loading } from './states.js';
 import s from '../lesson/lesson.module.css';
 import r from './ReviewPage.module.css';
+import { useInstrument } from '../instruments/context.js';
 
 export function ReviewPage({ settings }: { settings: UserSettings }) {
   const [run, setRun] = useState(0);
@@ -27,6 +28,7 @@ export function ReviewPage({ settings }: { settings: UserSettings }) {
 }
 
 function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () => void }) {
+  const { id: instrument } = useInstrument();
   const practice = usePractice('review');
   const { sessionId, save, finish, record } = practice;
   const [queue, setQueue] = useState<SkillScore[]>([]);
@@ -37,11 +39,11 @@ function ReviewRun({ settings, onAgain }: { settings: UserSettings; onAgain: () 
   const [summary, setSummary] = useState<SessionSummary | null>(null);
 
   useEffect(() => {
-    getReviewQueue().then(
+    getReviewQueue(instrument).then(
       (q) => setQueue([...q].sort((a, b) => a.firstTryAccuracy - b.firstTryAccuracy)),
       () => setQueue([]),
     );
-  }, []);
+  }, [instrument]);
 
   const advance = useCallback(async () => {
     if (!sessionId) return;

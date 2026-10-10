@@ -96,7 +96,7 @@ export function SongsPage({ settings }: { settings: UserSettings }) {
       <motion.div className={r.pageHead} variants={fadeUp}>
         <h1 className="ui-display">Songs</h1>
         <p className="ui-muted">
-          Open a song and see its key and its chords in order, as names and as numbers (1, 5, 6, 4), the way a band talks. Then loop any part and play along with the chord lit up on the keyboard.
+          Open a song and see its key and its chords in order, as names and as numbers (1, 5, 6, 4), the way a band talks. Then loop any part and play along with the chord highlighted on your instrument.
         </p>
       </motion.div>
       <motion.div variants={fadeUp}>
@@ -346,7 +346,7 @@ function SongView({ song, settings, onClose }: { song: Song; settings: UserSetti
         <Card padding="md">
           <div className={r.sectionHead}>
             <span className="ui-eyebrow">Chords in the song</span>
-            <span className="ui-muted">{chordCount === 0 ? 'No chords were found.' : 'Tap a chord to hear it, see it on the keyboard, or fix it.'}</span>
+            <span className="ui-muted">{chordCount === 0 ? 'No chords were found.' : 'Tap a chord to hear it, see its notes, or fix it.'}</span>
           </div>
           <div className={r.lane} data-testid="song-chords" role="list">
             {loop && <div className={s.loopBand} style={{ left: `${(loop.a / duration) * 100}%`, width: `${((loop.b - loop.a) / duration) * 100}%` }} aria-hidden data-testid="song-loop-band" />}

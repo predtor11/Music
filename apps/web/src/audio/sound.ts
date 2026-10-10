@@ -11,6 +11,7 @@
 import { clipEvents, type Clip, type NoteEvent } from './events.js';
 import { loadPiano, pianoIfReady } from './piano.js';
 import { synthPlay } from './synthVoice.js';
+import { beginPlayback } from './playback.js';
 
 export type { Clip, NoteEvent } from './events.js';
 
@@ -48,8 +49,13 @@ export async function play(clip: Clip, opts: { seconds?: number; gap?: number; w
   }
   const { events, seconds } = clipEvents(clip, opts);
   if (events.length === 0) return;
-  await sound(events, opts.wait ?? true);
-  await new Promise((r) => setTimeout(r, seconds * 1000));
+  const finish = beginPlayback();
+  try {
+    await sound(events, opts.wait ?? true);
+    await new Promise((r) => setTimeout(r, seconds * 1000));
+  } finally {
+    finish();
+  }
 }
 
 /** Play notes together (a chord). */
@@ -69,7 +75,10 @@ export function playEvents(events: readonly NoteEvent[]): void {
     recorder.played.push({ kind: 'sequence', notes: events.map((e) => e.midi) });
     return;
   }
-  void sound(events, false);
+  const finish = beginPlayback();
+  void sound(events, false).then(() => {
+    setTimeout(finish, Math.max(...events.map((event) => event.at + event.dur)) * 1000);
+  }, finish);
 }
 
 /** One key, right away (no waiting for the piano), for key presses. */

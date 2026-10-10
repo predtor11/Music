@@ -16,8 +16,10 @@ import { EmptyReport, Report } from '../progress/Report.js';
 import { href } from '../router.js';
 import { LoadError, Loading } from './states.js';
 import s from '../progress/progress.module.css';
+import { useInstrument } from '../instruments/context.js';
 
 export function ProgressPage() {
+  const { id: instrument } = useInstrument();
   const auth = useAuth();
   // The signed-in user, or a fixed id when sign-in is off, so each person keeps their own saved copy.
   const owner = auth.user?.id ?? (auth.status === 'off' ? 'local' : null);
@@ -29,22 +31,22 @@ export function ProgressPage() {
   useEffect(() => {
     if (auth.status === 'loading') return;
     let live = true;
-    getReport(tzOffset)
+    getReport(tzOffset, instrument)
       .then((r) => {
         if (!live) return;
         setReport(r);
         setOffline(null);
-        if (owner) saveReport(owner, { report: r, tzOffset, savedAt: new Date().toISOString() });
+        if (owner) saveReport(owner, { report: r, tzOffset, savedAt: new Date().toISOString() }, undefined, instrument);
       })
       .catch((e: Error) => {
         if (!live) return;
-        if (e instanceof ApiError && e.status === 0) setOffline((owner && loadReport(owner)) || 'none');
+        if (e instanceof ApiError && e.status === 0) setOffline((owner && loadReport(owner, undefined, instrument)) || 'none');
         else setError(e);
       });
     return () => {
       live = false;
     };
-  }, [tzOffset, owner, auth.status]);
+  }, [tzOffset, owner, auth.status, instrument]);
 
   if (error instanceof ApiError && error.status === 401) {
     return (

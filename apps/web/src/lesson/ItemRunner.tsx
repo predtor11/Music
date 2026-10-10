@@ -13,6 +13,8 @@ import { answerKeys, chooseAnswer, freshState, gradeChord, hintMarks, pressNote,
 import { KIND_RUNNERS } from './kinds.js';
 import type { AttemptInput } from './usePractice.js';
 import s from './lesson.module.css';
+import { useInstrument } from '../instruments/context.js';
+import { instrumentEntry } from '../instruments/registry.js';
 
 export type RunMode = 'play-along' | 'quiz';
 
@@ -39,6 +41,8 @@ const EAR_DELAY_MS = 350;
  * rhythm) are listed in kinds.tsx; the rest use the classic runner below.
  */
 export function ItemRunner(props: ItemRunnerProps) {
+  const { id } = useInstrument();
+  if (!instrumentEntry(id).drillKinds.includes(props.item.kind)) return <p role="status">This question is not available for {instrumentEntry(id).label} yet.</p>;
   const Runner = KIND_RUNNERS[props.item.kind];
   return Runner ? <Runner {...props} /> : <ClassicRunner {...props} />;
 }
@@ -168,7 +172,7 @@ function ClassicRunner({ item, mode, size, naming, keyOf, onAttempt, onDone }: I
           <Button variant="secondary" size="sm" onClick={playClip} data-testid="play-again">
             {listening ? <StatusDot tone="accent" pulse /> : '▶'} {listening ? 'Listening' : 'Play it again'}
           </Button>
-          <span className="ui-muted">Listen, then find it on your keyboard.</span>
+          <span className="ui-muted">Listen, then play the notes.</span>
         </div>
       )}
 
@@ -199,7 +203,7 @@ function ClassicRunner({ item, mode, size, naming, keyOf, onAttempt, onDone }: I
       <div className={s.messageRow} data-testid="item-message">
         <Swap value={`${status}-${view.message ?? view.hint ?? ''}-${tries}`}>
           <span className={s.message} data-status={status}>
-            {view.message ?? view.hint ?? (item.kind === 'name-it' ? 'Pick an answer.' : byEar ? 'Play back what you heard.' : 'Play it on your keyboard.')}
+            {view.message ?? view.hint ?? (item.kind === 'name-it' ? 'Pick an answer.' : byEar ? 'Play back what you heard.' : 'Play the notes.')}
           </span>
         </Swap>
       </div>

@@ -19,6 +19,16 @@ function memoryStorage(initial: Record<string, string> = {}) {
 }
 
 describe('the saved progress report', () => {
+  it('keeps guitar and piano copies separate for the same learner', () => {
+    const storage = memoryStorage();
+    const saved = { report, tzOffset: 330, savedAt: '2026-01-08T10:00:00.000Z' };
+    saveReport('u1', saved, storage, 'piano');
+    expect(loadReport('u1', storage, 'guitar')).toBeNull();
+    const guitar = { ...saved, savedAt: '2026-01-09T10:00:00.000Z' };
+    saveReport('u1', guitar, storage, 'guitar');
+    expect(loadReport('u1', storage, 'piano')).toEqual(saved);
+    expect(loadReport('u1', storage, 'guitar')).toEqual(guitar);
+  });
   it('comes back as it was saved, for the same user only', () => {
     const storage = memoryStorage();
     saveReport('u1', { report, tzOffset: 330, savedAt: '2026-01-08T10:00:00.000Z' }, storage);

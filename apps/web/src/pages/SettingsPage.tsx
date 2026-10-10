@@ -17,6 +17,8 @@ import { href } from '../router.js';
 import { SyncBadge } from '../settings/SyncBadge.js';
 import s from '../settings/settings.module.css';
 import type { SyncState } from '../settings/useSettings.js';
+import { useInstrument } from '../instruments/context.js';
+import { InstrumentSwitcher } from '../instruments/Picker.js';
 
 const NAMING_OPTIONS: Array<{ value: NoteNaming; label: string }> = [
   { value: 'western', label: 'C D E' },
@@ -34,6 +36,7 @@ const PREVIEW_MARKS: ReadonlyMap<number, KeyMark> = new Map([60, 62, 64, 65, 67,
 
 export function SettingsPage({ settings, update, sync }: { settings: UserSettings; update: (patch: Partial<UserSettings>) => void; sync: SyncState }) {
   const auth = useAuth();
+  const instrument = useInstrument();
   const labelFor = useMemo(() => noteLabeller(C_MAJOR, settings.noteNaming), [settings.noteNaming]);
   const size = settings.keyboardSize as KeyboardSize;
 
@@ -83,13 +86,18 @@ export function SettingsPage({ settings, update, sync }: { settings: UserSetting
 
       <motion.div className={s.grid} variants={fadeUp}>
         <Card className={s.section}>
+          <h2 className="ui-heading">Instrument</h2>
+          <p className="ui-muted">Lessons, input and progress follow your instrument. Switching keeps your work for the other instrument.</p>
+          <InstrumentSwitcher location="settings" />
+        </Card>
+        <Card className={s.section}>
           <h2 className="ui-heading">Note names</h2>
           <p className="ui-muted">How keys and chords are labelled. Sargam moves Sa with the key.</p>
           <div data-testid="settings-naming">
             <SegmentedControl label="Note names" value={settings.noteNaming} options={NAMING_OPTIONS} onChange={(v) => update({ noteNaming: v })} />
           </div>
         </Card>
-        <Card className={s.section}>
+        {instrument.id === 'piano' && <Card className={s.section}>
           <h2 className="ui-heading">Keyboard</h2>
           <p className="ui-muted">Match the number of keys on your MIDI keyboard.</p>
           <Select
@@ -102,7 +110,7 @@ export function SettingsPage({ settings, update, sync }: { settings: UserSetting
               update({ keyboardSize: n, lowestNote: KEYBOARD_RANGES[n].low });
             }}
           />
-        </Card>
+        </Card>}
         <Card className={s.section}>
           <h2 className="ui-heading">Theme</h2>
           <p className="ui-muted">Auto follows your computer's light or dark mode.</p>

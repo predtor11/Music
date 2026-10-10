@@ -1,0 +1,34 @@
+.scroll {
+  overflow-x: auto;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+}
+.scroll:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.board { min-width: calc(var(--fret-columns) * var(--space-12)); }
+.numbers, .string { display: grid; grid-template-columns: repeat(var(--fret-columns), minmax(var(--space-12), 1fr)); }
+.numbers { color: var(--text-muted); text-align: center; font-size: var(--text-xs); padding-block: var(--space-2); }
+.string { position: relative; }
+.string::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  border-top: 1px solid var(--border-strong); pointer-events: none;
+}
+.fret {
+  position: relative; min-height: var(--space-12); cursor: pointer;
+  color: var(--text-muted); background: transparent; font: inherit; font-size: var(--text-xs);
+  border: 0; border-right: 1px solid var(--border-strong);
+  padding: var(--space-2); touch-action: manipulation;
+}
+.fret[data-open='true'] { border-right: var(--space-1) solid var(--text-faint); }
+.fret:hover { background: var(--surface-hover); color: var(--text); }
+.fret:focus-visible { outline: none; box-shadow: inset var(--focus-ring); z-index: var(--z-raised); }
+.fret[data-lit='true'], .fret[data-heard='true'] { color: var(--text-on-accent); background: var(--accent); }
+.fret[data-target='true'] { box-shadow: inset 0 0 0 1px var(--accent); }
+.fret[data-mark='good'] { background: var(--good-soft); color: var(--good); }
+.fret[data-mark='bad'], .fret[data-mark='missed'] { background: var(--bad-soft); color: var(--bad); }
+.fret:disabled { cursor: default; }
+.note { position: relative; display: inline-block; background: var(--bg-elevated); border-radius: var(--radius-pill); padding-inline: var(--space-1); }
+.fret[data-lit='true'] .note, .fret[data-heard='true'] .note { background: var(--accent); }
+.marker { display: block; position: relative; color: var(--text-faint); line-height: 1; min-height: 1em; }
+.fret[data-lit='true'] .marker, .fret[data-heard='true'] .marker { color: var(--text-on-accent); }

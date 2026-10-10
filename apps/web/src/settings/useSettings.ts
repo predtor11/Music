@@ -9,6 +9,7 @@ import { UserSettingsSchema, type UserSettings } from '@music/contracts';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getMe, updateMySettings } from '../api/client.js';
 import { onSignIn, serverPatch } from './sync.js';
+import { instrumentId, parseInstrumentSettings, type InstrumentSettings, type InstrumentPatch } from '../instruments/model.js';
 
 const STORAGE_KEY = 'music.settings.v1';
 /** Set when settings change while signed out, so they win on the next sign-in. */
@@ -41,7 +42,7 @@ function write(key: string, value: string | null): void {
   }
 }
 
-export function loadSettings(): UserSettings {
+export function loadSettings(): InstrumentSettings {
   try {
     const raw = read(STORAGE_KEY);
     const stored = (raw ? JSON.parse(raw) : {}) as Record<string, unknown>;
@@ -50,18 +51,19 @@ export function loadSettings(): UserSettings {
       if (theme) stored.theme = theme;
     }
     const parsed = UserSettingsSchema.safeParse(stored);
-    if (parsed.success) return parsed.data;
+    if (parsed.success) return { ...parsed.data, instrument: instrumentId(stored.instrument) };
   } catch {
     // Bad JSON: fall back to defaults.
   }
-  return UserSettingsSchema.parse({});
+  return parseInstrumentSettings({});
 }
 
 /** userId: the signed-in user, or null when signed out. */
 export function useSettings(userId: string | null) {
-  const [settings, setSettings] = useState<UserSettings>(loadSettings);
+  const [settings, setSettings] = useState<InstrumentSettings>(loadSettings);
   const [sync, setSync] = useState<SyncState>('local');
   const ready = useRef(false); // the account's settings have arrived for this user
+  // The account contract also accepts null when clearing an instrument choice.
   const pending = useRef<Partial<UserSettings>>({});
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const userRef = useRef(userId);
@@ -106,7 +108,9 @@ export function useSettings(userId: string | null) {
       .then(async (me) => {
         if (!live) return;
         const plan = onSignIn(loadSettings(), me.settings, read(DIRTY_KEY) === '1');
-        setSettings(plan.settings);
+        setSettings(parseInstrumentSettings({ ...plan.settings,
+          instrument: 'instrument' in plan.settings ? plan.settings.instrument : loadSettings().instrument,
+        }));
         ready.current = true;
         if (plan.push) {
           pending.current = plan.push;
@@ -128,8 +132,8 @@ export function useSettings(userId: string | null) {
   }, [userId, flush]);
 
   const update = useCallback(
-    (patch: Partial<UserSettings>) => {
-      setSettings((s) => ({ ...s, ...patch }));
+    (patch: InstrumentPatch) => {
+      setSettings((s) => parseInstrumentSettings({ ...s, ...patch }));
       if (!serverPatch(patch)) return;
       if (!userRef.current || !ready.current) {
         write(DIRTY_KEY, '1');

@@ -17,6 +17,7 @@ import { LoadError, Loading } from './states.js';
 import { standing, type LessonStatus, type Standing } from './unlocks.js';
 import s from '../lesson/lesson.module.css';
 import l from './LessonsPage.module.css';
+import { useInstrument } from '../instruments/context.js';
 
 interface UnitView {
   unit: UnitSummary;
@@ -33,32 +34,33 @@ interface Loaded {
 }
 
 export function LessonsPage() {
+  const { id: instrument } = useInstrument();
   const [data, setData] = useState<Loaded | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let live = true;
-    const units = getUnits().then(async (list) => {
+    const units = getUnits(instrument).then(async (list) => {
       const sorted = [...list].sort((a, b) => a.order - b.order);
       return Promise.all(
         sorted.map(async (unit) => ({
           unit,
-          lessons: (await Promise.all(unit.lessonIds.map((id) => getLesson(id)))).sort((a, b) => a.order - b.order),
+          lessons: (await Promise.all(unit.lessonIds.map((id) => getLesson(id, instrument)))).sort((a, b) => a.order - b.order),
         })),
       );
     });
-    const progress = getProgress().then(
+    const progress = getProgress(instrument).then(
       (progress) => ({ progress, progressFailure: null }),
       (e: unknown) => ({ progress: null, progressFailure: saveFailure(e) === 'signed-out' ? ('signed-out' as const) : ('offline' as const) }),
     );
-    const due = getReviewQueue().then((q) => q.length, () => 0);
+    const due = getReviewQueue(instrument).then((q) => q.length, () => 0);
     Promise.all([units, progress, due])
       .then(([units, progress, dueSkills]) => live && setData({ units, ...progress, dueSkills }))
       .catch((e: Error) => live && setError(e.message));
     return () => {
       live = false;
     };
-  }, []);
+  }, [instrument]);
 
   if (error) return <LoadError what="the lessons" message={error} />;
   if (!data) return <Loading />;
@@ -71,7 +73,7 @@ export function LessonsPage() {
     <motion.div className={s.units} variants={stagger(0.08)} initial="hidden" animate="show">
       <motion.div variants={fadeUp} className={s.unitsIntro}>
         <h1 className="ui-title">Lessons</h1>
-        <p className="ui-muted">Short lessons with your keyboard. Each one explains, shows it on the keys, then has you play it. Finish one to open the next.</p>
+        <p className="ui-muted">Short lessons with your {instrument === 'piano' ? 'keyboard' : 'guitar'}. Each one explains, shows the notes, then has you play them. Finish one to open the next.</p>
       </motion.div>
 
       {data.progressFailure === 'signed-out' && (
