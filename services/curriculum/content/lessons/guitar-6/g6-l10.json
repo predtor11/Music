@@ -1,0 +1,94 @@
+{
+  "id": "g6-l10",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 10,
+  "title": "Lower the seventh once more",
+  "summary": "Read the diminished seventh chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Lower the seventh once more",
+      "body": "**diminished 7th chord** means a diminished triad with its seventh one half step below the minor seventh. Bdim7 has B, D, F and Ab: four sounds spaced by three half steps when arranged upward from B. It is written dim7 or °7.\n\n**Why it matters:** Bdim7 and Bm7b5 differ by one sound, so they must not be treated as the same chord.",
+      "exampleMidi": [
+        47,
+        53,
+        56,
+        62
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "From Bm7b5 lower string 3 fret 2 to fret 1: A becomes Ab. The four played strings 5 through 2 now sound B, F, Ab and D. Use a separate comfortable finger for each position.",
+      "highlightMidi": [
+        47,
+        53,
+        56,
+        62
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Bdim7.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            8
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l10-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare A and Ab slowly, then compare the two chord sounds. The guitar app may label Ab as G#: these are the same sound."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            47,
+            53,
+            56,
+            62
+          ],
+          "choices": [
+            "Bdim7",
+            "Bm7b5",
+            "Bm7"
+          ],
+          "answer": "Bdim7",
+          "id": "g6-l10-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Bdim7.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            8
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l10-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Bdim7"
+}

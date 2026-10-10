@@ -1,0 +1,197 @@
+{
+  "id": "guitar-6",
+  "instrument": "guitar",
+  "order": 7,
+  "title": "Seventh chords",
+  "summary": "Hear seventh intervals, then add one sound to a triad and read its symbol.",
+  "outcome": "You can play and distinguish major, dominant, minor, half-diminished and diminished seventh chords.",
+  "lessonIds": [
+    "g6-l1",
+    "g6-l2",
+    "g6-l3",
+    "g6-l4",
+    "g6-l5",
+    "g6-l6",
+    "g6-l7",
+    "g6-l8",
+    "g6-l9",
+    "g6-l10"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          48,
+          59
+        ],
+        "choices": [
+          "major 7th",
+          "perfect 5th",
+          "octave"
+        ],
+        "answer": "major 7th",
+        "id": "g6-cp-1"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          48,
+          58
+        ],
+        "choices": [
+          "major 7th",
+          "minor 7th",
+          "octave"
+        ],
+        "answer": "minor 7th",
+        "id": "g6-cp-2"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "How many notes are in this chord?",
+        "shownMidi": [
+          48,
+          52,
+          55,
+          59
+        ],
+        "choices": [
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4",
+        "id": "g6-cp-3"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          48,
+          52,
+          55,
+          59,
+          64
+        ],
+        "choices": [
+          "Cmaj7",
+          "C",
+          "G"
+        ],
+        "answer": "Cmaj7",
+        "id": "g6-cp-4"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          43,
+          47,
+          50,
+          55,
+          59,
+          65
+        ],
+        "choices": [
+          "Gmaj7",
+          "G7",
+          "G"
+        ],
+        "answer": "G7",
+        "id": "g6-cp-5"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          50,
+          57,
+          60,
+          66
+        ],
+        "choices": [
+          "Dmaj7",
+          "D7",
+          "D"
+        ],
+        "answer": "D7",
+        "id": "g6-cp-6"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          45,
+          52,
+          55,
+          60,
+          64
+        ],
+        "choices": [
+          "Am7",
+          "A7",
+          "Amaj7"
+        ],
+        "answer": "Am7",
+        "id": "g6-cp-7"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          40,
+          47,
+          50,
+          55,
+          59,
+          64
+        ],
+        "choices": [
+          "Em7",
+          "E7",
+          "Emaj7"
+        ],
+        "answer": "Em7",
+        "id": "g6-cp-8"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          47,
+          53,
+          57,
+          62
+        ],
+        "choices": [
+          "Bm7b5",
+          "Bm7",
+          "B7"
+        ],
+        "answer": "Bm7b5",
+        "id": "g6-cp-9"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord symbol is this?",
+        "shownMidi": [
+          47,
+          53,
+          56,
+          62
+        ],
+        "choices": [
+          "Bdim7",
+          "Bm7b5",
+          "Bm7"
+        ],
+        "answer": "Bdim7",
+        "id": "g6-cp-10"
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "g6-l1",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 1,
+  "title": "Eleven small steps",
+  "summary": "Hear a major seventh interval.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Eleven small steps",
+      "body": "**major 7th** means an interval of eleven half steps. C up to B is a major 7th; the B is one half step below the next C.\n\n**Why it matters:** This distance will supply an extra sound in a chord you will learn soon.",
+      "exampleMidi": [
+        48,
+        59
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "C3 is string 5 fret 3. B3 is string 2 open. Play them one after another and compare B3 with the next C4.",
+      "highlightMidi": [
+        48,
+        59
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-interval",
+          "prompt": "Play C3, then go up a major 7th.",
+          "startMidi": 48,
+          "semitones": 11,
+          "id": "g6-l1-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Play C3, B3, C4 slowly. The last half step completes the octave."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            48,
+            59
+          ],
+          "choices": [
+            "major 7th",
+            "perfect 5th",
+            "octave"
+          ],
+          "answer": "major 7th",
+          "id": "g6-l1-q1"
+        },
+        {
+          "kind": "play-interval",
+          "prompt": "Play C3, then go up a major 7th.",
+          "startMidi": 48,
+          "semitones": 11,
+          "id": "g6-l1-q2"
+        }
+      ]
+    }
+  ]
+}

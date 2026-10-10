@@ -1,0 +1,100 @@
+{
+  "id": "g6-l8",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 8,
+  "title": "A second minor seventh shape",
+  "summary": "Keep the same type on an E root.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A second minor seventh shape",
+      "body": "Em7 has E, G, B and D: an E minor triad plus a minor seventh above E.\n\n**Why it matters:** Knowing the four note names helps you recognise the same type in a different shape.",
+      "exampleMidi": [
+        40,
+        47,
+        50,
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "From Em, release string 4 fret 2 to open: E becomes D. Press only string 5 fret 2; all other strings are open.",
+      "highlightMidi": [
+        40,
+        47,
+        50,
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Em7.",
+          "pitchClasses": [
+            4,
+            7,
+            11,
+            2
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l8-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Sound each string of Em7 in turn before playing the chord. Repeated E and B notes do not change its four-note family."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            40,
+            47,
+            50,
+            55,
+            59,
+            64
+          ],
+          "choices": [
+            "Em7",
+            "E7",
+            "Emaj7"
+          ],
+          "answer": "Em7",
+          "id": "g6-l8-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Em7.",
+          "pitchClasses": [
+            4,
+            7,
+            11,
+            2
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l8-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Em7"
+}

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import type { TestItem, Unit } from '@music/contracts';
-import { chordFromNumeral, parseKey, midiToPositions, pretty, STANDARD_TUNING } from '@music/theory';
+import { chordFromNumeral, chordShapeMidi, GUITAR_CHORD_SHAPES, parseKey, midiToPositions, pretty, STANDARD_TUNING } from '@music/theory';
 import { buildApp } from '../../../services/curriculum/src/app.js';
 import { loadCurriculum } from '../../../services/curriculum/src/content.js';
 import { computeProgress, NO_COMPLETIONS } from '../../../services/progress/src/unlocks.js';
@@ -40,25 +40,41 @@ async function course(page: Page, unit: Unit, guitarPassed = true) {
   return api;
 }
 
-const positions: Record<number, [number, number]> = { 0: [2, 1], 1: [2, 2], 2: [4, 0], 3: [4, 1], 4: [1, 0], 5: [1, 1], 6: [1, 2], 7: [3, 0], 8: [3, 1], 9: [3, 2], 10: [3, 3], 11: [2, 0] };
 async function chord(page: Page, pcs: number[]) {
-  for (const pc of pcs) {
-    const [string, fret] = positions[pc]!;
-    await page.getByTestId(`fret-${string}-${fret}`).click();
+  // Each physical string can supply one note; choose a playable alternate voicing.
+  function place(index: number, selected: Array<[number, number]>): Array<[number, number]> | null {
+    if (index === pcs.length) return selected;
+    for (let fret = 0; fret <= 12; fret++) {
+      for (let string = 1; string <= 6; string++) {
+        if (selected.some(([s]) => s === string)) continue;
+        if ((STANDARD_TUNING.strings[6 - string]! + fret) % 12 !== pcs[index]) continue;
+        const result = place(index + 1, [...selected, [string, fret]]);
+        if (result) return result;
+      }
+    }
+    return null;
   }
+  const positions = place(0, []);
+  if (!positions) throw new Error(`No six-string voicing for ${pcs.join(',')}`);
+  for (const [string, fret] of positions) await page.getByTestId(`fret-${string}-${fret}`).click();
 }
 async function pluck(page: Page, midi: number) {
   const pos = midiToPositions(STANDARD_TUNING, midi, 12).at(-1)!;
   await page.getByTestId(`fret-${pos.string}-${pos.fret}`).click();
 }
-async function answer(page: Page, item: TestItem) {
+async function answer(page: Page, item: TestItem, shapeName?: string) {
   await expect(page.getByTestId('prompt')).toHaveText(pretty(item.prompt));
   if (item.kind === 'name-it') await page.getByRole('button', { name: pretty(item.answer), exact: true }).click();
   else if (item.kind === 'find-note') await pluck(page, item.midi!);
   else if (item.kind === 'play-interval') {
     await pluck(page, item.startMidi!);
     await pluck(page, item.startMidi! + item.semitones);
-  } else if (item.kind === 'build-chord') await chord(page, item.pitchClasses);
+  } else if (item.kind === 'build-chord') {
+    const shape = GUITAR_CHORD_SHAPES.find((s) => s.name === shapeName);
+    if (shape) {
+      for (const [i, fret] of shape.frets.entries()) if (fret !== null) await page.getByTestId(`fret-${6 - i}-${fret}`).click();
+    } else await chord(page, item.pitchClasses);
+  }
   else if (item.kind === 'play-progression') {
     for (const [i, numeral] of item.numerals.entries()) {
       await expect(page.getByTestId(`chord-${i}`)).toHaveAttribute('data-state', 'current');
@@ -77,11 +93,21 @@ for (const unit of units) {
       if (lesson.order % 2 === 0) await page.getByTestId('theme').click();
       await page.goto(`/#/lesson/${id}`);
       await expect(page.getByTestId('lesson-title')).toHaveText(lesson.title);
+      if (lesson.guitarChord) {
+        await expect(page.getByTestId('guitar-chord-diagram')).toContainText(pretty(lesson.guitarChord));
+        await expect(page.getByTestId('guitar-chord-diagram').getByRole('img')).toHaveAttribute('aria-label', new RegExp(`^${pretty(lesson.guitarChord)} chord`));
+        if (lesson.guitarChord === 'Bm7b5') {
+          await expect(page.getByTestId('guitar-barre')).toHaveAttribute('d', 'M124 86H232');
+          await expect(page.getByTestId('guitar-chord-diagram')).toContainText('strings 5 through 3 at fret 2');
+        }
+        if (['Cmaj7', 'G7', 'Bm7b5'].includes(lesson.guitarChord)) await page.screenshot({ path: `/tmp/music-seventh-${lesson.guitarChord}.png`, fullPage: true });
+      }
       for (const step of lesson.steps) {
         await expect(page.getByTestId('step-title')).toHaveText(pretty(step.title));
         await expect(page.getByTestId('fretboard')).toBeVisible();
+        if (lesson.guitarChord) await expect(page.getByTestId('guitar-chord-diagram')).toBeVisible();
         if (step.type === 'play-along' || step.type === 'quiz') {
-          for (const item of step.items) await answer(page, item);
+          for (const item of step.items) await answer(page, item, lesson.guitarChord);
           await expect(page.getByTestId('step-complete')).toBeVisible();
         }
         if (step.type !== 'quiz') await page.getByTestId('next').click();
@@ -89,6 +115,13 @@ for (const unit of units) {
       await page.getByTestId('finish').click();
       await expect(page.getByTestId('summary')).toBeVisible();
       expect(api.attempts.length).toBeGreaterThanOrEqual(3);
+      if (lesson.guitarChord) {
+        const notes = chordShapeMidi(STANDARD_TUNING, GUITAR_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!);
+        for (const attempt of api.attempts.filter((a) => a.itemKind === 'build-chord')) {
+          expect((attempt.played as number[]).every((n) => notes.includes(n))).toBe(true);
+          expect([...new Set((attempt.played as number[]).map((n) => n % 12))].sort()).toEqual([...new Set(notes.map((n) => n % 12))].sort());
+        }
+      }
       expect(api.attempts.every((a) => a.correct && a.instrument === 'guitar' && String(a.skill).startsWith('g:'))).toBe(true);
     });
   }

@@ -1,0 +1,100 @@
+{
+  "id": "g6-l5",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "The plain seven symbol",
+  "summary": "Read a dominant seventh chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The plain seven symbol",
+      "body": "**dominant 7th chord** means a major triad plus a minor seventh above its root. A plain 7 after a root means this type: G7 is G, B, D and F.\n\n**Why it matters:** G7 and Gmaj7 use different sevenths, so their written symbols must stay distinct.",
+      "exampleMidi": [
+        43,
+        47,
+        50,
+        55,
+        59,
+        65
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Use the G7 shape: string 6 fret 3, string 5 fret 2, strings 4, 3 and 2 open, string 1 fret 1. F3 is ten half steps above G2. This shape uses F4, the same note name one octave higher; spreading chord notes over more than one octave keeps the same chord type.",
+      "highlightMidi": [
+        43,
+        47,
+        50,
+        55,
+        59,
+        65
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written G7.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l5-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare the highest note of G with G7: string 1 changes from fret 3 to fret 1. Clear the taps before changing."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            43,
+            47,
+            50,
+            55,
+            59,
+            65
+          ],
+          "choices": [
+            "Gmaj7",
+            "G7",
+            "G"
+          ],
+          "answer": "G7",
+          "id": "g6-l5-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written G7.",
+          "pitchClasses": [
+            7,
+            11,
+            2,
+            5
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l5-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "G7"
+}

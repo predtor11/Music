@@ -25,7 +25,18 @@ export const BARRE_CHORD_SHAPES: ChordShape[] = [
   { name: 'Bm', frets: [null, 2, 4, 4, 3, 2], fingers: [null, 1, 3, 4, 2, 1], baseFret: 2 },
 ];
 
+/** Seventh shapes in standard tuning; frets remain absolute. */
+export const SEVENTH_CHORD_SHAPES: ChordShape[] = [
+  { name: 'Cmaj7', frets: [null, 3, 2, 0, 0, 0], fingers: [null, 3, 2, null, null, null], baseFret: 1 },
+  { name: 'G7', frets: [3, 2, 0, 0, 0, 1], fingers: [3, 2, null, null, null, 1], baseFret: 1 },
+  { name: 'D7', frets: [null, null, 0, 2, 1, 2], fingers: [null, null, null, 2, 1, 3], baseFret: 1 },
+  { name: 'Am7', frets: [null, 0, 2, 0, 1, 0], fingers: [null, null, 2, null, 1, null], baseFret: 1 },
+  { name: 'Em7', frets: [0, 2, 0, 0, 0, 0], fingers: [null, 2, null, null, null, null], baseFret: 1 },
+  { name: 'Bm7b5', frets: [null, 2, 3, 2, 3, null], fingers: [null, 1, 2, 1, 3, null], baseFret: 2 },
+  { name: 'Bdim7', frets: [null, 2, 3, 1, 3, null], fingers: [null, 2, 3, 1, 4, null], baseFret: 1 },
+];
+
 /** Names referenced by Lesson.guitarChord; the existing open-only export is preserved. */
 export const GUITAR_CHORD_SHAPES: ChordShape[] = [
-  ...OPEN_CHORD_SHAPES, ...POWER_CHORD_SHAPES, ...BARRE_CHORD_SHAPES,
+  ...OPEN_CHORD_SHAPES, ...POWER_CHORD_SHAPES, ...BARRE_CHORD_SHAPES, ...SEVENTH_CHORD_SHAPES,
 ];

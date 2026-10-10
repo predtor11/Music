@@ -1,0 +1,75 @@
+{
+  "id": "g6-l2",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "Ten small steps",
+  "summary": "Hear a minor seventh interval.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Ten small steps",
+      "body": "**minor 7th** means an interval of ten half steps. C up to Bb is a minor 7th; Bb is two half steps below the next C.\n\n**Why it matters:** A minor seventh above a root is a common extra sound in a chord.",
+      "exampleMidi": [
+        48,
+        58
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "C3 is string 5 fret 3; Bb3 is string 3 fret 3. Compare Bb3 with B3, one half step higher.",
+      "highlightMidi": [
+        48,
+        58
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-interval",
+          "prompt": "Play C3, then go up a minor 7th.",
+          "startMidi": 48,
+          "semitones": 10,
+          "id": "g6-l2-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare C–Bb with C–B. Major and minor here name the distance, not the whole chord."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            48,
+            58
+          ],
+          "choices": [
+            "major 7th",
+            "minor 7th",
+            "octave"
+          ],
+          "answer": "minor 7th",
+          "id": "g6-l2-q1"
+        },
+        {
+          "kind": "play-interval",
+          "prompt": "Play C3, then go up a minor 7th.",
+          "startMidi": 48,
+          "semitones": 10,
+          "id": "g6-l2-q2"
+        }
+      ]
+    }
+  ]
+}
