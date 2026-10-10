@@ -7,6 +7,11 @@ test.describe('first-run instruments', () => {
   test('asks before showing an input and keeps the guitar choice across reloads', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByTestId('instrument-picker')).toBeVisible();
+    for (const name of ['A grand piano', 'An acoustic guitar']) {
+      const image = page.getByRole('img', { name, exact: true });
+      await expect(image).toBeVisible();
+      await expect.poll(() => image.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    }
     await expect(page.getByTestId('piano')).toHaveCount(0);
     await expect(page.getByTestId('fretboard')).toHaveCount(0);
     await page.getByTestId('choose-guitar').click();

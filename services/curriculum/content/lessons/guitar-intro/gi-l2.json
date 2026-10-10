@@ -1,0 +1,70 @@
+{
+  "id": "gi-l2",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "Six strings, two directions",
+  "summary": "Number from thin to thick; name from thick to thin.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Six strings, two directions",
+      "body": "**string** means one of the six thin wires stretched along a guitar\n\n**Why it matters:** Knowing which wire to use makes instructions easy to follow.\n\nThe thickest string is number 6; the thinnest is number 1. In this course their names, thick to thin, are E, A, D, G, B, E. Remember: **Eddie Ate Dynamite, Good Bye Eddie**. These letters name sounds; you do not need to read music. The two E strings sound different: one low, one high.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "The picture puts string 1 at the top and string 6 at the bottom. On your guitar, find the thickest string first. Say 6 E, 5 A, 4 D, 3 G, 2 B, 1 E. Hear the low and high E sounds.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l2-play",
+          "prompt": "Which letter names the lit thickest string?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "E",
+            "A"
+          ],
+          "answer": "E"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Point at string 6, then string 1. Say the mnemonic slowly. Do not worry about playing anything yet."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l2-quiz",
+          "prompt": "Which letter names the lit thickest string?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "E",
+            "A"
+          ],
+          "answer": "E"
+        }
+      ]
+    }
+  ]
+}

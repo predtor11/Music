@@ -1,0 +1,70 @@
+{
+  "id": "gi-l3",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "Sit comfortably",
+  "summary": "Support the guitar so your hands can move freely.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Sit comfortably",
+      "body": "Sit on a stable chair with both feet supported. Keep your back comfortably tall and shoulders loose. Rest the body on a thigh; let your arm support it gently. A strap can help. Angle the neck slightly upward so you can reach without twisting your wrist. Left-handed players can mirror this setup.\n\n**Why it matters:** A supported guitar frees both hands. Stop and reposition if anything hurts.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Hold the body close enough to reach it without hunching. Your hands should not have to squeeze the neck to keep the guitar from falling.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l3-play",
+          "prompt": "What should support the guitar while you sit?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "your thigh and a gentle supporting arm",
+            "a tightly squeezed neck"
+          ],
+          "answer": "your thigh and a gentle supporting arm"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Put both hands in your lap briefly while the guitar is safely supported. Then bring them back gently. Use the screen if you do not have a guitar."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l3-quiz",
+          "prompt": "What should support the guitar while you sit?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "your thigh and a gentle supporting arm",
+            "a tightly squeezed neck"
+          ],
+          "answer": "your thigh and a gentle supporting arm"
+        }
+      ]
+    }
+  ]
+}

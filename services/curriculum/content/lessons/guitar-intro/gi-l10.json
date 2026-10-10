@@ -1,0 +1,68 @@
+{
+  "id": "gi-l10",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 10,
+  "title": "Read your first tab line",
+  "summary": "One line chooses the string; one number chooses the fret.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Read your first tab line",
+      "body": "**tab** means a guitar playing picture with six lines and numbers telling you which places to play\n\n**Why it matters:** It tells you a string and a fret without needing music notation.\n\nThe top line is thin string 1; the bottom line is thick string 6. Read left to right. A number on a line tells the fret: 0 means open, 1 means the first fret. The small example below says: play open string 6, then its first fret. A fretboard picture uses the same string numbers but draws the places as circles.",
+      "exampleMidi": [
+        40,
+        41
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Find the bottom line labelled 6 E. Read its 0, then its 1 from left to right. Find those same two places on the fretboard. Nothing here tells you how fast to play yet.",
+      "highlightMidi": [
+        40,
+        41
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "gi-l10-play",
+          "prompt": "Play the lit note. Tap it here, or play one string with the microphone.",
+          "midi": 40,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Read the tab aloud: string 6 open, then string 6 fret 1. Play slowly or tap the circles. Go back to the picture whenever you need."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l10-quiz",
+          "prompt": "In guitar tab, what does 0 mean?",
+          "shownMidi": [
+            40,
+            41
+          ],
+          "choices": [
+            "play the open string",
+            "press the first fret"
+          ],
+          "answer": "play the open string"
+        }
+      ]
+    }
+  ],
+  "guitarDiagram": "tab"
+}

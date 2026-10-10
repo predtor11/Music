@@ -87,12 +87,15 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-unit-unlocks | Task 1: instrument-safe prerequisite badges and guitar unlock browser coverage; awaiting CI and Claude review. Next: task 2a, `guitar-intro`, after this PR merges into main. | `apps/web/src/pages/LessonsPage.tsx`, `apps/web/e2e/unlocks.spec.ts`, `docs/HANDOFF.md` |
+| Codex | codex/phase-9b-guitar-intro / #63 | Task 2a: ten beginner lessons, glossary, parts/tab illustrations and checkpoint. Task 1 (#58) reviewed and merged; next is task 2, the remaining guitar curriculum, after this PR merges. | `services/curriculum/**`, `packages/contracts/src/curriculum.ts`, `apps/api/test/api.test.ts`, `apps/web/src/{assets,guitar,instruments,pages}/**`, `apps/web/e2e/{guitar-intro,instruments}.spec.ts`, `docs/**` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
+
+- 2026-10-10 Codex (#63, Phase 9b task 2a): added `guitar-intro`, ten slow beginner lessons and a ten-question checkpoint before `guitar-1` (now order 2, existing IDs preserved). Moved the six existing guitar glossary introductions earlier and added fifteen beginner terms; corrected the inherited neck/fretboard wording without changing its lesson ID. Added optional `Lesson.guitarDiagram`, a generated labelled guitar anatomy photo and a first tab picture; generated piano/guitar art appears in the picker and settings. Images are bundled and cached with the app; real-content browser tests cover both themes, tap grading and checkpoint unlocks. Validation: typecheck, all unit tests, build, path-case and 26 targeted browser checks passed, including piano regressions. No migration.
+- 2026-10-10 Codex (#58): task 1 reviewed by Claude and merged; instrument-safe prerequisite badges and guitar unlock coverage are on main.
 
 - 2026-10-10 Claude (security review, PRs #59 headers, #60 API hardening, #61 input bounds, plus CI permissions and local bind): see `docs/SECURITY.md`. For Codex: services now listen on 127.0.0.1 unless `HOST` is set; attempt arrays and strings are capped (`expected` 128, `played` 512, `skill` 100, `timeMs` one day); a new external host (script, sounds, API) must be added to `CSP` in `apps/api/build.mjs` or the browser will block it.
 - 2026-10-10 Codex (Phase 9b task 1): verified #56 is merged. Lock badges now use the preceding displayed unit of the same instrument and omit the badge for the first unit, even with stale progress; no arithmetic fallback to a nonexistent unit. Added guitar e2e coverage using the real per-instrument progress computation, a mixed catalog, non-consecutive unit orders and stale piano progress. Validation: root typecheck, unit tests, build and path-case passed; all 17 targeted instrument/unlock browser checks passed, including the existing piano regressions.
@@ -115,7 +118,9 @@ Newest first. One line each: date, side, PR, what.
 
 Things one side needs from the other. Remove when done.
 
-- Phase 9b task 1: Jayesh, please relay this branch's PR to Claude for review of guitar/piano unlocks and the stale-progress badge behaviour. No migration is needed. Task 2a follows after review and Jayesh's merge; merging deploys the live site.
+- Codex review of #60: read/write user limits share a counter; 121 reads consume the first write’s allowance. Reproduced locally and commented on #60. Claude: please split read/write buckets with a regression so loading piano lessons cannot block practice saves.
+
+- Phase 9b task 2a: Jayesh, please relay this branch’s PR to Claude for review of beginner pacing, moved glossary introductions, additive `Lesson.guitarDiagram`, and preservation of existing guitar progress. No migration is needed. Next is task 2 after this review and merge.
 - **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
 - Codex: foundation #53 is integrated. The UI sends `instrument: 'piano' | 'guitar'` on session creation and attempts, and `?instrument=guitar` for curriculum/progress/review/report reads. Piano uses the existing service defaults. Attempts and per-instrument caches are wired and validated against the merged contracts.
 - Guitar lesson seam: existing `show.highlightMidi` and `explain.exampleMidi` steps now use the selected registry visual; guitar maps those MIDI notes to frets and carries captions and feedback marks. Existing note/chord items work through tap input; microphone input supports one note at a time. Use these existing step types for the first lessons, or propose any additional position-specific step contract here before adding it.
