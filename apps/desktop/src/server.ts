@@ -5,13 +5,14 @@
  *
  * Settings come from the .env in the app's data folder (the working directory).
  * Without SUPABASE_DB_URL the services keep data in memory and the event
- * journal brings progress back after a restart; without the Supabase sign-in
- * settings the gateway treats everyone as one local user.
+ * journal brings progress back after a restart. Sign-in uses the project's
+ * public Supabase settings (public-config.ts) unless MUSIC_LOCAL_ONLY=1.
  */
 import { join } from 'node:path';
 import { setDefaultEventBus } from '@music/service-kit';
 import { JournalEventBus } from './journal-bus.js';
 import { SERVICE_PORTS, WEB_PORT, type DesktopService } from './ports.js';
+import { applyPublicDefaults } from './public-config.js';
 import { createStaticServer } from './static-server.js';
 
 type Message = { type: 'ready'; url: string; journalled: number } | { type: 'error'; message: string };
@@ -37,6 +38,7 @@ async function main(): Promise<void> {
   const webDir = process.env.MUSIC_WEB_DIR;
   if (!webDir) throw new Error('MUSIC_WEB_DIR is not set');
 
+  applyPublicDefaults(process.env);
   process.env.HOST = '127.0.0.1';
   for (const [name, port] of Object.entries(SERVICE_PORTS)) process.env[`${name.toUpperCase()}_URL`] = `http://127.0.0.1:${port}`;
   // One process, one shared bus: Redis is never needed here.

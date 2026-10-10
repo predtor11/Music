@@ -18,9 +18,10 @@ The installer is not code-signed, so Windows SmartScreen says "Windows protected
 
 ## Settings and data
 
-Settings live in `%APPDATA%\Music Theory Trainer\.env` (File > Open Settings File). The installer carries no settings or keys.
+Settings live in `%APPDATA%\Music Theory Trainer\.env` (File > Open Settings File).
 
-- **Left empty (anyone who installs it):** no account; the app is one local user. Progress is saved as an event log (`events.jsonl` in the same folder) and replayed at start-up. Settings such as note names stay in the app's browser storage.
-- **Filled in with the same values as the repo's `.env`:** sign-in and progress use the Supabase project, the same as the web version. Restart the app after editing.
+- **Sign-in works out of the box.** The installer carries the project's public Supabase URL and publishable key (they are meant for client apps and only allow sign-in calls), so the sign-in screen appears the same as in the browser. No secrets are bundled. Progress is saved as an event log (`events.jsonl` in the same folder) and replayed at start-up.
+- **`MUSIC_LOCAL_ONLY=1`** turns sign-in off: the app is one local user with no account.
+- **Filled in with the same values as the repo's `.env`** (service role, JWT secret, `SUPABASE_DB_URL`): progress is kept in the Supabase project, the same as the web version. Restart the app after editing.
 
 Logs: Help > Open Service Log.

@@ -3,11 +3,13 @@ import { existsSync, writeFileSync } from 'node:fs';
 /** Written to the app's data folder on first launch. Everything is optional. */
 export const SETTINGS_TEMPLATE = `# Music Theory Trainer settings. Everything here is optional.
 #
-# Left empty, the app works on its own on this computer: no account, and your
-# progress is saved in this folder.
+# Sign-in works out of the box: the app has the project's public sign-in
+# settings built in, and your progress is saved in this folder.
 #
-# To sign in and keep progress in a Supabase project instead (the same as the
-# web version), fill these in and restart the app:
+# MUSIC_LOCAL_ONLY=1 turns sign-in off (one local user, no account).
+#
+# To keep progress in the Supabase project itself (the same as the web
+# version), fill these in with the values from the repo's .env and restart:
 #
 # SUPABASE_URL=
 # SUPABASE_ANON_KEY=
