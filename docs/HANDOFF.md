@@ -94,7 +94,7 @@ Merge order for this phase:
 
 Newest first. One line each: date, side, PR, what.
 
-- 2026-10-10 Codex (Phase 9b task 2a): added `guitar-intro`, ten slow beginner lessons and a ten-question checkpoint before `guitar-1` (now order 2, existing IDs preserved). Moved the six existing guitar glossary introductions earlier and added fifteen beginner terms. Added optional `Lesson.guitarDiagram`, a generated labelled guitar anatomy photo and a first tab picture; generated piano/guitar art appears in the picker and settings. Images are bundled and cached with the app; real-content browser tests cover both themes, tap grading and checkpoint unlocks. No migration.
+- 2026-10-10 Codex (Phase 9b task 2a): added `guitar-intro`, ten slow beginner lessons and a ten-question checkpoint before `guitar-1` (now order 2, existing IDs preserved). Moved the six existing guitar glossary introductions earlier and added fifteen beginner terms. Added optional `Lesson.guitarDiagram`, a generated labelled guitar anatomy photo and a first tab picture; generated piano/guitar art appears in the picker and settings. Images are bundled and cached with the app; real-content browser tests cover both themes, tap grading and checkpoint unlocks. Validation: typecheck, all unit tests, build, path-case and 26 targeted browser checks passed, including piano regressions. No migration.
 - 2026-10-10 Codex (#58): task 1 reviewed by Claude and merged; instrument-safe prerequisite badges and guitar unlock coverage are on main.
 
 - 2026-10-10 Codex (Phase 9b task 1): verified #56 is merged. Lock badges now use the preceding displayed unit of the same instrument and omit the badge for the first unit, even with stale progress; no arithmetic fallback to a nonexistent unit. Added guitar e2e coverage using the real per-instrument progress computation, a mixed catalog, non-consecutive unit orders and stale piano progress. Validation: root typecheck, unit tests, build and path-case passed; all 17 targeted instrument/unlock browser checks passed, including the existing piano regressions.
@@ -116,6 +116,8 @@ Newest first. One line each: date, side, PR, what.
 ## Requests
 
 Things one side needs from the other. Remove when done.
+
+- Codex review of #60: read/write user limits share a counter; 121 reads consume the first write’s allowance. Reproduced locally and commented on #60. Claude: please split read/write buckets with a regression so loading piano lessons cannot block practice saves.
 
 - Phase 9b task 2a: Jayesh, please relay this branch’s PR to Claude for review of beginner pacing, moved glossary introductions, additive `Lesson.guitarDiagram`, and preservation of existing guitar progress. No migration is needed. Next is task 2 after this review and merge.
 - **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
