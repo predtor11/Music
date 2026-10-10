@@ -1,7 +1,8 @@
-import type { Lesson, Progress, SkillScore, TestItem } from '@music/contracts';
+import type { Lesson, Progress, SkillScore, TestItem, Unit } from '@music/contracts';
 import type { Page, Route } from '@playwright/test';
 import { fakeApi, LESSON, nextItemSessionId, UNIT } from './fake-api.js';
 import { expect, test } from './fake-midi.js';
+import { computeProgress, NO_COMPLETIONS } from '../../../services/progress/src/unlocks.js';
 
 const USER_ID = '00000000-0000-4000-8000-000000000001';
 const LESSON2: Lesson = { ...LESSON, id: 'test-l2', order: 2, title: 'Finding E' };
@@ -25,6 +26,55 @@ const progress = (statuses: Array<Progress['units'][number]['lessons'][number]['
 });
 
 const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) });
+
+const GUITAR_UNIT: Unit = { ...UNIT, id: 'guitar-1', instrument: 'guitar', lessonIds: ['guitar-1-strings'], title: 'Meet the fretboard' };
+// Non-consecutive orders catch the old arithmetic fallback (Unit 2 does not exist).
+const GUITAR_UNIT2: Unit = { ...GUITAR_UNIT, id: 'guitar-3', order: 3, lessonIds: ['guitar-3-notes'], title: 'Guitar notes' };
+const GUITAR_UNITS = [GUITAR_UNIT, GUITAR_UNIT2];
+
+async function guitarCourse(page: Page, state: Progress) {
+  await fakeApi(page, { signedIn: true });
+  const requests: string[] = [];
+  await page.route((url) => url.pathname.startsWith('/api/'), (route) => {
+    const url = new URL(route.request().url());
+    requests.push(url.pathname + url.search);
+    const path = url.pathname.replace(/^\/api/, '');
+    // A mixed catalog also checks that piano units never enter the guitar chain.
+    if (path === '/curriculum/units') return json(route, [UNIT, ...GUITAR_UNITS]);
+    const unit = GUITAR_UNITS.find((u) => path === `/curriculum/lessons/${u.lessonIds[0]}`);
+    if (unit) return json(route, { ...LESSON, id: unit.lessonIds[0], unitId: unit.id, instrument: 'guitar', title: unit.title });
+    if (path === '/progress/') return json(route, state);
+    if (path === '/progress/review-queue') return json(route, []);
+    return route.fallback();
+  });
+  await page.goto('/');
+  await page.getByTestId('instrument-header').selectOption('guitar');
+  await page.getByTestId('nav-lessons').click();
+  await expect(page.getByTestId('unit-guitar-1')).toBeVisible();
+  return requests;
+}
+
+test('guitar starts open with instrument-scoped progress and real prerequisite badges', async ({ page }) => {
+  const state = computeProgress(USER_ID, [UNIT, ...GUITAR_UNITS], NO_COMPLETIONS, 'guitar');
+  const requests = await guitarCourse(page, state);
+  expect(requests).toContain('/api/progress/?instrument=guitar');
+  expect(requests).toContain('/api/curriculum/units?instrument=guitar');
+  await expect(page.getByTestId('unit-guitar-1')).toHaveAttribute('data-unlocked', 'true');
+  await expect(page.getByTestId('checkpoint-guitar-1')).toBeEnabled();
+  await expect(page.getByTestId('lesson-guitar-1-strings')).toHaveAttribute('data-status', 'available');
+  await expect(page.getByTestId('unit-locked-guitar-1')).toHaveCount(0);
+  await expect(page.getByTestId('unit-locked-guitar-3')).toContainText('Pass the Unit 1 test');
+  await expect(page.getByTestId(`unit-${UNIT.id}`)).toHaveCount(0);
+  await page.getByTestId('lesson-guitar-1-strings').click();
+  await expect(page.getByTestId('lesson-title')).toHaveText(GUITAR_UNIT.title);
+});
+
+test('stale piano progress never invents a guitar prerequisite', async ({ page }) => {
+  await guitarCourse(page, computeProgress(USER_ID, [UNIT], NO_COMPLETIONS));
+  await expect(page.getByTestId('unit-locked-guitar-1')).toHaveCount(0);
+  await expect(page.getByTestId('unit-locked-guitar-3')).toContainText('Pass the Unit 1 test');
+  await expect(page.getByText(/Pass the Unit [02] test/)).toHaveCount(0);
+});
 
 /** Two units and three lessons, with progress and the review queue answered as given. */
 async function course(page: Page, state: { progress: () => Progress; queue?: SkillScore[]; reviewItems?: TestItem[] }) {
