@@ -11,7 +11,7 @@ const app = buildApp({ logger: false });
 const USER = '00000000-0000-4000-8000-000000000001';
 
 /** Serve the real curriculum; model progress from the completed checkpoint. */
-async function guitarCourse(page: Page) {
+async function guitarCourse(page: Page, lessonsDone: string[] = []) {
   const api = await fakeApi(page, { signedIn: true });
   let passed = false;
   await page.route((url) => url.pathname.startsWith('/api/'), async (route) => {
@@ -21,7 +21,7 @@ async function guitarCourse(page: Page) {
       const response = await app.inject({ url: path.replace('/curriculum', '') + url.search });
       return route.fulfill({ status: response.statusCode, contentType: 'application/json', body: response.body });
     }
-    if (path === '/progress/') return route.fulfill({ json: computeProgress(USER, curriculum.units, { ...NO_COMPLETIONS, checkpointsPassed: new Set(passed ? [intro.id] : []) }, 'guitar') });
+    if (path === '/progress/') return route.fulfill({ json: computeProgress(USER, curriculum.units, { ...NO_COMPLETIONS, lessonsDone: new Set(lessonsDone), checkpointsPassed: new Set(passed ? [intro.id] : []) }, 'guitar') });
     if (path === '/progress/review-queue') return route.fulfill({ json: [] });
     if (api.sessions.at(-1)?.kind === 'checkpoint') {
       if (nextItemSessionId(path)) {
@@ -49,38 +49,45 @@ async function guitarCourse(page: Page) {
   return api;
 }
 
-for (const theme of ['dark', 'light']) {
-  test(`teaches the parts slowly with a picture in every step (${theme})`, async ({ page }) => {
-    // Walk all fifteen paced steps; individual assertions retain their normal timeout.
-    test.setTimeout(60_000);
-    const api = await guitarCourse(page);
-    if (theme === 'light') await page.getByTestId('theme').click();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
-    await expect(page.getByTestId('unit-guitar-intro')).toHaveAttribute('data-unlocked', 'true');
-    await expect(page.getByTestId('unit-locked-guitar-1')).toContainText('Pass the Unit 1 test');
-    await page.getByTestId('lesson-gi-l1').click();
-    await expect(page.getByTestId('lesson-title')).toHaveText('Meet the parts');
-    const kinds = { explain: 'Learn', show: 'Look', 'play-along': 'Play along', explore: 'Explore', quiz: 'Quiz' };
-    for (const step of curriculum.lessonsById.get('gi-l1')!.steps) {
-      const kind = kinds[step.type];
-      await expect(page.getByTestId('step-kind')).toHaveText(kind);
-      await expect(page.getByTestId('guitar-diagram-parts')).toBeVisible();
-      await expect.poll(() => page.getByTestId('guitar-diagram-parts').locator('img').evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-      if (kind === 'Play along' || kind === 'Quiz') {
-        await page.getByRole('button', { name: 'body', exact: true }).click();
-        await expect(page.getByTestId('step-complete')).toBeVisible();
-      } else await expect(page.getByTestId('fretboard')).toBeVisible();
-      if (step.title === 'Meet the body') {
-        await expect(page.getByTestId('step-title').locator('..').locator('..')).toHaveCSS('filter', 'blur(0px)');
-        await page.screenshot({ path: `/tmp/music-guitar-parts-${theme}.png`, fullPage: true });
+for (const lessonId of ['gi-l1', 'gi-l1b']) {
+  for (const theme of ['dark', 'light']) {
+    test(`teaches ${lessonId} with its own quiz and a picture in every step (${theme})`, async ({ page }) => {
+      // Walk each split lesson; individual assertions retain their normal timeout.
+      const lesson = curriculum.lessonsById.get(lessonId)!;
+      test.setTimeout(60_000);
+      const api = await guitarCourse(page, lessonId === 'gi-l1b' ? ['gi-l1'] : []);
+      if (theme === 'light') await page.getByTestId('theme').click();
+      await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+      await expect(page.getByTestId('unit-guitar-intro')).toHaveAttribute('data-unlocked', 'true');
+      await expect(page.getByTestId('unit-locked-guitar-1')).toContainText('Pass the Unit 1 test');
+      await page.getByTestId(`lesson-${lessonId}`).click();
+      await expect(page.getByTestId('lesson-title')).toHaveText(lesson.title);
+      const kinds = { explain: 'Learn', show: 'Look', 'play-along': 'Play along', explore: 'Explore', quiz: 'Quiz' };
+      for (const step of lesson.steps) {
+        const kind = kinds[step.type];
+        await expect(page.getByTestId('step-kind')).toHaveText(kind);
+        await expect(page.getByTestId('guitar-diagram-parts')).toBeVisible();
+        await expect.poll(() => page.getByTestId('guitar-diagram-parts').locator('img').evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+        if (kind === 'Play along' || kind === 'Quiz') {
+          for (const item of step.type === 'play-along' || step.type === 'quiz' ? step.items : []) {
+            if (item.kind !== 'name-it') throw new Error('Expected a parts naming question');
+            await expect(page.getByTestId('prompt')).toHaveText(item.prompt);
+            await page.getByRole('button', { name: item.answer, exact: true }).click();
+          }
+          await expect(page.getByTestId('step-complete')).toBeVisible();
+        } else await expect(page.getByTestId('fretboard')).toBeVisible();
+        if (step.title === 'Meet the body') {
+          await expect(page.getByTestId('step-title').locator('..').locator('..')).toHaveCSS('filter', 'blur(0px)');
+          await page.screenshot({ path: `/tmp/music-guitar-parts-${theme}.png`, fullPage: true });
+        }
+        if (kind !== 'Quiz') await page.getByTestId('next').click();
       }
-      if (kind !== 'Quiz') await page.getByTestId('next').click();
-    }
-    await page.getByTestId('finish').click();
-    await expect(page.getByTestId('summary')).toBeVisible();
-    expect(api.attempts).toHaveLength(2);
-    expect(api.attempts.every((a) => a.instrument === 'guitar' && a.correct)).toBe(true);
-  });
+      await page.getByTestId('finish').click();
+      await expect(page.getByTestId('summary')).toBeVisible();
+      expect(api.attempts).toHaveLength(lessonId === 'gi-l1' ? 4 : 5);
+      expect(api.attempts.every((a) => a.instrument === 'guitar' && a.correct)).toBe(true);
+    });
+  }
 }
 
 test('passing the introductory checkpoint opens the existing fretboard unit', async ({ page }) => {

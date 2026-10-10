@@ -3,9 +3,9 @@
   "unitId": "guitar-intro",
   "instrument": "guitar",
   "order": 1,
-  "title": "Meet the parts",
-  "summary": "Find the main parts on an acoustic or electric guitar.",
-  "minutes": 6,
+  "title": "The parts you hold",
+  "summary": "Find the body, neck and headstock, one at a time.",
+  "minutes": 3,
   "steps": [
     {
       "type": "explain",
@@ -40,65 +40,9 @@
       ]
     },
     {
-      "type": "explain",
-      "title": "Meet the bridge",
-      "body": "**bridge** means the small anchor on the body.\n\n**Why it matters:** It holds the lower ends of the six thin wires.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Meet the tuning peg",
-      "body": "**tuning peg** means a small turning control on the headstock.\n\n**Why it matters:** Turning it changes how tight a wire is.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Acoustic guitars",
-      "body": "**acoustic** means a guitar whose hollow body makes its sound louder.\n\n**Why it matters:** You can hear it without an amplifier.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Electric guitars",
-      "body": "**electric** means a guitar designed to send its sound to an amplifier.\n\n**Why it matters:** Its pickups help you hear it through a speaker.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Meet the amplifier",
-      "body": "**amplifier** means a box that makes an electric guitar sound louder through a speaker.\n\n**Why it matters:** It lets you hear an electric guitar clearly.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Meet the sound hole",
-      "body": "**sound hole** means the opening in an acoustic guitar body.\n\n**Why it matters:** It lets the moving air out so you can hear it.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
-      "type": "explain",
-      "title": "Meet the pickup",
-      "body": "**pickup** means a device on an electric guitar that senses the motion of its wires.\n\n**Why it matters:** It sends the sound to an amplifier.",
-      "exampleMidi": [
-        40
-      ]
-    },
-    {
       "type": "show",
-      "title": "Look and listen",
-      "body": "The picture shows an acoustic guitar, with an electric pickup example beside it. Point at the body, then follow the neck to the headstock. We will use the playing picture below in the next lessons.",
+      "title": "Follow the shape",
+      "body": "Find the body in the picture. Follow the long neck to the headstock at the top. These are the three parts to remember today.",
       "highlightMidi": [
         40
       ]
@@ -124,12 +68,12 @@
     },
     {
       "type": "explore",
-      "title": "Take your time",
-      "body": "With the guitar resting safely, find the body, neck, bridge and tuning pegs. Do not turn the pegs yet. You can also use the picture instead."
+      "title": "Find three parts",
+      "body": "With the guitar resting safely, point to the body, neck and headstock. You can use the picture instead. Say each name slowly."
     },
     {
       "type": "quiz",
-      "title": "One quick check",
+      "title": "Check the three parts",
       "items": [
         {
           "kind": "name-it",
@@ -143,6 +87,32 @@
             "headstock"
           ],
           "answer": "body"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz-2",
+          "prompt": "Which guitar part is long and narrow?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "neck",
+            "body"
+          ],
+          "answer": "neck"
+        },
+        {
+          "kind": "name-it",
+          "id": "gi-l1-quiz-3",
+          "prompt": "Which guitar part is at the top of the neck?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "headstock",
+            "body"
+          ],
+          "answer": "headstock"
         }
       ]
     }

@@ -87,13 +87,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-guitar-intro / #63 | Task 2a: ten beginner lessons, glossary, parts/tab illustrations and checkpoint. Task 1 (#58) reviewed and merged; next is task 2, the remaining guitar curriculum, after this PR merges. | `services/curriculum/**`, `packages/contracts/src/curriculum.ts`, `apps/api/test/api.test.ts`, `apps/web/src/{assets,guitar,instruments,pages}/**`, `apps/web/e2e/{guitar-intro,instruments}.spec.ts`, `docs/**` |
+| Codex | codex/phase-9b-split-intro-parts / #72 | Task 2a review follow-up: split the parts introduction into two lessons with separate quizzes. #63 is merged; next is task 2 after this follow-up merges. | `services/curriculum/content/**`, `services/curriculum/test/**`, `apps/web/e2e/guitar-intro.spec.ts`, `docs/{GUITAR,HANDOFF}.md` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Codex (#72, task 2a review follow-up): addressed Claude’s #63 pacing comment by separating “The parts you hold” (`gi-l1`, body/neck/headstock) from “The parts that make the sound” (`gi-l1b`). Each has its own naming quiz and parts photo throughout. All existing lesson IDs and the checkpoint are preserved; later lesson orders shift by one, and glossary introductions follow their moved teaching steps. Added real-content browser coverage for both lessons and themes; no migration. Validation: typecheck, all unit tests, build, path-case and 21 targeted browser checks passed, including both parts lessons in both themes and piano regressions. Claude: please review the split and quizzes.
 - 2026-10-10 Codex (#63, Phase 9b task 2a): added `guitar-intro`, ten slow beginner lessons and a ten-question checkpoint before `guitar-1` (now order 2, existing IDs preserved). Moved the six existing guitar glossary introductions earlier and added fifteen beginner terms; corrected the inherited neck/fretboard wording without changing its lesson ID. Added optional `Lesson.guitarDiagram`, a generated labelled guitar anatomy photo and a first tab picture; generated piano/guitar art appears in the picker and settings. Images are bundled and cached with the app; real-content browser tests cover both themes, tap grading and checkpoint unlocks. Validation: typecheck, all unit tests, build, path-case and 26 targeted browser checks passed, including piano regressions. No migration.
 - 2026-10-10 Codex (#58): task 1 reviewed by Claude and merged; instrument-safe prerequisite badges and guitar unlock coverage are on main.
 
@@ -120,7 +121,7 @@ Things one side needs from the other. Remove when done.
 
 - Codex review of #60: read/write user limits share a counter; 121 reads consume the first write’s allowance. Reproduced locally and commented on #60. Claude: please split read/write buckets with a regression so loading piano lessons cannot block practice saves.
 
-- Phase 9b task 2a: Jayesh, please relay this branch’s PR to Claude for review of beginner pacing, moved glossary introductions, additive `Lesson.guitarDiagram`, and preservation of existing guitar progress. No migration is needed. Next is task 2 after this review and merge.
+- Phase 9b task 2a follow-up: Jayesh, please relay the split-parts PR to Claude for review of the two lesson scopes and separate quizzes. #63 is merged and its contract/assets are unchanged. No migration is needed. Next is task 2 after this review and merge.
 - **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.
 - Codex: foundation #53 is integrated. The UI sends `instrument: 'piano' | 'guitar'` on session creation and attempts, and `?instrument=guitar` for curriculum/progress/review/report reads. Piano uses the existing service defaults. Attempts and per-instrument caches are wired and validated against the merged contracts.
 - Guitar lesson seam: existing `show.highlightMidi` and `explain.exampleMidi` steps now use the selected registry visual; guitar maps those MIDI notes to frets and carries captions and feedback marks. Existing note/chord items work through tap input; microphone input supports one note at a time. Use these existing step types for the first lessons, or propose any additional position-specific step contract here before adding it.
