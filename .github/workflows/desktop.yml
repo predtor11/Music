@@ -17,6 +17,10 @@ on:
       - 'packages/**'
       - '.github/workflows/desktop.yml'
 
+# The token can only read the repository; nothing here needs to write to it.
+permissions:
+  contents: read
+
 jobs:
   windows:
     runs-on: windows-latest
