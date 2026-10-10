@@ -93,3 +93,14 @@ describe('guitar contracts', () => {
     expect(() => FretPositionSchema.parse({ string: 0, fret: 0 })).toThrow();
   });
 });
+
+describe('instrument contracts', () => {
+  it('treats a missing instrument as piano and rejects unknown ones', async () => {
+    const { InstrumentIdSchema, instrumentOf, UserSettingsSchema } = await import('../src/index.js');
+    expect(instrumentOf({})).toBe('piano');
+    expect(instrumentOf({ instrument: 'guitar' })).toBe('guitar');
+    expect(() => InstrumentIdSchema.parse('kazoo')).toThrow();
+    expect(UserSettingsSchema.parse({ instrument: 'guitar' }).instrument).toBe('guitar');
+    expect(UserSettingsSchema.parse({}).instrument).toBeUndefined();
+  });
+});

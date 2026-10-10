@@ -1,4 +1,5 @@
-import type { BandTalkTerm, Lesson, TechniqueSession, TechniqueSummary, Unit } from '@music/contracts';
+import { InstrumentIdSchema, instrumentOf, type BandTalkTerm, type Lesson, type TechniqueSession, type TechniqueSummary, type Unit } from '@music/contracts';
+import { z } from 'zod';
 import { createService } from '@music/service-kit';
 import { loadBandTalk } from './bandtalk.js';
 import { loadCurriculum } from './content.js';
@@ -21,8 +22,12 @@ export function buildApp(options: { logger?: boolean; contentDir?: string } = {}
   const technique = loadTechnique(options.contentDir);
   const bandTalk = loadBandTalk(new Set(curriculum.glossary.map((t) => t.id)), options.contentDir);
 
-  // GET /units: every unit in order, without its checkpoint.
-  app.get('/units', async (): Promise<Array<Omit<Unit, 'checkpoint'>>> => curriculum.units.map(({ checkpoint: _, ...unit }) => unit));
+  // GET /units?instrument=guitar: that instrument's units in order, without their checkpoints.
+  // Without the query, every unit of every instrument (piano first by order).
+  app.get('/units', async (req): Promise<Array<Omit<Unit, 'checkpoint'>>> => {
+    const { instrument } = z.object({ instrument: InstrumentIdSchema.optional() }).parse(req.query);
+    return curriculum.units.filter((u) => !instrument || instrumentOf(u) === instrument).map(({ checkpoint: _, ...unit }) => unit);
+  });
 
   // GET /units/:id: one unit with its checkpoint test.
   app.get<{ Params: { id: string } }>('/units/:id', async (req): Promise<Unit> => {

@@ -25,7 +25,8 @@ function repositoryContract(name: string, make: () => Promise<ProgressRepository
       expect(await repo.recordAttempt(randomUUID(), a!, (prev) => applyAttempt(prev, a!))).toBe(false);
       const [skill] = await repo.getSkills(USER);
       expect(skill).toMatchObject({ skill: 'interval:M3', attempts: 1, firstTryCorrect: 1, streak: 1, dueAt: '2026-10-02T10:00:00.000Z' });
-      expect(await repo.getAttempts(USER, new Date('2026-10-01T00:00:00Z'), new Date('2026-10-02T00:00:00Z'))).toEqual([a]);
+      // Stored attempts always say which instrument; missing means piano.
+      expect(await repo.getAttempts(USER, new Date('2026-10-01T00:00:00Z'), new Date('2026-10-02T00:00:00Z'))).toEqual([{ ...a!, instrument: a!.instrument ?? 'piano' }]);
     });
 
     it('keeps a full week and returns it in time order', async () => {
@@ -80,7 +81,7 @@ repositoryContract('Postgres repository', async () => {
   server = new PGLiteSocketServer({ db, port: 0, host: '127.0.0.1' });
   await server.start();
   const sql = postgres(`postgres://postgres@${server.getServerConn()}/postgres`, { max: 1, onnotice: () => {} });
-  expect(await migrate(sql)).toEqual(['001_init.sql', '002_enable_rls.sql']);
+  expect(await migrate(sql)).toEqual(['001_init.sql', '002_enable_rls.sql', '003_instrument.sql']);
   expect(await migrate(sql)).toEqual([]);
   pgRepo = new PostgresProgressRepository(sql);
   return pgRepo;

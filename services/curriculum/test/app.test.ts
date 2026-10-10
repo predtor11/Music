@@ -18,6 +18,13 @@ describe('curriculum service', () => {
     expect(res.json()[0]).not.toHaveProperty('checkpoint');
   });
 
+  it('filters units by instrument; content without an instrument is piano', async () => {
+    const piano = UnitListSchema.parse((await app.inject({ url: '/units?instrument=piano' })).json());
+    expect(piano).toHaveLength(8);
+    expect(UnitListSchema.parse((await app.inject({ url: '/units?instrument=guitar' })).json())).toEqual([]);
+    expect((await app.inject({ url: '/units?instrument=kazoo' })).statusCode).toBe(400);
+  });
+
   it('returns a unit with its checkpoint', async () => {
     const res = await app.inject({ url: '/units/unit-2' });
     expect(res.statusCode).toBe(200);

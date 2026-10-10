@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { InstrumentIdSchema } from './instruments.js';
 import { TestItemKindSchema, TestItemSchema } from './curriculum.js';
 
 export const SessionKindSchema = z.enum(['lesson', 'checkpoint', 'review', 'free']);
@@ -45,6 +46,8 @@ export const AttemptSchema = z.object({
   /** Chosen by the app; an attempt sent twice with the same id is stored once. */
   id: z.string().uuid().optional(),
   sessionId: z.string().uuid(),
+  /** Instrument the attempt was played on; keeps progress and reports apart per instrument. Missing means piano. */
+  instrument: InstrumentIdSchema.optional(),
   itemId: z.string(),
   itemKind: TestItemKindSchema,
   /** Concept tag for reports, for example "interval:M3" or "chord:minor". */
