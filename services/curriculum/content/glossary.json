@@ -2507,7 +2507,7 @@
     "aliases": [],
     "meaning": "the small anchor on the body",
     "whyItMatters": "It holds the lower ends of the six thin wires.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2518,7 +2518,7 @@
     "aliases": [],
     "meaning": "a small turning control on the headstock",
     "whyItMatters": "Turning it changes how tight a wire is.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2529,7 +2529,7 @@
     "aliases": [],
     "meaning": "the opening in an acoustic guitar body",
     "whyItMatters": "It lets the moving air out so you can hear it.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2540,7 +2540,7 @@
     "aliases": [],
     "meaning": "a device on an electric guitar that senses the motion of its wires",
     "whyItMatters": "It sends the sound to an amplifier.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2551,7 +2551,7 @@
     "aliases": [],
     "meaning": "a guitar whose hollow body makes its sound louder",
     "whyItMatters": "You can hear it without an amplifier.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2562,7 +2562,7 @@
     "aliases": [],
     "meaning": "a guitar designed to send its sound to an amplifier",
     "whyItMatters": "Its pickups help you hear it through a speaker.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
@@ -2629,7 +2629,7 @@
     "aliases": [],
     "meaning": "a box that makes an electric guitar sound louder through a speaker",
     "whyItMatters": "It lets you hear an electric guitar clearly.",
-    "lessonId": "gi-l1",
+    "lessonId": "gi-l1b",
     "exampleMidi": [
       40
     ]
