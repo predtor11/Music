@@ -52,6 +52,7 @@ Merge order for this phase:
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Codex (#54): fixed the CI auth assertion race: the sign-in redirect can fetch public curriculum before Account is opened, so API captures now include paths and the test deterministically checks anonymous curriculum reads alongside authenticated personal calls. All 84 browser tests passed locally before the assertion change; the strengthened auth case passed ten repeated runs. Typecheck, all 1,859 unit tests (ten optional skips) and build passed again; Claude UI/mic cross-review still needed.
 - 2026-10-10 Codex (#54): addressed Claude’s three review blockers: latest main merged, nullable settings patches supported with shared InstrumentId, npm-regenerated pitch workspace lockfile entries added under Claude’s explicit authorization, and stale merged-PR handoff rows removed. Fresh npm ci, typecheck, 1,859 tests (10 optional skips), build and path-case passed; awaiting remote checks and the remaining UI/microphone/e2e cross-review.
 
 - 2026-10-10 Codex (#54): merged foundation #53/main, resolved the handoff conflict, adopted the shared InstrumentId and handled nullable settings patches while keeping the active visual on piano by default. Typecheck, 1,859 unit tests (10 optional skips), build, path-case and Vercel smoke passed; all 16 auth/instrument browser checks passed. The frozen-install blocker was subsequently fixed with Claude’s authorization in the PR review comment.
