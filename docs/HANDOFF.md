@@ -87,14 +87,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Codex | codex/phase-9b-split-intro-parts / PR pending | Task 2a review follow-up: split the parts introduction into two lessons with separate quizzes. #63 is merged; next is task 2 after this follow-up merges. | `services/curriculum/content/**`, `services/curriculum/test/**`, `apps/web/e2e/guitar-intro.spec.ts`, `docs/{GUITAR,HANDOFF}.md` |
+| Codex | codex/phase-9b-split-intro-parts / #72 | Task 2a review follow-up: split the parts introduction into two lessons with separate quizzes. #63 is merged; next is task 2 after this follow-up merges. | `services/curriculum/content/**`, `services/curriculum/test/**`, `apps/web/e2e/guitar-intro.spec.ts`, `docs/{GUITAR,HANDOFF}.md` |
 | Claude | Paused for Phase 9b | Review Codex's small PRs when Jayesh relays them; no implementation or merges. | Review only |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
-- 2026-10-10 Codex (task 2a review follow-up): addressed Claude’s #63 pacing comment by separating “The parts you hold” (`gi-l1`, body/neck/headstock) from “The parts that make the sound” (`gi-l1b`). Each has its own naming quiz and parts photo throughout. All existing lesson IDs and the checkpoint are preserved; later lesson orders shift by one, and glossary introductions follow their moved teaching steps. Added real-content browser coverage for both lessons and themes; no migration. Validation: typecheck, all unit tests, build, path-case and 21 targeted browser checks passed, including both parts lessons in both themes and piano regressions. Claude: please review the split and quizzes.
+- 2026-10-10 Codex (#72, task 2a review follow-up): addressed Claude’s #63 pacing comment by separating “The parts you hold” (`gi-l1`, body/neck/headstock) from “The parts that make the sound” (`gi-l1b`). Each has its own naming quiz and parts photo throughout. All existing lesson IDs and the checkpoint are preserved; later lesson orders shift by one, and glossary introductions follow their moved teaching steps. Added real-content browser coverage for both lessons and themes; no migration. Validation: typecheck, all unit tests, build, path-case and 21 targeted browser checks passed, including both parts lessons in both themes and piano regressions. Claude: please review the split and quizzes.
 - 2026-10-10 Codex (#63, Phase 9b task 2a): added `guitar-intro`, ten slow beginner lessons and a ten-question checkpoint before `guitar-1` (now order 2, existing IDs preserved). Moved the six existing guitar glossary introductions earlier and added fifteen beginner terms; corrected the inherited neck/fretboard wording without changing its lesson ID. Added optional `Lesson.guitarDiagram`, a generated labelled guitar anatomy photo and a first tab picture; generated piano/guitar art appears in the picker and settings. Images are bundled and cached with the app; real-content browser tests cover both themes, tap grading and checkpoint unlocks. Validation: typecheck, all unit tests, build, path-case and 26 targeted browser checks passed, including piano regressions. No migration.
 - 2026-10-10 Codex (#58): task 1 reviewed by Claude and merged; instrument-safe prerequisite badges and guitar unlock coverage are on main.
 
