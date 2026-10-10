@@ -20,6 +20,8 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Build the Vercel output (backend function and site)
+        run: npm run build:vercel && node apps/api/smoke.mjs
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests
