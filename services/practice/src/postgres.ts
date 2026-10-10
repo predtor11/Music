@@ -26,6 +26,12 @@ export async function migrate(sql: postgres.Sql): Promise<string[]> {
   return applied;
 }
 
+/** `migrate: false` skips applying migrations (serverless deploys run them once, not per cold start); `max` caps the connection pool. */
+export interface ConnectOptions {
+  migrate?: boolean;
+  max?: number;
+}
+
 interface SessionRow {
   id: string;
   user_id: string;
@@ -59,10 +65,10 @@ export class PostgresPracticeRepository implements PracticeRepository {
   constructor(private readonly sql: postgres.Sql) {}
 
   /** Connects and brings the schema up to date. */
-  static async connect(url: string): Promise<PostgresPracticeRepository> {
+  static async connect(url: string, options: ConnectOptions = {}): Promise<PostgresPracticeRepository> {
     // Supabase's pooler runs in transaction mode, which can't keep prepared statements.
-    const sql = postgres(url, { prepare: false, onnotice: () => {} });
-    await migrate(sql);
+    const sql = postgres(url, { prepare: false, onnotice: () => {}, ...(options.max ? { max: options.max } : {}) });
+    if (options.migrate !== false) await migrate(sql);
     return new PostgresPracticeRepository(sql);
   }
 
@@ -96,13 +102,15 @@ export class PostgresPracticeRepository implements PracticeRepository {
     return rows.length === 1;
   }
 
-  async addAttempt(a: StoredAttempt): Promise<void> {
-    await this.sql`
+  async addAttempt(a: StoredAttempt): Promise<boolean> {
+    const rows = await this.sql`
       INSERT INTO practice.attempts
         (id, session_id, user_id, item_id, item_kind, skill, expected, played, correct, retried, mistake, time_ms, played_at)
       VALUES (${a.id}, ${a.sessionId}, ${a.userId}, ${a.itemId}, ${a.itemKind}, ${a.skill},
               ${this.sql.array(a.expected)}::integer[], ${this.sql.array(a.played)}::integer[],
-              ${a.correct}, ${a.retried}, ${a.mistake}, ${a.timeMs}, ${a.playedAt})`;
+              ${a.correct}, ${a.retried}, ${a.mistake}, ${a.timeMs}, ${a.playedAt})
+      ON CONFLICT (id) DO NOTHING RETURNING id`;
+    return rows.length === 1;
   }
 
   async listAttempts(sessionId: string): Promise<StoredAttempt[]> {

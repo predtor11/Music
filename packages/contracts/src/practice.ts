@@ -5,6 +5,11 @@ export const SessionKindSchema = z.enum(['lesson', 'checkpoint', 'review', 'free
 
 /** POST /api/practice/sessions */
 export const CreateSessionSchema = z.object({
+  /**
+   * Chosen by the app (offline mode makes sessions before the server sees them).
+   * Sending the same id again returns the same session, so a retry is safe.
+   */
+  id: z.string().uuid().optional(),
   kind: SessionKindSchema,
   /** Lesson or unit id; omitted for review and free play. */
   refId: z.string().optional(),
@@ -37,6 +42,8 @@ export type MistakeKind = z.infer<typeof MistakeKindSchema>;
 
 /** POST /api/practice/attempts, sent by the web app after grading in the browser. */
 export const AttemptSchema = z.object({
+  /** Chosen by the app; an attempt sent twice with the same id is stored once. */
+  id: z.string().uuid().optional(),
   sessionId: z.string().uuid(),
   itemId: z.string(),
   itemKind: TestItemKindSchema,

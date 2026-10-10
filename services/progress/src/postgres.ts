@@ -93,8 +93,8 @@ const toAttempt = (r: AttemptRow): StoredAttempt => ({
 export class PostgresProgressRepository implements ProgressRepository {
   constructor(readonly sql: Sql) {}
 
-  static connect(url: string): PostgresProgressRepository {
-    return new PostgresProgressRepository(postgres(url, { onnotice: () => {} }));
+  static connect(url: string, options: { max?: number } = {}): PostgresProgressRepository {
+    return new PostgresProgressRepository(postgres(url, { prepare: false, onnotice: () => {}, ...(options.max ? { max: options.max } : {}) }));
   }
 
   /** Marks the event handled; false when it already was. */

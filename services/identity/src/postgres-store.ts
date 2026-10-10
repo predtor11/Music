@@ -26,9 +26,9 @@ function toUser(row: ProfileRow): User {
 export class PostgresProfileStore implements ProfileStore {
   private constructor(private readonly sql: postgres.Sql) {}
 
-  static async connect(url: string): Promise<PostgresProfileStore> {
-    const sql = postgres(url, { onnotice: () => {} });
-    await migrate(sql);
+  static async connect(url: string, options: { migrate?: boolean; max?: number } = {}): Promise<PostgresProfileStore> {
+    const sql = postgres(url, { prepare: false, onnotice: () => {}, ...(options.max ? { max: options.max } : {}) });
+    if (options.migrate !== false) await migrate(sql);
     return new PostgresProfileStore(sql);
   }
 

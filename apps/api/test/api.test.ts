@@ -1,0 +1,80 @@
+import { randomUUID } from 'node:crypto';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { createApi } from '../src/compose.js';
+
+let api: Awaited<ReturnType<typeof createApi>>;
+beforeAll(async () => {
+  api = await createApi({ devMode: true });
+});
+afterAll(async () => api.close());
+
+async function call(method: string, url: string, body?: unknown) {
+  const res = await api.handle({
+    method,
+    url,
+    headers: { 'content-type': 'application/json' },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+  const text = res.body.toString('utf8');
+  return { status: res.status, json: text ? (JSON.parse(text) as any) : null };
+}
+
+describe('serverless api', () => {
+  it('answers health and unknown paths', async () => {
+    expect((await call('GET', '/api/health')).json.status).toBe('ok');
+    expect((await call('GET', '/api/nope')).status).toBe(404);
+  });
+
+  it('serves every service in one process', async () => {
+    const units = await call('GET', '/api/curriculum/units');
+    expect(units.status).toBe(200);
+    expect(units.json.length).toBeGreaterThan(0);
+    expect((await call('GET', '/api/identity/me')).json.displayName).toBe('Pianist');
+    expect((await call('GET', '/api/progress')).status).toBe(200);
+    expect((await call('GET', '/api/recordings/takes')).status).toBe(200);
+    expect((await call('GET', '/api/theory/health')).status).toBe(200);
+  });
+
+  it('records a lesson, scores it into progress, and is safe to repeat', async () => {
+    const lessonId = (await call('GET', '/api/curriculum/units')).json[0].lessonIds[0] as string;
+    const lesson = (await call('GET', `/api/curriculum/lessons/${lessonId}`)).json;
+    const sessionId = randomUUID();
+    const body = { id: sessionId, kind: 'lesson', refId: lessonId };
+    const first = await call('POST', '/api/practice/sessions', body);
+    expect(first.status).toBe(201);
+    expect(first.json.id).toBe(sessionId);
+    // The same id again is the same session, not a second one.
+    const again = await call('POST', '/api/practice/sessions', body);
+    expect(again.json.id).toBe(sessionId);
+
+    const item = lesson.steps.flatMap((s: any) => s.items ?? [])[0];
+    const attempt = {
+      id: randomUUID(),
+      sessionId,
+      itemId: item.id,
+      itemKind: item.kind,
+      skill: item.skill ?? 'test:skill',
+      expected: [60],
+      played: [60],
+      correct: true,
+      timeMs: 900,
+      playedAt: new Date().toISOString(),
+    };
+    expect((await call('POST', '/api/practice/attempts', attempt)).status).toBe(201);
+    expect((await call('POST', '/api/practice/attempts', attempt)).status).toBe(200);
+
+    const ended = await call('POST', `/api/practice/sessions/${sessionId}/end`, {});
+    expect(ended.status).toBe(200);
+    // A retry that arrives after the session ended is still fine.
+    expect((await call('POST', '/api/practice/attempts', attempt)).status).toBe(200);
+    expect((await call('POST', `/api/practice/sessions/${sessionId}/end`, {})).status).toBe(200);
+
+    const report = await call('GET', '/api/progress/reports/weekly');
+    expect(report.status).toBe(200);
+    expect(JSON.stringify(report.json)).toContain(attempt.skill);
+  });
+
+  it('refuses to start without a way to check logins', async () => {
+    await expect(createApi({})).rejects.toThrow(/SUPABASE_URL/);
+  });
+});
