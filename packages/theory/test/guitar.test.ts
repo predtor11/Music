@@ -3,6 +3,7 @@ import {
   OPEN_CHORD_SHAPES,
   POWER_CHORD_SHAPES,
   BARRE_CHORD_SHAPES,
+  SEVENTH_CHORD_SHAPES,
   GUITAR_CHORD_SHAPES,
   STANDARD_TUNING,
   DROP_D_TUNING,
@@ -15,13 +16,68 @@ import {
 } from '../src/index.js';
 
 describe('guitar', () => {
-  it('publishes unique six-string open, power and barre guides', () => {
+  it('publishes unique six-string open, power, barre and seventh guides', () => {
     expect(new Set(GUITAR_CHORD_SHAPES.map((s) => s.name)).size).toBe(GUITAR_CHORD_SHAPES.length);
     expect(OPEN_CHORD_SHAPES).toHaveLength(8);
     for (const shape of GUITAR_CHORD_SHAPES) {
       expect(shape.frets).toHaveLength(STANDARD_TUNING.strings.length);
       expect(shape.fingers).toHaveLength(shape.frets.length);
     }
+  });
+
+  it('sounds every note of the seventh shapes in standard tuning', () => {
+    const expected: Record<string, number[]> = {
+      "Cmaj7": [
+            48,
+            52,
+            55,
+            59,
+            64
+      ],
+      "G7": [
+            43,
+            47,
+            50,
+            55,
+            59,
+            65
+      ],
+      "D7": [
+            50,
+            57,
+            60,
+            66
+      ],
+      "Am7": [
+            45,
+            52,
+            55,
+            60,
+            64
+      ],
+      "Em7": [
+            40,
+            47,
+            50,
+            55,
+            59,
+            64
+      ],
+      "Bm7b5": [
+            47,
+            53,
+            57,
+            62
+      ],
+      "Bdim7": [
+            47,
+            53,
+            56,
+            62
+      ]
+};
+    expect(SEVENTH_CHORD_SHAPES).toHaveLength(Object.keys(expected).length);
+    for (const shape of SEVENTH_CHORD_SHAPES) expect(chordShapeMidi(STANDARD_TUNING, shape)).toEqual(expected[shape.name]);
   });
 
   it('moves the complete power shape from G to A without adding a third note name', () => {

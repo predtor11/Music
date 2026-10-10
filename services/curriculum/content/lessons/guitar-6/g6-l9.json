@@ -1,0 +1,94 @@
+{
+  "id": "g6-l9",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "A diminished triad plus a seventh",
+  "summary": "Read the half-diminished chord.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A diminished triad plus a seventh",
+      "body": "**half-diminished chord** means a diminished triad plus a minor seventh. Bm7b5 has B, D, F and A. The written b5 lowers the fifth of Bm7 from F# to F.\n\n**Why it matters:** The full symbol tells you which sound is lowered while the minor seventh stays.",
+      "exampleMidi": [
+        47,
+        53,
+        57,
+        62
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Play strings 5 through 2 at frets 2, 3, 2 and 3. They sound B, F, A and D. Leave both outer strings out. One finger spans strings 5 through 3 at fret 2; another finger supplies fret 3 on string 4.",
+      "highlightMidi": [
+        47,
+        53,
+        57,
+        62
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Bm7b5.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            9
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l9-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Find F# in another position and compare it with F. Only F belongs to Bm7b5; do not include both in the app check."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            47,
+            53,
+            57,
+            62
+          ],
+          "choices": [
+            "Bm7b5",
+            "Bm7",
+            "B7"
+          ],
+          "answer": "Bm7b5",
+          "id": "g6-l9-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Bm7b5.",
+          "pitchClasses": [
+            11,
+            2,
+            5,
+            9
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l9-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Bm7b5"
+}

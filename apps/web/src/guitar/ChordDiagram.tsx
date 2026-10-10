@@ -1,4 +1,4 @@
-import type { ChordShape } from '@music/theory';
+import { pretty, type ChordShape } from '@music/theory';
 import s from './LessonDiagram.module.css';
 import { barreSpans } from './barres.js';
 
@@ -12,7 +12,7 @@ export function ChordDiagram({ shape }: { shape: ChordShape }) {
   const barreDescription = barres.map((b) => `One finger across strings ${b.fromString} through ${b.toString} at fret ${b.fret}.`).join(' ');
   return (
     <figure className={`${s.figure} ${s.chord}`} data-testid="guitar-chord-diagram">
-      <svg viewBox={`0 0 410 ${height}`} role="img" aria-label={`${shape.name} chord. ${description}. ${barreDescription}`}>
+      <svg viewBox={`0 0 410 ${height}`} role="img" aria-label={`${pretty(shape.name)} chord. ${description}. ${barreDescription}`}>
         {Array.from({ length: count + 1 }, (_, i) => (
           <g key={i} stroke="var(--text)" fill="var(--text)">
             <path d={`M70 ${65 + i * 42}H340`} strokeWidth={i === 0 && firstFret === 1 ? 4 : 1} />
@@ -39,7 +39,7 @@ export function ChordDiagram({ shape }: { shape: ChordShape }) {
         })}
       </svg>
       <figcaption className="ui-muted">
-        {shape.name}: {description}. Read thick string 6 on the left to thin string 1 on the right.
+        {pretty(shape.name)}: {description}. Read thick string 6 on the left to thin string 1 on the right.
         {' '}0 means open; x means leave that string out; a dot marks a pressed fret.
         {' '}{barreDescription || 'Finger choices come later.'}
       </figcaption>

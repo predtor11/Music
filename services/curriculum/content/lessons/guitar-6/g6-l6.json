@@ -1,0 +1,94 @@
+{
+  "id": "g6-l6",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "Another plain seven shape",
+  "summary": "Play D7 on four strings.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Another plain seven shape",
+      "body": "D7 uses the same type as G7: D major plus its minor seventh, C. Its four note names are D, F#, A and C.\n\n**Why it matters:** The chord type stays the same even when the root and physical shape change.",
+      "exampleMidi": [
+        50,
+        57,
+        60,
+        66
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "From D, lower the B-string position from fret 3 to fret 1: D becomes C. Use strings 4 through 1 only, at frets 0, 2, 1 and 2.",
+      "highlightMidi": [
+        50,
+        57,
+        60,
+        66
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written D7.",
+          "pitchClasses": [
+            2,
+            6,
+            9,
+            0
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l6-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare D and D7 at a comfortable pace. Read all the played positions before sounding them."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            50,
+            57,
+            60,
+            66
+          ],
+          "choices": [
+            "Dmaj7",
+            "D7",
+            "D"
+          ],
+          "answer": "D7",
+          "id": "g6-l6-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written D7.",
+          "pitchClasses": [
+            2,
+            6,
+            9,
+            0
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l6-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "D7"
+}

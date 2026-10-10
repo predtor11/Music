@@ -1,0 +1,93 @@
+{
+  "id": "g6-l3",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 3,
+  "title": "Add a fourth sound",
+  "summary": "A seventh chord extends a triad.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Add a fourth sound",
+      "body": "**seventh chord** means a chord with the three different notes of a triad plus a seventh above its root: four different note names. Start with C, E and G, then add B. The gap from C to B is a seventh.\n\n**Why it matters:** One extra sound changes the colour without replacing the familiar triad.",
+      "exampleMidi": [
+        48,
+        52,
+        55,
+        59
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "Play C, E and G first; clear with Escape and add B as well. Repeated notes can fill a guitar shape, but they do not add another different note name.",
+      "highlightMidi": [
+        48,
+        52,
+        55,
+        59
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G and B together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l3-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare the four-note sound with the plain triad. The next lessons name the different kinds."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "How many notes are in this chord?",
+          "shownMidi": [
+            48,
+            52,
+            55,
+            59
+          ],
+          "choices": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answer": "4",
+          "id": "g6-l3-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play C, E, G and B together. Use any positions for these notes.",
+          "pitchClasses": [
+            0,
+            4,
+            7,
+            11
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l3-q2"
+        }
+      ]
+    }
+  ]
+}

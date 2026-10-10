@@ -1,0 +1,97 @@
+{
+  "id": "g6-l7",
+  "unitId": "guitar-6",
+  "instrument": "guitar",
+  "order": 7,
+  "title": "A minor triad plus a seventh",
+  "summary": "Read Am7 and its open shape.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A minor triad plus a seventh",
+      "body": "**m7** means a minor triad plus a minor seventh above the root. Am7 has A, C, E and G. The m belongs to the triad; the 7 adds the ten-half-step distance.\n\n**Why it matters:** Am7 differs from both A7 and Amaj7, even though all three share the same root.",
+      "exampleMidi": [
+        45,
+        52,
+        55,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "See it on the fretboard",
+      "body": "From Am, release string 3 fret 2 to open: A becomes G. Leave string 6 out. The shape sounds A, E, G, C and E.",
+      "highlightMidi": [
+        45,
+        52,
+        55,
+        60,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Am7.",
+          "pitchClasses": [
+            9,
+            0,
+            4,
+            7
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l7-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Explore the sounds",
+      "body": "Compare Am with Am7. The first C still makes the triad minor; the added G supplies the seventh."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord symbol is this?",
+          "shownMidi": [
+            45,
+            52,
+            55,
+            60,
+            64
+          ],
+          "choices": [
+            "Am7",
+            "A7",
+            "Amaj7"
+          ],
+          "answer": "Am7",
+          "id": "g6-l7-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play the chord written Am7.",
+          "pitchClasses": [
+            9,
+            0,
+            4,
+            7
+          ],
+          "bassPc": null,
+          "showKeys": true,
+          "id": "g6-l7-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Am7"
+}
