@@ -46,13 +46,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Claude | (this PR) | Phase 9 lanes | `docs/HANDOFF.md` |
+| Claude | claude/phase9-guitar-theory | Guitar contracts and theory functions | `packages/contracts/src/guitar.ts`, `packages/theory/src/guitar/**`, `docs/GUITAR.md` |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
-- 2026-10-10 Claude: Phase 9 lanes written (guitar first).
+- 2026-10-10 Claude: guitar contracts and theory functions (tunings, fret maths, open chord shapes, grading) added; see docs/GUITAR.md.
+- 2026-10-10 Claude: Phase 9 lanes written (guitar first, #50).
 - 2026-10-10 Claude: added AGENTS.md and this file.
 
 ## Requests
