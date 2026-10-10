@@ -3,8 +3,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONTENT_DIR, loadCurriculum } from '../src/content.js';
 import { checkItem } from './check-items.js';
-import { chordShapeMidi, OPEN_CHORD_SHAPES, fretToMidi, STANDARD_TUNING } from '@music/theory';
-import { instrumentOf } from '@music/contracts';
+import { chordShapeMidi, GUITAR_CHORD_SHAPES, fretToMidi, STANDARD_TUNING } from '@music/theory';
+import { ChordShapeSchema, instrumentOf } from '@music/contracts';
 
 const curriculum = loadCurriculum();
 const STEP_TYPES = ['explain', 'show', 'play-along', 'explore', 'quiz'];
@@ -62,8 +62,8 @@ const lessonOrder = curriculum.units.flatMap((unit) => unit.lessonIds.map((id) =
 describe('curriculum content', () => {
   it('loads every unit, lesson and glossary file against the schemas', () => {
     expect(curriculum.units.map((u) => u.id)).toEqual(['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5', 'unit-6', 'unit-7', 'unit-8', 'guitar-intro', 'guitar-1', 'guitar-2', 'guitar-3', 'guitar-4']);
-    expect(curriculum.lessonsById.size).toBe(149);
-    expect(curriculum.glossary.length).toBe(152);
+    expect(curriculum.lessonsById.size).toBe(155);
+    expect(curriculum.glossary.length).toBe(154);
   });
 
   for (const unit of curriculum.units) {
@@ -163,8 +163,9 @@ describe('glossary', () => {
 describe('guitar chord diagrams', () => {
   for (const lesson of curriculum.lessonsById.values()) {
     if (!lesson.guitarChord) continue;
-    it(`${lesson.id} teaches the same notes as its canonical open shape`, () => {
-      const shape = OPEN_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!;
+    it(`${lesson.id} teaches the same notes as its canonical shape`, () => {
+      const shape = GUITAR_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!;
+      expect(ChordShapeSchema.parse(shape)).toEqual(shape);
       const notes = chordShapeMidi(STANDARD_TUNING, shape);
       const show = lesson.steps.find((s) => s.type === 'show')!;
       expect(show.type === 'show' && show.highlightMidi).toEqual(notes);

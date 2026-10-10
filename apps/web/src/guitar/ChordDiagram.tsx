@@ -1,5 +1,6 @@
 import type { ChordShape } from '@music/theory';
 import s from './LessonDiagram.module.css';
+import { barreSpans } from './barres.js';
 
 /** Standard-tuning shape: thickest string on the left, with absolute fret numbers. */
 export function ChordDiagram({ shape }: { shape: ChordShape }) {
@@ -7,9 +8,11 @@ export function ChordDiagram({ shape }: { shape: ChordShape }) {
   const count = Math.max(4, ...shape.frets.filter((f): f is number => f !== null).map((f) => f - firstFret + 1));
   const height = 100 + count * 42;
   const description = shape.frets.map((f, i) => `string ${6 - i}: ${f === null ? 'do not play' : f === 0 ? 'open' : `fret ${f}`}`).join('; ');
+  const barres = barreSpans(shape);
+  const barreDescription = barres.map((b) => `One finger across strings ${b.fromString} through ${b.toString} at fret ${b.fret}.`).join(' ');
   return (
     <figure className={`${s.figure} ${s.chord}`} data-testid="guitar-chord-diagram">
-      <svg viewBox={`0 0 410 ${height}`} role="img" aria-label={`${shape.name} chord. ${description}`}>
+      <svg viewBox={`0 0 410 ${height}`} role="img" aria-label={`${shape.name} chord. ${description}. ${barreDescription}`}>
         {Array.from({ length: count + 1 }, (_, i) => (
           <g key={i} stroke="var(--text)" fill="var(--text)">
             <path d={`M70 ${65 + i * 42}H340`} strokeWidth={i === 0 && firstFret === 1 ? 4 : 1} />
@@ -28,10 +31,17 @@ export function ChordDiagram({ shape }: { shape: ChordShape }) {
             </g>
           );
         })}
+        {barres.map((b) => {
+          const y = 86 + (b.fret - firstFret) * 42;
+          return <path key={`${b.fret}-${b.fromString}`} data-testid="guitar-barre"
+            d={`M${70 + (6 - b.fromString) * 54} ${y}H${70 + (6 - b.toString) * 54}`}
+            stroke="var(--accent)" strokeWidth="20" strokeLinecap="round" />;
+        })}
       </svg>
       <figcaption className="ui-muted">
         {shape.name}: {description}. Read thick string 6 on the left to thin string 1 on the right.
-        {' '}0 means open; x means leave that string out; a dot marks a pressed fret. Finger choices come later.
+        {' '}0 means open; x means leave that string out; a dot marks a pressed fret.
+        {' '}{barreDescription || 'Finger choices come later.'}
       </figcaption>
     </figure>
   );

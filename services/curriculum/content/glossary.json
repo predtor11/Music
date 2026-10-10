@@ -2683,5 +2683,36 @@
       59,
       64
     ]
+  },
+  {
+    "id": "power-chord",
+    "term": "power chord",
+    "aliases": [],
+    "meaning": "Just the root and the 5th, with no 3rd. Written with a 5, as in C5.",
+    "whyItMatters": "Guitarists use it all over rock music. Because it has no 3rd it is neither major nor minor, so if the guitar plays C5 you can play C or Cm under it.",
+    "lessonId": "g4-l15",
+    "exampleMidi": [
+      43,
+      50,
+      55
+    ]
+  },
+  {
+    "id": "barre",
+    "term": "barre",
+    "aliases": [
+      "barre chord"
+    ],
+    "meaning": "Pressing more than one string at the same fret with one finger.",
+    "whyItMatters": "A finger across the strings can replace open strings so a chord shape can move along the neck.",
+    "lessonId": "g4-l17",
+    "exampleMidi": [
+      41,
+      48,
+      53,
+      57,
+      60,
+      65
+    ]
   }
 ]

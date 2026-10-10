@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import type { TestItem } from '@music/contracts';
-import { chordShapeMidi, OPEN_CHORD_SHAPES, midiToPositions, pretty, STANDARD_TUNING } from '@music/theory';
+import { chordShapeMidi, GUITAR_CHORD_SHAPES, midiToPositions, pretty, STANDARD_TUNING } from '@music/theory';
 import { buildApp } from '../../../services/curriculum/src/app.js';
 import { loadCurriculum } from '../../../services/curriculum/src/content.js';
 import { computeProgress, NO_COMPLETIONS } from '../../../services/progress/src/unlocks.js';
@@ -55,7 +55,7 @@ async function answer(page: Page, item: TestItem, shapeName?: string) {
     await pluck(page, item.startMidi!);
     await pluck(page, item.startMidi! + item.semitones);
   } else if (item.kind === 'build-chord') {
-    const shape = OPEN_CHORD_SHAPES.find((s) => s.name === shapeName);
+    const shape = GUITAR_CHORD_SHAPES.find((s) => s.name === shapeName);
     if (shape) {
       // Tap every played string from the actual diagram, including repeated notes.
       for (const [i, fret] of shape.frets.entries()) {
@@ -77,14 +77,18 @@ for (const id of unit.lessonIds) {
     test.setTimeout(60_000);
     const api = await course(page);
     const lesson = curriculum.lessonsById.get(id)!;
-    if (id === 'g4-l8' || id === 'g4-l12') await page.getByTestId('theme').click();
+    if (id === 'g4-l8' || id === 'g4-l12' || id === 'g4-l18') await page.getByTestId('theme').click();
     await page.goto(`/#/lesson/${id}`);
     await expect(page.getByTestId('lesson-title')).toHaveText(lesson.title);
     if (lesson.guitarChord) {
       await expect(page.getByTestId('guitar-chord-diagram')).toContainText('string 6');
       await expect(page.getByTestId('guitar-chord-diagram').getByRole('img')).toBeVisible();
     }
-    if (id === 'g4-l6' || id === 'g4-l8') await page.screenshot({ path: `/tmp/music-chord-${id}.png`, fullPage: true });
+    if (id === 'g4-l17' || id === 'g4-l18' || id === 'g4-l19') await page.screenshot({ path: `/tmp/music-chord-${id}.png`, fullPage: true });
+    if (['F', 'Fm', 'Bm'].includes(lesson.guitarChord ?? '')) {
+      await expect(page.getByTestId('guitar-barre')).toHaveAttribute('d', lesson.guitarChord === 'Bm' ? 'M124 86H340' : 'M70 86H340');
+      await expect(page.getByTestId('guitar-chord-diagram')).toContainText(lesson.guitarChord === 'Bm' ? 'strings 5 through 1 at fret 2' : 'strings 6 through 1 at fret 1');
+    }
     for (const step of lesson.steps) {
       await expect(page.getByTestId('step-title')).toHaveText(pretty(step.title));
       if (lesson.guitarChord) await expect(page.getByTestId('guitar-chord-diagram')).toBeVisible();
@@ -98,7 +102,7 @@ for (const id of unit.lessonIds) {
     await expect(page.getByTestId('summary')).toBeVisible();
     expect(api.attempts.length).toBeGreaterThanOrEqual(3);
     if (lesson.guitarChord) {
-      const expected = [...new Set(chordShapeMidi(STANDARD_TUNING, OPEN_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!))].sort((a, b) => a - b);
+      const expected = [...new Set(chordShapeMidi(STANDARD_TUNING, GUITAR_CHORD_SHAPES.find((s) => s.name === lesson.guitarChord)!))].sort((a, b) => a - b);
       for (const attempt of api.attempts.filter((a) => a.itemKind === 'build-chord')) {
         // Grading settles as soon as all three pitch classes sound; repeated strings are optional.
         expect((attempt.played as number[]).every((n) => expected.includes(n))).toBe(true);
@@ -111,7 +115,7 @@ for (const id of unit.lessonIds) {
 }
 
 test('the chords checkpoint requires the preceding guitar unit and grades its real questions', async ({ page }) => {
-  test.setTimeout(60_000);
+  test.setTimeout(120_000);
   const api = await course(page);
   await page.getByTestId('nav-lessons').click();
   await expect(page.getByTestId('unit-guitar-4')).toHaveAttribute('data-unlocked', 'true');

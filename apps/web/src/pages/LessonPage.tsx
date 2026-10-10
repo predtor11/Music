@@ -5,7 +5,7 @@
  */
 
 import type { Lesson, LessonStep, SessionSummary, UserSettings } from '@music/contracts';
-import { C_MAJOR, OPEN_CHORD_SHAPES, pretty } from '@music/theory';
+import { C_MAJOR, GUITAR_CHORD_SHAPES, pretty } from '@music/theory';
 import { Button, Card, Swap, fadeUp } from '@music/ui';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -63,7 +63,7 @@ const STEP_KIND: Record<LessonStep['type'], string> = {
 };
 
 function LessonPlayer({ lesson, settings, onRetry }: { lesson: Lesson; settings: UserSettings; onRetry: () => void }) {
-  const chordShape = OPEN_CHORD_SHAPES.find((shape) => shape.name === lesson.guitarChord);
+  const chordShape = GUITAR_CHORD_SHAPES.find((shape) => shape.name === lesson.guitarChord);
   const { id: instrument } = useInstrument();
   const practice = usePractice('lesson', lesson.id);
   const input = useNoteInput();
