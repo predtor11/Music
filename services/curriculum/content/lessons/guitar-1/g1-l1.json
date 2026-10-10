@@ -23,7 +23,7 @@
     {
       "type": "explain",
       "title": "The fretboard and its frets",
-      "body": "The long neck of the guitar is called the **fretboard**. Thin metal bars cross it, and each bar is a **fret**. When you press a string just behind a fret, the string gets shorter and the note gets higher.\n\n**Why it matters:** Frets are how a guitarist chooses notes. \"Third fret\" tells you exactly where to put your finger.",
+      "body": "The playing surface along the neck is called the **fretboard**. Thin metal bars cross it, and each bar is a **fret**. When you press a string just behind a fret, the string gets shorter and the note gets higher.\n\n**Why it matters:** Frets are how a guitarist chooses notes. \"Third fret\" tells you exactly where to put your finger.",
       "exampleMidi": [
         40,
         41,

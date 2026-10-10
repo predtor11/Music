@@ -1,0 +1,83 @@
+{
+  "id": "g2-l2",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 2,
+  "title": "One fret: a half step",
+  "summary": "Measure the smallest move along a string.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The smallest move",
+      "body": "A **half step**, also called a semitone, is the distance from one fret to the next on the same string. Open to fret 1 is also a half step. Move towards the body to go higher, or towards the headstock to go lower.\n\n**Why it matters:** Counting one-fret moves helps you measure how notes fit together.",
+      "exampleMidi": [
+        47,
+        48
+      ],
+      "labels": {
+        "47": "B \u2014 fret 2",
+        "48": "C \u2014 fret 3"
+      }
+    },
+    {
+      "type": "show",
+      "title": "B to C is one fret",
+      "body": "On string 5, B at fret 2 and C at fret 3 are a half step apart. The letters change, but there is no extra fret between them.",
+      "highlightMidi": [
+        47,
+        48
+      ],
+      "labels": {
+        "47": "B \u2014 fret 2",
+        "48": "C \u2014 fret 3"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "play-interval",
+          "id": "g2-l2-p1",
+          "prompt": "Play A2, then go up a half step. Use the lit positions.",
+          "startMidi": 45,
+          "semitones": 1,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Move one fret at a time",
+      "body": "Choose a string. Pluck a comfortable fret, then the next fret towards the body. Listen to the small rise. Go back one fret to hear the same distance down."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l2-q1",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            47,
+            48
+          ],
+          "choices": [
+            "half step",
+            "octave"
+          ],
+          "answer": "half step"
+        },
+        {
+          "kind": "play-interval",
+          "id": "g2-l2-q2",
+          "prompt": "Play A2 at fret 5 on string 6, then go down a half step.",
+          "startMidi": 45,
+          "semitones": -1
+        }
+      ]
+    }
+  ]
+}

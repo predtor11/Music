@@ -35,6 +35,8 @@ const MIN_TOPIC_ATTEMPTS = 5;
 
 /** The topic is the part of a skill before ":", for example "interval" in "interval:M3". */
 export function topicOf(skill: string): string {
+  // Guitar skills carry a "g:" prefix; reports are per instrument, so the topic is the same as piano's.
+  if (skill.startsWith('g:')) return topicOf(skill.slice(2));
   const i = skill.indexOf(':');
   return i === -1 ? skill : skill.slice(0, i);
 }

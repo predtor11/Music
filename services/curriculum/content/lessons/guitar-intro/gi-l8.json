@@ -1,0 +1,64 @@
+{
+  "id": "gi-l8",
+  "unitId": "guitar-intro",
+  "instrument": "guitar",
+  "order": 9,
+  "title": "Match a reference sound",
+  "summary": "Listen first; use the microphone tuner if you want.",
+  "minutes": 3,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Match a reference sound",
+      "body": "**tuning** means adjusting the open-string sounds to chosen reference sounds\n\n**Why it matters:** Matching the reference lets guitar players use the same starting sounds.\n\n**standard tuning** means the usual set E, A, D, G, B, E from thickest to thinnest\n\n**Why it matters:** These lessons use that set so the playing picture matches your guitar.\n\nPress Hear it for low E. Listen, then pluck string 6. Start microphone in the header if you want help comparing. It shows the detected note and whether it is above or below its nearest note. Check the letter and the small number too: low E is E2, while high E is E4. The number distinguishes low and high versions of the same letter. In tune alone is not enough if it shows a different note. Stop the microphone when finished. Ask an experienced player to help adjust a tuning peg in tiny turns; stop if it feels too tight. Never force it.",
+      "exampleMidi": [
+        40
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Look and listen",
+      "body": "Hear the reference E2. Wait for it to finish before you pluck your low E string. The microphone pauses grading during app playback. A lower sound needs a little more tightness; a higher sound needs a little less. Ask for help with the first adjustment.",
+      "highlightMidi": [
+        40
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try one small thing",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "gi-l8-play",
+          "prompt": "Play the lit note. Tap it here, or play one string with the microphone.",
+          "midi": 40,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Take your time",
+      "body": "Listen to the reference again, then your string. Keep other strings quiet. The microphone is optional and stays off until you start it. Tap the lit note to practise on screen."
+    },
+    {
+      "type": "quiz",
+      "title": "One quick check",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "gi-l8-quiz",
+          "prompt": "What is the goal when tuning a guitar string?",
+          "shownMidi": [
+            40
+          ],
+          "choices": [
+            "match its reference sound",
+            "make every string sound identical"
+          ],
+          "answer": "match its reference sound"
+        }
+      ]
+    }
+  ]
+}

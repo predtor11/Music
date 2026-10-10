@@ -1,0 +1,90 @@
+{
+  "id": "g4-l13",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 14,
+  "title": "Change D into D minor",
+  "summary": "Lower the highest sound a half step.",
+  "minutes": 4,
+  "guitarChord": "Dm",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Change D into D minor",
+      "body": "Dm means D minor: D, F and A. Keep open string 4, fret 2 on string 3 and fret 3 on string 2. Move string 1 from fret 2 to fret 1, changing F# into F. Leave strings 6 and 5 out.\n\n**Why it matters:** Comparing two similar shapes helps you hear exactly which note changes from major to minor.",
+      "exampleMidi": [
+        50,
+        57,
+        62,
+        65
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "The thin string supplies F4 at fret 1 instead of F#4 at fret 2. D and A stay where they were. Read x, x, 0, 2, 3, 1 from thick to thin.",
+      "highlightMidi": [
+        50,
+        57,
+        62,
+        65
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "id": "g4-l13-p1",
+          "kind": "build-chord",
+          "prompt": "Play D, A, F together. Use any positions for these notes.",
+          "pitchClasses": [
+            2,
+            9,
+            5
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Compare the sounds",
+      "body": "Clear the selection between D and Dm. Move only string 1 and compare the two sounds. Take breaks; a relaxed hand matters more than speed."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the shape",
+      "items": [
+        {
+          "id": "g4-l13-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            50,
+            57,
+            62,
+            65
+          ],
+          "choices": [
+            "Dm",
+            "D",
+            "Am"
+          ],
+          "answer": "Dm"
+        },
+        {
+          "id": "g4-l13-q2",
+          "kind": "build-chord",
+          "prompt": "Play D, A, F together. Use any positions for these notes.",
+          "pitchClasses": [
+            2,
+            9,
+            5
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ]
+}

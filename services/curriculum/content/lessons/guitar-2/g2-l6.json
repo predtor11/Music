@@ -1,0 +1,81 @@
+{
+  "id": "g2-l6",
+  "unitId": "guitar-2",
+  "instrument": "guitar",
+  "order": 6,
+  "title": "The letter repeats an octave higher",
+  "summary": "Match a string with its twelfth fret.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "The higher version",
+      "body": "An **octave** is the distance of twelve half steps. At fret 12 a string has the same letter name as its open sound, but sounds higher. The small number in A2 or A3 tells you which height to play.\n\n**Why it matters:** Matching a letter alone is not enough when a question asks for an exact sound: A2 and A3 are different notes.",
+      "exampleMidi": [
+        45,
+        57
+      ],
+      "labels": {
+        "45": "A2 \u2014 open string 5",
+        "57": "A3 \u2014 fret 12, string 5"
+      }
+    },
+    {
+      "type": "show",
+      "title": "Two As, different heights",
+      "body": "Hear A2 followed by A3. You can also find A3 at fret 7 on string 4 or fret 2 on string 3. All positions for A3 count; A2 is too low for an A3 question.",
+      "highlightMidi": [
+        45,
+        57
+      ],
+      "labels": {
+        "45": "A2 \u2014 open string 5",
+        "57": "A3 \u2014 fret 12, string 5"
+      }
+    },
+    {
+      "type": "play-along",
+      "title": "Try the move",
+      "items": [
+        {
+          "kind": "find-note",
+          "id": "g2-l6-p1",
+          "prompt": "Play A3. Use any lit position.",
+          "midi": 57,
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Compare open and twelve",
+      "body": "Pluck any open string, then fret 12 on that string. Hear the matching letter higher up. If fret 12 is uncomfortable, use the on-screen fretboard."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "id": "g2-l6-q1",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            45,
+            57
+          ],
+          "choices": [
+            "whole step",
+            "octave"
+          ],
+          "answer": "octave"
+        },
+        {
+          "kind": "find-note",
+          "id": "g2-l6-q2",
+          "prompt": "Play A3.",
+          "midi": 57
+        }
+      ]
+    }
+  ]
+}

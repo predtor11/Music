@@ -58,6 +58,14 @@ const progressFor = (userId: string, checkpointPassed = false): Progress => ({
 });
 
 describe('pickReviewItems', () => {
+  it('keeps guitar lesson and checkpoint skills separate from piano', () => {
+    const guitarLesson = { ...lesson2, instrument: 'guitar' as const };
+    const guitarUnit = { ...unit, instrument: 'guitar' as const };
+    const guitarPool = candidates([guitarLesson], [guitarUnit]);
+    expect(guitarPool.every((c) => c.skill.startsWith('g:'))).toBe(true);
+    expect(pickReviewItems([score('interval:M2', 0.2)], guitarPool)).toEqual([]);
+    expect(pickReviewItems([score('g:interval:M2', 0.2)], guitarPool).length).toBeGreaterThan(0);
+  });
   const pool = candidates([lesson, lesson2, locked], [unit]);
 
   it('tags every item with the shared skill names', () => {

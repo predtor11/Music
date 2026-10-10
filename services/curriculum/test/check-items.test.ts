@@ -3,6 +3,11 @@ import { checkItem } from './check-items.js';
 
 // The checker must catch wrong content, not just pass right content.
 describe('checkItem', () => {
+  it('rejects incorrect verbal answers about guitar parts', () => {
+    const item = { kind: 'name-it' as const, id: 'parts', prompt: 'Which guitar part is the large main section?', shownMidi: [40], choices: ['body', 'headstock'] };
+    expect(checkItem({ ...item, answer: 'body' })).toEqual([]);
+    expect(checkItem({ ...item, answer: 'headstock' })).not.toEqual([]);
+  });
   it('catches a note that does not match its prompt', () => {
     expect(checkItem({ kind: 'find-note', id: 'x', prompt: 'Play F#.', pc: 5 })).not.toEqual([]);
     expect(checkItem({ kind: 'find-note', id: 'x', prompt: 'Play C5.', midi: 60 })).not.toEqual([]);

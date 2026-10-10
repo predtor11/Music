@@ -1,0 +1,90 @@
+{
+  "id": "g4-l12",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 13,
+  "title": "An open D shape",
+  "summary": "Start from the open fourth string.",
+  "minutes": 4,
+  "guitarChord": "D",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An open D shape",
+      "body": "D means D major: D, F# and A. Leave strings 6 and 5 out. Use open string 4, fret 2 on string 3, fret 3 on string 2 and fret 2 on string 1.\n\n**Why it matters:** A chord can use only four strings. The x marks tell you where to leave space, and the open D gives you the root.",
+      "exampleMidi": [
+        50,
+        57,
+        62,
+        66
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "Read the four played strings: D3 on string 4, A3 on string 3, D4 on string 2 and F#4 on string 1. The two D sounds repeat the root in different octaves.",
+      "highlightMidi": [
+        50,
+        57,
+        62,
+        66
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "id": "g4-l12-p1",
+          "kind": "build-chord",
+          "prompt": "Play D, A, F# together. Use any positions for these notes.",
+          "pitchClasses": [
+            2,
+            9,
+            6
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Compare the sounds",
+      "body": "Build D with taps, then clear it with Escape. On your guitar, pluck only strings 4 through 1, one at a time, to hear the shape clearly."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the shape",
+      "items": [
+        {
+          "id": "g4-l12-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            50,
+            57,
+            62,
+            66
+          ],
+          "choices": [
+            "D",
+            "Dm",
+            "A"
+          ],
+          "answer": "D"
+        },
+        {
+          "id": "g4-l12-q2",
+          "kind": "build-chord",
+          "prompt": "Play D, A, F# together. Use any positions for these notes.",
+          "pitchClasses": [
+            2,
+            9,
+            6
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ]
+}

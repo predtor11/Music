@@ -1,0 +1,93 @@
+{
+  "id": "g4-l11",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 12,
+  "title": "An open A shape",
+  "summary": "Change one sound from A minor.",
+  "minutes": 4,
+  "guitarChord": "A",
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An open A shape",
+      "body": "A means A major: A, C# and E. Compare it with Am, which uses C instead of C#. Keep open string 5, fret 2 on strings 4 and 3, and open string 1. Move string 2 from fret 1 to fret 2. Leave string 6 out.\n\n**Why it matters:** One changed note turns the minor shape into major without changing its root.",
+      "exampleMidi": [
+        45,
+        52,
+        57,
+        61,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "Read string 6 as x, string 5 as 0, strings 4, 3 and 2 as fret 2, and string 1 as 0. The C# on string 2 is the changed sound; the root is still A.",
+      "highlightMidi": [
+        45,
+        52,
+        57,
+        61,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "id": "g4-l11-p1",
+          "kind": "build-chord",
+          "prompt": "Play A, E, C# together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4,
+            1
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Compare the sounds",
+      "body": "Clear the taps with Escape between chords. Compare Am and A slowly. On your guitar, check each pressed string separately rather than squeezing harder."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the shape",
+      "items": [
+        {
+          "id": "g4-l11-q1",
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            45,
+            52,
+            57,
+            61,
+            64
+          ],
+          "choices": [
+            "A",
+            "Am",
+            "D"
+          ],
+          "answer": "A"
+        },
+        {
+          "id": "g4-l11-q2",
+          "kind": "build-chord",
+          "prompt": "Play A, E, C# together. Use any positions for these notes.",
+          "pitchClasses": [
+            9,
+            4,
+            1
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ]
+}

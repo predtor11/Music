@@ -1,0 +1,96 @@
+{
+  "id": "g4-l6",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 7,
+  "title": "An open E minor shape",
+  "summary": "Let unpressed strings help.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "An open E minor shape",
+      "body": "**open chord** means a chord shape that includes at least one open string. Em is a short way to write E minor. Its notes are E, G and B; several strings repeat those names. In the picture, 0 means open, a dot shows a fret to press, and x means leave that string out.\n\n**Why it matters:** Open strings let you play a full chord with only a few pressed positions.",
+      "exampleMidi": [
+        40,
+        47,
+        52,
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read and hear the notes",
+      "body": "For Em, press fret 2 on strings 5 and 4. Leave strings 6, 3, 2 and 1 open. Tap the shown positions in the app. The check looks for the three note names, so a smaller correct version counts too.",
+      "highlightMidi": [
+        40,
+        47,
+        52,
+        55,
+        59,
+        64
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Build it slowly",
+      "items": [
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, B, E, G, B, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            11,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l6-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "On your guitar, press lightly just behind each fret. Pluck the strings one at a time to hear clarity; in the app use taps rather than the single-note microphone for the chord check."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "name-it",
+          "prompt": "Which chord is this?",
+          "shownMidi": [
+            40,
+            47,
+            52,
+            55,
+            59,
+            64
+          ],
+          "choices": [
+            "E",
+            "Em",
+            "Am"
+          ],
+          "answer": "Em",
+          "id": "g4-l6-q1"
+        },
+        {
+          "kind": "build-chord",
+          "prompt": "Play E, B, E, G, B, E together. Use any positions for these notes.",
+          "pitchClasses": [
+            4,
+            11,
+            7
+          ],
+          "showKeys": true,
+          "id": "g4-l6-q2"
+        }
+      ]
+    }
+  ],
+  "guitarChord": "Em"
+}

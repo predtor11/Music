@@ -37,6 +37,8 @@ function ordinal(n: number): string {
 
 /** "interval:M3" → "Intervals: major 3rd", "note:F#" → "Note names: F♯". */
 export function skillLabel(skill: string): string {
+  // Guitar skills carry a "g:" prefix; the report is already per instrument, so label them like piano's.
+  if (skill.startsWith('g:')) return skillLabel(skill.slice(2));
   const i = skill.indexOf(':');
   if (i === -1) return topicLabel(skill);
   const topic = skill.slice(0, i);

@@ -1,0 +1,150 @@
+{
+  "id": "g3-l8",
+  "unitId": "guitar-3",
+  "instrument": "guitar",
+  "order": 8,
+  "title": "A major scale box",
+  "summary": "Follow a compact route across strings.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "A major scale box",
+      "body": "**scale box** means a compact group of fret positions used to play a scale across nearby strings. It is a route to the notes, not a different scale. This G major box stays between frets 2 and 5 on strings 6, 5 and 4.\n\n**Why it matters:** Crossing strings can avoid a long reach along one string. The same correct sounds still count in other positions.",
+      "exampleMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Find the notes",
+      "body": "Follow the numbered route: string 6 frets 3, 5; string 5 frets 2, 3, 5; string 4 frets 2, 4, 5. Play one position at a time, in order.",
+      "highlightMidi": [
+        43,
+        45,
+        47,
+        48,
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play G, A, B, C, D, E, F#, G in that order, one note at a time.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l8-p1"
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it familiar",
+      "body": "Play just the first two positions, then the first five, then all eight. Keep your wrist comfortable; speed can wait."
+    },
+    {
+      "type": "quiz",
+      "title": "Check your understanding",
+      "items": [
+        {
+          "kind": "play-scale",
+          "prompt": "Play G, A, B, C, D, E, F#, G in that order, one note at a time.",
+          "sequence": [
+            7,
+            9,
+            11,
+            0,
+            2,
+            4,
+            6,
+            7
+          ],
+          "direction": "up",
+          "showKeys": true,
+          "id": "g3-l8-q1"
+        },
+        {
+          "kind": "name-it",
+          "prompt": "What is the tonic of this scale?",
+          "shownMidi": [
+            43,
+            45,
+            47,
+            48,
+            50,
+            52,
+            54,
+            55
+          ],
+          "choices": [
+            "C",
+            "G",
+            "A"
+          ],
+          "answer": "G",
+          "id": "g3-l8-q2"
+        }
+      ]
+    }
+  ],
+  "guitarPattern": {
+    "title": "A major scale box",
+    "positions": [
+      {
+        "string": 6,
+        "fret": 3
+      },
+      {
+        "string": 6,
+        "fret": 5
+      },
+      {
+        "string": 5,
+        "fret": 2
+      },
+      {
+        "string": 5,
+        "fret": 3
+      },
+      {
+        "string": 5,
+        "fret": 5
+      },
+      {
+        "string": 4,
+        "fret": 2
+      },
+      {
+        "string": 4,
+        "fret": 4
+      },
+      {
+        "string": 4,
+        "fret": 5
+      }
+    ]
+  }
+}

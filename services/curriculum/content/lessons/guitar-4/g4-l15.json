@@ -1,0 +1,83 @@
+{
+  "id": "g4-l15",
+  "unitId": "guitar-4",
+  "instrument": "guitar",
+  "order": 16,
+  "title": "Your first power chord",
+  "summary": "Sound a root and its fifth together.",
+  "minutes": 4,
+  "steps": [
+    {
+      "type": "explain",
+      "title": "Your first power chord",
+      "body": "**power chord** means a root and a perfect 5th sounding together, sometimes with the root repeated an octave higher. G5 means a G power chord: G and D. The 5 names the distance, not five different notes. Without the middle note of a triad, this chord is neither major nor minor.\n\n**Why it matters:** Two note names give you a small, movable chord sound to learn.",
+      "exampleMidi": [
+        43,
+        50,
+        55
+      ]
+    },
+    {
+      "type": "show",
+      "title": "Read the positions",
+      "body": "For G5, use string 6 fret 3, string 5 fret 5 and string 4 fret 5. Leave strings 3, 2 and 1 out. The notes are G2, D3 and G3: the two G sounds repeat the root.",
+      "highlightMidi": [
+        43,
+        50,
+        55
+      ]
+    },
+    {
+      "type": "play-along",
+      "title": "Try it slowly",
+      "items": [
+        {
+          "id": "g4-l15-p1",
+          "kind": "build-chord",
+          "prompt": "Play G and D together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            2
+          ],
+          "showKeys": true
+        }
+      ]
+    },
+    {
+      "type": "explore",
+      "title": "Make it comfortable",
+      "body": "First sound just G and D, then add the higher G. The app accepts either version because there are still only two different note names. Use tap input for the chord check; the microphone hears one note at a time."
+    },
+    {
+      "type": "quiz",
+      "title": "Check the idea",
+      "items": [
+        {
+          "id": "g4-l15-q1",
+          "kind": "name-it",
+          "prompt": "How far apart are these two notes?",
+          "shownMidi": [
+            43,
+            50
+          ],
+          "choices": [
+            "perfect 5th",
+            "octave"
+          ],
+          "answer": "perfect 5th"
+        },
+        {
+          "id": "g4-l15-q2",
+          "kind": "build-chord",
+          "prompt": "Play G and D together. Use any positions for these notes.",
+          "pitchClasses": [
+            7,
+            2
+          ],
+          "showKeys": true
+        }
+      ]
+    }
+  ],
+  "guitarChord": "G5"
+}

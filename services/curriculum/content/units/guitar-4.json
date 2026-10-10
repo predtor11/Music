@@ -1,0 +1,424 @@
+{
+  "id": "guitar-4",
+  "instrument": "guitar",
+  "order": 5,
+  "title": "Starter guitar chords",
+  "summary": "Build chords, read eight open shapes, then try movable power and barre shapes.",
+  "outcome": "You can read open, power and barre shapes, hear major/minor changes and move a shape without using piano progress.",
+  "lessonIds": [
+    "g4-l1",
+    "g4-l2",
+    "g4-l3",
+    "g4-l4",
+    "g4-l5",
+    "g4-l5b",
+    "g4-l6",
+    "g4-l7",
+    "g4-l8",
+    "g4-l9",
+    "g4-l10",
+    "g4-l11",
+    "g4-l12",
+    "g4-l13",
+    "g4-l14",
+    "g4-l15",
+    "g4-l16",
+    "g4-l17",
+    "g4-l18",
+    "g4-l19"
+  ],
+  "checkpoint": {
+    "passPercent": 80,
+    "items": [
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          48,
+          52,
+          55
+        ],
+        "choices": [
+          "C",
+          "Am",
+          "G"
+        ],
+        "answer": "C",
+        "id": "g4-cp-1"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play C, E, G together. Use any positions for these notes.",
+        "pitchClasses": [
+          0,
+          4,
+          7
+        ],
+        "showKeys": true,
+        "id": "g4-cp-2"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          40,
+          47,
+          52,
+          55,
+          59,
+          64
+        ],
+        "choices": [
+          "E",
+          "Em",
+          "Am"
+        ],
+        "answer": "Em",
+        "id": "g4-cp-3"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play E, B, E, G, B, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          4,
+          11,
+          7
+        ],
+        "showKeys": true,
+        "id": "g4-cp-4"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          40,
+          47,
+          52,
+          56,
+          59,
+          64
+        ],
+        "choices": [
+          "E",
+          "Em",
+          "Am"
+        ],
+        "answer": "E",
+        "id": "g4-cp-5"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play E, B, E, G#, B, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          4,
+          11,
+          8
+        ],
+        "showKeys": true,
+        "id": "g4-cp-6"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          45,
+          52,
+          57,
+          60,
+          64
+        ],
+        "choices": [
+          "Am",
+          "Em",
+          "C"
+        ],
+        "answer": "Am",
+        "id": "g4-cp-7"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play A, E, A, C, E together. Use any positions for these notes.",
+        "pitchClasses": [
+          9,
+          4,
+          0
+        ],
+        "showKeys": true,
+        "id": "g4-cp-8"
+      },
+      {
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          43,
+          47,
+          50,
+          55,
+          59,
+          67
+        ],
+        "choices": [
+          "C",
+          "Am",
+          "G"
+        ],
+        "answer": "G",
+        "id": "g4-cp-9"
+      },
+      {
+        "kind": "build-chord",
+        "prompt": "Play G, B, D, G, B, G together. Use any positions for these notes.",
+        "pitchClasses": [
+          7,
+          11,
+          2
+        ],
+        "showKeys": true,
+        "id": "g4-cp-10"
+      },
+      {
+        "id": "g4-cp-11",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          45,
+          52,
+          57,
+          61,
+          64
+        ],
+        "choices": [
+          "A",
+          "Am",
+          "D"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "g4-cp-12",
+        "kind": "build-chord",
+        "prompt": "Play A, E, C# together. Use any positions for these notes.",
+        "pitchClasses": [
+          9,
+          4,
+          1
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-13",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          50,
+          57,
+          62,
+          66
+        ],
+        "choices": [
+          "D",
+          "Dm",
+          "A"
+        ],
+        "answer": "D"
+      },
+      {
+        "id": "g4-cp-14",
+        "kind": "build-chord",
+        "prompt": "Play D, A, F# together. Use any positions for these notes.",
+        "pitchClasses": [
+          2,
+          9,
+          6
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-15",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          50,
+          57,
+          62,
+          65
+        ],
+        "choices": [
+          "Dm",
+          "D",
+          "Am"
+        ],
+        "answer": "Dm"
+      },
+      {
+        "id": "g4-cp-16",
+        "kind": "build-chord",
+        "prompt": "Play D, A, F together. Use any positions for these notes.",
+        "pitchClasses": [
+          2,
+          9,
+          5
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-17",
+        "kind": "name-it",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          43,
+          50
+        ],
+        "choices": [
+          "perfect 5th",
+          "octave"
+        ],
+        "answer": "perfect 5th"
+      },
+      {
+        "kind": "play-interval",
+        "prompt": "Play A2, then go up a perfect 5th.",
+        "startMidi": 45,
+        "semitones": 7,
+        "id": "g4-cp-18"
+      },
+      {
+        "id": "g4-cp-19",
+        "kind": "name-it",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          43,
+          50
+        ],
+        "choices": [
+          "perfect 5th",
+          "octave"
+        ],
+        "answer": "perfect 5th"
+      },
+      {
+        "id": "g4-cp-20",
+        "kind": "build-chord",
+        "prompt": "Play G and D together. Use any positions for these notes.",
+        "pitchClasses": [
+          7,
+          2
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-21",
+        "kind": "name-it",
+        "prompt": "How far apart are these two notes?",
+        "shownMidi": [
+          45,
+          52
+        ],
+        "choices": [
+          "perfect 5th",
+          "octave"
+        ],
+        "answer": "perfect 5th"
+      },
+      {
+        "id": "g4-cp-22",
+        "kind": "build-chord",
+        "prompt": "Play A and E together. Use any positions for these notes.",
+        "pitchClasses": [
+          9,
+          4
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-23",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          41,
+          48,
+          53,
+          57,
+          60,
+          65
+        ],
+        "choices": [
+          "F",
+          "Fm",
+          "C"
+        ],
+        "answer": "F"
+      },
+      {
+        "id": "g4-cp-24",
+        "kind": "build-chord",
+        "prompt": "Play F, A and C together. Use any positions for these notes.",
+        "pitchClasses": [
+          5,
+          0,
+          9
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-25",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          41,
+          48,
+          53,
+          56,
+          60,
+          65
+        ],
+        "choices": [
+          "Fm",
+          "F",
+          "Am"
+        ],
+        "answer": "Fm"
+      },
+      {
+        "id": "g4-cp-26",
+        "kind": "build-chord",
+        "prompt": "Play F, Ab and C together. Use any positions for these notes.",
+        "pitchClasses": [
+          5,
+          0,
+          8
+        ],
+        "showKeys": true
+      },
+      {
+        "id": "g4-cp-27",
+        "kind": "name-it",
+        "prompt": "Which chord is this?",
+        "shownMidi": [
+          47,
+          54,
+          59,
+          62,
+          66
+        ],
+        "choices": [
+          "Bm",
+          "Am",
+          "Dm"
+        ],
+        "answer": "Bm"
+      },
+      {
+        "id": "g4-cp-28",
+        "kind": "build-chord",
+        "prompt": "Play B, D and F# together. Use any positions for these notes.",
+        "pitchClasses": [
+          11,
+          6,
+          2
+        ],
+        "showKeys": true
+      }
+    ]
+  }
+}
