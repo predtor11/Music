@@ -25,6 +25,15 @@ describe('serverless api', () => {
     expect((await call('GET', '/api/nope')).status).toBe(404);
   });
 
+  it('never lets personal answers be cached, and always sends nosniff', async () => {
+    const me = await api.handle({ method: 'GET', url: '/api/identity/me', headers: {} });
+    expect(me.headers['cache-control']).toBe('private, no-store');
+    expect(me.headers['x-content-type-options']).toBe('nosniff');
+    const units = await api.handle({ method: 'GET', url: '/api/curriculum/units', headers: {} });
+    expect(units.headers['cache-control']).toBeUndefined();
+    expect((await api.handle({ method: 'GET', url: '/api/health', headers: {} })).headers['x-content-type-options']).toBe('nosniff');
+  });
+
   it('hands out only the public sign-in settings', async () => {
     expect((await call('GET', '/api/config')).json).toEqual({ supabaseUrl: 'https://s.example', supabaseAnonKey: 'pub' });
   });

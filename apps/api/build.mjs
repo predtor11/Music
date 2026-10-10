@@ -41,12 +41,39 @@ writeFileSync(
   join(fn, '.vc-config.json'),
   JSON.stringify({ runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', shouldAddHelpers: false, maxDuration: 30 }, null, 2),
 );
+// Sent with every response (the API adds no-store on top). The CSP lists exactly what the app talks to:
+// itself, Supabase Auth, and the piano samples. microphone and midi are used by the guitar tuner and the keyboard.
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "media-src 'self' blob: data:",
+  "font-src 'self' data:",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://tonejs.github.io blob: data:",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join('; ');
+const SECURITY_HEADERS = {
+  'content-security-policy': CSP,
+  'strict-transport-security': 'max-age=63072000; includeSubDomains',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'DENY',
+  'referrer-policy': 'strict-origin-when-cross-origin',
+  'permissions-policy': 'microphone=(self), midi=(self), camera=(), geolocation=(), payment=(), usb=()',
+};
+
 writeFileSync(
   join(out, 'config.json'),
   JSON.stringify(
     {
       version: 3,
       routes: [
+        { src: '/(.*)', headers: SECURITY_HEADERS, continue: true },
         { src: '/api(?:/.*)?', dest: '/api' },
         { handle: 'filesystem' },
         { src: '/(.*)', dest: '/index.html' },

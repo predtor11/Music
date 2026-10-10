@@ -71,7 +71,7 @@ export interface ApiResponse {
 }
 
 function json(status: number, body: unknown): ApiResponse {
-  return { status, headers: { 'content-type': 'application/json; charset=utf-8' }, body: Buffer.from(JSON.stringify(body)) };
+  return { status, headers: { 'content-type': 'application/json; charset=utf-8', 'x-content-type-options': 'nosniff' }, body: Buffer.from(JSON.stringify(body)) };
 }
 
 /** Serves the content of one in-process service like fetch() would, for the service-to-service clients. */
@@ -215,6 +215,9 @@ export async function createApi(options: ApiOptions = {}) {
       if (k === 'content-length' || k === 'connection' || k === 'transfer-encoding') continue;
       out[k] = v as string | string[] | number | undefined;
     }
+    out['x-content-type-options'] = 'nosniff';
+    // Answers about one person must never be kept by a browser or shared cache; the curriculum and theory are public.
+    if (target.name !== 'curriculum' && target.name !== 'theory') out['cache-control'] = 'private, no-store';
     return { status: res.statusCode, headers: out, body: res.rawPayload };
   }
 
