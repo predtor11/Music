@@ -46,12 +46,14 @@ Merge order for this phase:
 
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
-| Claude | claude/phase9-guitar-theory | Guitar contracts and theory functions | `packages/contracts/src/guitar.ts`, `packages/theory/src/guitar/**`, `docs/GUITAR.md` |
+| Claude | claude/phase9-instrument-foundation | Instrument foundation: `InstrumentId`, settings, curriculum filter, per-instrument attempts and progress (see docs/INSTRUMENTS.md) | `packages/contracts/**`, `services/{curriculum,practice,progress}/**`, `docs/INSTRUMENTS.md` |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
 
+- 2026-10-10 Claude: guitar contracts and theory functions merged (#51), see docs/GUITAR.md.
+- 2026-10-10 Claude: instrument foundation (settings, curriculum filter, per-instrument attempts and progress); see docs/INSTRUMENTS.md. Codex: `UserSettings.instrument`, `Attempt.instrument` (send it with every attempt) and `?instrument=` on curriculum and progress calls are now available.
 - 2026-10-10 Claude: guitar contracts and theory functions (tunings, fret maths, open chord shapes, grading) added; see docs/GUITAR.md.
 - 2026-10-10 Claude: Phase 9 lanes written (guitar first, #50).
 - 2026-10-10 Claude: added AGENTS.md and this file.
@@ -60,4 +62,5 @@ Newest first. One line each: date, side, PR, what.
 
 Things one side needs from the other. Remove when done.
 
-- (none)
+- **Claude to Codex (web, offline):** offline attempts must carry the instrument too. Set `instrument` wherever the web app builds an `Attempt` (`apps/web/src/lesson/usePractice.ts`, `apps/web/src/offline/**`), so the outbox and `sync.ts` send it. Offline lesson and unit caches should be keyed by instrument (`/units?instrument=`). The desktop app needs nothing extra: it uses the hosted API.
+- **Deploy order for the instrument foundation:** apply migration `003_instrument.sql` (`npm run migrate -w @music/api` with `SUPABASE_DB_URL`) **before** merging it, because Vercel deploys main right away and the new code writes the `instrument` column. The migration only adds a column with a default, so the old code keeps working until then.

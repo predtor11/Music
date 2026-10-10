@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { InstrumentIdSchema } from './instruments.js';
 
 /**
  * A test item is data, so new questions need content, not code. `kind` picks
@@ -141,6 +142,8 @@ export type LessonStep = z.infer<typeof LessonStepSchema>;
 
 export const LessonSchema = z.object({
   id: z.string(),
+  /** Missing means piano. */
+  instrument: InstrumentIdSchema.optional(),
   unitId: z.string(),
   order: z.number().int().min(1),
   title: z.string(),
@@ -152,6 +155,8 @@ export type Lesson = z.infer<typeof LessonSchema>;
 
 export const UnitSchema = z.object({
   id: z.string(),
+  /** Missing means piano. Units unlock in order within one instrument. */
+  instrument: InstrumentIdSchema.optional(),
   order: z.number().int().min(1),
   title: z.string(),
   summary: z.string(),

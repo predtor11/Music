@@ -35,7 +35,7 @@ export class CurriculumCatalog implements Catalog {
       return this.stale('curriculum service unreachable');
     }
     if (!res.ok) return this.stale(`curriculum service answered ${res.status}`);
-    const units = UnitListSchema.parse(await res.json()).map(({ id, order, lessonIds }) => ({ id, order, lessonIds }));
+    const units = UnitListSchema.parse(await res.json()).map(({ id, instrument, order, lessonIds }) => ({ id, instrument, order, lessonIds }));
     this.cached = { at: Date.now(), units };
     return units;
   }

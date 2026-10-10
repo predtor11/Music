@@ -54,6 +54,14 @@ describe('progress service', () => {
     expect(p.units[1]).toEqual({ unitId: 'u2', unlocked: true, checkpointPassed: false, lessons: [{ lessonId: 'u2-l1', status: 'available' }] });
   });
 
+  it('keeps piano reports apart from guitar', async () => {
+    const guitar = await app.inject({ url: `/reports/weekly?tzOffset=${IST}&instrument=guitar`, headers });
+    expect(guitar.statusCode).toBe(200);
+    expect(ProgressReportSchema.parse(guitar.json()).accuracyTrend).toEqual([]);
+    expect((await app.inject({ url: '/review-queue?instrument=guitar', headers })).json()).toEqual([]);
+    expect((await app.inject({ url: '/?instrument=nope', headers })).statusCode).toBe(400);
+  });
+
   it('serves the review queue', async () => {
     const res = await app.inject({ url: '/review-queue', headers });
     const queue = ReviewQueueSchema.parse(res.json());

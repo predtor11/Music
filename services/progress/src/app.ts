@@ -1,4 +1,4 @@
-import { ProgressSchema, ProgressReportSchema, ReviewQueueSchema, type Progress, type ProgressReport, type SkillScore } from '@music/contracts';
+import { InstrumentIdSchema, instrumentOf, ProgressSchema, ProgressReportSchema, ReviewQueueSchema, type InstrumentId, type Progress, type ProgressReport, type SkillScore } from '@music/contracts';
 import { createService, requireUserId, type EventBus } from '@music/service-kit';
 import { z } from 'zod';
 import { CurriculumCatalog, type Catalog } from './catalog.js';
@@ -17,7 +17,9 @@ export interface ProgressAppOptions {
   now?: () => Date;
 }
 
-const ReportQuerySchema = z.object({
+const InstrumentQuerySchema = z.object({ instrument: InstrumentIdSchema.default('piano') });
+
+const ReportQuerySchema = InstrumentQuerySchema.extend({
   /** End of the 7-day window; defaults to now. */
   to: z.string().datetime().optional(),
   /** Minutes ahead of UTC, so days split at the learner's midnight (India: 330). */
@@ -37,20 +39,26 @@ export async function buildApp(options: ProgressAppOptions = {}) {
   if (options.bus) await subscribe(options.bus, repo);
   app.addHook('onClose', async () => repo.close());
 
-  async function progressFor(userId: string): Promise<Progress> {
-    return computeProgress(userId, await catalog.units(), await repo.getCompletions(userId));
+  async function progressFor(userId: string, instrument: InstrumentId): Promise<Progress> {
+    return computeProgress(userId, await catalog.units(), await repo.getCompletions(userId), instrument);
   }
 
-  // GET /api/progress
-  app.get('/', async (req): Promise<Progress> => ProgressSchema.parse(await progressFor(requireUserId(req))));
-
-  // GET /api/progress/review-queue
-  app.get('/review-queue', async (req): Promise<SkillScore[]> => {
-    const userId = requireUserId(req);
-    return ReviewQueueSchema.parse(reviewQueue(await repo.getSkills(userId), now()));
+  // GET /api/progress?instrument=guitar (default piano)
+  app.get('/', async (req): Promise<Progress> => {
+    const { instrument } = InstrumentQuerySchema.parse(req.query);
+    return ProgressSchema.parse(await progressFor(requireUserId(req), instrument));
   });
 
-  // GET /api/progress/reports/weekly?to=<iso>&tzOffset=330
+  // GET /api/progress/review-queue?instrument=guitar
+  app.get('/review-queue', async (req): Promise<SkillScore[]> => {
+    const userId = requireUserId(req);
+    const { instrument } = InstrumentQuerySchema.parse(req.query);
+    const skills = (await repo.getSkills(userId)).filter((s) => s.instrument === instrument);
+    return ReviewQueueSchema.parse(reviewQueue(skills, now()));
+  });
+
+  // GET /api/progress/reports/weekly?to=<iso>&tzOffset=330&instrument=guitar
+  // Accuracy, patterns and suggestions use that instrument's attempts only; the streak counts any practice.
   app.get('/reports/weekly', async (req): Promise<ProgressReport> => {
     const userId = requireUserId(req);
     const query = ReportQuerySchema.parse(req.query);
@@ -59,16 +67,16 @@ export async function buildApp(options: ProgressAppOptions = {}) {
       repo.getAttempts(userId, new Date(to.getTime() - 14 * DAY), to),
       repo.getPracticeDays(userId, query.tzOffset),
       repo.getSkills(userId),
-      progressFor(userId).catch(() => undefined),
+      progressFor(userId, query.instrument).catch(() => undefined),
     ]);
     const report = buildWeeklyReport({
       userId,
       to,
-      attempts,
+      attempts: attempts.filter((a) => instrumentOf(a) === query.instrument),
       practiceDays,
       utcOffsetMinutes: query.tzOffset,
       progress,
-      dueReviews: reviewQueue(skills, to).length,
+      dueReviews: reviewQueue(skills.filter((s) => s.instrument === query.instrument), to).length,
     });
     return ProgressReportSchema.parse(report);
   });
