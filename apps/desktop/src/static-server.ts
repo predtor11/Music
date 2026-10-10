@@ -1,6 +1,9 @@
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
 import { createServer, request, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import { extname, join, normalize, sep } from 'node:path';
+import { createApiProxy, type RuntimeConfig } from './remote.js';
+
+export type { RuntimeConfig };
 
 const TYPES: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
@@ -19,11 +22,6 @@ const TYPES: Record<string, string> = {
   '.ogg': 'audio/ogg',
   '.webmanifest': 'application/manifest+json',
 };
-
-export interface RuntimeConfig {
-  supabaseUrl: string;
-  supabaseAnonKey: string;
-}
 
 /** index.html with the run-time settings the web app reads (window.__MUSIC_CONFIG__). */
 export function injectConfig(html: string, config: RuntimeConfig): string {
@@ -61,16 +59,20 @@ function proxy(req: IncomingMessage, res: ServerResponse, port: number): void {
 }
 
 /**
- * Serves the built web app and forwards /api to the gateway, like Vite's dev
- * server does in `npm run dev:all`. Unknown paths get index.html (client-side routes).
+ * Serves the built web app and forwards /api to the local gateway (like Vite's
+ * dev server does in `npm run dev:all`) or, with `apiUrl`, to the hosted API.
+ * Unknown paths get index.html (client-side routes).
  */
-export function createStaticServer(options: { webDir: string; gatewayPort: number; config: RuntimeConfig }): Server {
+export function createStaticServer(options: { webDir: string; gatewayPort?: number; apiUrl?: URL; config: RuntimeConfig }): Server {
   const root = normalize(options.webDir);
   const index = injectConfig(readFileSync(join(root, 'index.html'), 'utf8'), options.config);
+  const forward = options.apiUrl
+    ? createApiProxy(options.apiUrl)
+    : (req: IncomingMessage, res: ServerResponse) => proxy(req, res, options.gatewayPort ?? 0);
 
   return createServer((req, res) => {
     const url = req.url ?? '/';
-    if (url === '/api' || url.startsWith('/api/') || url.startsWith('/api?')) return proxy(req, res, options.gatewayPort);
+    if (url === '/api' || url.startsWith('/api/') || url.startsWith('/api?')) return forward(req, res);
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.writeHead(405).end();
       return;

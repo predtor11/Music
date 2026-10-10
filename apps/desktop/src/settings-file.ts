@@ -6,15 +6,26 @@ export const SETTINGS_TEMPLATE = `# Music Theory Trainer settings. Everything he
 # Left empty, the app works on its own on this computer: no account, and your
 # progress is saved in this folder.
 #
-# To sign in and keep progress in a Supabase project instead (the same as the
-# web version), fill these in and restart the app:
+# ONLINE ACCOUNT (recommended): to sign in and share progress with the web
+# version, set MUSIC_API_URL to the address of the hosted site and fill in the
+# two PUBLIC sign-in values (the same ones the web version uses), then restart
+# the app (File > Restart). The app then runs no services of its own and sends
+# its requests to the hosted site. No secret key is ever needed here.
+#
+# MUSIC_API_URL=https://your-site.vercel.app
+# VITE_SUPABASE_URL=https://your-project.supabase.co
+# VITE_SUPABASE_ANON_KEY=
+#
+# In Supabase (Authentication > URL Configuration > Redirect URLs) add
+# http://127.0.0.1:47800 so the confirmation email link works.
+#
+# LOCAL SUPABASE (advanced; leave MUSIC_API_URL empty): run every service on
+# this computer against your own Supabase project instead.
 #
 # SUPABASE_URL=
 # SUPABASE_ANON_KEY=
 # SUPABASE_SERVICE_ROLE_KEY=
 # SUPABASE_JWT_SECRET=
-# VITE_SUPABASE_URL=
-# VITE_SUPABASE_ANON_KEY=
 # SUPABASE_DB_URL=
 `;
 
