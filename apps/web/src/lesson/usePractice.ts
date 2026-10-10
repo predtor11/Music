@@ -13,6 +13,7 @@ import { skillFor } from '@music/skills';
 import { saveStateOf } from '../offline/practice.js';
 import { useSyncSnapshot } from '../offline/useSyncStatus.js';
 import { expectedFor } from './grade.js';
+import { useInstrument } from '../instruments/context.js';
 
 export interface AttemptInput {
   item: TestItem;
@@ -38,6 +39,7 @@ export function saveFailure(error: unknown): SaveState {
 const LESSON_PASS_PERCENT = 80;
 
 export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', refId?: string, passPercent = LESSON_PASS_PERCENT) {
+  const { id: instrument } = useInstrument();
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [startFailure, setStartFailure] = useState<SaveState | null>(null);
   const snapshot = useSyncSnapshot();
@@ -50,14 +52,14 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
 
   useEffect(() => {
     let live = true;
-    const key = `${kind}:${refId ?? ''}`;
+    const key = `${instrument}:${kind}:${refId ?? ''}`;
     if (starting.current?.key !== key) {
       firstTry.current.clear();
       items.current.clear();
       ending.current = null;
       setSessionId(null);
       setStartFailure(null);
-      starting.current = { key, session: startSession({ kind, refId }) };
+      starting.current = { key, session: startSession({ kind, refId, instrument }) };
     }
     starting.current.session
       .then((session) => {
@@ -68,7 +70,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
     return () => {
       live = false;
     };
-  }, [kind, refId]);
+  }, [kind, refId, instrument]);
 
   /** Every item the learner will see, so unanswered ones count as wrong offline too. */
   const register = useCallback((ids: string[]) => ids.forEach((id) => items.current.add(id)), []);
@@ -81,6 +83,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
       pending.current = pending.current
         .then(() =>
           recordAttempt({
+            ...{ instrument },
             sessionId,
             itemId: a.item.id,
             itemKind: a.item.kind,
@@ -96,7 +99,7 @@ export function usePractice(kind: 'lesson' | 'checkpoint' | 'review' | 'free', r
         )
         .catch((err: unknown) => console.warn('practice: could not keep an attempt', err));
     },
-    [sessionId],
+    [sessionId, instrument],
   );
 
   const finish = useCallback((): Promise<SessionSummary> => {

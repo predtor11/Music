@@ -79,7 +79,7 @@ test('teaches with text and the virtual keyboard, grades play-along and quiz, an
   await expect(page.getByTestId('score')).toHaveText('75%');
   await expect(page.getByTestId('passed')).toHaveText('Almost. Try it again to pass.');
 
-  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'lesson', refId: LESSON.id }]);
+  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'lesson', refId: LESSON.id, instrument: 'piano' }]);
   expect(api.attempts.map((a) => [a.itemId, a.correct, a.retried, a.mistake])).toEqual([
     ['p1', false, false, 'wrong-note'],
     ['p1', true, true, null],
@@ -112,7 +112,7 @@ test('runs a unit test from the practice service', async ({ page, midi }) => {
   await midi.on(64);
   await expect(page.getByTestId('summary')).toBeVisible();
   await expect(page.getByTestId('score')).toHaveText('50%');
-  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'checkpoint', refId: 'test-unit' }]);
+  expect(api.sessions).toEqual([{ id: expect.stringMatching(UUID), kind: 'checkpoint', refId: 'test-unit', instrument: 'piano' }]);
 });
 
 test('shows how to start the server when lessons cannot load', async ({ page }) => {

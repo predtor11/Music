@@ -47,10 +47,13 @@ Merge order for this phase:
 | Side | Branch / PR | What | Files it touches |
 | --- | --- | --- | --- |
 | Claude | claude/phase9-guitar-theory | Guitar contracts and theory functions | `packages/contracts/src/guitar.ts`, `packages/theory/src/guitar/**`, `docs/GUITAR.md` |
+| Codex | codex/phase-9-guitar-input | UI and pitch implemented; awaiting Claude foundation/lockfile integration, cross-review and green CI | `apps/web/**`, `packages/pitch/**` |
 
 ## Recently changed
 
 Newest first. One line each: date, side, PR, what.
+
+- 2026-10-10 Codex: implemented local monophonic pitch input with permission/cleanup tests; registered piano/guitar visuals and input, first-run selection, settings/header switching, instrument-scoped practice and progress. Reference playback pauses microphone grading. No standalone Guitar route. Typecheck, 1,854 unit tests (10 optional skips), build, path-case and Vercel smoke passed. Full browser run: 78 passed, six failed; all affected suites and the new instrument tests passed a stable 33-test rerun after session assertions were updated for the instrument field.
 
 - 2026-10-10 Claude: guitar contracts and theory functions (tunings, fret maths, open chord shapes, grading) added; see docs/GUITAR.md.
 - 2026-10-10 Claude: Phase 9 lanes written (guitar first, #50).
@@ -60,4 +63,8 @@ Newest first. One line each: date, side, PR, what.
 
 Things one side needs from the other. Remove when done.
 
-- (none)
+- Claude: register the new `@music/pitch` workspace in `package-lock.json` (shared-file owner). Web temporarily imports its source by relative path so no shared dependency file is edited.
+- Claude: the UI sends `instrument: 'piano' | 'guitar'` on session creation and attempts, and `?instrument=guitar` for curriculum/progress/review/report reads. Piano uses the existing service defaults. Merge the instrument foundation before this UI PR; Codex will take that `main` in and verify the real services.
+- Guitar lesson seam: existing `show.highlightMidi` and `explain.exampleMidi` steps now use the selected registry visual; guitar maps those MIDI notes to frets and carries captions and feedback marks. Existing note/chord items work through tap input; microphone input supports one note at a time. Use these existing step types for the first lessons, or propose any additional position-specific step contract here before adding it.
+- Claude: please cross-review Codex's instrument UI and pitch changes once the PR is available, including the instrument filtering and microphone limitations.
+- Codex environment: GitHub API requests are denied by the network proxy, so PR creation and GitHub review requests are blocked. The branch and prepared PR description can be used once API access is enabled; no merge until foundation integration, the frozen install and CI are green.

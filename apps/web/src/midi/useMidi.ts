@@ -35,6 +35,7 @@ export function useMidi(
   onNoteOn?: (note: number) => void,
   /** Every event from the keyboard (note-ons with velocity, note-offs, the pedal), for recording. */
   onEvent?: (event: MidiEvent) => void,
+  enabled = true,
 ): MidiState {
   const noteOnRef = useRef(onNoteOn);
   noteOnRef.current = onNoteOn;
@@ -48,6 +49,7 @@ export function useMidi(
   const [notes, setNotes] = useState({ held: [] as number[], sounding: [] as number[], pedal: false });
 
   useEffect(() => {
+    if (!enabled) return;
     const offChange = source.onChange(() => {
       setStatus(source.status);
       setInputs(source.inputs());
@@ -64,21 +66,22 @@ export function useMidi(
       offChange();
       offEvent();
     };
-  }, [source]);
+  }, [source, enabled]);
 
   const connect = useCallback(() => {
+    if (!enabled) return;
     void source.start().then(() => {
       // Listen only to the remembered keyboard if it is still there.
       const known = source.inputs().some((i) => i.id === selected);
       source.select(known ? selected : null);
       if (!known) setSelected(null);
     });
-  }, [source, selected]);
+  }, [source, selected, enabled]);
 
   // Reconnect on load when the browser already allowed MIDI, so returning
   // visitors don't have to press Connect. First-timers press it once.
   useEffect(() => {
-    if (source.status !== 'idle') return;
+    if (!enabled || source.status !== 'idle') return;
     navigator.permissions
       ?.query({ name: 'midi' as PermissionName })
       .then((p) => {
@@ -86,7 +89,7 @@ export function useMidi(
       })
       .catch(() => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [enabled]);
 
   const select = useCallback(
     (id: string | null) => {

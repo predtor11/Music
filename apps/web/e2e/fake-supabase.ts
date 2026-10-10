@@ -66,6 +66,8 @@ const json = (route: Route, body: unknown, status = 200) => route.fulfill({ stat
 
 /** Answers Supabase Auth and /api/identity for this page or context. */
 export async function attachCloud(target: Page | BrowserContext, cloud: FakeCloud): Promise<void> {
+  // Auth fixtures exercise returning learners, not first-run instrument selection.
+  await target.addInitScript(() => localStorage.setItem('music.instrument.chosen.v1', '1'));
   await target.route(
     (url) => url.pathname.startsWith('/fake-supabase/auth/v1/'),
     async (route) => {
