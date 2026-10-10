@@ -31,6 +31,37 @@ export function parseApiUrl(raw: string | undefined): URL | null {
   return new URL(url.origin);
 }
 
+/** The hosted site the app uses when MUSIC_API_URL is empty. A public address, not a secret. */
+export const DEFAULT_API_URL = 'https://music-pi-wheat.vercel.app';
+
+/** MUSIC_API_URL=local keeps everything on this computer; empty means the hosted site; anything else is the site's address. */
+export function resolveApiUrl(raw: string | undefined): URL | null {
+  const text = (raw ?? '').trim();
+  if (text.toLowerCase() === 'local') return null;
+  return parseApiUrl(text || DEFAULT_API_URL);
+}
+
+/**
+ * The sign-in settings for the web app: values in the settings file win,
+ * otherwise the hosted site's own public GET /api/config. If the site can't be
+ * reached the app still starts (the web app runs signed out / offline).
+ */
+export async function hostedConfig(apiUrl: URL, env: Record<string, string | undefined>, fetchFn: typeof fetch = fetch): Promise<RuntimeConfig> {
+  const local = publicConfig(env);
+  if (local.supabaseUrl && local.supabaseAnonKey) return local;
+  try {
+    const res = await fetchFn(new URL('/api/config', apiUrl), { signal: AbortSignal.timeout(8000) });
+    if (!res.ok) return local;
+    const body = (await res.json()) as Partial<RuntimeConfig>;
+    return {
+      supabaseUrl: local.supabaseUrl || String(body.supabaseUrl ?? ''),
+      supabaseAnonKey: local.supabaseAnonKey || String(body.supabaseAnonKey ?? ''),
+    };
+  } catch {
+    return local;
+  }
+}
+
 /** The public Supabase settings for the web app's sign-in, from the settings file's environment. */
 export function publicConfig(env: Record<string, string | undefined>): RuntimeConfig {
   return {

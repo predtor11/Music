@@ -3,23 +3,21 @@ import { existsSync, writeFileSync } from 'node:fs';
 /** Written to the app's data folder on first launch. Everything is optional. */
 export const SETTINGS_TEMPLATE = `# Music Theory Trainer settings. Everything here is optional.
 #
-# Left empty, the app works on its own on this computer: no account, and your
-# progress is saved in this folder.
+# Left empty, the app uses the hosted site: you sign in with the same account
+# as the web version and your progress is shared. Nothing needs filling in; the
+# sign-in settings are fetched from the site. No secret key is ever needed here.
 #
-# ONLINE ACCOUNT (recommended): to sign in and share progress with the web
-# version, set MUSIC_API_URL to the address of the hosted site and fill in the
-# two PUBLIC sign-in values (the same ones the web version uses), then restart
-# the app (File > Restart). The app then runs no services of its own and sends
-# its requests to the hosted site. No secret key is ever needed here.
-#
+# To use a different hosted site, set its address:
 # MUSIC_API_URL=https://your-site.vercel.app
-# VITE_SUPABASE_URL=https://your-project.supabase.co
-# VITE_SUPABASE_ANON_KEY=
+#
+# To keep everything on this computer instead (no account, progress saved in
+# this folder), set:
+# MUSIC_API_URL=local
 #
 # In Supabase (Authentication > URL Configuration > Redirect URLs) add
 # http://127.0.0.1:47800 so the confirmation email link works.
 #
-# LOCAL SUPABASE (advanced; leave MUSIC_API_URL empty): run every service on
+# LOCAL SUPABASE (advanced; needs MUSIC_API_URL=local): run every service on
 # this computer against your own Supabase project instead.
 #
 # SUPABASE_URL=

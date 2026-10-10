@@ -4,7 +4,7 @@ import type { AddressInfo } from 'node:net';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { parseApiUrl, publicConfig } from '../src/remote.js';
+import { DEFAULT_API_URL, hostedConfig, parseApiUrl, publicConfig, resolveApiUrl } from '../src/remote.js';
 import { createStaticServer } from '../src/static-server.js';
 
 const servers: Server[] = [];
@@ -198,5 +198,33 @@ describe('publicConfig', () => {
     const cfg = publicConfig({ SUPABASE_SERVICE_ROLE_KEY: 'secret', SUPABASE_JWT_SECRET: 'secret2', SUPABASE_DB_URL: 'postgres://x' });
     expect(JSON.stringify(cfg)).not.toContain('secret');
     expect(JSON.stringify(cfg)).not.toContain('postgres');
+  });
+});
+
+describe('resolveApiUrl and hostedConfig', () => {
+  it('defaults to the hosted site, and "local" opts out', () => {
+    expect(resolveApiUrl('')!.href).toBe(new URL(DEFAULT_API_URL).href);
+    expect(resolveApiUrl(undefined)!.href).toBe(new URL(DEFAULT_API_URL).href);
+    expect(resolveApiUrl('LOCAL')).toBeNull();
+    expect(resolveApiUrl('https://other.app')!.href).toBe('https://other.app/');
+  });
+
+  const site = new URL('https://x.app');
+  const okFetch = (async () => new Response(JSON.stringify({ supabaseUrl: 'https://s', supabaseAnonKey: 'pub' }))) as typeof fetch;
+
+  it('takes the sign-in settings from the site when the settings file has none', async () => {
+    expect(await hostedConfig(site, {}, okFetch)).toEqual({ supabaseUrl: 'https://s', supabaseAnonKey: 'pub' });
+  });
+
+  it('prefers values in the settings file', async () => {
+    const cfg = await hostedConfig(site, { VITE_SUPABASE_URL: 'https://mine', VITE_SUPABASE_ANON_KEY: 'k' }, okFetch);
+    expect(cfg).toEqual({ supabaseUrl: 'https://mine', supabaseAnonKey: 'k' });
+  });
+
+  it('still starts when the site cannot be reached', async () => {
+    const down = (async () => {
+      throw new Error('offline');
+    }) as typeof fetch;
+    expect(await hostedConfig(site, {}, down)).toEqual({ supabaseUrl: '', supabaseAnonKey: '' });
   });
 });

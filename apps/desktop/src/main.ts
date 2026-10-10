@@ -23,6 +23,7 @@ const logDir = join(dataDir, 'logs');
 let firstRun = false;
 
 const ONLINE_HELP =
+  'The app uses the hosted site by default, so you sign in with the same account as the web version and your progress is shared. Nothing needs setting up.\n\nTo keep everything on this computer instead (no account), open the settings file, add the line MUSIC_API_URL=local, then use File > Restart. No secret keys are ever needed.';
   'To sign in and share progress with the web version, open the settings file, set MUSIC_API_URL to the hosted site\'s address (for example https://your-site.vercel.app), add the two public sign-in values (VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY), then use File > Restart.\n\nNo secret keys are needed. Left empty, the app keeps working on its own on this computer.';
 
 function showOnlineHelp(): void {

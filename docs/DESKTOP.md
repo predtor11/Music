@@ -21,7 +21,7 @@ The installer is not code-signed, so Windows SmartScreen says "Windows protected
 Settings live in `%APPDATA%\Music Theory Trainer\.env` (File > Open Settings File). The installer carries no settings or keys.
 
 - **Left empty (anyone who installs it):** no account; the app is one local user. Progress is saved as an event log (`events.jsonl` in the same folder) and replayed at start-up. Settings such as note names stay in the app's browser storage.
-- **Online account (recommended): `MUSIC_API_URL` set.** See below.
+- **Online account (default): `MUSIC_API_URL` empty or set to a site address.** An empty value means the built-in hosted site (`DEFAULT_API_URL` in `src/remote.ts`); the public sign-in settings are fetched from its `GET /api/config`, so nothing needs filling in. Set `MUSIC_API_URL=local` for the all-local mode. See below.
 - **Filled in with the same values as the repo's `.env` (advanced):** the app still runs every service itself, but with sign-in and progress in your own Supabase project. This needs the server-side secrets on your computer, so prefer the online account. Restart the app after editing.
 
 Logs: Help > Open Service Log.
@@ -41,7 +41,7 @@ The backend is one serverless API on Vercel (`apps/api`, see `docs/DEPLOY.md`) a
    `MUSIC_API_URL` is the hosted site's address (the path is ignored). The two `VITE_` values are the same public ones the web build uses (plain `SUPABASE_URL` / `SUPABASE_ANON_KEY` also work as a fallback). Never put the service-role key, JWT secret or database URL here.
 2. File > **Restart**.
 
-With `MUSIC_API_URL` set, the background process starts none of the six services and keeps no journal. It serves the built web app on `127.0.0.1:47800` and forwards `/api/*` to `MUSIC_API_URL/api/*`: the request body and the `Authorization: Bearer` header go through, the response is streamed back, `Host` is the hosted site's, `Origin` is rewritten to it, and cookies are not forwarded. If the hosted API cannot be reached the app answers `502 {"error":"api_unreachable"}`; the web app keeps loading from the installed files and falls back to its offline mode. Leave `MUSIC_API_URL` empty for the original all-local behaviour.
+With `MUSIC_API_URL` set, the background process starts none of the six services and keeps no journal. It serves the built web app on `127.0.0.1:47800` and forwards `/api/*` to `MUSIC_API_URL/api/*`: the request body and the `Authorization: Bearer` header go through, the response is streamed back, `Host` is the hosted site's, `Origin` is rewritten to it, and cookies are not forwarded. If the hosted API cannot be reached the app answers `502 {"error":"api_unreachable"}`; the web app keeps loading from the installed files and falls back to its offline mode. Set `MUSIC_API_URL=local` for the original all-local behaviour.
 
 ### Signing in
 
